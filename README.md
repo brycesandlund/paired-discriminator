@@ -21,6 +21,10 @@ uv run paired-discriminator --output results/smoke --steps 50 --seeds 0
 
 # Prespecified comparison: two methods × five paired seeds × 10,000 updates.
 uv run paired-discriminator --output results/ring8-v1
+
+# Deterministic extension to 50,000 updates, preserving the original run.
+uv run paired-discriminator --config configs/ring8-50k.json --output results/ring8-50k
+uv run python -m paired_discriminator.compare results/ring8-v1 results/ring8-50k
 ```
 
 The output directory must not already exist. To change an experiment, copy
@@ -74,6 +78,10 @@ git-ignored. Checkpoints are saved locally for inspection; automatic resume is
 not implemented.
 
 The first completed comparison is in [results/ring8-v1/REPORT.md](results/ring8-v1/REPORT.md).
+The longer-run comparison is in [results/ring8-50k/EXTENSION.md](results/ring8-50k/EXTENSION.md).
+It verifies that all original evaluation rows replay exactly, independently
+recomputes final metrics from saved samples, and summarizes the final 10,000
+updates as well as the endpoint. The extension changes only the update budget.
 Regenerate its plots and report from the saved metrics and sample arrays with:
 
 ```sh

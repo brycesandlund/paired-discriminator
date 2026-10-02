@@ -1,0 +1,16 @@
+{
+  "matched_prefix_evaluations": 110,
+  "config_difference": {
+    "steps": [
+      10000,
+      50000
+    ]
+  },
+  "training_source_identical": true,
+  "source_hashes_verified": true,
+  "final_metrics_independently_recomputed": true,
+  "late_window": [
+    40000,
+    50000
+  ]
+}
