@@ -1,0 +1,15 @@
+.venv/
+__pycache__/
+.pytest_cache/
+*.egg-info/
+# Keep experiment reports, plots, CSV/JSON metrics, source snapshots, and the
+# small final_samples.npy arrays needed to regenerate the plots.
+# Exclude model/optimizer checkpoints, console logs, and disposable runs.
+results/**/*.pt
+results/**/*.pth
+results/**/*.ckpt
+results/**/*.log
+/results/smoke*/
+/results/repro-check*/
+/results/scratch/
+.DS_Store
