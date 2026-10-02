@@ -13,3 +13,11 @@ results/**/*.log
 /results/repro-check*/
 /results/scratch/
 .DS_Store
+# CIFAR downloads and large image/feature arrays stay local or in Modal Volumes.
+/data/
+results/cifar*/**/*.npy
+results/cifar*/**/*.npz
+results/cifar*/**/*.tmp
+
+/results/cifar10-smoke*/
+/results/cifar10-cuda-resume-check*/

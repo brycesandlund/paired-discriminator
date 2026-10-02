@@ -110,3 +110,10 @@ The comparison reuses existing vanilla/paired runs and reports 10k and 50k budge
 on the same trajectories. RSGAN saves the 10k samples during the longer run.
 The assembly independently checks all 30 endpoint sample sets against recorded
 metrics. See [comparison report](results/ring8-relativistic-comparison/REPORT.md).
+
+## CIFAR-10 on Modal
+
+The three-method image pilot uses a shared convolutional generator and matched
+training settings, with an A10 job per method. See [the protocol and commands](docs/CIFAR10.md)
+for architecture, losses, fixed evaluation, checkpoint/resume, and storage.
+CIFAR/Modal dependencies are optional: `uv sync --extra cifar`.
