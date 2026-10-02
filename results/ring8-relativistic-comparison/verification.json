@@ -1,0 +1,10 @@
+{
+  "sample_sets_independently_verified": 30,
+  "source_hashes_verified": true,
+  "configs_match": true,
+  "source_suites": {
+    "vanilla": "results/ring8-50k",
+    "paired": "results/ring8-50k",
+    "rsgan": "results/ring8-rsgan-50k"
+  }
+}

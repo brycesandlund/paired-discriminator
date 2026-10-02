@@ -1,0 +1,42 @@
+{
+  "config": {
+    "modes": 8,
+    "radius": 2.0,
+    "sigma": 0.1,
+    "latent_dim": 16,
+    "generator_width": 128,
+    "discriminator_width": 128,
+    "batch_size": 256,
+    "steps": 10000,
+    "eval_every": 1000,
+    "eval_samples": 10000,
+    "learning_rate": 0.0002,
+    "betas": [
+      0.5,
+      0.999
+    ],
+    "valid_radius_sigma": 3.0,
+    "coverage_min_mass": 0.01,
+    "seeds": [
+      0,
+      1,
+      2,
+      3,
+      4
+    ],
+    "threads": 1,
+    "device": "cpu"
+  },
+  "method": "rsgan",
+  "seed": 4,
+  "parameters_g": 18946,
+  "parameters_d": 17025,
+  "torch": "2.14.1",
+  "python": "3.12.7",
+  "platform": "macOS-26.5.1-arm64-arm-64bit",
+  "training_seconds": 10.130567494838033,
+  "wall_seconds": 10.15813741600141,
+  "source_run": "results/ring8-rsgan-50k/rsgan_seed4",
+  "source_samples": "results/ring8-rsgan-50k/rsgan_seed4/samples_step10000.npy",
+  "derived_view": true
+}

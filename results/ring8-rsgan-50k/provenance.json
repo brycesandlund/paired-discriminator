@@ -1,0 +1,13 @@
+{
+  "git_commit": "c883eea78ff8686d208cd3aaee1bd22283f2ef74",
+  "source_sha256": {
+    "pyproject.toml": "c7c9d124d77650acdaf3dd4d772dc54e9f6ae0a8838eb7300503eb3f1c3ad551",
+    "uv.lock": "a1917a26760c17d5315541873976b31fd1edb4b257cea7775733ae1f5284bda4",
+    ".python-version": "7b55f8e67b5623c4bef3fa691288da9437d79d3aba156de48d481db32ac7d16d",
+    "src/paired_discriminator/__init__.py": "9a3c04ef75fba4e026d06e043f1711bcde52665726a5cea92938602013939d3e",
+    "src/paired_discriminator/experiment.py": "b4294d4314a793b9dc810742b10f91425fbbf91924d6967a863002256d68c26a",
+    "src/paired_discriminator/compare.py": "eaaf54f00a4d2ca6d9b264ad7ef0fa5885879560cc75c33acc973375f30c8cbf",
+    "src/paired_discriminator/report.py": "3465cd10a524582d4737df1d019c58b09e281aaee3093dee6ecc7a56196b70b4",
+    "tests/test_experiment.py": "215ea72555d3d8899dfbae001a7218ee0fc29bf8710718288f9fb7dd7a5b1ef6"
+  }
+}

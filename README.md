@@ -92,3 +92,21 @@ This first comparison is an untuned pilot, not a claim of general superiority.
 Equal steps are not equal FLOPs; measured training time is included. The same
 hyperparameters may favor one method. Follow-up tuning should give both methods
 equal budgets, and a relativistic baseline can help isolate joint processing.
+
+## Relativistic baseline
+
+RSGAN uses the vanilla unary critic architecture with logit `C(real) - C(fake)`.
+D uses mean BCE with target 1; G uses target 0 (non-saturating label reversal).
+This follows [the author's RSGAN implementation](https://github.com/AlexiaJM/RelativisticGAN).
+It is distinct from the batch-average RaSGAN variant. Initial critic weights match
+vanilla, and initial G weights and sampling streams match all three methods.
+
+```sh
+uv run paired-discriminator --config configs/ring8-50k.json --methods rsgan --output results/ring8-rsgan-50k
+uv run python -m paired_discriminator.relativistic_report results/ring8-relativistic-comparison
+```
+
+The comparison reuses existing vanilla/paired runs and reports 10k and 50k budgets
+on the same trajectories. RSGAN saves the 10k samples during the longer run.
+The assembly independently checks all 30 endpoint sample sets against recorded
+metrics. See [comparison report](results/ring8-relativistic-comparison/REPORT.md).
