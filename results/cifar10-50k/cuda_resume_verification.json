@@ -1,0 +1,10 @@
+{
+  "cuda_exact_resume": true,
+  "methods": [
+    "vanilla",
+    "rsgan",
+    "paired"
+  ],
+  "steps": 40,
+  "split_at": 20
+}

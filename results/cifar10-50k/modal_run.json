@@ -1,0 +1,8 @@
+{
+  "app_url": "https://modal.com/apps/bcsandlund/main/ap-RiDnIsiB1KQF8V0HjYZJPE",
+  "volume": "paired-discriminator-cifar10-runs",
+  "run_id": "cifar10-pilot-v1",
+  "resumed_from_step": 10000,
+  "completed_step": 50000,
+  "status": "completed"
+}

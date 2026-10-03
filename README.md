@@ -117,3 +117,7 @@ The three-method image pilot uses a shared convolutional generator and matched
 training settings, with an A10 job per method. See [the protocol and commands](docs/CIFAR10.md)
 for architecture, losses, fixed evaluation, checkpoint/resume, and storage.
 CIFAR/Modal dependencies are optional: `uv sync --extra cifar`.
+
+The seed-0 CIFAR extension is in
+[results/cifar10-50k/EXTENSION.md](results/cifar10-50k/EXTENSION.md), comparing
+unchanged 10k artifacts with resumed 50k checkpoints under the same evaluation.

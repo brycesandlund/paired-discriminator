@@ -1,0 +1,13 @@
+{
+  "matched_original_training_rows": 300,
+  "source_config_runtime_and_dependency_manifests_unchanged": true,
+  "original_10k_generator_grids_and_metrics_unchanged": true,
+  "evaluation_protocol_unchanged": true,
+  "all_methods_reached_50000": true,
+  "methods": [
+    "vanilla",
+    "rsgan",
+    "paired"
+  ],
+  "seed": 0
+}
