@@ -1,0 +1,12 @@
+{
+  "completed_runs": 3,
+  "evaluations": 30,
+  "finite_metrics": true,
+  "matched_training_config_and_source": true,
+  "matched_eval_source_and_references": true,
+  "gpu_by_method": {
+    "vanilla": "NVIDIA A10",
+    "rsgan": "NVIDIA A10",
+    "paired": "NVIDIA A10"
+  }
+}

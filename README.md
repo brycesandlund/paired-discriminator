@@ -150,3 +150,10 @@ Experiment #8 applies conditional BatchNorm in G and projection in every D.
 See [protocol](docs/CIFAR10_PROJECTION.md),
 [results and class grids](results/cifar10-projection-v1/REPORT.md), and
 [the running overview](training_runs.md).
+
+## Integrity study through 100k
+
+Experiment #9 retains G and D every 10k and evaluates held-out distribution
+metrics, discriminator train/held-out behavior, and nearest neighbors.
+See [protocol](docs/CIFAR10_INTEGRITY.md), [full report](results/cifar10-integrity-v1/REPORT.md),
+and [training overview](training_runs.md).

@@ -1,0 +1,38 @@
+[
+  {
+    "method": "vanilla",
+    "step": 10000,
+    "generator_exact_match": true,
+    "discriminator_exact_match": null
+  },
+  {
+    "method": "vanilla",
+    "step": 50000,
+    "generator_exact_match": true,
+    "discriminator_exact_match": true
+  },
+  {
+    "method": "rsgan",
+    "step": 10000,
+    "generator_exact_match": true,
+    "discriminator_exact_match": null
+  },
+  {
+    "method": "rsgan",
+    "step": 50000,
+    "generator_exact_match": true,
+    "discriminator_exact_match": true
+  },
+  {
+    "method": "paired",
+    "step": 10000,
+    "generator_exact_match": true,
+    "discriminator_exact_match": null
+  },
+  {
+    "method": "paired",
+    "step": 50000,
+    "generator_exact_match": true,
+    "discriminator_exact_match": true
+  }
+]

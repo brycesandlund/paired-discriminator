@@ -20,6 +20,11 @@ incomplete and paired's marginal metrics worsened. Conditional BatchNorm and
 projection conditioning (#8) subsequently improved FID/KID for all three methods,
 but paired still trailed the baselines at 50k and class adherence remained incomplete.
 
+The integrity extension (#9) finds a growing discriminator train/held-out gap,
+while generator distribution metrics improve more slowly and train/held-out FIDs
+remain almost identical. No exact generated copies were detected; approximate
+memorization is not ruled out.
+
 ## Experiment ledger
 
 “Updates” counts generator updates, each accompanied by one discriminator update.
@@ -35,6 +40,7 @@ The 10k and 50k checkpoints of a trajectory are not independent trials.
 | 6 | CIFAR, labels in G only | All three; seed 0 | 10k / 50k | G largely ignored labels; same-requested-class sampling did not ensure semantic matching. |
 | 7 | CIFAR, labels in G and D | All three; seed 0 | 10k / 50k | More label sensitivity, incomplete adherence; paired behind both baselines at both endpoints. |
 | 8 | CIFAR, conditional BatchNorm G + projection D | All three; seed 0 | 10k / 50k | Better FID/KID than #7 for all methods; paired still behind at 50k, with incomplete class adherence. |
+| 9 | CIFAR integrity study, same #8 architecture | All three; replay seed 0 | 10k–100k, every 10k | Growing D train/held-out gap; smaller late quality gains; train/held-out FIDs nearly identical; no exact generated copies detected. |
 
 ## What the methods mean
 
@@ -274,12 +280,78 @@ roles of conditional BatchNorm and projection remain unseparated.
 
 [Report](results/cifar10-projection-v1/REPORT.md) · [Class grids](results/cifar10-projection-v1/classes_050000.png) · [Protocol](docs/CIFAR10_PROJECTION.md) · [Config](configs/cifar10-projection.json)
 
+## 9. CIFAR-10 integrity study: held-out data and dense evaluation
+
+**Question:** Are we overfitting, and where do additional training updates stop
+paying off? Use the unchanged #8 CBN/projection architecture, losses, optimizer,
+and seed 0. Replay from initialization, retain **both G and D every 10k**, and
+continue to 100k. Evaluate all ten checkpoints for each method, without early
+stopping or checkpoint selection. G weights reproduce #8 exactly at 10k and 50k;
+D weights reproduce its 50k models exactly. This extends the same trajectories,
+not an independent replication.
+
+**New diagnostics:** generator metrics against the official 10,000-image CIFAR-10
+test split, never used in GAN updates, alongside the existing training reference.
+Both comparisons use the same 10,000 generated images. D comparisons hold fake
+images and labels fixed while swapping class-balanced training versus held-out
+real images; paired averages both slot orientations. Nearest-neighbor audits use
+pixel and Inception distances, equal 10k candidate pools, plus all 50k training
+images for a more complete copying search. Raw neighbor indices and per-example
+D diagnostics are retained locally and on Modal.
+
+| Method | Held-out FID 50k → 100k ↓ | Held-out KID ×1000 50k → 100k ↓ | Held-out recall 50k → 100k ↑ | Lowest observed held-out FID |
+|---|---:|---:|---:|---|
+| vanilla | 41.19 → 38.44 | 27.23 → 23.74 | 0.331 → 0.347 | 38.08 at 80k |
+| rsgan | 45.69 → 38.74 | 28.69 → 23.24 | 0.311 → 0.348 | 38.74 at 100k |
+| paired | 48.24 → 42.53 | 31.39 → 27.13 | 0.287 → 0.331 | 42.53 at 100k |
+
+**Training duration:** gains are large early, smaller after roughly 50k–70k, and
+not monotonic. Vanilla's FID is nearly flat from 70k onward, with its lowest
+observed value at 80k. RSGAN and paired still improve to their lowest observed FID
+at 100k. This does not establish eventual convergence or a universal stopping
+point. Paired remains behind on 100k FID, KID, and recall; precision is slightly
+higher than RSGAN's. The observed minima are descriptions, not separately tested
+selected checkpoints.
+
+**D overfitting is evident.** At 100k:
+
+| Method | Training real acceptance | Held-out real acceptance | Train-membership AUC from D margin |
+|---|---:|---:|---:|
+| vanilla | 97.5% | 55.0% | 0.709 |
+| rsgan | 96.1% | 77.1% | 0.652 |
+| paired | 91.9% | 75.4% | 0.655 |
+
+For vanilla, real-target BCE is 0.099 on training images versus 1.504 on held-out
+images. RSGAN compares real/fake margins, and paired compares aligned pair margins;
+these acceptance rates are not identical classification tasks across methods.
+AUC near 0.5 means no ranking preference; above 0.5 means training examples tend
+to receive higher real-acceptance scores. The gap grows with training, while
+held-out generator metrics can still improve. This does not prove the D gap
+caused a particular generator result.
+
+**Generator memorization is not established.** Train-reference and held-out FID
+stay within 0.16 at every checkpoint. No exact generated/training pixel matches
+occur at any evaluated checkpoint. At 100k, all methods produce 10,000 distinct
+quantized images; equal-pool training-neighbor preference is 50.6–51.7% in
+Inception space and 52.8–54.1% in pixel space. Similarity and these modest
+preferences do not prove copying; absence of exact copies does not rule out
+approximate memorization. Inspect the nearest-neighbor panels as supporting
+evidence. Larger training candidate pools naturally yield closer neighbors.
+
+**Calibration:** the real train-10k versus test-10k reference comparison itself
+has FID 5.20 and KID approximately zero. No exact pixel duplicates were found
+between official train and test images. This does not exclude near-duplicates.
+These held-out images are now a diagnostic reference; future tuning based on
+them should not be described as evaluation on an untouched final test set.
+
+[Full report](results/cifar10-integrity-v1/REPORT.md) · [Learning curves](results/cifar10-integrity-v1/learning_curves.png) · [D gaps](results/cifar10-integrity-v1/discriminator_gaps.png) · [Nearest neighbors](results/cifar10-integrity-v1/nearest_panel_inception_100k.png) · [Protocol](docs/CIFAR10_INTEGRITY.md)
+
 ## Verification and storage
 
 Smoke runs and interrupted-versus-continuous replay checks are engineering
 validation, not additional scientific comparisons. The toy extension reproduces
 its earlier trajectory. CIFAR implementations have exact CPU/CUDA resume checks
-for all methods; the latest implementation passed 37 local tests. Reports check
+for all methods; the latest implementation passed 53 local tests. Reports check
 saved source fingerprints, configuration consistency, finite metrics, and
 completion at the requested endpoints.
 
@@ -303,6 +375,5 @@ gets a separate run directory; old results should remain unchanged.
    CIFAR conclusions need more seeds before claiming a reliable ranking.
 
 No auxiliary-classification-loss experiment, reference-distance experiment,
-dedicated mode-recovery test, or hyperparameter sweep has been completed. The 10k/50k
-CIFAR endpoints also do not establish a precise “twice as many steps” convergence
-penalty. The mechanism behind the toy advantage remains unresolved.
+dedicated mode-recovery test, or hyperparameter sweep has been completed. Experiment #9 now measures the learning curves every 10k through 100k;
+a universal “twice as many steps” convergence penalty is still not established. The mechanism behind the toy advantage remains unresolved.
