@@ -62,9 +62,33 @@ across methods within each seed; vanilla/RSGAN also share initial critic weights
 
 Evaluation uses 10,000 fixed latent draws every 1,000 updates. A sample is valid
 within distance 0.3 of a mode center; a mode is covered when at least 1% of *all*
-evaluation samples are valid in that mode. Mode TV measures deviation from equal
-mode masses, including an invalid category with target mass zero. These metrics
-do not fully measure within-mode distribution quality.
+evaluation samples are valid in that mode.
+
+**Mode TV (total variation distance)** measures how far the accepted mode masses
+are from the desired 12.5% per mode, penalizing both uneven allocation and invalid
+samples. Let $p_i$ be the fraction of **all** generated samples accepted in mode
+$i$, and $p_{\mathrm{invalid}}$ the fraction outside every acceptance region:
+
+$$
+\mathrm{ModeTV} = \frac{1}{2}\left(\sum_{i=1}^{8}\left|p_i-\frac18\right| + p_{\mathrm{invalid}}\right).
+$$
+
+The fractions are not renormalized after discarding invalid samples. Lower is
+better, on a scale from 0 to 1:
+
+| Generated sample allocation | Mode TV |
+|---|---:|
+| Exactly 12.5% accepted in each mode; none invalid | 0 |
+| Equally split across only four modes; none invalid | 0.5 |
+| All accepted in one mode | 0.875 |
+| All invalid | 1 |
+
+Thus paired's mean 0.069 versus RSGAN's 0.198 at 50k indicates better agreement
+with these target masses, including the invalid-sample penalty. It does not
+measure how well samples reproduce the Gaussian shape within each mode.
+The zero-invalid target is a scoring convention: the real Gaussians themselves
+have about 1.1% of their mass beyond the 3-sigma acceptance radius, so even true
+distribution samples are not expected to score exactly zero.
 
 Mean ± sample standard deviation across five seeds:
 
