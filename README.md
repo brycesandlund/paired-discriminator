@@ -4,6 +4,9 @@ Does jointly comparing a real and generated sample improve mode coverage over a
 vanilla GAN? The first experiment compares only those two methods on an eight-mode
 2-D Gaussian ring. No reference reconstruction loss or PairGAN/RelationGAN loss is used.
 
+For the running experiment history, results, and open questions, see
+[training_runs.md](training_runs.md).
+
 ## Setup
 
 ```sh
