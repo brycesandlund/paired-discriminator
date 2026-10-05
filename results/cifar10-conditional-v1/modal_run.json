@@ -1,0 +1,6 @@
+{
+  "run_id": "cifar10-conditional-v1",
+  "training_app": "https://modal.com/apps/bcsandlund/main/ap-QTFOsQ3hFu0nI6ebDDvs1K",
+  "cuda_resume_app": "https://modal.com/apps/bcsandlund/main/ap-0km3bRE3Dcglx8xlDCObU4",
+  "local_tests_passed": 27
+}

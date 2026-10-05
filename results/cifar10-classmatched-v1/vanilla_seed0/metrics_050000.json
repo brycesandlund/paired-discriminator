@@ -1,0 +1,18 @@
+{
+  "method": "vanilla",
+  "seed": 0,
+  "step": 50000,
+  "samples_generated": 10000,
+  "samples_real": 10000,
+  "conditioning": "one-hot G only; exactly balanced requested classes at evaluation",
+  "reference": "fixed subset of CIFAR10 training split",
+  "features": "torch-fidelity inception-v3-compat 2048; also used for precision/recall",
+  "torch_fidelity": "0.4.0",
+  "evaluation_seconds": 29.391883469,
+  "frechet_inception_distance": 51.240836538386475,
+  "kernel_inception_distance_mean": 0.03730145692825317,
+  "kernel_inception_distance_std": 0.0015892722149489192,
+  "precision": 0.5990999937057495,
+  "recall": 0.334199994802475,
+  "f_score": 0.4290565032635482
+}

@@ -1,0 +1,13 @@
+{
+  "step": 50000,
+  "target_steps": 50000,
+  "training_seconds": 1031.2652721019992,
+  "last_log": {
+    "step": 50000,
+    "d_loss": 0.2946699261665344,
+    "g_loss": 2.1074650287628174,
+    "training_seconds": 1031.2652721019992,
+    "seconds_per_step": 0.02066973857999983
+  },
+  "peak_gpu_memory_gib": 0.3745460510253906
+}

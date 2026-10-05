@@ -121,3 +121,22 @@ CIFAR/Modal dependencies are optional: `uv sync --extra cifar`.
 The seed-0 CIFAR extension is in
 [results/cifar10-50k/EXTENSION.md](results/cifar10-50k/EXTENSION.md), comparing
 unchanged 10k artifacts with resumed 50k checkpoints under the same evaluation.
+
+## Class-matched CIFAR-10
+
+The follow-up gives all three generators a class label, with same-requested-class
+real references for RSGAN and paired. Discriminators still receive images only.
+See [the class-matched protocol](docs/CIFAR10_CLASSMATCHED.md) for controls,
+matching checks, class-organized grids, and the 10k/50k run command.
+
+The completed seed-0 class-matched comparison, including both budgets and
+requested-class grids, is in
+[results/cifar10-classmatched-v1/REPORT.md](results/cifar10-classmatched-v1/REPORT.md).
+
+## CIFAR-10 with labels in G and D
+
+Follow-up to the G-only class-matched pilot: all three discriminators receive
+broadcast one-hot class labels. See [protocol](docs/CIFAR10_CONDITIONAL.md).
+Run with `modal_conditional.py::main`; historical experiments remain separate.
+
+Completed seed-0 results: [report and grids](results/cifar10-conditional-v1/REPORT.md).

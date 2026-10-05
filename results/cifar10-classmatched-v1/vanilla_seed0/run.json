@@ -1,0 +1,36 @@
+{
+  "config": {
+    "dataset": "CIFAR10-train",
+    "latent_dim": 128,
+    "width": 64,
+    "batch_size": 128,
+    "learning_rate": 0.0002,
+    "betas": [
+      0.5,
+      0.999
+    ],
+    "checkpoint_every": 1000,
+    "log_every": 100,
+    "eval_samples": 10000,
+    "eval_seed": 99173,
+    "precision": "float32",
+    "augmentation": "none",
+    "discriminator_regularization": "none",
+    "sampling": "near_balanced_classes_then_uniform_with_replacement",
+    "classes": 10,
+    "conditioning": "one_hot_concatenated_to_noise",
+    "reference_pairing": "same_requested_class"
+  },
+  "method": "vanilla",
+  "seed": 0,
+  "source_sha256": "cfeae7afd40544979fa01c0c47cdfadc7e6169ded0d5d07a831520f9d09edb94",
+  "dataset_sha256": "9d5c2eddadb0deff02c14c350c0385aab7b1d5ff1edfeb4997c8dc8644960111",
+  "labels_sha256": "f5cfe00b0f00968c0cc5ff3b1d2de51b10e33efa277c2986f4e0fa63e58c9f4f",
+  "torch": "2.14.1+cu130",
+  "device": "cuda",
+  "python": "3.12.6",
+  "cuda": "13.0",
+  "gpu": "NVIDIA A10",
+  "parameters_g": 1224579,
+  "parameters_d": 662977
+}
