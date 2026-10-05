@@ -1,0 +1,49 @@
+{
+  "arms": {
+    "vanilla": {
+      "step": 100000,
+      "gpu": "NVIDIA A10",
+      "training_seconds": 1581.5889657719988,
+      "parameters_g": 1191683,
+      "parameters_d": 661697
+    },
+    "rsgan": {
+      "step": 100000,
+      "gpu": "NVIDIA A10",
+      "training_seconds": 1675.125342875999,
+      "parameters_g": 1191683,
+      "parameters_d": 661697
+    },
+    "paired": {
+      "step": 100000,
+      "gpu": "NVIDIA A10",
+      "training_seconds": 1310.3399149189981,
+      "parameters_g": 1191683,
+      "parameters_d": 664769
+    },
+    "d_batch256": {
+      "step": 100000,
+      "gpu": "NVIDIA A10",
+      "training_seconds": 1902.7268192619995,
+      "parameters_g": 1191683,
+      "parameters_d": 664769
+    },
+    "d_width128": {
+      "step": 100000,
+      "gpu": "NVIDIA A10",
+      "training_seconds": 2749.9562025170003,
+      "parameters_g": 1191683,
+      "parameters_d": 2640257
+    }
+  },
+  "all_50_evaluations_valid": true,
+  "identical_reference_manifest": true,
+  "evaluation_change_only_model_factory_import": true,
+  "final_evaluation_runtime": {
+    "gpu": "NVIDIA A10",
+    "torch": "2.14.1+cu130",
+    "cuda": "13.0",
+    "reason": "A10 evaluation allocation stalled; training stayed on A10",
+    "training_modified": false
+  }
+}

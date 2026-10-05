@@ -1,0 +1,21 @@
+{
+  "run_id": "cifar10-capacity-v1",
+  "training_app": "https://modal.com/apps/bcsandlund/main/ap-yj1ucLoloL2sAfX895xUEM",
+  "evaluation_app": "https://modal.com/apps/bcsandlund/main/ap-63R6wkQ0u4dQ76tudM8n4V",
+  "steps": 100000,
+  "eval_every": 10000,
+  "seed": 0,
+  "arms": [
+    "d_batch256",
+    "d_width128"
+  ],
+  "baseline_run": "cifar10-integrity-v1",
+  "batch_final_evaluation_app": "https://modal.com/apps/bcsandlund/main/ap-askoe8S1UcTcLCfU8W8diR",
+  "evaluation_completion_app": "https://modal.com/apps/bcsandlund/main/ap-iMOUrMl87sLWmdi2NuEAFO",
+  "evaluation_coordinator_restart": "Original evaluation coordinator stalled after 80k with no active or queued inputs reported; stopped that app and resumed 90k\u2013100k evaluation on a new app. Training was unaffected; completed metrics reused.",
+  "final_evaluation_app": "https://modal.com/apps/bcsandlund/main/ap-UythKQctWDUTu49JPf50kH",
+  "volume_refresh_fix": "A warm evaluator at the 90k\u2192100k transition did not see the newly committed 100k checkpoint. Added run_volume.reload() at evaluation entry; final checkpoint reevaluated without retraining.",
+  "final_successful_evaluation_app": "https://modal.com/apps/bcsandlund/main/ap-x16nlOvKeSUnU2mWggbJjR",
+  "final_actual_evaluation_gpu": "NVIDIA A10",
+  "allocation_recovery": "Stopped queued A10 and L4 apps; broadened allowed evaluation GPUs. Final successful allocation was A10."
+}

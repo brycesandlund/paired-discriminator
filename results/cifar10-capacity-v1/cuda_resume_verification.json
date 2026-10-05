@@ -1,0 +1,22 @@
+{
+  "arms": {
+    "d_batch256": {
+      "exact_resume": true,
+      "parameters_g": 1191683,
+      "parameters_d": 664769
+    },
+    "d_width128": {
+      "exact_resume": true,
+      "parameters_g": 1191683,
+      "parameters_d": 2640257
+    },
+    "baseline": {
+      "exact_resume": true,
+      "parameters_g": 1191683,
+      "parameters_d": 664769
+    }
+  },
+  "baseline_exact_replay": true,
+  "generator_initialization_unchanged": true,
+  "steps": 40
+}

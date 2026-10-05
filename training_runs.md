@@ -11,7 +11,7 @@ extensions or reused checkpoints.
 five seeds. That advantage has not carried over to our CIFAR-10 pilots.** On
 CIFAR, paired starts behind and improves with longer training, but has not shown
 a consistent advantage over vanilla or RSGAN. All CIFAR comparisons have only
-one training seed and one untuned hyperparameter setting.
+one training seed; #10 adds two targeted, untuned D batch/capacity probes.
 
 Our reference-proximity explanation is still a hypothesis. The G-only
 class-matched experiment largely failed to induce label use. Giving labels to
@@ -24,6 +24,10 @@ The integrity extension (#9) finds a growing discriminator train/held-out gap,
 while generator distribution metrics improve more slowly and train/held-out FIDs
 remain almost identical. No exact generated copies were detected; approximate
 memorization is not ruled out.
+
+The paired D probes (#10) show a modest gain from doubling only D batch, and a
+larger late gain from widening D. At 100k the wider model nearly matches RSGAN
+on FID/KID/precision/recall, at greater compute cost and with more D overfitting.
 
 ## Experiment ledger
 
@@ -41,6 +45,7 @@ The 10k and 50k checkpoints of a trajectory are not independent trials.
 | 7 | CIFAR, labels in G and D | All three; seed 0 | 10k / 50k | More label sensitivity, incomplete adherence; paired behind both baselines at both endpoints. |
 | 8 | CIFAR, conditional BatchNorm G + projection D | All three; seed 0 | 10k / 50k | Better FID/KID than #7 for all methods; paired still behind at 50k, with incomplete class adherence. |
 | 9 | CIFAR integrity study, same #8 architecture | All three; replay seed 0 | 10k–100k, every 10k | Growing D train/held-out gap; smaller late quality gains; train/held-out FIDs nearly identical; no exact generated copies detected. |
+| 10 | CIFAR paired D batch/capacity probes | Paired D batch256 and paired D width128; seed 0; reuse #9 baselines | 10k–100k, every 10k | At 100k, held-out FID 41.05 (D batch256), 38.72 (wider D), versus 42.53 paired baseline; G update batch remains 128. |
 
 ## What the methods mean
 
@@ -51,8 +56,8 @@ The 10k and 50k checkpoints of a trajectory are not independent trials.
   randomized A/B slots; BCE predicts whether A is real, and G reverses the label.
   No PairGAN/RelationGAN loss or reconstruction term is used.
 
-Within each comparison, methods receive the same numbers of real and generated
-samples. Vanilla makes two unary decisions per pair; paired/RSGAN make one pair
+Within comparisons #1–9, methods receive the same numbers of real and generated
+samples per D update. Experiment #10 deliberately doubles D samples in one arm. Vanilla makes two unary decisions per pair; paired/RSGAN make one pair
 decision. Equal steps do not imply equal FLOPs or equivalent gradient scaling.
 A paired discriminator can ignore a slot, but this does not guarantee vanilla's
 optimization behavior or performance.
@@ -345,6 +350,38 @@ These held-out images are now a diagnostic reference; future tuning based on
 them should not be described as evaluation on an untouched final test set.
 
 [Full report](results/cifar10-integrity-v1/REPORT.md) · [Learning curves](results/cifar10-integrity-v1/learning_curves.png) · [D gaps](results/cifar10-integrity-v1/discriminator_gaps.png) · [Nearest neighbors](results/cifar10-integrity-v1/nearest_panel_inception_100k.png) · [Protocol](docs/CIFAR10_INTEGRITY.md)
+
+## 10. Paired discriminator batch and capacity probes
+
+Two independent paired arms: D batch256 at width64, and D width128 at batch128.
+G stays at width64 and update batch128 with one optimizer step per iteration.
+Both use the #9 training/evaluation protocol, running from initialization through
+100k with evaluation every 10k. Baselines are reused from #9. See the
+[protocol](docs/CIFAR10_CAPACITY.md) for compute accounting and the extra
+BatchNorm running-statistic update incurred while producing more D fakes.
+
+Completed 100k updates and all 20 evaluations. [Detailed report](results/cifar10-capacity-v1/REPORT.md).
+
+| Arm | 50k held-out FID | 100k held-out FID | 100k KID ×1000 | 100k precision | 100k recall |
+|---|---:|---:|---:|---:|---:|
+| vanilla | 41.19 | 38.44 | 23.74 | 0.614 | 0.347 |
+| rsgan | 45.69 | 38.74 | 23.24 | 0.580 | 0.348 |
+| paired | 48.24 | 42.53 | 27.13 | 0.584 | 0.331 |
+| d_batch256 | 49.17 | 41.05 | 25.42 | 0.590 | 0.342 |
+| d_width128 | 47.79 | 38.72 | 23.35 | 0.581 | 0.347 |
+
+Larger D batch gives a modest final gain; widening D improves the later trajectory,
+nearly matching RSGAN at 100k on FID, KID, precision and recall, with more D
+train/held-out separation. These are resource increases, not matched
+compute wins. Both preserve G architecture, initial weights, update batch and
+optimizer update counts. Extra no-gradient G forwards in the larger-D-batch arm
+also update BatchNorm running statistics. One seed, fixed learning rates;
+projection scale is not retuned for the wider feature vector.
+
+58 local tests passed; CUDA exact-resume checks passed for both arms and unchanged
+settings exactly replayed the previous trainer. All 50 comparison evaluations
+use identical references. Training source/configuration, G/D snapshots, loss
+logs, neighbor arrays, and sample grids are retained; no automatic commits.
 
 ## Verification and storage
 

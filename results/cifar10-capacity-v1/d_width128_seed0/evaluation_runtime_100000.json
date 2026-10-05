@@ -1,0 +1,7 @@
+{
+  "gpu": "NVIDIA A10",
+  "torch": "2.14.1+cu130",
+  "cuda": "13.0",
+  "reason": "A10 evaluation allocation stalled; training stayed on A10",
+  "training_modified": false
+}

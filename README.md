@@ -157,3 +157,9 @@ Experiment #9 retains G and D every 10k and evaluates held-out distribution
 metrics, discriminator train/held-out behavior, and nearest neighbors.
 See [protocol](docs/CIFAR10_INTEGRITY.md), [full report](results/cifar10-integrity-v1/REPORT.md),
 and [training overview](training_runs.md).
+
+### Discriminator batch and capacity probes
+
+Two paired-only arms keep G unchanged while independently increasing D batch
+to 256 pairs or D width to 128. See the [protocol](docs/CIFAR10_CAPACITY.md)
+and [100k comparison report](results/cifar10-capacity-v1/REPORT.md).
