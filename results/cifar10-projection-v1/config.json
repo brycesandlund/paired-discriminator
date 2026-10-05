@@ -1,0 +1,25 @@
+{
+  "dataset": "CIFAR10-train",
+  "latent_dim": 128,
+  "width": 64,
+  "batch_size": 128,
+  "learning_rate": 0.0002,
+  "betas": [
+    0.5,
+    0.999
+  ],
+  "checkpoint_every": 1000,
+  "log_every": 100,
+  "eval_samples": 10000,
+  "eval_seed": 99173,
+  "precision": "float32",
+  "augmentation": "none",
+  "discriminator_regularization": "none",
+  "sampling": "near_balanced_classes_then_uniform_with_replacement",
+  "classes": 10,
+  "conditioning": "class_affine_batchnorm_each_hidden_block",
+  "reference_pairing": "same_requested_class",
+  "discriminator_conditioning": "global_sum_features_dot_class_embedding",
+  "projection_pooling": "sum",
+  "projection_scale": 1.0
+}

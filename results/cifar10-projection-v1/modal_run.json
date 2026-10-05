@@ -1,0 +1,6 @@
+{
+  "run_id": "cifar10-projection-v1",
+  "training_app": "https://modal.com/apps/bcsandlund/main/ap-CpFkmkaq5eglaSeqlhMoHg",
+  "cuda_resume_app": "https://modal.com/apps/bcsandlund/main/ap-hYeZyHCAoWT6wTXUVvo079",
+  "local_tests_passed": 37
+}

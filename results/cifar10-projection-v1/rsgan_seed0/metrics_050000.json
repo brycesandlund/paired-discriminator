@@ -1,0 +1,18 @@
+{
+  "method": "rsgan",
+  "seed": 0,
+  "step": 50000,
+  "samples_generated": 10000,
+  "samples_real": 10000,
+  "conditioning": "conditional BatchNorm G and projection D; exactly balanced requested classes at evaluation",
+  "reference": "fixed subset of CIFAR10 training split",
+  "features": "torch-fidelity inception-v3-compat 2048; also used for precision/recall",
+  "torch_fidelity": "0.4.0",
+  "evaluation_seconds": 30.387063813999998,
+  "frechet_inception_distance": 45.622755915728135,
+  "kernel_inception_distance_mean": 0.02863039255142212,
+  "kernel_inception_distance_std": 0.0012109878613358552,
+  "precision": 0.5820000171661377,
+  "recall": 0.3133000135421753,
+  "f_score": 0.40732850889201727
+}

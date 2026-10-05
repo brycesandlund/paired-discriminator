@@ -16,7 +16,9 @@ one training seed and one untuned hyperparameter setting.
 Our reference-proximity explanation is still a hypothesis. The G-only
 class-matched experiment largely failed to induce label use. Giving labels to
 both G and D increased label sensitivity, but semantic class adherence remained
-incomplete and paired's marginal metrics worsened.
+incomplete and paired's marginal metrics worsened. Conditional BatchNorm and
+projection conditioning (#8) subsequently improved FID/KID for all three methods,
+but paired still trailed the baselines at 50k and class adherence remained incomplete.
 
 ## Experiment ledger
 
@@ -32,6 +34,7 @@ The 10k and 50k checkpoints of a trajectory are not independent trials.
 | 5 | Unconditional CIFAR extension | Resume #4 | 50k | Paired largely caught up, without a clear advantage. |
 | 6 | CIFAR, labels in G only | All three; seed 0 | 10k / 50k | G largely ignored labels; same-requested-class sampling did not ensure semantic matching. |
 | 7 | CIFAR, labels in G and D | All three; seed 0 | 10k / 50k | More label sensitivity, incomplete adherence; paired behind both baselines at both endpoints. |
+| 8 | CIFAR, conditional BatchNorm G + projection D | All three; seed 0 | 10k / 50k | Better FID/KID than #7 for all methods; paired still behind at 50k, with incomplete class adherence. |
 
 ## What the methods mean
 
@@ -121,6 +124,9 @@ three-method comparison reuses those runs, rather than training another suite.
 All CIFAR experiments use the 50,000 training images at 32×32 resolution,
 normalized to [-1,1], with no augmentation. Training runs on Modal, requesting
 one A10 per method, in float32 with TF32 disabled and deterministic algorithms.
+
+The architecture rows below describe #4–7; #8 changes conditioning and the D
+output head as described in its section. Training settings remain shared.
 
 | Choice | Setting |
 |---|---|
@@ -230,12 +236,50 @@ despite all jobs requesting A10. Timing is not a controlled same-device comparis
 
 [Report](results/cifar10-conditional-v1/REPORT.md) · [Class grids](results/cifar10-conditional-v1/classes_050000.png) · [Protocol](docs/CIFAR10_CONDITIONAL.md) · [Config](configs/cifar10-conditional.json)
 
+## 8. CIFAR-10: conditional BatchNorm G and projection D
+
+**Question:** Can stronger architectural access to labels improve adherence and
+make same-class references useful? G now uses class-specific BatchNorm scale and
+bias in every hidden block, replacing its initial one-hot concatenation. D uses
+global sum pooling and scores `linear(h) + embedding(y) · h`, replacing broadcast
+label channels and the final spatial convolution. Paired uses joint A/B features
+for h. All three methods use these changes consistently, with identical G
+initialization within this experiment. BCE, sampling, Adam settings, and evaluation
+are unchanged; no auxiliary classifier or spectral normalization is added.
+
+This changes both networks and initialization, not just label strength in an
+otherwise identical model. G has 1,191,683 parameters; unary D 661,697 and paired
+D 664,769. All three runs used NVIDIA A10. Each ran once to 50k, retaining 10k.
+
+| Updates | Method | FID ↓ | KID ×1000 ↓ | Precision ↑ | Recall ↑ |
+|---:|---|---:|---:|---:|---:|
+| 10k | Vanilla | 81.64 | 62.40 | 0.602 | 0.075 |
+| 10k | RSGAN | 91.31 | 78.57 | 0.596 | 0.035 |
+| 10k | Paired | 121.23 | 106.41 | 0.624 | 0.012 |
+| 50k | Vanilla | 41.29 | 27.21 | 0.574 | 0.335 |
+| 50k | RSGAN | 45.62 | 28.63 | 0.582 | 0.313 |
+| 50k | Paired | 48.33 | 31.36 | 0.570 | 0.287 |
+
+**Interpretation:** all three improve 50k FID/KID relative to #7. Paired's FID
+improves from 61.96 to 48.33, but vanilla (41.29) and RSGAN (45.62) remain ahead;
+paired also has lower precision/recall than both at 50k. The architectural change
+helps marginal quality in this seed but does not show a paired advantage.
+
+Class grids show changes in object identity for some labels, especially vehicles
+and horses, but considerable ambiguity across animal classes. Paired's 50k
+label-change pixel MAE is 0.1333 versus 0.1311 in #7: its quality improvement does
+not establish substantially stronger class control. Pixel sensitivity is not
+semantic accuracy; no independent classifier accuracy was measured. The relative
+roles of conditional BatchNorm and projection remain unseparated.
+
+[Report](results/cifar10-projection-v1/REPORT.md) · [Class grids](results/cifar10-projection-v1/classes_050000.png) · [Protocol](docs/CIFAR10_PROJECTION.md) · [Config](configs/cifar10-projection.json)
+
 ## Verification and storage
 
 Smoke runs and interrupted-versus-continuous replay checks are engineering
 validation, not additional scientific comparisons. The toy extension reproduces
 its earlier trajectory. CIFAR implementations have exact CPU/CUDA resume checks
-for all methods; the latest implementation passed 27 local tests. Reports check
+for all methods; the latest implementation passed 37 local tests. Reports check
 saved source fingerprints, configuration consistency, finite metrics, and
 completion at the requested endpoints.
 
@@ -246,9 +290,10 @@ gets a separate run directory; old results should remain unchanged.
 
 ## Open questions and proposed experiments — not yet run
 
-1. **Stronger CIFAR conditioning:** condition intermediate G blocks and use
-   explicit feature/class interactions in D; potentially compare an auxiliary
-   class loss. Verify semantic adherence before interpreting closer-reference effects.
+1. **Further CIFAR adherence experiments:** #8 completed conditional BatchNorm
+   and projection together. Possible next tests include an auxiliary class loss
+   and separate architectural ablations. Measure semantic accuracy with an
+   independently validated classifier before interpreting closer-reference effects.
 2. **Toy reference-distance intervention:** keep the target distribution and
    real/fake batches fixed while varying near/random/far associations. Include
    vanilla and RSGAN controls. First check that the pairing rule does not leak
@@ -257,7 +302,7 @@ gets a separate run directory; old results should remain unchanged.
    ratio, capacity, and pair-interaction architecture have not been swept.
    CIFAR conclusions need more seeds before claiming a reliable ranking.
 
-No stronger-conditioning architecture, reference-distance experiment, dedicated
-mode-recovery test, or hyperparameter sweep has been completed. The 10k/50k
+No auxiliary-classification-loss experiment, reference-distance experiment,
+dedicated mode-recovery test, or hyperparameter sweep has been completed. The 10k/50k
 CIFAR endpoints also do not establish a precise “twice as many steps” convergence
 penalty. The mechanism behind the toy advantage remains unresolved.

@@ -1,0 +1,18 @@
+{
+  "methods": [
+    "vanilla",
+    "rsgan",
+    "paired"
+  ],
+  "seed": 0,
+  "all_runs_completed_50000": true,
+  "endpoint_evaluations": 6,
+  "matched_config_images_labels_and_source": true,
+  "same_reference_and_metric_protocol_as_previous": true,
+  "finite_losses_and_metrics": true,
+  "gpu_by_method": {
+    "vanilla": "NVIDIA A10",
+    "rsgan": "NVIDIA A10",
+    "paired": "NVIDIA A10"
+  }
+}

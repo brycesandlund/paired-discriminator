@@ -143,3 +143,10 @@ broadcast one-hot class labels. See [protocol](docs/CIFAR10_CONDITIONAL.md).
 Run with `modal_conditional.py::main`; historical experiments remain separate.
 
 Completed seed-0 results: [report and grids](results/cifar10-conditional-v1/REPORT.md).
+
+## Conditional BatchNorm and projection
+
+Experiment #8 applies conditional BatchNorm in G and projection in every D.
+See [protocol](docs/CIFAR10_PROJECTION.md),
+[results and class grids](results/cifar10-projection-v1/REPORT.md), and
+[the running overview](training_runs.md).
