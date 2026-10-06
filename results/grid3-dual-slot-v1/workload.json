@@ -1,0 +1,26 @@
+{
+  "method": "dual_slot",
+  "outputs_per_pair": 2,
+  "d_real_points": 256,
+  "d_fake_points": 256,
+  "d_pair_counts": {
+    "RR": 64,
+    "RF": 64,
+    "FR": 64,
+    "FF": 64
+  },
+  "d_bce_decisions": 512,
+  "d_loss_reduction": "mean over all slots",
+  "g_fake_points": 256,
+  "g_real_references_used": 128,
+  "g_pair_counts": {
+    "FF": 64,
+    "FR": 64,
+    "RF": 64
+  },
+  "g_bce_decisions": 256,
+  "g_loss_reduction": "mean over generated slots only",
+  "d_updates_per_step": 1,
+  "g_updates_per_step": 1,
+  "note": "Draw 256 real-G samples but use 128; retain unused slot draws to preserve baseline RNG streams."
+}

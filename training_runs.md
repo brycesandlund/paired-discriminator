@@ -47,6 +47,10 @@ PacGAN2 (#17) closely matches paired’s learning curves and final mode balance.
 The gains on these grids therefore do not require a real–fake reference pair;
 same-source packing achieves similar improvements. Neither is consistently better
 across metrics, and both retain substantial within-mode density errors.
+The two-output discriminator (#18) retains those mode-TV gains and improves
+late 7×7 fine-grid density fit, but has worse 5×5 density fit than paired/PacGAN2.
+The gains therefore also survive separate slot-classification objectives; the
+mechanism and a universally best joint-input objective remain unresolved.
 
 ## Experiment ledger
 
@@ -72,6 +76,7 @@ The 10k and 50k checkpoints of a trajectory are not independent trials.
 | 15 | Fixed-spacing Gaussian grids | 3×3 / 5×5 / 7×7; vanilla, RSGAN, paired; seeds 0–4 | 10k / 50k | Paired wins mode and fine-grid TV in every seed at 50k on 9/25 modes; at 49 modes its broad coverage has low valid mass and worse mean TV. |
 | 16 | 7×7 exact continuation | Continue #15 all three methods, seeds 0–4; restore model/Adam/RNG state | 50k → 100k → 150k | Paired overtakes both baselines: lower mode TV in all seeds at 100k/150k, lower fine-grid TV in all seeds at 150k. |
 | 17 | PacGAN2 on fixed-spacing grids | New PacGAN2, seeds 0–4; reuse #15–16 baselines | 10k / 50k; 7×7 also 100k / 150k | Closely tracks paired; final 7×7 mode TV 0.229 vs 0.231 paired. No consistent winner across coarse and fine density metrics. |
+| 18 | Two-output joint discriminator | New dual_slot, seeds 0–4; reuse #15–17 | 10k / 50k; 7×7 also 100k / 150k | Retains joint-input mode-TV gains; at 7×7/150k fine-grid TV 0.595 vs 0.647 paired and 0.655 PacGAN2, but 5×5 density fit is worse than both. |
 
 ## What the methods mean
 
@@ -90,6 +95,12 @@ generated samples per D update. Experiment #10 deliberately doubles D samples in
 decision. Equal steps do not imply equal FLOPs or equivalent gradient scaling.
 A paired discriminator can ignore a slot, but this does not guarantee vanilla's
 optimization behavior or performance.
+
+The two-output arm (#18) jointly processes two points but predicts each slot’s
+real/fake identity with its own logit. D uses equal RR/RF/FR/FF counts; G uses
+FF/FR/RF and applies BCE only to generated-slot outputs. Every generated point
+is used once per phase, including both FF members. This changes the task while
+retaining the joint hidden architecture and sample budgets (129 extra D parameters).
 
 ## 1–3. Eight-Gaussian ring
 
@@ -722,6 +733,65 @@ match exactly, including all 40 PacGAN2 endpoints. The 45 original baseline
 match budgets, and all six RNG states match paired at all 25 mutually retained
 checkpoints. All 78 tests passed. Small arrays, plots, logs in CSV and source
 snapshots are retained for Git; full checkpoints remain locally ignored.
+
+## 18. Two-output discriminator on fixed-spacing grids
+
+**Question:** Does jointly classifying both inputs retain the mode-coverage gains
+when the objective does not require a relative or same-source-pack decision?
+
+Fifteen new trajectories: seeds 0–4 on 3×3/5×5 to 50k, and 7×7 to 150k.
+Reuse all four baseline methods from #15–17. Keep G, hidden D layers, Adam,
+learning rates, sample budgets, grid geometry and evaluation noise unchanged.
+D now has two outputs, one per slot: 4→128→128→2 (17,410 parameters, 129 more
+than paired/PacGAN2). Hidden D initialization and all G initialization match
+those joint methods for each seed.
+
+D receives 64 RR, 64 RF, 64 FR and 64 FF pairs: 256 real and 256 fake samples,
+512 BCE slot decisions. G receives 64 FF, 64 FR and 64 RF pairs: 256 generated
+samples with gradients, 128 real references. G averages losses only over its
+256 generated-slot predictions; both FF outputs contribute. Every generated
+sample is used exactly once per phase. Draw and discard the other 128 real-G
+samples and retain unused slot draws to keep RNG consumption identical. One
+D and one G update per step. D processes 192 pair rows during G training,
+versus 256 paired and 128 PacGAN2; total compute is not exactly matched.
+
+Final results, mean ± sample SD over five seeds:
+
+| Grid / budget | Method | Mode TV ↓ | Fine-grid TV ↓ | Valid | Coverage ≥1% |
+|---|---|---:|---:|---:|---:|
+| 3×3 / 50k | vanilla | 0.542 ± 0.001 | 0.679 ± 0.031 | 94.9% | 4.0/9 |
+| 3×3 / 50k | rsgan | 0.540 ± 0.002 | 0.703 ± 0.022 | 94.3% | 4.0/9 |
+| 3×3 / 50k | paired | 0.058 ± 0.006 | 0.621 ± 0.010 | 94.3% | 9.0/9 |
+| 3×3 / 50k | pacgan2 | 0.064 ± 0.010 | 0.599 ± 0.050 | 93.7% | 9.0/9 |
+| 3×3 / 50k | dual_slot | 0.073 ± 0.032 | 0.602 ± 0.052 | 92.9% | 9.0/9 |
+| 5×5 / 50k | vanilla | 0.718 ± 0.023 | 0.794 ± 0.015 | 73.7% | 7.2/25 |
+| 5×5 / 50k | rsgan | 0.686 ± 0.039 | 0.787 ± 0.020 | 73.5% | 7.8/25 |
+| 5×5 / 50k | paired | 0.242 ± 0.050 | 0.597 ± 0.034 | 75.8% | 24.4/25 |
+| 5×5 / 50k | pacgan2 | 0.216 ± 0.034 | 0.622 ± 0.028 | 78.4% | 24.6/25 |
+| 5×5 / 50k | dual_slot | 0.211 ± 0.026 | 0.647 ± 0.035 | 79.0% | 24.0/25 |
+| 7×7 / 150k | vanilla | 0.520 ± 0.042 | 0.723 ± 0.026 | 76.3% | 21.0/49 |
+| 7×7 / 150k | rsgan | 0.519 ± 0.056 | 0.726 ± 0.018 | 74.8% | 21.0/49 |
+| 7×7 / 150k | paired | 0.231 ± 0.045 | 0.647 ± 0.058 | 78.2% | 41.4/49 |
+| 7×7 / 150k | pacgan2 | 0.229 ± 0.042 | 0.655 ± 0.048 | 77.7% | 43.2/49 |
+| 7×7 / 150k | dual_slot | 0.209 ± 0.036 | 0.595 ± 0.059 | 80.1% | 44.8/49 |
+
+The two-output model retains the large final mode-TV advantage over vanilla and RSGAN in every seed on all three grids. Its learning curves broadly track paired and PacGAN2, including slow early progress on the larger grids. It does not establish a consistent winner among the three joint-input methods across grids, budgets and metrics.
+
+At 50k on 3×3, mode TV is 0.073 ± 0.032, compared with 0.058 paired and 0.064 PacGAN2. All five seeds cover all nine modes; one seed has notably worse validity, widening the variation. On 5×5, mean mode TV is 0.211 versus 0.242 paired and 0.216 PacGAN2, but fine-grid TV is worse: 0.647 versus 0.597 and 0.622. Paired wins fine-grid TV in all five matched seeds there. Two-output covers all 25 modes under the relative threshold in every seed, and under the original 1% threshold in four seeds (20/25 in seed 2).
+
+The strongest new result is 7×7 at 150k. Mode TV is 0.209 ± 0.036, versus 0.231 paired and 0.229 PacGAN2. Fine-grid TV is 0.595 ± 0.059, versus 0.647 ± 0.058 paired and 0.655 ± 0.049 PacGAN2: two-output wins this metric in 4/5 matched seeds against paired and 5/5 against PacGAN2. It wins mode TV in 4/5 and 3/5, respectively. Validity is 80.1%, and original-threshold coverage averages 44.8/49 (all 49 in two seeds), versus 41.4 paired and 43.2 PacGAN2. However, lenient relative coverage averages only 46.6/49 versus 47.8 and 48.4: more substantial mass in represented modes does not mean fewer nearly absent modes. Full density recovery remains incomplete; fine-grid TV is still well above the real-sample reference of 0.264, and sample panels show narrow clusters and bridges.
+
+Interpretation: the benefits in this suite survive replacing the relative/pack-level decision with separate per-slot classification. This supports investigating joint-input training more broadly, rather than attributing all gains to a particular comparison objective. It does not isolate the mechanism: shared features, gradient interactions and different compute remain coupled, and no hyperparameters were tuned. The late 7×7 density improvement warrants replication rather than a universal superiority claim.
+
+
+[Full report, curves, mass maps and all-seed samples](results/grid-dual-slot-comparison-v1/REPORT.md).
+All 200 endpoint metrics verified against saved arrays; 155 exact checkpoint
+replays, including all 40 new two-output endpoints. Optimizer step counts match
+budgets and all six RNG states match paired at all 25 mutually retained
+checkpoints. Source hashes and configurations verified. 84 tests passed,
+including exact sample accounting, target labels, fake detachment and G gradient
+masking. Small arrays, metrics, figures and source snapshots are retained for Git;
+full model/optimizer checkpoints remain locally ignored.
 
 ## Verification and storage
 

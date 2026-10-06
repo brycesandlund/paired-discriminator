@@ -196,3 +196,14 @@ points grouped into 128 packs, with gradients through both members.
 uv run python -m paired_discriminator.grid_pacgan_run
 uv run python -m paired_discriminator.grid_pacgan_report results/grid-pacgan2-comparison-v1
 ```
+
+The [two-output discriminator comparison](results/grid-dual-slot-comparison-v1/REPORT.md)
+trains two logits to classify each slot independently using balanced RR/RF/FR/FF
+pairs. G trains on FF/FR/RF pairs, applying losses only to generated slots.
+It retains 256 real and 256 fake points per D update and 256 fresh generated
+points per G update, with the same grid budgets and five seeds.
+
+```sh
+uv run python -m paired_discriminator.grid_dual_slot_run
+uv run python -m paired_discriminator.grid_dual_slot_report results/grid-dual-slot-comparison-v1
+```
