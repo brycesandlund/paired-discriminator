@@ -179,3 +179,7 @@ The [conditional CBN/projection audit](results/cifar10-conditional-representatio
 ### Ring mode-count sweep
 
 The [8/16/32-component comparison](results/ring-mode-count-v1/REPORT.md) holds radius and Gaussian width fixed. It includes all three methods and five seeds, plus fine spatial metrics and a smooth-ring control to detect misleading coverage as components get closer.
+
+### Fixed-spacing Gaussian grids
+
+The [3×3 / 5×5 / 7×7 grid experiment](results/grid-mode-count-v1/REPORT.md) expands outward at fixed spacing 1.5 and sigma 0.1, with five seeds per method. Paired wins mode and fine-grid TV at 50k in every matched seed for 9/25 modes; the advantage is not present at 49 modes within this budget.

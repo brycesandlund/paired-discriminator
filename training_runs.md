@@ -38,6 +38,10 @@ The mode-count sweep (#14) qualifies the synthetic results: fixed-radius 16/32-m
 mixtures become easier to cover coarsely as gaps shrink. Fine spatial evaluation
 shows that successful mode allocation does not imply correct Gaussian density.
 
+The fixed-spacing grid sweep (#15) removes the shrinking-gap issue: paired
+strongly improves 9/25-mode representation at 50k across all seeds, but its
+49-mode outputs remain too diffuse to beat the baselines on mean TV.
+
 ## Experiment ledger
 
 “Updates” counts generator updates, each accompanied by one discriminator update.
@@ -59,6 +63,7 @@ The 10k and 50k checkpoints of a trajectory are not independent trials.
 | 12 | Unconditional CIFAR class representation (evaluation only) | Reuse #4–5, all three methods, seed 0; two frozen classifiers | 10k / 50k | Paired has best raw class TV at 50k under both classifiers, worst at 10k; all methods cover ten classes at 50k. Confidence-filtered ranking is mixed. |
 | 13 | Conditional CIFAR class representation and adherence (evaluation only) | Reuse #9 original CBN/projection vanilla, RSGAN, paired; seed 0; two classifiers | 10k–100k every 10k | Paired adherence trails both baselines at every checkpoint under both evaluators; no consistent class-TV advantage. |
 | 14 | Ring mode-count sweep | 16/32 components, all three methods, seeds 0–4; reuse 8-component runs | 10k / 50k | At 16 modes paired retains a late coarse-TV advantage; at 32 modes coverage saturates for all methods and thin-ring outputs expose the metric’s limitations. |
+| 15 | Fixed-spacing Gaussian grids | 3×3 / 5×5 / 7×7; vanilla, RSGAN, paired; seeds 0–4 | 10k / 50k | Paired wins mode and fine-grid TV in every seed at 50k on 9/25 modes; at 49 modes its broad coverage has low valid mass and worse mean TV. |
 
 ## What the methods mean
 
@@ -558,6 +563,65 @@ Configs: [16 modes](configs/ring16-50k.json), [32 modes](configs/ring32-50k.json
 All 90 endpoints recomputed from saved samples; source snapshots and sample
 hashes verified. 69 tests passed. No architecture/objective changes or additional
 separation-preserving runs.
+
+## 15. Fixed-spacing Gaussian grids: 9, 25 and 49 modes
+
+45 new unconditional runs, all three methods and five seeds per grid size.
+Gaussian centers form centered 3×3, 5×5 and 7×7 grids, fixed spacing **1.5**,
+sigma **0.1**. Coordinate extents are ±1.5, ±3.0 and ±4.5; the grids expand
+without normalization. Adjacent centers remain 15 sigma apart and 3-sigma
+acceptance disks never overlap. Larger grids contain all smaller-grid centers.
+
+The original training loop, initialization, models and BCE objectives are
+unchanged; automated source comparisons verify this. Latent dimension 16,
+G/D width 128, batch 256, Adam 0.0002 (0.5,0.999), one D and one G update per
+step, 50k updates, fixed 10,000-sample evaluation. Grid size is the only changed
+training configuration between these runs. There is no method-specific tuning.
+
+50k, mean ± sample SD across five seeds:
+
+| Modes | Method | Mode TV ↓ | Fine-grid TV ↓ | Valid mass | Coverage ≥1% of all samples |
+|---|---|---|---|---|---|
+| 9 | Vanilla | 0.542 ± 0.001 | 0.679 ± 0.031 | 94.9% | 4.0/9 |
+| 9 | RSGAN | 0.540 ± 0.002 | 0.703 ± 0.022 | 94.3% | 4.0/9 |
+| 9 | Paired | 0.058 ± 0.006 | 0.621 ± 0.010 | 94.3% | 9.0/9 |
+| 25 | Vanilla | 0.718 ± 0.024 | 0.794 ± 0.015 | 73.7% | 7.2/25 |
+| 25 | RSGAN | 0.686 ± 0.039 | 0.787 ± 0.020 | 73.5% | 7.8/25 |
+| 25 | Paired | 0.242 ± 0.050 | 0.597 ± 0.034 | 75.8% | 24.4/25 |
+| 49 | Vanilla | 0.667 ± 0.017 | 0.813 ± 0.035 | 37.2% | 11.8/49 |
+| 49 | RSGAN | 0.668 ± 0.024 | 0.808 ± 0.007 | 38.8% | 12.8/49 |
+| 49 | Paired | 0.710 ± 0.028 | 0.829 ± 0.019 | 29.1% | 6.8/49 |
+
+At 50k, paired beats both baselines on mode TV AND fine-grid TV in every matched
+seed on the 9- and 25-mode grids. On 9 modes, the baselines concentrate on four
+corners in all seeds while paired covers all nine. On 25 modes, paired reaches
+all 25 above the original 1% cutoff in four seeds; seed 4 reaches 22. At the
+fixed target-relative threshold (8% of each mode's ideal mass), paired covers
+all 25 in every seed. Its 25-mode advantage is late: at 10k it trails the
+baselines on mean mode TV and fine-grid TV.
+
+At 49 modes, paired reaches almost all neighborhoods at the looser relative
+threshold (48.4/49 on average), but only 29.1% of samples are valid. Broad
+spatial support is not equivalent to concentrating the correct mass at Gaussian
+centers. Original-threshold coverage averages only 6.8/49, and both TV means
+are worse than the baselines. Its mode TV is still improving at every 10k
+endpoint: 0.856 → 0.802 → 0.780 → 0.756 → 0.710. The agreed 50k budget does
+not establish a plateau or eventual ranking; no further training was run.
+
+Fine-grid TV uses fixed 0.05 cells over [-5.5,5.5]² plus an outside category,
+compared with exact Gaussian-mixture cell probabilities. Real-sample references
+are 0.117 / 0.191 / 0.264 for 9 / 25 / 49 modes, from 200 draws of 10,000
+points. All methods have substantial remaining density mismatch. The mean
+50k method rankings are stable at cell widths 0.025, 0.05 and 0.1.
+The original 1% coverage threshold becomes stricter relative to ideal mass as
+K grows; both it and the constant 8%-of-target threshold are reported.
+
+[Full report, curves, all-seed samples and spatial mass maps](results/grid-mode-count-v1/REPORT.md).
+Configs: [3×3](configs/grid3-50k.json), [5×5](configs/grid5-50k.json),
+[7×7](configs/grid7-50k.json). All 90 endpoints recomputed and checked against
+saved logs; source snapshots and sample hashes verified. 73 tests passed.
+Fixed separation does not fix global coordinate range, modes per batch or
+capacity per mode; these results apply to the explicitly unscaled expansion.
 
 ## Verification and storage
 

@@ -1,0 +1,86 @@
+[
+  {
+    "modes": 9,
+    "step": 10000,
+    "baseline": "vanilla",
+    "mode_tv_paired_wins": 5,
+    "spatial_tv_paired_wins": 5
+  },
+  {
+    "modes": 9,
+    "step": 10000,
+    "baseline": "rsgan",
+    "mode_tv_paired_wins": 5,
+    "spatial_tv_paired_wins": 5
+  },
+  {
+    "modes": 9,
+    "step": 50000,
+    "baseline": "vanilla",
+    "mode_tv_paired_wins": 5,
+    "spatial_tv_paired_wins": 5
+  },
+  {
+    "modes": 9,
+    "step": 50000,
+    "baseline": "rsgan",
+    "mode_tv_paired_wins": 5,
+    "spatial_tv_paired_wins": 5
+  },
+  {
+    "modes": 25,
+    "step": 10000,
+    "baseline": "vanilla",
+    "mode_tv_paired_wins": 0,
+    "spatial_tv_paired_wins": 0
+  },
+  {
+    "modes": 25,
+    "step": 10000,
+    "baseline": "rsgan",
+    "mode_tv_paired_wins": 0,
+    "spatial_tv_paired_wins": 1
+  },
+  {
+    "modes": 25,
+    "step": 50000,
+    "baseline": "vanilla",
+    "mode_tv_paired_wins": 5,
+    "spatial_tv_paired_wins": 5
+  },
+  {
+    "modes": 25,
+    "step": 50000,
+    "baseline": "rsgan",
+    "mode_tv_paired_wins": 5,
+    "spatial_tv_paired_wins": 5
+  },
+  {
+    "modes": 49,
+    "step": 10000,
+    "baseline": "vanilla",
+    "mode_tv_paired_wins": 0,
+    "spatial_tv_paired_wins": 0
+  },
+  {
+    "modes": 49,
+    "step": 10000,
+    "baseline": "rsgan",
+    "mode_tv_paired_wins": 0,
+    "spatial_tv_paired_wins": 0
+  },
+  {
+    "modes": 49,
+    "step": 50000,
+    "baseline": "vanilla",
+    "mode_tv_paired_wins": 1,
+    "spatial_tv_paired_wins": 2
+  },
+  {
+    "modes": 49,
+    "step": 50000,
+    "baseline": "rsgan",
+    "mode_tv_paired_wins": 1,
+    "spatial_tv_paired_wins": 1
+  }
+]

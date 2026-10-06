@@ -1,0 +1,29 @@
+{
+  "modes": 49,
+  "sigma": 0.1,
+  "latent_dim": 16,
+  "generator_width": 128,
+  "discriminator_width": 128,
+  "batch_size": 256,
+  "steps": 50000,
+  "eval_every": 1000,
+  "eval_samples": 10000,
+  "learning_rate": 0.0002,
+  "betas": [
+    0.5,
+    0.999
+  ],
+  "valid_radius_sigma": 3.0,
+  "coverage_min_mass": 0.01,
+  "seeds": [
+    0,
+    1,
+    2,
+    3,
+    4
+  ],
+  "threads": 1,
+  "device": "cpu",
+  "grid_side": 7,
+  "spacing": 1.5
+}
