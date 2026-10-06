@@ -163,3 +163,9 @@ and [training overview](training_runs.md).
 Two paired-only arms keep G unchanged while independently increasing D batch
 to 256 pairs or D width to 128. See the [protocol](docs/CIFAR10_CAPACITY.md)
 and [100k comparison report](results/cifar10-capacity-v1/REPORT.md).
+
+### Ordinary MNIST
+
+Unconditional vanilla versus paired over five seeds, tracking digit coverage and
+frequency balance through 50k updates. See the [protocol](docs/MNIST.md)
+and [five-seed results](results/mnist-v1/REPORT.md).

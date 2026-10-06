@@ -21,3 +21,9 @@ results/cifar*/**/*.tmp
 
 /results/cifar10-smoke*/
 /results/cifar10-cuda-resume-check*/
+
+# MNIST tensor checkpoints follow the global rules above; keep plots/metrics.
+results/mnist*/**/*.npy
+results/mnist*/**/*.npz
+results/mnist*/**/*.tmp
+/results/mnist-cuda-resume-check*/

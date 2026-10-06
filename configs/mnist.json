@@ -1,0 +1,31 @@
+{
+  "dataset": "MNIST-train",
+  "latent_dim": 128,
+  "width": 64,
+  "batch_size": 128,
+  "learning_rate": 0.0002,
+  "betas": [
+    0.5,
+    0.999
+  ],
+  "log_every": 100,
+  "checkpoint_every": 1000,
+  "eval_every": 1000,
+  "eval_samples": 10000,
+  "eval_seed": 99173,
+  "confidence_threshold": 0.9,
+  "coverage_min_mass": 0.01,
+  "seeds": [
+    0,
+    1,
+    2,
+    3,
+    4
+  ],
+  "steps": 50000,
+  "conditioning": "none",
+  "sampling": "uniform_with_replacement",
+  "precision": "float32",
+  "augmentation": "none",
+  "discriminator_regularization": "none"
+}

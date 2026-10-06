@@ -1,0 +1,11 @@
+{
+  "cuda_exact_resume": true,
+  "evaluation_does_not_change_training": true,
+  "same_generator_initialization": true,
+  "methods": [
+    "vanilla",
+    "paired"
+  ],
+  "steps": 40,
+  "split_at": 20
+}

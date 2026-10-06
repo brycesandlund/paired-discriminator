@@ -1,0 +1,60 @@
+{
+  "config": {
+    "dataset": "MNIST-train",
+    "latent_dim": 128,
+    "width": 64,
+    "batch_size": 128,
+    "learning_rate": 0.0002,
+    "betas": [
+      0.5,
+      0.999
+    ],
+    "log_every": 100,
+    "checkpoint_every": 1000,
+    "eval_every": 1000,
+    "eval_samples": 10000,
+    "eval_seed": 99173,
+    "confidence_threshold": 0.9,
+    "coverage_min_mass": 0.01,
+    "seeds": [
+      0,
+      1,
+      2,
+      3,
+      4
+    ],
+    "steps": 50000,
+    "conditioning": "none",
+    "sampling": "uniform_with_replacement",
+    "precision": "float32",
+    "augmentation": "none",
+    "discriminator_regularization": "none"
+  },
+  "method": "vanilla",
+  "seed": 2,
+  "source_sha256": "b34c6d2bf907e0f917c8751bbcc4451efef0330a50eac8e304ede9fb753c24e2",
+  "dataset_sha256": "741c988805d008ac6e4c904b69001ba184c24b2c540a4ef403f4c71b676cf757",
+  "torch": "2.14.1+cu130",
+  "device": "cuda",
+  "evaluation_signature": {
+    "classifier_sha256": "dcd4f9cc09c4081aacbf303e7381189e3d7d3b1a0b660df8621a76bf9a3ac56f",
+    "evaluation_source_sha256": "59596e00d172a8b4b30b15850c54fa5b8e05a3e4d6e8acfc11d12d20cd4002b0",
+    "target_digit_mass": [
+      0.09871666666666666,
+      0.11236666666666667,
+      0.0993,
+      0.10218333333333333,
+      0.09736666666666667,
+      0.09035,
+      0.09863333333333334,
+      0.10441666666666667,
+      0.09751666666666667,
+      0.09915
+    ]
+  },
+  "python": "3.12.6",
+  "cuda": "13.0",
+  "gpu": "NVIDIA A10G",
+  "parameters_g": 941569,
+  "parameters_d": 659137
+}

@@ -29,6 +29,11 @@ The paired D probes (#10) show a modest gain from doubling only D batch, and a
 larger late gain from widening D. At 100k the wider model nearly matches RSGAN
 on FID/KID/precision/recall, at greater compute cost and with more D overfitting.
 
+Ordinary MNIST (#11) provides another representation test: paired has lower
+digit-frequency TV in all five seeds at 10k and 50k, while vanilla develops
+more severe late imbalance. Confidence and sample grids qualify this as a
+category-balance result, not an unconditional image-quality win.
+
 ## Experiment ledger
 
 “Updates” counts generator updates, each accompanied by one discriminator update.
@@ -46,6 +51,7 @@ The 10k and 50k checkpoints of a trajectory are not independent trials.
 | 8 | CIFAR, conditional BatchNorm G + projection D | All three; seed 0 | 10k / 50k | Better FID/KID than #7 for all methods; paired still behind at 50k, with incomplete class adherence. |
 | 9 | CIFAR integrity study, same #8 architecture | All three; replay seed 0 | 10k–100k, every 10k | Growing D train/held-out gap; smaller late quality gains; train/held-out FIDs nearly identical; no exact generated copies detected. |
 | 10 | CIFAR paired D batch/capacity probes | Paired D batch256 and paired D width128; seed 0; reuse #9 baselines | 10k–100k, every 10k | At 100k, held-out FID 41.05 (D batch256), 38.72 (wider D), versus 42.53 paired baseline; G update batch remains 128. |
+| 11 | Ordinary MNIST, unconditional | Vanilla and paired; seeds 0–4 | 10k / 50k; evaluation every 1k | Paired lower mode TV in all five seeds at 10k and 50k; 50k full coverage 5/5 paired versus 0/5 vanilla. |
 
 ## What the methods mean
 
@@ -56,8 +62,8 @@ The 10k and 50k checkpoints of a trajectory are not independent trials.
   randomized A/B slots; BCE predicts whether A is real, and G reverses the label.
   No PairGAN/RelationGAN loss or reconstruction term is used.
 
-Within comparisons #1–9, methods receive the same numbers of real and generated
-samples per D update. Experiment #10 deliberately doubles D samples in one arm. Vanilla makes two unary decisions per pair; paired/RSGAN make one pair
+Within comparisons #1–9 and #11, methods receive the same numbers of real and
+generated samples per D update. Experiment #10 deliberately doubles D samples in one arm. Vanilla makes two unary decisions per pair; paired/RSGAN make one pair
 decision. Equal steps do not imply equal FLOPs or equivalent gradient scaling.
 A paired discriminator can ignore a slot, but this does not guarantee vanilla's
 optimization behavior or performance.
@@ -382,6 +388,46 @@ projection scale is not retuned for the wider feature vector.
 settings exactly replayed the previous trainer. All 50 comparison evaluations
 use identical references. Training source/configuration, G/D snapshots, loss
 logs, neighbor arrays, and sample grids are retained; no automatic commits.
+
+## 11. Ordinary MNIST: vanilla versus paired
+
+Five seeds per method, native 28×28 grayscale images, unconditional training on
+all 60,000 training images with their empirical digit proportions. G architecture,
+G batch128, D real/fake counts, learning rates and update counts are matched.
+Digit labels are used only for evaluation; paired references are independent.
+
+The frozen classifier is selected on a validation subset of training data and
+scores 99.14% on official test images. Evaluate 10,000 fixed samples every 1k
+updates through 50k, retaining the 10k endpoint as well. Report per-digit mass,
+coverage, mode TV, confidence-filtered coverage and randomly selected galleries.
+Confidence is an uncalibrated quality proxy, not a validity oracle. See the
+[protocol](docs/MNIST.md) and [full report](results/mnist-v1/REPORT.md).
+
+Completed all ten runs and 500 evaluations. Paired has lower frequency TV in all
+five matched seeds at both 10k and 50k. At 10k both methods cover all ten digits;
+late training produces more severe digit imbalance in vanilla.
+
+| Updates | Method | Covered digits (mean ± SD) | Mode TV (mean ± SD) | Confidence acceptance |
+|---|---|---:|---:|---:|
+| 10k | vanilla | 10.00 ± 0.00 | 0.140 ± 0.019 | 76.3% |
+| 10k | paired | 10.00 ± 0.00 | 0.082 ± 0.011 | 77.3% |
+| 50k | vanilla | 8.80 ± 0.45 | 0.341 ± 0.064 | 85.0% |
+| 50k | paired | 10.00 ± 0.00 | 0.126 ± 0.008 | 82.5% |
+
+Coverage means at least 1% of all generated examples assigned to a digit; it does
+not imply undercovered digits have zero probability. At 50k, all-ten-digit raw
+coverage holds in 5/5 paired runs and 0/5 vanilla runs. Confidence-filtered
+coverage holds in 5/5 paired and 0/5 vanilla runs. Paired has lower
+confidence-augmented TV in all five matched seeds. Overall classifier confidence
+is not higher for paired at 50k, so do not equate the balance advantage with an
+across-the-board fidelity advantage. Images and per-digit galleries are retained.
+
+63 local tests passed, and CUDA checks confirmed exact checkpoint resume,
+identical G initialization, and no change to training caused by evaluation.
+Classifier test accuracy is 99.14%; its probabilities are uncalibrated. Results
+support a repeatable digit-representation advantage in this configuration, not
+a general GAN ranking or a proof of within-digit style diversity.
+
 
 ## Verification and storage
 

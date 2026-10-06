@@ -1,0 +1,26 @@
+{
+  "10000": {
+    "paired_lower_tv_seeds": 5,
+    "paired_lower_confidence_augmented_tv_seeds": 5,
+    "full_raw_coverage_runs": {
+      "vanilla": 5,
+      "paired": 5
+    },
+    "full_confidence_coverage_runs": {
+      "vanilla": 5,
+      "paired": 5
+    }
+  },
+  "50000": {
+    "paired_lower_tv_seeds": 5,
+    "paired_lower_confidence_augmented_tv_seeds": 5,
+    "full_raw_coverage_runs": {
+      "vanilla": 0,
+      "paired": 5
+    },
+    "full_confidence_coverage_runs": {
+      "vanilla": 0,
+      "paired": 5
+    }
+  }
+}

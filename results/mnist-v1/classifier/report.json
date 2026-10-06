@@ -1,0 +1,332 @@
+{
+  "source_sha256": "59596e00d172a8b4b30b15850c54fa5b8e05a3e4d6e8acfc11d12d20cd4002b0",
+  "checkpoint_sha256": "dcd4f9cc09c4081aacbf303e7381189e3d7d3b1a0b660df8621a76bf9a3ac56f",
+  "training_examples": 50000,
+  "validation_examples": 10000,
+  "selection": "highest validation accuracy; earliest epoch wins ties; official test never used for selection",
+  "selected_epoch": 8,
+  "history": [
+    {
+      "epoch": 1,
+      "validation_accuracy": 0.9832000136375427,
+      "validation_nll": 0.05861306190490723
+    },
+    {
+      "epoch": 2,
+      "validation_accuracy": 0.9868000149726868,
+      "validation_nll": 0.04006394371390343
+    },
+    {
+      "epoch": 3,
+      "validation_accuracy": 0.9900000095367432,
+      "validation_nll": 0.03342833369970322
+    },
+    {
+      "epoch": 4,
+      "validation_accuracy": 0.9884999990463257,
+      "validation_nll": 0.037954527884721756
+    },
+    {
+      "epoch": 5,
+      "validation_accuracy": 0.9901999831199646,
+      "validation_nll": 0.030948642641305923
+    },
+    {
+      "epoch": 6,
+      "validation_accuracy": 0.9907000064849854,
+      "validation_nll": 0.031702566891908646
+    },
+    {
+      "epoch": 7,
+      "validation_accuracy": 0.9921000003814697,
+      "validation_nll": 0.029026685282588005
+    },
+    {
+      "epoch": 8,
+      "validation_accuracy": 0.9922999739646912,
+      "validation_nll": 0.02941819839179516
+    },
+    {
+      "epoch": 9,
+      "validation_accuracy": 0.9912999868392944,
+      "validation_nll": 0.027536191046237946
+    },
+    {
+      "epoch": 10,
+      "validation_accuracy": 0.9908000230789185,
+      "validation_nll": 0.03249504044651985
+    }
+  ],
+  "test_accuracy": 0.9914000034332275,
+  "test_confusion_matrix": [
+    [
+      975,
+      0,
+      1,
+      0,
+      0,
+      0,
+      2,
+      0,
+      1,
+      1
+    ],
+    [
+      0,
+      1133,
+      1,
+      0,
+      0,
+      0,
+      0,
+      0,
+      1,
+      0
+    ],
+    [
+      1,
+      1,
+      1030,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    [
+      0,
+      1,
+      3,
+      1003,
+      0,
+      2,
+      0,
+      0,
+      1,
+      0
+    ],
+    [
+      0,
+      0,
+      2,
+      0,
+      969,
+      0,
+      1,
+      1,
+      1,
+      8
+    ],
+    [
+      2,
+      0,
+      0,
+      5,
+      0,
+      884,
+      1,
+      0,
+      0,
+      0
+    ],
+    [
+      5,
+      2,
+      2,
+      0,
+      1,
+      4,
+      943,
+      0,
+      1,
+      0
+    ],
+    [
+      0,
+      2,
+      10,
+      1,
+      0,
+      0,
+      0,
+      1012,
+      1,
+      2
+    ],
+    [
+      2,
+      0,
+      2,
+      0,
+      0,
+      0,
+      0,
+      0,
+      970,
+      0
+    ],
+    [
+      1,
+      1,
+      1,
+      1,
+      3,
+      2,
+      0,
+      2,
+      3,
+      995
+    ]
+  ],
+  "target_digit_mass": [
+    0.09871666666666666,
+    0.11236666666666667,
+    0.0993,
+    0.10218333333333333,
+    0.09736666666666667,
+    0.09035,
+    0.09863333333333334,
+    0.10441666666666667,
+    0.09751666666666667,
+    0.09915
+  ],
+  "test_diagnostics": {
+    "samples": 10000,
+    "digit_counts": [
+      986,
+      1140,
+      1052,
+      1010,
+      973,
+      892,
+      947,
+      1015,
+      979,
+      1006
+    ],
+    "digit_mass": [
+      0.0986,
+      0.114,
+      0.1052,
+      0.101,
+      0.0973,
+      0.0892,
+      0.0947,
+      0.1015,
+      0.0979,
+      0.1006
+    ],
+    "covered_digits": 10,
+    "observed_digits": 10,
+    "mode_tv": 0.009366666666666662,
+    "confidence_threshold": 0.9,
+    "coverage_min_mass": 0.01,
+    "confidence_accepted_fraction": 0.9833,
+    "accepted_digit_counts": [
+      974,
+      1127,
+      1039,
+      994,
+      961,
+      879,
+      939,
+      990,
+      958,
+      972
+    ],
+    "accepted_digit_mass": [
+      0.0974,
+      0.1127,
+      0.1039,
+      0.0994,
+      0.0961,
+      0.0879,
+      0.0939,
+      0.099,
+      0.0958,
+      0.0972
+    ],
+    "confidence_covered_digits": 10,
+    "confidence_augmented_tv": 0.02163333333333336,
+    "mean_confidence": 0.9938172101974487,
+    "confidence_quantiles": [
+      0.356356143951416,
+      0.7714360290765763,
+      0.9904980838298798,
+      0.9999332427978516,
+      0.999996542930603,
+      0.9999998807907104,
+      1.0,
+      1.0,
+      1.0
+    ],
+    "confidence_histogram": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      3,
+      3,
+      4,
+      14,
+      12,
+      17,
+      18,
+      20,
+      21,
+      21,
+      34,
+      78,
+      9755
+    ]
+  },
+  "dataset": {
+    "train": {
+      "images_sha256": "741c988805d008ac6e4c904b69001ba184c24b2c540a4ef403f4c71b676cf757",
+      "labels_sha256": "e474323ac02fc156161b0bbb1f8c9cfeb327a74bcd9f9680a8385269a24f566c",
+      "counts": [
+        5923,
+        6742,
+        5958,
+        6131,
+        5842,
+        5421,
+        5918,
+        6265,
+        5851,
+        5949
+      ],
+      "size": 60000
+    },
+    "test": {
+      "images_sha256": "6d87418db22cc8025d05968bec9bd5c3932904b23485740db143a061a2c9d161",
+      "labels_sha256": "2fd8de6bdb8d11780b4b96dc57847bcfe6953f7c32aa48bfcd8237c3b7847243",
+      "counts": [
+        980,
+        1135,
+        1032,
+        1010,
+        982,
+        892,
+        958,
+        1028,
+        974,
+        1009
+      ],
+      "size": 10000
+    }
+  },
+  "gpu": "NVIDIA A10",
+  "torch": "2.14.1+cu130",
+  "caveat": "Classifier probabilities are uncalibrated and can be confidently wrong on generated images.",
+  "real_iid_10000_label_tv_reference": {
+    "mean": 0.012050416666666668,
+    "p025": 0.006631666666666665,
+    "p975": 0.018650416666666673
+  }
+}

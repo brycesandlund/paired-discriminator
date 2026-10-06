@@ -1,0 +1,17 @@
+{
+  "app": "https://modal.com/apps/bcsandlund/main/ap-ue3JEENYPVf9zWnrvDflar",
+  "run_id": "mnist-v1",
+  "methods": [
+    "vanilla",
+    "paired"
+  ],
+  "seeds": [
+    0,
+    1,
+    2,
+    3,
+    4
+  ],
+  "steps": 50000,
+  "eval_every": 1000
+}
