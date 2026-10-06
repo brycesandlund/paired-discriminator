@@ -1,0 +1,14 @@
+{
+  "method": "pacgan2",
+  "pack_size": 2,
+  "d_real_points": 256,
+  "d_fake_points": 256,
+  "d_real_packs": 128,
+  "d_fake_packs": 128,
+  "g_fake_points": 256,
+  "g_fake_packs": 128,
+  "d_updates_per_step": 1,
+  "g_updates_per_step": 1,
+  "g_real_references_used": 0,
+  "note": "Real-G and slot RNG draws retained but unused to preserve baseline streams."
+}

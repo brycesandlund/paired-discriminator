@@ -43,6 +43,10 @@ strongly improves 9/25-mode representation at 50k across all seeds, but its
 49-mode outputs remain too diffuse to beat the baselines on mean TV at 50k.
 The exact continuation (#16) reverses that ranking: paired is ahead in all
 five seeds on mode TV by 100k and on both TV measures at 150k.
+PacGAN2 (#17) closely matches paired’s learning curves and final mode balance.
+The gains on these grids therefore do not require a real–fake reference pair;
+same-source packing achieves similar improvements. Neither is consistently better
+across metrics, and both retain substantial within-mode density errors.
 
 ## Experiment ledger
 
@@ -67,6 +71,7 @@ The 10k and 50k checkpoints of a trajectory are not independent trials.
 | 14 | Ring mode-count sweep | 16/32 components, all three methods, seeds 0–4; reuse 8-component runs | 10k / 50k | At 16 modes paired retains a late coarse-TV advantage; at 32 modes coverage saturates for all methods and thin-ring outputs expose the metric’s limitations. |
 | 15 | Fixed-spacing Gaussian grids | 3×3 / 5×5 / 7×7; vanilla, RSGAN, paired; seeds 0–4 | 10k / 50k | Paired wins mode and fine-grid TV in every seed at 50k on 9/25 modes; at 49 modes its broad coverage has low valid mass and worse mean TV. |
 | 16 | 7×7 exact continuation | Continue #15 all three methods, seeds 0–4; restore model/Adam/RNG state | 50k → 100k → 150k | Paired overtakes both baselines: lower mode TV in all seeds at 100k/150k, lower fine-grid TV in all seeds at 150k. |
+| 17 | PacGAN2 on fixed-spacing grids | New PacGAN2, seeds 0–4; reuse #15–16 baselines | 10k / 50k; 7×7 also 100k / 150k | Closely tracks paired; final 7×7 mode TV 0.229 vs 0.231 paired. No consistent winner across coarse and fine density metrics. |
 
 ## What the methods mean
 
@@ -76,6 +81,9 @@ The 10k and 50k checkpoints of a trajectory are not independent trials.
 - **Paired (ours):** unrestricted joint discriminator on concatenated samples in
   randomized A/B slots; BCE predicts whether A is real, and G reverses the label.
   No PairGAN/RelationGAN loss or reconstruction term is used.
+- **PacGAN2 (#17):** the same joint D architecture as paired, but each input
+  contains two independent reals or two independent fakes. D predicts real pack
+  versus fake pack; G targets real and receives gradients through both members.
 
 Within comparisons #1–9 and #11, methods receive the same numbers of real and
 generated samples per D update. Experiment #10 deliberately doubles D samples in one arm. Vanilla makes two unary decisions per pair; paired/RSGAN make one pair
@@ -666,6 +674,54 @@ training matches bit-for-bit for all three methods, including optimizer and
 RNG state. All 15 real resume boundaries verified; all 45 reported endpoints
 (including reused 50k) regenerate samples exactly from checkpoints and match
 recomputed metrics. 74 local tests passed. No training beyond 150k was run.
+
+## 17. PacGAN2 grid comparison
+
+**Question:** Does same-source packing recover the gains of our mixed real–fake
+pairs under the agreed sample and architecture controls?
+
+Fifteen new runs, seeds 0–4: 3×3/5×5 to 50k, 7×7 to 150k. Reuse #15–16
+baselines; retain 10k/50k and additionally 100k/150k for 7×7. Same grid spacing,
+sigma, G, optimizers, sampling streams and evaluation protocol. PacGAN2 shares
+paired’s exact 4→128→128→1 D architecture and initialization. Each D update sees
+128 independent real-real packs and 128 fake-fake packs: 256 real points, 256 fake
+points and 256 BCE decisions. G uses 256 fresh generated points in 128 packs,
+with non-saturating BCE and gradients through both members. Every step retains
+one D and one G update. PacGAN2 uses fewer D input rows during G training than
+paired, so total compute is not exactly matched. No Gaussian-mode matching.
+
+Final results, mean ± sample SD across five seeds; lower TV is better:
+
+| Grid / budget | Method | Mode TV | Fine-grid TV | Valid | Coverage ≥1% |
+|---|---|---:|---:|---:|---:|
+| 3×3 / 50k | vanilla | 0.542 ± 0.001 | 0.679 ± 0.031 | 94.9% | 4.0/9 |
+| 3×3 / 50k | rsgan | 0.540 ± 0.002 | 0.703 ± 0.022 | 94.3% | 4.0/9 |
+| 3×3 / 50k | paired | 0.058 ± 0.006 | 0.621 ± 0.010 | 94.3% | 9.0/9 |
+| 3×3 / 50k | pacgan2 | 0.064 ± 0.010 | 0.599 ± 0.050 | 93.7% | 9.0/9 |
+| 5×5 / 50k | vanilla | 0.718 ± 0.023 | 0.794 ± 0.015 | 73.7% | 7.2/25 |
+| 5×5 / 50k | rsgan | 0.686 ± 0.039 | 0.787 ± 0.020 | 73.5% | 7.8/25 |
+| 5×5 / 50k | paired | 0.242 ± 0.050 | 0.597 ± 0.034 | 75.8% | 24.4/25 |
+| 5×5 / 50k | pacgan2 | 0.216 ± 0.034 | 0.622 ± 0.028 | 78.4% | 24.6/25 |
+| 7×7 / 150k | vanilla | 0.520 ± 0.042 | 0.723 ± 0.026 | 76.3% | 21.0/49 |
+| 7×7 / 150k | rsgan | 0.519 ± 0.056 | 0.726 ± 0.018 | 74.8% | 21.0/49 |
+| 7×7 / 150k | paired | 0.231 ± 0.045 | 0.647 ± 0.058 | 78.2% | 41.4/49 |
+| 7×7 / 150k | pacgan2 | 0.229 ± 0.042 | 0.655 ± 0.048 | 77.7% | 43.2/49 |
+
+PacGAN2 closely tracks paired’s learning curves, including the slower early progress on larger grids. Both strongly improve final mode allocation over vanilla and RSGAN. There is no consistent overall winner between PacGAN2 and paired across these metrics and budgets.
+
+At 50k on 3×3, mode TV is 0.064 ± 0.010 PacGAN2 versus 0.058 ± 0.006 paired; both cover all nine modes under both thresholds in every seed. Fine-grid TV slightly favors PacGAN2 on average (0.599 versus 0.621), with mixed seed-level outcomes. On 5×5, PacGAN2 improves mode TV (0.216 versus 0.242, winning 4/5 matched seeds), while paired improves fine-grid TV (0.597 versus 0.622, winning 4/5). Both recover all 25 modes at the relative threshold in every seed, and at the original 1% threshold in four of five seeds.
+
+On 7×7, PacGAN2 also starts behind the unary baselines, then overtakes them with more training. At 150k its mode TV is 0.229 ± 0.042 versus paired’s 0.231 ± 0.045, vanilla’s 0.520 and RSGAN’s 0.519. The near-equal mean hides seed variation: paired has lower mode TV in 4/5 matched seeds, while PacGAN2’s larger win on seed 0 offsets those differences. Fine-grid TV is 0.655 PacGAN2 versus 0.647 paired, both far above the true-mixture sampling reference of 0.264. Original-threshold coverage averages 43.2/49 versus 41.4/49; each reaches all 49 in only one seed. Samples still show narrow clusters and bridges.
+
+Interpretation: the gains observed here do not require our real–fake reference arrangement; same-source packing produces very similar improvements with the same joint D architecture. This does not establish an identical mechanism or rule out benefits on other tasks. It makes PacGAN2 a necessary baseline for subsequent claims. No method-specific tuning was performed, and the G-step discriminator workload is smaller for PacGAN2.
+
+[Full report, learning curves, per-mode mass and all-seed sample panels](results/grid-pacgan2-comparison-v1/REPORT.md).
+All 160 endpoints recomputed and checked against logs; 115 checkpoint replays
+match exactly, including all 40 PacGAN2 endpoints. The 45 original baseline
+10k arrays have no retained matching checkpoints. Model optimizer step counters
+match budgets, and all six RNG states match paired at all 25 mutually retained
+checkpoints. All 78 tests passed. Small arrays, plots, logs in CSV and source
+snapshots are retained for Git; full checkpoints remain locally ignored.
 
 ## Verification and storage
 

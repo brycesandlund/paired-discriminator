@@ -185,3 +185,14 @@ The [8/16/32-component comparison](results/ring-mode-count-v1/REPORT.md) holds r
 The [3×3 / 5×5 / 7×7 grid experiment](results/grid-mode-count-v1/REPORT.md) expands outward at fixed spacing 1.5 and sigma 0.1, with five seeds per method. Paired wins mode and fine-grid TV at 50k in every matched seed for 9/25 modes; the advantage is not present at 49 modes within this budget.
 
 The [7×7 continuation to 150k](results/grid7-extension-comparison-v1/REPORT.md) reverses the 50k ranking: paired beats both baselines on mode TV in all five seeds at 100k and 150k, and on fine-grid density TV in all five at 150k. Recovery remains incomplete.
+
+The [PacGAN2 comparison](results/grid-pacgan2-comparison-v1/REPORT.md) adds packed
+real-real versus fake-fake discrimination with the same D architecture as paired.
+Five seeds per grid, 50k updates on 3×3/5×5 and 150k on 7×7; existing baselines
+are reused. D consumes 256 real and 256 fake points; G trains on 256 fresh fake
+points grouped into 128 packs, with gradients through both members.
+
+```sh
+uv run python -m paired_discriminator.grid_pacgan_run
+uv run python -m paired_discriminator.grid_pacgan_report results/grid-pacgan2-comparison-v1
+```
