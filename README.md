@@ -207,3 +207,16 @@ points per G update, with the same grid budgets and five seeds.
 uv run python -m paired_discriminator.grid_dual_slot_run
 uv run python -m paired_discriminator.grid_dual_slot_report results/grid-dual-slot-comparison-v1
 ```
+
+### D-only batch doubling on grids
+
+The [D512 comparison](results/grid-d512-comparison-v1/REPORT.md) doubles D's
+real and generated sample batches for paired, PacGAN2 and two-output while
+keeping G's batch at 256. It reports both equal G updates and equal cumulative
+D samples, using extra 5k/25k/75k checkpoints for the latter. Five seeds per
+method/grid; 3×3/5×5 through 50k and 7×7 through 150k.
+
+```sh
+uv run python -m paired_discriminator.grid_d_batch_run
+uv run python -m paired_discriminator.grid_d_batch_report results/grid-d512-comparison-v1
+```

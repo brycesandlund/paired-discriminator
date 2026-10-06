@@ -51,6 +51,10 @@ The two-output discriminator (#18) retains those mode-TV gains and improves
 late 7×7 fine-grid density fit, but has worse 5×5 density fit than paired/PacGAN2.
 The gains therefore also survive separate slot-classification objectives; the
 mechanism and a universally best joint-input objective remain unresolved.
+Doubling only D’s batch (#19) yields modest early gains but no general speedup;
+all three joint methods have worse final mean mode TV on 5×5/7×7. More D
+examples per update do not substitute for more updates, and the experiment
+does not establish the mechanism or convergence plateaus.
 
 ## Experiment ledger
 
@@ -77,6 +81,7 @@ The 10k and 50k checkpoints of a trajectory are not independent trials.
 | 16 | 7×7 exact continuation | Continue #15 all three methods, seeds 0–4; restore model/Adam/RNG state | 50k → 100k → 150k | Paired overtakes both baselines: lower mode TV in all seeds at 100k/150k, lower fine-grid TV in all seeds at 150k. |
 | 17 | PacGAN2 on fixed-spacing grids | New PacGAN2, seeds 0–4; reuse #15–16 baselines | 10k / 50k; 7×7 also 100k / 150k | Closely tracks paired; final 7×7 mode TV 0.229 vs 0.231 paired. No consistent winner across coarse and fine density metrics. |
 | 18 | Two-output joint discriminator | New dual_slot, seeds 0–4; reuse #15–17 | 10k / 50k; 7×7 also 100k / 150k | Retains joint-input mode-TV gains; at 7×7/150k fine-grid TV 0.595 vs 0.647 paired and 0.655 PacGAN2, but 5×5 density fit is worse than both. |
+| 19 | D-only batch doubling on grids | Paired, PacGAN2, two-output D512/G256; seeds 0–4; reuse #15–18 | 3×3/5×5 to 50k; 7×7 to 150k; equal-G and equal-D-sample comparisons | Modest early gains do not persist; all three have worse final mean mode TV on 5×5/7×7. Equal-D-sample mode TV worsens versus D256 in all 24 comparisons. |
 
 ## What the methods mean
 
@@ -792,6 +797,69 @@ checkpoints. Source hashes and configurations verified. 84 tests passed,
 including exact sample accounting, target labels, fake detachment and G gradient
 masking. Small arrays, metrics, figures and source snapshots are retained for Git;
 full model/optimizer checkpoints remain locally ignored.
+
+## 19. Double only D’s batch on the grids
+
+**Question:** Does more D training data per update remove the joint models’
+slower early learning, while leaving G’s workload unchanged?
+
+45 new trajectories: paired, PacGAN2 and two-output, seeds 0–4, on 3×3/5×5
+through 50k and 7×7 through 150k. D now receives 512 real and 512 generated
+points per update (512 mixed pairs for paired, 256 RR + 256 FF for PacGAN2,
+and 128 of each source combination for two-output). G still receives 256
+fresh generated samples, with the original method-specific losses and reference
+pairing. Same architectures, initialization, Adam learning rate and betas;
+one D and one G optimizer update per step. Mean loss reduction is unchanged.
+G’s no-gradient forward pass for D produces 512 points instead of 256; its
+optimization batch stays fixed.
+Eight CPU workers, one torch thread each; existing baselines are reused.
+
+G’s real/noise/slot/evaluation random streams are preserved exactly. D’s larger
+batch consumes more samples; a separate D-slot RNG avoids changing G’s slot
+assignments. This changes D exposure, gradient noise and compute together.
+It does not isolate network capacity or the complexity of the learned function.
+
+Both accounting schemes are retained. At equal G updates, D512 sees twice the
+D samples. At equal D samples, D512 runs half as many D/G optimizer updates
+and trains G on half as many examples. Neither matches total FLOPs or wall time.
+Extra 5k/25k/75k checkpoints allow exact saved-output comparisons at those budgets.
+
+The table below shows mean mode TV (five seeds); lower is better. Reference
+budget is 50k for 3×3/5×5 and 150k for 7×7. SDs and all other metrics are in the
+full report.
+
+| Grid / reference budget | Method | D256 | D512, equal G updates | D512, equal D samples |
+|---|---|---:|---:|---:|
+| 3×3 / 50k | paired | 0.058 | 0.060 | 0.089 |
+| 3×3 / 50k | pacgan2 | 0.064 | 0.059 | 0.095 |
+| 3×3 / 50k | dual_slot | 0.073 | 0.065 | 0.091 |
+| 5×5 / 50k | paired | 0.242 | 0.258 | 0.601 |
+| 5×5 / 50k | pacgan2 | 0.216 | 0.271 | 0.578 |
+| 5×5 / 50k | dual_slot | 0.211 | 0.243 | 0.580 |
+| 7×7 / 150k | paired | 0.231 | 0.286 | 0.507 |
+| 7×7 / 150k | pacgan2 | 0.229 | 0.248 | 0.512 |
+| 7×7 / 150k | dual_slot | 0.209 | 0.281 | 0.529 |
+
+Doubling D’s batch does not remove the joint models’ characteristic early disadvantage or produce a reliable speedup. There are modest early improvements on the larger grids, but no consistent benefit at the final budgets. The hypothesis that simply giving D more examples per update would fix the lag is not supported by this intervention.
+
+At equal G updates on 5×5 at 10k, D512 improves mean mode TV from 0.728→0.691 (paired), 0.741→0.696 (PacGAN2), and 0.743→0.703 (two-output), but all remain behind vanilla/RSGAN at 0.657/0.659. Original-threshold coverage is 13.6/14.2/13.6 modes, versus 15.2/14.6 for unary methods. On 7×7 at 50k there is a qualification: paired D512 reaches 0.659 mode TV, slightly better than vanilla/RSGAN at 0.667/0.668, while PacGAN2/two-output remain behind at 0.692/0.704. Paired’s fine-grid TV and original-threshold coverage still trail the unary baselines there. Thus the early gap narrows in some settings rather than remaining completely unchanged.
+
+At the final budgets, all three D512 arms have worse mean mode TV than their own D256 baselines on both 5×5 and 7×7. At 5×5/50k the changes are 0.242→0.258 paired, 0.216→0.271 PacGAN2, and 0.211→0.243 two-output; each loses in 4/5 matched seeds. At 7×7/150k they are 0.231→0.286, 0.229→0.248, and 0.209→0.281. Fine-grid TV at that endpoint changes from 0.647→0.696, 0.655→0.656, and 0.595→0.665; paired and two-output lose on fine-grid TV in all five matched seeds. Original-threshold coverage falls from 41.4→35.2, 43.2→38.6, and 44.8→34.6 of 49 modes. All three still beat vanilla/RSGAN on mean final mode TV. On 3×3 the result is mixed and all runs cover all nine modes; PacGAN2 improves mean fine-grid TV while two-output worsens it.
+
+At equal cumulative D samples, mean mode TV is worse with D512 in all 24 reported method/grid/reference-budget combinations versus the same D256 method. This comparison gives D512 half as many G/D optimizer updates, so it tests sample efficiency rather than equal optimization effort. For the 7×7 budget corresponding to D256 at 150k, D512 runs 75k and scores 0.507/0.512/0.529, versus 0.231/0.229/0.209 for its D256 counterparts. More D examples in fewer updates do not substitute for the original training trajectory.
+
+Interpretation: the slower start and stronger late mode allocation of joint models largely survive the intervention; extra D batch data does not explain them away. A more difficult learned function remains a plausible hypothesis, not an established mechanism. Batch size changes gradient noise and optimization dynamics while leaving representational capacity fixed; this result does not rule out capacity limitations. The same learning rate was intentionally retained, so these findings concern this controlled change rather than the best achievable larger-batch configuration. These are finite-budget endpoints, not demonstrated convergence plateaus, and none establishes full density recovery.
+
+
+[Full report, both budget comparisons, samples and mass maps](results/grid-d512-comparison-v1/REPORT.md).
+All 425 retained endpoints verified, including 225 new sample arrays that
+replay exactly from checkpoints and 200 reused baseline endpoints whose hashes
+match the previous report. G RNG states match at all 75 mutually retained
+checkpoints. Source hashes, configurations and optimizer step counts verified.
+90 tests passed, including exact old-trainer replay when the D batch is unchanged
+and checks that only D’s workload doubles. Models and optimizer checkpoints
+remain locally ignored; small sample arrays, metrics, figures and source are
+retained for Git.
 
 ## Verification and storage
 

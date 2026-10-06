@@ -1,0 +1,32 @@
+{
+  "9": {
+    "real_spatial_tv_mean": 0.11738215503563847,
+    "real_spatial_tv_95_interval": [
+      0.11136461154192069,
+      0.12338015292373382
+    ],
+    "draws": 200,
+    "samples_per_draw": 10000,
+    "seed": 48201
+  },
+  "25": {
+    "real_spatial_tv_mean": 0.19103160479399253,
+    "real_spatial_tv_95_interval": [
+      0.18577875979632416,
+      0.19683816829697515
+    ],
+    "draws": 200,
+    "samples_per_draw": 10000,
+    "seed": 48217
+  },
+  "49": {
+    "real_spatial_tv_mean": 0.26384900428382707,
+    "real_spatial_tv_95_interval": [
+      0.2588378615565815,
+      0.2695222137007108
+    ],
+    "draws": 200,
+    "samples_per_draw": 10000,
+    "seed": 48241
+  }
+}

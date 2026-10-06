@@ -1,0 +1,4898 @@
+[
+  {
+    "accounting": "equal_g_updates",
+    "modes": 9,
+    "reference_steps": 10000,
+    "method": "paired_d512",
+    "against": "paired",
+    "metric": "mode_tv",
+    "wins": 0,
+    "mean_difference": 0.03288000000000001,
+    "differences": [
+      0.021399999999999975,
+      0.09150000000000003,
+      0.010200000000000015,
+      0.02810000000000007,
+      0.01319999999999999
+    ]
+  },
+  {
+    "accounting": "equal_g_updates",
+    "modes": 9,
+    "reference_steps": 10000,
+    "method": "paired_d512",
+    "against": "paired",
+    "metric": "spatial_tv",
+    "wins": 2,
+    "mean_difference": 0.004266891819108287,
+    "differences": [
+      -0.059656263333563664,
+      0.05290219431250698,
+      -0.07131593278111181,
+      0.06500290922754415,
+      0.034401551670165786
+    ]
+  },
+  {
+    "accounting": "equal_g_updates",
+    "modes": 9,
+    "reference_steps": 10000,
+    "method": "paired_d512",
+    "against": "vanilla",
+    "metric": "mode_tv",
+    "wins": 5,
+    "mean_difference": -0.3046955555555556,
+    "differences": [
+      -0.29665555555555556,
+      -0.25755555555555554,
+      -0.2798555555555555,
+      -0.33865555555555554,
+      -0.3507555555555557
+    ]
+  },
+  {
+    "accounting": "equal_g_updates",
+    "modes": 9,
+    "reference_steps": 10000,
+    "method": "paired_d512",
+    "against": "vanilla",
+    "metric": "spatial_tv",
+    "wins": 5,
+    "mean_difference": -0.08591122559957283,
+    "differences": [
+      -0.1435261367721783,
+      -0.07927453792916006,
+      -0.11301483734309392,
+      -0.03186697232038793,
+      -0.06187364363304393
+    ]
+  },
+  {
+    "accounting": "equal_g_updates",
+    "modes": 9,
+    "reference_steps": 10000,
+    "method": "paired_d512",
+    "against": "rsgan",
+    "metric": "mode_tv",
+    "wins": 5,
+    "mean_difference": -0.29961555555555563,
+    "differences": [
+      -0.29065555555555556,
+      -0.2549555555555556,
+      -0.2749555555555556,
+      -0.33665555555555554,
+      -0.3408555555555556
+    ]
+  },
+  {
+    "accounting": "equal_g_updates",
+    "modes": 9,
+    "reference_steps": 10000,
+    "method": "paired_d512",
+    "against": "rsgan",
+    "metric": "spatial_tv",
+    "wins": 5,
+    "mean_difference": -0.11983803920029672,
+    "differences": [
+      -0.16097663054893907,
+      -0.08114976443452515,
+      -0.1503767781076184,
+      -0.10975271392915276,
+      -0.09693430898124822
+    ]
+  },
+  {
+    "accounting": "equal_g_updates",
+    "modes": 9,
+    "reference_steps": 10000,
+    "method": "pacgan2_d512",
+    "against": "pacgan2",
+    "metric": "mode_tv",
+    "wins": 3,
+    "mean_difference": -0.001080000000000031,
+    "differences": [
+      0.01910000000000006,
+      0.011199999999999904,
+      -0.013700000000000073,
+      -0.016500000000000042,
+      -0.005500000000000005
+    ]
+  },
+  {
+    "accounting": "equal_g_updates",
+    "modes": 9,
+    "reference_steps": 10000,
+    "method": "pacgan2_d512",
+    "against": "pacgan2",
+    "metric": "spatial_tv",
+    "wins": 4,
+    "mean_difference": -0.02078415679797958,
+    "differences": [
+      -0.020043079464873048,
+      0.037070436459105904,
+      -0.04651420727262345,
+      -0.0589950576460766,
+      -0.015438876065430707
+    ]
+  },
+  {
+    "accounting": "equal_g_updates",
+    "modes": 9,
+    "reference_steps": 10000,
+    "method": "pacgan2_d512",
+    "against": "vanilla",
+    "metric": "mode_tv",
+    "wins": 5,
+    "mean_difference": -0.3301355555555555,
+    "differences": [
+      -0.2746555555555555,
+      -0.34375555555555554,
+      -0.3455555555555555,
+      -0.34915555555555555,
+      -0.33755555555555566
+    ]
+  },
+  {
+    "accounting": "equal_g_updates",
+    "modes": 9,
+    "reference_steps": 10000,
+    "method": "pacgan2_d512",
+    "against": "vanilla",
+    "metric": "spatial_tv",
+    "wins": 5,
+    "mean_difference": -0.11880724317475215,
+    "differences": [
+      -0.13323513024804134,
+      -0.09069888204899246,
+      -0.1137102707795723,
+      -0.11771075305289214,
+      -0.13868117974426253
+    ]
+  },
+  {
+    "accounting": "equal_g_updates",
+    "modes": 9,
+    "reference_steps": 10000,
+    "method": "pacgan2_d512",
+    "against": "rsgan",
+    "metric": "mode_tv",
+    "wins": 5,
+    "mean_difference": -0.32505555555555554,
+    "differences": [
+      -0.2686555555555555,
+      -0.3411555555555556,
+      -0.3406555555555556,
+      -0.34715555555555555,
+      -0.32765555555555553
+    ]
+  },
+  {
+    "accounting": "equal_g_updates",
+    "modes": 9,
+    "reference_steps": 10000,
+    "method": "pacgan2_d512",
+    "against": "rsgan",
+    "metric": "spatial_tv",
+    "wins": 5,
+    "mean_difference": -0.15273405677547605,
+    "differences": [
+      -0.15068562402480212,
+      -0.09257410855435755,
+      -0.15107221154409678,
+      -0.19559649466165696,
+      -0.17374184509246682
+    ]
+  },
+  {
+    "accounting": "equal_g_updates",
+    "modes": 9,
+    "reference_steps": 10000,
+    "method": "dual_slot_d512",
+    "against": "dual_slot",
+    "metric": "mode_tv",
+    "wins": 4,
+    "mean_difference": 0.0018311111111111056,
+    "differences": [
+      0.11265555555555559,
+      -0.0363,
+      -0.01830000000000004,
+      -0.025000000000000022,
+      -0.023900000000000005
+    ]
+  },
+  {
+    "accounting": "equal_g_updates",
+    "modes": 9,
+    "reference_steps": 10000,
+    "method": "dual_slot_d512",
+    "against": "dual_slot",
+    "metric": "spatial_tv",
+    "wins": 2,
+    "mean_difference": 0.02743453251839275,
+    "differences": [
+      0.11303555337669086,
+      -0.04653443619396236,
+      -0.00085730763173264,
+      0.05063008683050596,
+      0.02089876621046194
+    ]
+  },
+  {
+    "accounting": "equal_g_updates",
+    "modes": 9,
+    "reference_steps": 10000,
+    "method": "dual_slot_d512",
+    "against": "vanilla",
+    "metric": "mode_tv",
+    "wins": 5,
+    "mean_difference": -0.3322044444444444,
+    "differences": [
+      -0.22189999999999993,
+      -0.3560555555555555,
+      -0.35015555555555555,
+      -0.37115555555555557,
+      -0.3617555555555556
+    ]
+  },
+  {
+    "accounting": "equal_g_updates",
+    "modes": 9,
+    "reference_steps": 10000,
+    "method": "dual_slot_d512",
+    "against": "vanilla",
+    "metric": "spatial_tv",
+    "wins": 5,
+    "mean_difference": -0.09175536560803403,
+    "differences": [
+      -0.042922027833851906,
+      -0.1160900868015311,
+      -0.12164487343739228,
+      -0.046511869615427526,
+      -0.13160797035196736
+    ]
+  },
+  {
+    "accounting": "equal_g_updates",
+    "modes": 9,
+    "reference_steps": 10000,
+    "method": "dual_slot_d512",
+    "against": "rsgan",
+    "metric": "mode_tv",
+    "wins": 5,
+    "mean_difference": -0.32712444444444444,
+    "differences": [
+      -0.21589999999999993,
+      -0.3534555555555556,
+      -0.34525555555555565,
+      -0.36915555555555557,
+      -0.3518555555555555
+    ]
+  },
+  {
+    "accounting": "equal_g_updates",
+    "modes": 9,
+    "reference_steps": 10000,
+    "method": "dual_slot_d512",
+    "against": "rsgan",
+    "metric": "spatial_tv",
+    "wins": 5,
+    "mean_difference": -0.12568217920875793,
+    "differences": [
+      -0.060372521610612684,
+      -0.11796531330689619,
+      -0.15900681420191676,
+      -0.12439761122419235,
+      -0.16666863570017165
+    ]
+  },
+  {
+    "accounting": "equal_g_updates",
+    "modes": 9,
+    "reference_steps": 50000,
+    "method": "paired_d512",
+    "against": "paired",
+    "metric": "mode_tv",
+    "wins": 2,
+    "mean_difference": 0.00142222222222219,
+    "differences": [
+      0.0058000000000000135,
+      0.0030888888888889257,
+      -0.004888888888889019,
+      -0.005900000000000016,
+      0.009011111111111046
+    ]
+  },
+  {
+    "accounting": "equal_g_updates",
+    "modes": 9,
+    "reference_steps": 50000,
+    "method": "paired_d512",
+    "against": "paired",
+    "metric": "spatial_tv",
+    "wins": 3,
+    "mean_difference": 0.00404601515363876,
+    "differences": [
+      -0.02910708677077445,
+      -0.0432770921581106,
+      -0.04342055416333079,
+      0.0010181449095085782,
+      0.13501666395090106
+    ]
+  },
+  {
+    "accounting": "equal_g_updates",
+    "modes": 9,
+    "reference_steps": 50000,
+    "method": "paired_d512",
+    "against": "vanilla",
+    "metric": "mode_tv",
+    "wins": 5,
+    "mean_difference": -0.48278000000000015,
+    "differences": [
+      -0.4773555555555556,
+      -0.4868666666666668,
+      -0.4800555555555558,
+      -0.4883666666666668,
+      -0.48125555555555555
+    ]
+  },
+  {
+    "accounting": "equal_g_updates",
+    "modes": 9,
+    "reference_steps": 50000,
+    "method": "paired_d512",
+    "against": "vanilla",
+    "metric": "spatial_tv",
+    "wins": 4,
+    "mean_difference": -0.05440072038108627,
+    "differences": [
+      -0.14314127037723778,
+      -0.10146629625367243,
+      -0.06759324413880496,
+      -0.037992022027769856,
+      0.07818923089205365
+    ]
+  },
+  {
+    "accounting": "equal_g_updates",
+    "modes": 9,
+    "reference_steps": 50000,
+    "method": "paired_d512",
+    "against": "rsgan",
+    "metric": "mode_tv",
+    "wins": 5,
+    "mean_difference": -0.48026,
+    "differences": [
+      -0.47375555555555554,
+      -0.4857666666666668,
+      -0.48015555555555556,
+      -0.48446666666666666,
+      -0.47715555555555556
+    ]
+  },
+  {
+    "accounting": "equal_g_updates",
+    "modes": 9,
+    "reference_steps": 50000,
+    "method": "paired_d512",
+    "against": "rsgan",
+    "metric": "spatial_tv",
+    "wins": 4,
+    "mean_difference": -0.07874841879962632,
+    "differences": [
+      -0.08068025108345445,
+      -0.14169742819630304,
+      -0.11481158506172129,
+      -0.10409430594223179,
+      0.04754147628557892
+    ]
+  },
+  {
+    "accounting": "equal_g_updates",
+    "modes": 9,
+    "reference_steps": 50000,
+    "method": "pacgan2_d512",
+    "against": "pacgan2",
+    "metric": "mode_tv",
+    "wins": 3,
+    "mean_difference": -0.00478666666666667,
+    "differences": [
+      -0.005011111111111154,
+      -0.026200000000000008,
+      0.0015000000000000221,
+      -0.002011111111111158,
+      0.007788888888888949
+    ]
+  },
+  {
+    "accounting": "equal_g_updates",
+    "modes": 9,
+    "reference_steps": 50000,
+    "method": "pacgan2_d512",
+    "against": "pacgan2",
+    "metric": "spatial_tv",
+    "wins": 3,
+    "mean_difference": -0.042649706678195745,
+    "differences": [
+      0.0012896833330995339,
+      -0.09655336362869704,
+      -0.07018637886287371,
+      -0.11576341610301633,
+      0.06796494187050883
+    ]
+  },
+  {
+    "accounting": "equal_g_updates",
+    "modes": 9,
+    "reference_steps": 50000,
+    "method": "pacgan2_d512",
+    "against": "vanilla",
+    "metric": "mode_tv",
+    "wins": 5,
+    "mean_difference": -0.4829488888888889,
+    "differences": [
+      -0.4844777777777779,
+      -0.48596666666666677,
+      -0.4787666666666668,
+      -0.48616666666666675,
+      -0.4793666666666666
+    ]
+  },
+  {
+    "accounting": "equal_g_updates",
+    "modes": 9,
+    "reference_steps": 50000,
+    "method": "pacgan2_d512",
+    "against": "vanilla",
+    "metric": "spatial_tv",
+    "wins": 5,
+    "mean_difference": -0.12306655229717045,
+    "differences": [
+      -0.17371021827089328,
+      -0.1243796044671922,
+      -0.14668613340553438,
+      -0.1215383165977788,
+      -0.04901848874445358
+    ]
+  },
+  {
+    "accounting": "equal_g_updates",
+    "modes": 9,
+    "reference_steps": 50000,
+    "method": "pacgan2_d512",
+    "against": "rsgan",
+    "metric": "mode_tv",
+    "wins": 5,
+    "mean_difference": -0.48042888888888885,
+    "differences": [
+      -0.48087777777777785,
+      -0.4848666666666668,
+      -0.47886666666666655,
+      -0.4822666666666666,
+      -0.4752666666666666
+    ]
+  },
+  {
+    "accounting": "equal_g_updates",
+    "modes": 9,
+    "reference_steps": 50000,
+    "method": "pacgan2_d512",
+    "against": "rsgan",
+    "metric": "spatial_tv",
+    "wins": 5,
+    "mean_difference": -0.14741425071571052,
+    "differences": [
+      -0.11124919897710994,
+      -0.16461073640982282,
+      -0.1939044743284507,
+      -0.18764060051224074,
+      -0.07966624335092831
+    ]
+  },
+  {
+    "accounting": "equal_g_updates",
+    "modes": 9,
+    "reference_steps": 50000,
+    "method": "dual_slot_d512",
+    "against": "dual_slot",
+    "metric": "mode_tv",
+    "wins": 1,
+    "mean_difference": -0.00799999999999999,
+    "differences": [
+      0.008800000000000016,
+      0.008211111111111127,
+      -0.07161111111111114,
+      0.006411111111111097,
+      0.008188888888888954
+    ]
+  },
+  {
+    "accounting": "equal_g_updates",
+    "modes": 9,
+    "reference_steps": 50000,
+    "method": "dual_slot_d512",
+    "against": "dual_slot",
+    "metric": "spatial_tv",
+    "wins": 1,
+    "mean_difference": 0.048290793085997666,
+    "differences": [
+      0.047814217316908714,
+      0.15193903706873202,
+      -0.12296641697578858,
+      0.08839694990371882,
+      0.07627017811641734
+    ]
+  },
+  {
+    "accounting": "equal_g_updates",
+    "modes": 9,
+    "reference_steps": 50000,
+    "method": "dual_slot_d512",
+    "against": "vanilla",
+    "metric": "mode_tv",
+    "wins": 5,
+    "mean_difference": -0.47776444444444455,
+    "differences": [
+      -0.4723777777777778,
+      -0.47545555555555563,
+      -0.48326666666666684,
+      -0.48125555555555566,
+      -0.4764666666666666
+    ]
+  },
+  {
+    "accounting": "equal_g_updates",
+    "modes": 9,
+    "reference_steps": 50000,
+    "method": "dual_slot_d512",
+    "against": "vanilla",
+    "metric": "spatial_tv",
+    "wins": 3,
+    "mean_difference": -0.028285459456801453,
+    "differences": [
+      -0.11357335791910772,
+      0.0539151617309096,
+      -0.09061383625756303,
+      -0.0032789366672105746,
+      0.012123671828964455
+    ]
+  },
+  {
+    "accounting": "equal_g_updates",
+    "modes": 9,
+    "reference_steps": 50000,
+    "method": "dual_slot_d512",
+    "against": "rsgan",
+    "metric": "mode_tv",
+    "wins": 5,
+    "mean_difference": -0.47524444444444447,
+    "differences": [
+      -0.46877777777777774,
+      -0.47435555555555564,
+      -0.4833666666666666,
+      -0.47735555555555553,
+      -0.4723666666666666
+    ]
+  },
+  {
+    "accounting": "equal_g_updates",
+    "modes": 9,
+    "reference_steps": 50000,
+    "method": "dual_slot_d512",
+    "against": "rsgan",
+    "metric": "spatial_tv",
+    "wins": 4,
+    "mean_difference": -0.05263315787534151,
+    "differences": [
+      -0.05111233862532438,
+      0.013684029788278984,
+      -0.13783217718047935,
+      -0.06938122058167251,
+      -0.018524082777510276
+    ]
+  },
+  {
+    "accounting": "equal_g_updates",
+    "modes": 25,
+    "reference_steps": 10000,
+    "method": "paired_d512",
+    "against": "paired",
+    "metric": "mode_tv",
+    "wins": 5,
+    "mean_difference": -0.036920000000000085,
+    "differences": [
+      -0.055500000000000105,
+      -0.022400000000000087,
+      -0.03300000000000014,
+      -0.035800000000000054,
+      -0.037900000000000045
+    ]
+  },
+  {
+    "accounting": "equal_g_updates",
+    "modes": 25,
+    "reference_steps": 10000,
+    "method": "paired_d512",
+    "against": "paired",
+    "metric": "spatial_tv",
+    "wins": 5,
+    "mean_difference": -0.026332623480593842,
+    "differences": [
+      -0.04020808387529051,
+      -0.012884217222890681,
+      -0.031220558328497572,
+      -0.03217790741112536,
+      -0.015172350565165083
+    ]
+  },
+  {
+    "accounting": "equal_g_updates",
+    "modes": 25,
+    "reference_steps": 10000,
+    "method": "paired_d512",
+    "against": "vanilla",
+    "metric": "mode_tv",
+    "wins": 0,
+    "mean_difference": 0.03421999999999996,
+    "differences": [
+      0.034499999999999975,
+      0.029699999999999838,
+      0.055400000000000005,
+      0.04360000000000008,
+      0.007899999999999907
+    ]
+  },
+  {
+    "accounting": "equal_g_updates",
+    "modes": 25,
+    "reference_steps": 10000,
+    "method": "paired_d512",
+    "against": "vanilla",
+    "metric": "spatial_tv",
+    "wins": 1,
+    "mean_difference": 0.012522358437994652,
+    "differences": [
+      0.002521079552850969,
+      0.019550003861278697,
+      0.02696533350084329,
+      0.021102992899400985,
+      -0.007527617624400684
+    ]
+  },
+  {
+    "accounting": "equal_g_updates",
+    "modes": 25,
+    "reference_steps": 10000,
+    "method": "paired_d512",
+    "against": "rsgan",
+    "metric": "mode_tv",
+    "wins": 0,
+    "mean_difference": 0.031339999999999923,
+    "differences": [
+      0.037599999999999856,
+      0.03459999999999985,
+      0.04949999999999999,
+      0.03499999999999992,
+      0.0
+    ]
+  },
+  {
+    "accounting": "equal_g_updates",
+    "modes": 25,
+    "reference_steps": 10000,
+    "method": "paired_d512",
+    "against": "rsgan",
+    "metric": "spatial_tv",
+    "wins": 1,
+    "mean_difference": 0.010403353709491725,
+    "differences": [
+      0.020558491897138653,
+      0.030582910219243642,
+      0.015178879052754057,
+      0.004466457986202932,
+      -0.01876997060788066
+    ]
+  },
+  {
+    "accounting": "equal_g_updates",
+    "modes": 25,
+    "reference_steps": 10000,
+    "method": "pacgan2_d512",
+    "against": "pacgan2",
+    "metric": "mode_tv",
+    "wins": 4,
+    "mean_difference": -0.04481999999999999,
+    "differences": [
+      -0.04899999999999993,
+      -0.09640000000000004,
+      -0.04339999999999988,
+      -0.05620000000000003,
+      0.02089999999999992
+    ]
+  },
+  {
+    "accounting": "equal_g_updates",
+    "modes": 25,
+    "reference_steps": 10000,
+    "method": "pacgan2_d512",
+    "against": "pacgan2",
+    "metric": "spatial_tv",
+    "wins": 4,
+    "mean_difference": -0.03761789381262719,
+    "differences": [
+      -0.0401027398264735,
+      -0.09308193368899498,
+      -0.03737255714053278,
+      -0.044813306449162704,
+      0.02728106804202801
+    ]
+  },
+  {
+    "accounting": "equal_g_updates",
+    "modes": 25,
+    "reference_steps": 10000,
+    "method": "pacgan2_d512",
+    "against": "vanilla",
+    "metric": "mode_tv",
+    "wins": 0,
+    "mean_difference": 0.03948000000000003,
+    "differences": [
+      0.027000000000000135,
+      0.03509999999999991,
+      0.020300000000000096,
+      0.03880000000000006,
+      0.07619999999999993
+    ]
+  },
+  {
+    "accounting": "equal_g_updates",
+    "modes": 25,
+    "reference_steps": 10000,
+    "method": "pacgan2_d512",
+    "against": "vanilla",
+    "metric": "spatial_tv",
+    "wins": 1,
+    "mean_difference": 0.01681470345375875,
+    "differences": [
+      -0.001216175600068592,
+      0.008784759478703719,
+      0.019435239688066153,
+      0.010603500307613478,
+      0.046466193394478994
+    ]
+  },
+  {
+    "accounting": "equal_g_updates",
+    "modes": 25,
+    "reference_steps": 10000,
+    "method": "pacgan2_d512",
+    "against": "rsgan",
+    "metric": "mode_tv",
+    "wins": 0,
+    "mean_difference": 0.03659999999999999,
+    "differences": [
+      0.030100000000000016,
+      0.039999999999999925,
+      0.01440000000000008,
+      0.030199999999999894,
+      0.06830000000000003
+    ]
+  },
+  {
+    "accounting": "equal_g_updates",
+    "modes": 25,
+    "reference_steps": 10000,
+    "method": "pacgan2_d512",
+    "against": "rsgan",
+    "metric": "spatial_tv",
+    "wins": 1,
+    "mean_difference": 0.014695698725255824,
+    "differences": [
+      0.016821236744219092,
+      0.019817665836668663,
+      0.0076487852399769185,
+      -0.006033034605584575,
+      0.03522384041099902
+    ]
+  },
+  {
+    "accounting": "equal_g_updates",
+    "modes": 25,
+    "reference_steps": 10000,
+    "method": "dual_slot_d512",
+    "against": "dual_slot",
+    "metric": "mode_tv",
+    "wins": 4,
+    "mean_difference": -0.039140000000000064,
+    "differences": [
+      -0.03520000000000012,
+      -0.05710000000000004,
+      0.028999999999999915,
+      -0.1159,
+      -0.01650000000000007
+    ]
+  },
+  {
+    "accounting": "equal_g_updates",
+    "modes": 25,
+    "reference_steps": 10000,
+    "method": "dual_slot_d512",
+    "against": "dual_slot",
+    "metric": "spatial_tv",
+    "wins": 3,
+    "mean_difference": -0.02229787555891092,
+    "differences": [
+      -0.01014711940038715,
+      -0.05734456931464327,
+      0.032193978998478534,
+      -0.0901304448028718,
+      0.013938776724869095
+    ]
+  },
+  {
+    "accounting": "equal_g_updates",
+    "modes": 25,
+    "reference_steps": 10000,
+    "method": "dual_slot_d512",
+    "against": "vanilla",
+    "metric": "mode_tv",
+    "wins": 1,
+    "mean_difference": 0.046799999999999974,
+    "differences": [
+      0.03820000000000001,
+      -0.0013000000000000789,
+      0.07569999999999999,
+      0.04270000000000007,
+      0.07869999999999988
+    ]
+  },
+  {
+    "accounting": "equal_g_updates",
+    "modes": 25,
+    "reference_steps": 10000,
+    "method": "dual_slot_d512",
+    "against": "vanilla",
+    "metric": "spatial_tv",
+    "wins": 1,
+    "mean_difference": 0.029775518432442104,
+    "differences": [
+      0.007878587558117989,
+      -0.023063092377925032,
+      0.06951610185549217,
+      0.025551789071302622,
+      0.06899420605522277
+    ]
+  },
+  {
+    "accounting": "equal_g_updates",
+    "modes": 25,
+    "reference_steps": 10000,
+    "method": "dual_slot_d512",
+    "against": "rsgan",
+    "metric": "mode_tv",
+    "wins": 0,
+    "mean_difference": 0.04391999999999994,
+    "differences": [
+      0.04129999999999989,
+      0.0035999999999999366,
+      0.06979999999999997,
+      0.03409999999999991,
+      0.07079999999999997
+    ]
+  },
+  {
+    "accounting": "equal_g_updates",
+    "modes": 25,
+    "reference_steps": 10000,
+    "method": "dual_slot_d512",
+    "against": "rsgan",
+    "metric": "spatial_tv",
+    "wins": 1,
+    "mean_difference": 0.02765651370393918,
+    "differences": [
+      0.025915999902405673,
+      -0.012030186019960087,
+      0.05772964740740294,
+      0.008915254158104569,
+      0.0577518530717428
+    ]
+  },
+  {
+    "accounting": "equal_g_updates",
+    "modes": 25,
+    "reference_steps": 50000,
+    "method": "paired_d512",
+    "against": "paired",
+    "metric": "mode_tv",
+    "wins": 1,
+    "mean_difference": 0.016019999999999986,
+    "differences": [
+      0.003300000000000025,
+      0.04680000000000001,
+      0.07389999999999997,
+      0.033099999999999935,
+      -0.07700000000000001
+    ]
+  },
+  {
+    "accounting": "equal_g_updates",
+    "modes": 25,
+    "reference_steps": 50000,
+    "method": "paired_d512",
+    "against": "paired",
+    "metric": "spatial_tv",
+    "wins": 0,
+    "mean_difference": 0.04752952259326977,
+    "differences": [
+      0.04517038459897027,
+      0.032232080599404855,
+      0.10840988422689934,
+      0.03579381873205656,
+      0.016041444809017813
+    ]
+  },
+  {
+    "accounting": "equal_g_updates",
+    "modes": 25,
+    "reference_steps": 50000,
+    "method": "paired_d512",
+    "against": "vanilla",
+    "metric": "mode_tv",
+    "wins": 5,
+    "mean_difference": -0.45924000000000004,
+    "differences": [
+      -0.4787,
+      -0.48810000000000003,
+      -0.4290999999999999,
+      -0.46650000000000014,
+      -0.43380000000000013
+    ]
+  },
+  {
+    "accounting": "equal_g_updates",
+    "modes": 25,
+    "reference_steps": 50000,
+    "method": "paired_d512",
+    "against": "vanilla",
+    "metric": "spatial_tv",
+    "wins": 5,
+    "mean_difference": -0.1490095057303775,
+    "differences": [
+      -0.1614938919115556,
+      -0.17911958911229975,
+      -0.136744313149187,
+      -0.1579829866696787,
+      -0.10970674780916645
+    ]
+  },
+  {
+    "accounting": "equal_g_updates",
+    "modes": 25,
+    "reference_steps": 50000,
+    "method": "paired_d512",
+    "against": "rsgan",
+    "metric": "mode_tv",
+    "wins": 5,
+    "mean_difference": -0.4279400000000001,
+    "differences": [
+      -0.4897999999999999,
+      -0.47200000000000003,
+      -0.35730000000000006,
+      -0.3995000000000001,
+      -0.4211000000000001
+    ]
+  },
+  {
+    "accounting": "equal_g_updates",
+    "modes": 25,
+    "reference_steps": 50000,
+    "method": "paired_d512",
+    "against": "rsgan",
+    "metric": "spatial_tv",
+    "wins": 5,
+    "mean_difference": -0.14264333550496616,
+    "differences": [
+      -0.17367237301622684,
+      -0.17344543472101404,
+      -0.1125148343813882,
+      -0.13244521899180273,
+      -0.12113881641439905
+    ]
+  },
+  {
+    "accounting": "equal_g_updates",
+    "modes": 25,
+    "reference_steps": 50000,
+    "method": "pacgan2_d512",
+    "against": "pacgan2",
+    "metric": "mode_tv",
+    "wins": 1,
+    "mean_difference": 0.05491999999999999,
+    "differences": [
+      0.019800000000000012,
+      -0.01200000000000001,
+      0.07069999999999999,
+      0.14429999999999993,
+      0.05180000000000001
+    ]
+  },
+  {
+    "accounting": "equal_g_updates",
+    "modes": 25,
+    "reference_steps": 50000,
+    "method": "pacgan2_d512",
+    "against": "pacgan2",
+    "metric": "spatial_tv",
+    "wins": 2,
+    "mean_difference": 0.03119953291729598,
+    "differences": [
+      -0.019226069417227376,
+      -0.018983591437896075,
+      0.007002222623901155,
+      0.14724473936325078,
+      0.03996036345445142
+    ]
+  },
+  {
+    "accounting": "equal_g_updates",
+    "modes": 25,
+    "reference_steps": 50000,
+    "method": "pacgan2_d512",
+    "against": "vanilla",
+    "metric": "mode_tv",
+    "wins": 5,
+    "mean_difference": -0.44686000000000003,
+    "differences": [
+      -0.5103,
+      -0.4945000000000001,
+      -0.46799999999999986,
+      -0.36230000000000007,
+      -0.39920000000000005
+    ]
+  },
+  {
+    "accounting": "equal_g_updates",
+    "modes": 25,
+    "reference_steps": 50000,
+    "method": "pacgan2_d512",
+    "against": "vanilla",
+    "metric": "spatial_tv",
+    "wins": 5,
+    "mean_difference": -0.14085860243791037,
+    "differences": [
+      -0.22118422143733119,
+      -0.21165487354151713,
+      -0.1489043688772934,
+      -0.027592130305254092,
+      -0.09495741802815605
+    ]
+  },
+  {
+    "accounting": "equal_g_updates",
+    "modes": 25,
+    "reference_steps": 50000,
+    "method": "pacgan2_d512",
+    "against": "rsgan",
+    "metric": "mode_tv",
+    "wins": 5,
+    "mean_difference": -0.41556,
+    "differences": [
+      -0.5213999999999999,
+      -0.4784000000000001,
+      -0.3962,
+      -0.2953,
+      -0.3865
+    ]
+  },
+  {
+    "accounting": "equal_g_updates",
+    "modes": 25,
+    "reference_steps": 50000,
+    "method": "pacgan2_d512",
+    "against": "rsgan",
+    "metric": "spatial_tv",
+    "wins": 5,
+    "mean_difference": -0.13449243221249904,
+    "differences": [
+      -0.23336270254200242,
+      -0.20598071915023142,
+      -0.12467489010949462,
+      -0.0020543626273781257,
+      -0.10638948663338865
+    ]
+  },
+  {
+    "accounting": "equal_g_updates",
+    "modes": 25,
+    "reference_steps": 50000,
+    "method": "dual_slot_d512",
+    "against": "dual_slot",
+    "metric": "mode_tv",
+    "wins": 1,
+    "mean_difference": 0.03222000000000004,
+    "differences": [
+      0.11570000000000014,
+      0.022700000000000053,
+      -0.025000000000000022,
+      0.014800000000000008,
+      0.03290000000000004
+    ]
+  },
+  {
+    "accounting": "equal_g_updates",
+    "modes": 25,
+    "reference_steps": 50000,
+    "method": "dual_slot_d512",
+    "against": "dual_slot",
+    "metric": "spatial_tv",
+    "wins": 2,
+    "mean_difference": 0.010722907076685283,
+    "differences": [
+      0.008574528667094738,
+      0.07226175982553262,
+      -0.051559716482773243,
+      0.05828290921414436,
+      -0.03394494584057206
+    ]
+  },
+  {
+    "accounting": "equal_g_updates",
+    "modes": 25,
+    "reference_steps": 50000,
+    "method": "dual_slot_d512",
+    "against": "vanilla",
+    "metric": "mode_tv",
+    "wins": 5,
+    "mean_difference": -0.47481999999999996,
+    "differences": [
+      -0.38489999999999996,
+      -0.55,
+      -0.5130999999999999,
+      -0.4726,
+      -0.45350000000000007
+    ]
+  },
+  {
+    "accounting": "equal_g_updates",
+    "modes": 25,
+    "reference_steps": 50000,
+    "method": "dual_slot_d512",
+    "against": "vanilla",
+    "metric": "spatial_tv",
+    "wins": 5,
+    "mean_difference": -0.1361865725753531,
+    "differences": [
+      -0.11266250931856558,
+      -0.12392644084473914,
+      -0.1923769419471072,
+      -0.11852867329688699,
+      -0.13343829746946656
+    ]
+  },
+  {
+    "accounting": "equal_g_updates",
+    "modes": 25,
+    "reference_steps": 50000,
+    "method": "dual_slot_d512",
+    "against": "rsgan",
+    "metric": "mode_tv",
+    "wins": 5,
+    "mean_difference": -0.44352,
+    "differences": [
+      -0.39599999999999985,
+      -0.5339,
+      -0.4413,
+      -0.40559999999999996,
+      -0.4408
+    ]
+  },
+  {
+    "accounting": "equal_g_updates",
+    "modes": 25,
+    "reference_steps": 50000,
+    "method": "dual_slot_d512",
+    "against": "rsgan",
+    "metric": "spatial_tv",
+    "wins": 5,
+    "mean_difference": -0.12982040234994177,
+    "differences": [
+      -0.12484099042323682,
+      -0.11825228645345343,
+      -0.1681474631793084,
+      -0.09299090561901102,
+      -0.14487036607469916
+    ]
+  },
+  {
+    "accounting": "equal_g_updates",
+    "modes": 49,
+    "reference_steps": 10000,
+    "method": "paired_d512",
+    "against": "paired",
+    "metric": "mode_tv",
+    "wins": 5,
+    "mean_difference": -0.03078000000000001,
+    "differences": [
+      -0.05900000000000016,
+      -0.0039000000000000146,
+      -0.026999999999999913,
+      -0.017899999999999916,
+      -0.04610000000000003
+    ]
+  },
+  {
+    "accounting": "equal_g_updates",
+    "modes": 49,
+    "reference_steps": 10000,
+    "method": "paired_d512",
+    "against": "paired",
+    "metric": "spatial_tv",
+    "wins": 5,
+    "mean_difference": -0.021156634859102286,
+    "differences": [
+      -0.03840982972192575,
+      -0.0011686872658693837,
+      -0.01960214469079513,
+      -0.014742471700236681,
+      -0.031860040916684484
+    ]
+  },
+  {
+    "accounting": "equal_g_updates",
+    "modes": 49,
+    "reference_steps": 10000,
+    "method": "paired_d512",
+    "against": "vanilla",
+    "metric": "mode_tv",
+    "wins": 0,
+    "mean_difference": 0.06220163265306118,
+    "differences": [
+      0.05379999999999985,
+      0.08460816326530618,
+      0.03270000000000006,
+      0.07989999999999997,
+      0.05999999999999983
+    ]
+  },
+  {
+    "accounting": "equal_g_updates",
+    "modes": 49,
+    "reference_steps": 10000,
+    "method": "paired_d512",
+    "against": "vanilla",
+    "metric": "spatial_tv",
+    "wins": 0,
+    "mean_difference": 0.03898333352134451,
+    "differences": [
+      0.036166213241559664,
+      0.05810634111477808,
+      0.014336561303683104,
+      0.044315693987200144,
+      0.041991857959501555
+    ]
+  },
+  {
+    "accounting": "equal_g_updates",
+    "modes": 49,
+    "reference_steps": 10000,
+    "method": "paired_d512",
+    "against": "rsgan",
+    "metric": "mode_tv",
+    "wins": 0,
+    "mean_difference": 0.06807999999999996,
+    "differences": [
+      0.06609999999999983,
+      0.07529999999999992,
+      0.08660000000000001,
+      0.0808000000000001,
+      0.03159999999999996
+    ]
+  },
+  {
+    "accounting": "equal_g_updates",
+    "modes": 49,
+    "reference_steps": 10000,
+    "method": "paired_d512",
+    "against": "rsgan",
+    "metric": "spatial_tv",
+    "wins": 0,
+    "mean_difference": 0.0450788779045533,
+    "differences": [
+      0.04978506889059453,
+      0.04401672113038224,
+      0.053280736550631924,
+      0.05917186500379312,
+      0.01913999794736465
+    ]
+  },
+  {
+    "accounting": "equal_g_updates",
+    "modes": 49,
+    "reference_steps": 10000,
+    "method": "pacgan2_d512",
+    "against": "pacgan2",
+    "metric": "mode_tv",
+    "wins": 2,
+    "mean_difference": -0.007940000000000013,
+    "differences": [
+      0.008400000000000074,
+      -0.0343,
+      0.0010999999999999899,
+      -0.021300000000000097,
+      0.006399999999999961
+    ]
+  },
+  {
+    "accounting": "equal_g_updates",
+    "modes": 49,
+    "reference_steps": 10000,
+    "method": "pacgan2_d512",
+    "against": "pacgan2",
+    "metric": "spatial_tv",
+    "wins": 2,
+    "mean_difference": -0.0042406405402940495,
+    "differences": [
+      0.009158617485085285,
+      -0.02279675183168739,
+      0.0014705462860257201,
+      -0.011112886411144052,
+      0.0020772717702501886
+    ]
+  },
+  {
+    "accounting": "equal_g_updates",
+    "modes": 49,
+    "reference_steps": 10000,
+    "method": "pacgan2_d512",
+    "against": "vanilla",
+    "metric": "mode_tv",
+    "wins": 0,
+    "mean_difference": 0.08296163265306114,
+    "differences": [
+      0.0948,
+      0.0732081632653061,
+      0.025999999999999912,
+      0.09399999999999986,
+      0.1267999999999998
+    ]
+  },
+  {
+    "accounting": "equal_g_updates",
+    "modes": 49,
+    "reference_steps": 10000,
+    "method": "pacgan2_d512",
+    "against": "vanilla",
+    "metric": "spatial_tv",
+    "wins": 0,
+    "mean_difference": 0.05335504424899702,
+    "differences": [
+      0.06645237961614159,
+      0.04751987364422883,
+      0.011259769469754377,
+      0.057035392310391675,
+      0.08450780620446863
+    ]
+  },
+  {
+    "accounting": "equal_g_updates",
+    "modes": 49,
+    "reference_steps": 10000,
+    "method": "pacgan2_d512",
+    "against": "rsgan",
+    "metric": "mode_tv",
+    "wins": 0,
+    "mean_difference": 0.08883999999999992,
+    "differences": [
+      0.10709999999999997,
+      0.06389999999999985,
+      0.07989999999999986,
+      0.09489999999999998,
+      0.09839999999999993
+    ]
+  },
+  {
+    "accounting": "equal_g_updates",
+    "modes": 49,
+    "reference_steps": 10000,
+    "method": "pacgan2_d512",
+    "against": "rsgan",
+    "metric": "spatial_tv",
+    "wins": 0,
+    "mean_difference": 0.0594505886322058,
+    "differences": [
+      0.08007123526517645,
+      0.03343025365983299,
+      0.0502039447167032,
+      0.07189156332698465,
+      0.06165594619233172
+    ]
+  },
+  {
+    "accounting": "equal_g_updates",
+    "modes": 49,
+    "reference_steps": 10000,
+    "method": "dual_slot_d512",
+    "against": "dual_slot",
+    "metric": "mode_tv",
+    "wins": 4,
+    "mean_difference": -0.019959999999999978,
+    "differences": [
+      -0.035700000000000065,
+      -0.03399999999999992,
+      -0.02100000000000002,
+      -0.019399999999999862,
+      0.010299999999999976
+    ]
+  },
+  {
+    "accounting": "equal_g_updates",
+    "modes": 49,
+    "reference_steps": 10000,
+    "method": "dual_slot_d512",
+    "against": "dual_slot",
+    "metric": "spatial_tv",
+    "wins": 4,
+    "mean_difference": -0.012039087814631389,
+    "differences": [
+      -0.02279689668502649,
+      -0.0167574028272387,
+      -0.014679755441811548,
+      -0.013579588383615171,
+      0.007618204264534967
+    ]
+  },
+  {
+    "accounting": "equal_g_updates",
+    "modes": 49,
+    "reference_steps": 10000,
+    "method": "dual_slot_d512",
+    "against": "vanilla",
+    "metric": "mode_tv",
+    "wins": 0,
+    "mean_difference": 0.08848163265306117,
+    "differences": [
+      0.08499999999999996,
+      0.07990816326530614,
+      0.04369999999999996,
+      0.10699999999999998,
+      0.1267999999999998
+    ]
+  },
+  {
+    "accounting": "equal_g_updates",
+    "modes": 49,
+    "reference_steps": 10000,
+    "method": "dual_slot_d512",
+    "against": "vanilla",
+    "metric": "spatial_tv",
+    "wins": 0,
+    "mean_difference": 0.056532957656569294,
+    "differences": [
+      0.05750420244534071,
+      0.05537268297386955,
+      0.022885560124612514,
+      0.061991144131875675,
+      0.08491119860714802
+    ]
+  },
+  {
+    "accounting": "equal_g_updates",
+    "modes": 49,
+    "reference_steps": 10000,
+    "method": "dual_slot_d512",
+    "against": "rsgan",
+    "metric": "mode_tv",
+    "wins": 0,
+    "mean_difference": 0.09435999999999996,
+    "differences": [
+      0.09729999999999994,
+      0.07059999999999989,
+      0.09759999999999991,
+      0.1079000000000001,
+      0.09839999999999993
+    ]
+  },
+  {
+    "accounting": "equal_g_updates",
+    "modes": 49,
+    "reference_steps": 10000,
+    "method": "dual_slot_d512",
+    "against": "rsgan",
+    "metric": "spatial_tv",
+    "wins": 0,
+    "mean_difference": 0.06262850203977807,
+    "differences": [
+      0.07112305809437558,
+      0.04128306298947371,
+      0.061829735371561334,
+      0.07684731514846865,
+      0.062059338595011115
+    ]
+  },
+  {
+    "accounting": "equal_g_updates",
+    "modes": 49,
+    "reference_steps": 50000,
+    "method": "paired_d512",
+    "against": "paired",
+    "metric": "mode_tv",
+    "wins": 5,
+    "mean_difference": -0.051343265306122474,
+    "differences": [
+      -0.02740000000000009,
+      -0.06031632653061214,
+      -0.08540000000000003,
+      -0.017400000000000082,
+      -0.06620000000000004
+    ]
+  },
+  {
+    "accounting": "equal_g_updates",
+    "modes": 49,
+    "reference_steps": 50000,
+    "method": "paired_d512",
+    "against": "paired",
+    "metric": "spatial_tv",
+    "wins": 4,
+    "mean_difference": -0.015663860517484453,
+    "differences": [
+      -0.009354753101417534,
+      -0.018387581569100586,
+      -0.0503335982838804,
+      0.004924659784659169,
+      -0.005168029417682907
+    ]
+  },
+  {
+    "accounting": "equal_g_updates",
+    "modes": 49,
+    "reference_steps": 50000,
+    "method": "paired_d512",
+    "against": "vanilla",
+    "metric": "mode_tv",
+    "wins": 4,
+    "mean_difference": -0.008188979591836754,
+    "differences": [
+      0.07224897959183674,
+      -0.007883673469387675,
+      -0.028559183673469435,
+      -0.026267346938775638,
+      -0.05048367346938776
+    ]
+  },
+  {
+    "accounting": "equal_g_updates",
+    "modes": 49,
+    "reference_steps": 50000,
+    "method": "paired_d512",
+    "against": "vanilla",
+    "metric": "spatial_tv",
+    "wins": 3,
+    "mean_difference": 0.0012934360546776214,
+    "differences": [
+      0.06419468949540552,
+      0.027028186997168913,
+      -0.010530450104741962,
+      -0.03854582208715096,
+      -0.035679424027293405
+    ]
+  },
+  {
+    "accounting": "equal_g_updates",
+    "modes": 49,
+    "reference_steps": 50000,
+    "method": "paired_d512",
+    "against": "rsgan",
+    "metric": "mode_tv",
+    "wins": 3,
+    "mean_difference": -0.00964571428571428,
+    "differences": [
+      0.02573265306122452,
+      0.024832653061224508,
+      -0.010151020408163292,
+      -0.015659183673469412,
+      -0.07298367346938772
+    ]
+  },
+  {
+    "accounting": "equal_g_updates",
+    "modes": 49,
+    "reference_steps": 50000,
+    "method": "paired_d512",
+    "against": "rsgan",
+    "metric": "spatial_tv",
+    "wins": 2,
+    "mean_difference": 0.005482499624426551,
+    "differences": [
+      0.01952974444304134,
+      0.01365861551262093,
+      -0.010491371213766088,
+      0.014411346996727192,
+      -0.009695837616490621
+    ]
+  },
+  {
+    "accounting": "equal_g_updates",
+    "modes": 49,
+    "reference_steps": 50000,
+    "method": "pacgan2_d512",
+    "against": "pacgan2",
+    "metric": "mode_tv",
+    "wins": 5,
+    "mean_difference": -0.03837999999999999,
+    "differences": [
+      -0.05369999999999997,
+      -0.048800000000000066,
+      -0.011099999999999888,
+      -0.03210000000000002,
+      -0.04620000000000002
+    ]
+  },
+  {
+    "accounting": "equal_g_updates",
+    "modes": 49,
+    "reference_steps": 50000,
+    "method": "pacgan2_d512",
+    "against": "pacgan2",
+    "metric": "spatial_tv",
+    "wins": 4,
+    "mean_difference": -0.02234075284149315,
+    "differences": [
+      -0.030819821604235687,
+      -0.04145712192370965,
+      -0.02099284630716436,
+      -0.021378071544750687,
+      0.002944097172394633
+    ]
+  },
+  {
+    "accounting": "equal_g_updates",
+    "modes": 49,
+    "reference_steps": 50000,
+    "method": "pacgan2_d512",
+    "against": "vanilla",
+    "metric": "mode_tv",
+    "wins": 0,
+    "mean_difference": 0.025557551020408176,
+    "differences": [
+      0.013548979591836763,
+      0.03633265306122446,
+      0.032940816326530675,
+      0.018632653061224413,
+      0.026332653061224565
+    ]
+  },
+  {
+    "accounting": "equal_g_updates",
+    "modes": 49,
+    "reference_steps": 50000,
+    "method": "pacgan2_d512",
+    "against": "vanilla",
+    "metric": "spatial_tv",
+    "wins": 1,
+    "mean_difference": 0.011123522316719314,
+    "differences": [
+      0.027298329248974573,
+      0.03034410032232393,
+      0.01617887854599298,
+      -0.026230773044215283,
+      0.00802707651052037
+    ]
+  },
+  {
+    "accounting": "equal_g_updates",
+    "modes": 49,
+    "reference_steps": 50000,
+    "method": "pacgan2_d512",
+    "against": "rsgan",
+    "metric": "mode_tv",
+    "wins": 1,
+    "mean_difference": 0.02410081632653065,
+    "differences": [
+      -0.032967346938775455,
+      0.06904897959183665,
+      0.05134897959183682,
+      0.02924081632653064,
+      0.0038326530612246
+    ]
+  },
+  {
+    "accounting": "equal_g_updates",
+    "modes": 49,
+    "reference_steps": 50000,
+    "method": "pacgan2_d512",
+    "against": "rsgan",
+    "metric": "spatial_tv",
+    "wins": 1,
+    "mean_difference": 0.015312585886468244,
+    "differences": [
+      -0.017366615803389607,
+      0.01697452883777595,
+      0.016217957436968855,
+      0.02672639603966287,
+      0.034010662921323154
+    ]
+  },
+  {
+    "accounting": "equal_g_updates",
+    "modes": 49,
+    "reference_steps": 50000,
+    "method": "dual_slot_d512",
+    "against": "dual_slot",
+    "metric": "mode_tv",
+    "wins": 4,
+    "mean_difference": -0.0164665306122449,
+    "differences": [
+      -0.06240000000000012,
+      -0.00890816326530608,
+      -0.011700000000000044,
+      0.032299999999999995,
+      -0.031624489795918254
+    ]
+  },
+  {
+    "accounting": "equal_g_updates",
+    "modes": 49,
+    "reference_steps": 50000,
+    "method": "dual_slot_d512",
+    "against": "dual_slot",
+    "metric": "spatial_tv",
+    "wins": 3,
+    "mean_difference": -0.0068928993942566795,
+    "differences": [
+      -0.040650395500758774,
+      -0.01333153016772104,
+      0.01074347739146353,
+      0.033160442657546696,
+      -0.02438649135181381
+    ]
+  },
+  {
+    "accounting": "equal_g_updates",
+    "modes": 49,
+    "reference_steps": 50000,
+    "method": "dual_slot_d512",
+    "against": "vanilla",
+    "metric": "mode_tv",
+    "wins": 1,
+    "mean_difference": 0.03677102040816325,
+    "differences": [
+      0.04154897959183668,
+      -0.004975510204081601,
+      0.0356408163265306,
+      0.0671326530612244,
+      0.044508163265306155
+    ]
+  },
+  {
+    "accounting": "equal_g_updates",
+    "modes": 49,
+    "reference_steps": 50000,
+    "method": "dual_slot_d512",
+    "against": "vanilla",
+    "metric": "spatial_tv",
+    "wins": 1,
+    "mean_difference": 0.009874394561656818,
+    "differences": [
+      0.03393367404766934,
+      0.0015552477740483628,
+      0.03136157064100764,
+      0.00020807612478301873,
+      -0.017686595779224268
+    ]
+  },
+  {
+    "accounting": "equal_g_updates",
+    "modes": 49,
+    "reference_steps": 50000,
+    "method": "dual_slot_d512",
+    "against": "rsgan",
+    "metric": "mode_tv",
+    "wins": 1,
+    "mean_difference": 0.03531428571428572,
+    "differences": [
+      -0.004967346938775541,
+      0.027740816326530582,
+      0.05404897959183674,
+      0.07774081632653063,
+      0.02200816326530619
+    ]
+  },
+  {
+    "accounting": "equal_g_updates",
+    "modes": 49,
+    "reference_steps": 50000,
+    "method": "dual_slot_d512",
+    "against": "rsgan",
+    "metric": "spatial_tv",
+    "wins": 2,
+    "mean_difference": 0.014063458131405748,
+    "differences": [
+      -0.010731271004694842,
+      -0.011814323710499619,
+      0.031400649531983515,
+      0.05316524520866117,
+      0.008296990631578516
+    ]
+  },
+  {
+    "accounting": "equal_g_updates",
+    "modes": 49,
+    "reference_steps": 100000,
+    "method": "paired_d512",
+    "against": "paired",
+    "metric": "mode_tv",
+    "wins": 2,
+    "mean_difference": 0.05622489795918365,
+    "differences": [
+      -0.018808163265306155,
+      0.11625918367346932,
+      -0.0011653061224489725,
+      0.10026938775510202,
+      0.08456938775510203
+    ]
+  },
+  {
+    "accounting": "equal_g_updates",
+    "modes": 49,
+    "reference_steps": 100000,
+    "method": "paired_d512",
+    "against": "paired",
+    "metric": "spatial_tv",
+    "wins": 1,
+    "mean_difference": 0.03388759783705666,
+    "differences": [
+      0.005192939803352337,
+      -0.0469577300506101,
+      0.0283419800935929,
+      0.0871076723324834,
+      0.09575312700646477
+    ]
+  },
+  {
+    "accounting": "equal_g_updates",
+    "modes": 49,
+    "reference_steps": 100000,
+    "method": "paired_d512",
+    "against": "vanilla",
+    "metric": "mode_tv",
+    "wins": 5,
+    "mean_difference": -0.15574040816326534,
+    "differences": [
+      -0.16315102040816332,
+      -0.053467346938775584,
+      -0.268926530612245,
+      -0.20684897959183668,
+      -0.08630816326530616
+    ]
+  },
+  {
+    "accounting": "equal_g_updates",
+    "modes": 49,
+    "reference_steps": 100000,
+    "method": "paired_d512",
+    "against": "vanilla",
+    "metric": "spatial_tv",
+    "wins": 5,
+    "mean_difference": -0.04766258587178165,
+    "differences": [
+      -0.04561723512335014,
+      -0.02440479709296628,
+      -0.06437630119333437,
+      -0.09458563970456457,
+      -0.009328956244692876
+    ]
+  },
+  {
+    "accounting": "equal_g_updates",
+    "modes": 49,
+    "reference_steps": 100000,
+    "method": "paired_d512",
+    "against": "rsgan",
+    "metric": "mode_tv",
+    "wins": 5,
+    "mean_difference": -0.16975183673469396,
+    "differences": [
+      -0.16075102040816336,
+      -0.06260000000000004,
+      -0.2944428571428572,
+      -0.19134897959183683,
+      -0.13961632653061234
+    ]
+  },
+  {
+    "accounting": "equal_g_updates",
+    "modes": 49,
+    "reference_steps": 100000,
+    "method": "paired_d512",
+    "against": "rsgan",
+    "metric": "spatial_tv",
+    "wins": 5,
+    "mean_difference": -0.08785818373350625,
+    "differences": [
+      -0.06274696290927584,
+      -0.08334142756589658,
+      -0.14351019689543532,
+      -0.09618296821698435,
+      -0.05350936307993914
+    ]
+  },
+  {
+    "accounting": "equal_g_updates",
+    "modes": 49,
+    "reference_steps": 100000,
+    "method": "pacgan2_d512",
+    "against": "pacgan2",
+    "metric": "mode_tv",
+    "wins": 2,
+    "mean_difference": -0.01364734693877554,
+    "differences": [
+      0.014799999999999924,
+      -0.07053265306122458,
+      0.12450204081632654,
+      -0.15152448979591832,
+      0.014518367346938732
+    ]
+  },
+  {
+    "accounting": "equal_g_updates",
+    "modes": 49,
+    "reference_steps": 100000,
+    "method": "pacgan2_d512",
+    "against": "pacgan2",
+    "metric": "spatial_tv",
+    "wins": 2,
+    "mean_difference": 0.02073939253875794,
+    "differences": [
+      0.02573386106679776,
+      -0.013270216802138579,
+      0.1230671453678358,
+      -0.052050472712885765,
+      0.020216645774180475
+    ]
+  },
+  {
+    "accounting": "equal_g_updates",
+    "modes": 49,
+    "reference_steps": 100000,
+    "method": "pacgan2_d512",
+    "against": "vanilla",
+    "metric": "mode_tv",
+    "wins": 5,
+    "mean_difference": -0.20708979591836738,
+    "differences": [
+      -0.30016938775510216,
+      -0.15331836734693882,
+      -0.13669183673469393,
+      -0.2736265306122448,
+      -0.17164285714285715
+    ]
+  },
+  {
+    "accounting": "equal_g_updates",
+    "modes": 49,
+    "reference_steps": 100000,
+    "method": "pacgan2_d512",
+    "against": "vanilla",
+    "metric": "spatial_tv",
+    "wins": 4,
+    "mean_difference": -0.0570950118635676,
+    "differences": [
+      -0.14147419811896966,
+      -0.02054897523566035,
+      0.05289875702211233,
+      -0.11907527214980418,
+      -0.05727537083551615
+    ]
+  },
+  {
+    "accounting": "equal_g_updates",
+    "modes": 49,
+    "reference_steps": 100000,
+    "method": "pacgan2_d512",
+    "against": "rsgan",
+    "metric": "mode_tv",
+    "wins": 5,
+    "mean_difference": -0.22110122448979594,
+    "differences": [
+      -0.2977693877551022,
+      -0.16245102040816328,
+      -0.16220816326530613,
+      -0.25812653061224494,
+      -0.22495102040816334
+    ]
+  },
+  {
+    "accounting": "equal_g_updates",
+    "modes": 49,
+    "reference_steps": 100000,
+    "method": "pacgan2_d512",
+    "against": "rsgan",
+    "metric": "spatial_tv",
+    "wins": 5,
+    "mean_difference": -0.0972906097252922,
+    "differences": [
+      -0.15860392590489536,
+      -0.07948560570859065,
+      -0.026235138679988612,
+      -0.12067260066222396,
+      -0.10145577767076241
+    ]
+  },
+  {
+    "accounting": "equal_g_updates",
+    "modes": 49,
+    "reference_steps": 100000,
+    "method": "dual_slot_d512",
+    "against": "dual_slot",
+    "metric": "mode_tv",
+    "wins": 1,
+    "mean_difference": 0.04583836734693879,
+    "differences": [
+      0.046618367346938805,
+      0.06393469387755102,
+      -0.10139183673469387,
+      0.1403693877551021,
+      0.0796612244897959
+    ]
+  },
+  {
+    "accounting": "equal_g_updates",
+    "modes": 49,
+    "reference_steps": 100000,
+    "method": "dual_slot_d512",
+    "against": "dual_slot",
+    "metric": "spatial_tv",
+    "wins": 1,
+    "mean_difference": 0.025361450412766252,
+    "differences": [
+      0.0046782105542566566,
+      0.07403413789070279,
+      -0.07824787022197177,
+      0.08858734766895449,
+      0.037755426171889095
+    ]
+  },
+  {
+    "accounting": "equal_g_updates",
+    "modes": 49,
+    "reference_steps": 100000,
+    "method": "dual_slot_d512",
+    "against": "vanilla",
+    "metric": "mode_tv",
+    "wins": 5,
+    "mean_difference": -0.1657522448979592,
+    "differences": [
+      -0.10338367346938782,
+      -0.10773469387755102,
+      -0.30539387755102043,
+      -0.1912326530612244,
+      -0.12101632653061223
+    ]
+  },
+  {
+    "accounting": "equal_g_updates",
+    "modes": 49,
+    "reference_steps": 100000,
+    "method": "dual_slot_d512",
+    "against": "vanilla",
+    "metric": "spatial_tv",
+    "wins": 4,
+    "mean_difference": -0.03960733337307924,
+    "differences": [
+      -0.0353732350620819,
+      0.029972458823532833,
+      -0.0983006579901956,
+      -0.07256225478257594,
+      -0.021772977854075615
+    ]
+  },
+  {
+    "accounting": "equal_g_updates",
+    "modes": 49,
+    "reference_steps": 100000,
+    "method": "dual_slot_d512",
+    "against": "rsgan",
+    "metric": "mode_tv",
+    "wins": 5,
+    "mean_difference": -0.17976367346938776,
+    "differences": [
+      -0.10098367346938786,
+      -0.11686734693877548,
+      -0.33091020408163263,
+      -0.17573265306122454,
+      -0.1743244897959184
+    ]
+  },
+  {
+    "accounting": "equal_g_updates",
+    "modes": 49,
+    "reference_steps": 100000,
+    "method": "dual_slot_d512",
+    "against": "rsgan",
+    "metric": "spatial_tv",
+    "wins": 5,
+    "mean_difference": -0.07980293123480384,
+    "differences": [
+      -0.052502962848007595,
+      -0.028964171649397463,
+      -0.17743455369229655,
+      -0.07415958329499572,
+      -0.06595338468932188
+    ]
+  },
+  {
+    "accounting": "equal_g_updates",
+    "modes": 49,
+    "reference_steps": 150000,
+    "method": "paired_d512",
+    "against": "paired",
+    "metric": "mode_tv",
+    "wins": 1,
+    "mean_difference": 0.05457306122448983,
+    "differences": [
+      -0.002781632653061139,
+      0.0614020408163265,
+      0.07312857142857154,
+      0.03499795918367349,
+      0.10611836734693875
+    ]
+  },
+  {
+    "accounting": "equal_g_updates",
+    "modes": 49,
+    "reference_steps": 150000,
+    "method": "paired_d512",
+    "against": "paired",
+    "metric": "spatial_tv",
+    "wins": 0,
+    "mean_difference": 0.0494858142495066,
+    "differences": [
+      0.062259205412345864,
+      0.012834493349495713,
+      0.03751982982805957,
+      0.023513858991344838,
+      0.11130168366628701
+    ]
+  },
+  {
+    "accounting": "equal_g_updates",
+    "modes": 49,
+    "reference_steps": 150000,
+    "method": "paired_d512",
+    "against": "vanilla",
+    "metric": "mode_tv",
+    "wins": 5,
+    "mean_difference": -0.23453877551020405,
+    "differences": [
+      -0.2300673469387754,
+      -0.2649081632653061,
+      -0.231808163265306,
+      -0.2968510204081633,
+      -0.14905918367346943
+    ]
+  },
+  {
+    "accounting": "equal_g_updates",
+    "modes": 49,
+    "reference_steps": 150000,
+    "method": "paired_d512",
+    "against": "vanilla",
+    "metric": "spatial_tv",
+    "wins": 4,
+    "mean_difference": -0.02640495370473932,
+    "differences": [
+      0.052301266467923324,
+      -0.11684334182319889,
+      -0.006455621251886368,
+      -0.020485339102341626,
+      -0.04054173281419304
+    ]
+  },
+  {
+    "accounting": "equal_g_updates",
+    "modes": 49,
+    "reference_steps": 150000,
+    "method": "paired_d512",
+    "against": "rsgan",
+    "metric": "mode_tv",
+    "wins": 5,
+    "mean_difference": -0.23345877551020405,
+    "differences": [
+      -0.24237551020408155,
+      -0.18509183673469387,
+      -0.21739183673469376,
+      -0.2472102040816327,
+      -0.2752244897959183
+    ]
+  },
+  {
+    "accounting": "equal_g_updates",
+    "modes": 49,
+    "reference_steps": 150000,
+    "method": "paired_d512",
+    "against": "rsgan",
+    "metric": "spatial_tv",
+    "wins": 3,
+    "mean_difference": -0.029497365705813895,
+    "differences": [
+      0.003036816254943231,
+      -0.07293320057120667,
+      -0.044507537931604335,
+      0.02161701695337359,
+      -0.05469992323457529
+    ]
+  },
+  {
+    "accounting": "equal_g_updates",
+    "modes": 49,
+    "reference_steps": 150000,
+    "method": "pacgan2_d512",
+    "against": "pacgan2",
+    "metric": "mode_tv",
+    "wins": 2,
+    "mean_difference": 0.01879510204081634,
+    "differences": [
+      -0.021900000000000003,
+      0.061453061224489736,
+      0.09259387755102044,
+      -0.05908163265306121,
+      0.020910204081632744
+    ]
+  },
+  {
+    "accounting": "equal_g_updates",
+    "modes": 49,
+    "reference_steps": 150000,
+    "method": "pacgan2_d512",
+    "against": "pacgan2",
+    "metric": "spatial_tv",
+    "wins": 2,
+    "mean_difference": 0.0007164617008618368,
+    "differences": [
+      -0.02147672066843287,
+      0.037493408468793676,
+      0.03686063842434528,
+      -0.07638934028696798,
+      0.027094322566571072
+    ]
+  },
+  {
+    "accounting": "equal_g_updates",
+    "modes": 49,
+    "reference_steps": 150000,
+    "method": "pacgan2_d512",
+    "against": "vanilla",
+    "metric": "mode_tv",
+    "wins": 5,
+    "mean_difference": -0.2722175510204081,
+    "differences": [
+      -0.3672367346938775,
+      -0.2122489795918367,
+      -0.20531632653061221,
+      -0.3637836734693878,
+      -0.21250204081632657
+    ]
+  },
+  {
+    "accounting": "equal_g_updates",
+    "modes": 49,
+    "reference_steps": 150000,
+    "method": "pacgan2_d512",
+    "against": "vanilla",
+    "metric": "spatial_tv",
+    "wins": 4,
+    "mean_difference": -0.06681167372383486,
+    "differences": [
+      -0.10636052429150034,
+      -0.04406125611469369,
+      -0.06913871144237482,
+      -0.12606618747959653,
+      0.011568310708991114
+    ]
+  },
+  {
+    "accounting": "equal_g_updates",
+    "modes": 49,
+    "reference_steps": 150000,
+    "method": "pacgan2_d512",
+    "against": "rsgan",
+    "metric": "mode_tv",
+    "wins": 5,
+    "mean_difference": -0.2711375510204081,
+    "differences": [
+      -0.37954489795918367,
+      -0.13243265306122448,
+      -0.19089999999999996,
+      -0.31414285714285717,
+      -0.3386673469387754
+    ]
+  },
+  {
+    "accounting": "equal_g_updates",
+    "modes": 49,
+    "reference_steps": 150000,
+    "method": "pacgan2_d512",
+    "against": "rsgan",
+    "metric": "spatial_tv",
+    "wins": 5,
+    "mean_difference": -0.06990408572490943,
+    "differences": [
+      -0.15562497450448043,
+      -0.00015111486270147356,
+      -0.10719062812209279,
+      -0.08396383142388131,
+      -0.00258987971139113
+    ]
+  },
+  {
+    "accounting": "equal_g_updates",
+    "modes": 49,
+    "reference_steps": 150000,
+    "method": "dual_slot_d512",
+    "against": "dual_slot",
+    "metric": "mode_tv",
+    "wins": 1,
+    "mean_difference": 0.07233469387755104,
+    "differences": [
+      0.10860204081632657,
+      0.08252040816326525,
+      -0.04872448979591834,
+      0.10106326530612247,
+      0.11821224489795923
+    ]
+  },
+  {
+    "accounting": "equal_g_updates",
+    "modes": 49,
+    "reference_steps": 150000,
+    "method": "dual_slot_d512",
+    "against": "dual_slot",
+    "metric": "spatial_tv",
+    "wins": 0,
+    "mean_difference": 0.06956703077052387,
+    "differences": [
+      0.08643014067169952,
+      0.026568153816638684,
+      0.05639298797779291,
+      0.02042906093131658,
+      0.15801481045517163
+    ]
+  },
+  {
+    "accounting": "equal_g_updates",
+    "modes": 49,
+    "reference_steps": 150000,
+    "method": "dual_slot_d512",
+    "against": "vanilla",
+    "metric": "mode_tv",
+    "wins": 5,
+    "mean_difference": -0.23888081632653063,
+    "differences": [
+      -0.16313265306122443,
+      -0.2704061224489796,
+      -0.30224285714285715,
+      -0.3058224489795918,
+      -0.1528
+    ]
+  },
+  {
+    "accounting": "equal_g_updates",
+    "modes": 49,
+    "reference_steps": 150000,
+    "method": "dual_slot_d512",
+    "against": "vanilla",
+    "metric": "spatial_tv",
+    "wins": 5,
+    "mean_difference": -0.058064532924802334,
+    "differences": [
+      -0.00021677717025514465,
+      -0.08303702217018971,
+      -0.09398644645420418,
+      -0.07538419904703797,
+      -0.03769821978232468
+    ]
+  },
+  {
+    "accounting": "equal_g_updates",
+    "modes": 49,
+    "reference_steps": 150000,
+    "method": "dual_slot_d512",
+    "against": "rsgan",
+    "metric": "mode_tv",
+    "wins": 5,
+    "mean_difference": -0.23780081632653055,
+    "differences": [
+      -0.17544081632653058,
+      -0.1905897959183674,
+      -0.28782653061224484,
+      -0.2561816326530612,
+      -0.27896530612244885
+    ]
+  },
+  {
+    "accounting": "equal_g_updates",
+    "modes": 49,
+    "reference_steps": 150000,
+    "method": "dual_slot_d512",
+    "against": "rsgan",
+    "metric": "spatial_tv",
+    "wins": 5,
+    "mean_difference": -0.06115694492587691,
+    "differences": [
+      -0.04948122738323524,
+      -0.03912688091819749,
+      -0.13203836313392214,
+      -0.03328184299132275,
+      -0.051856410202706926
+    ]
+  },
+  {
+    "accounting": "equal_d_samples",
+    "modes": 9,
+    "reference_steps": 10000,
+    "method": "paired_d512",
+    "against": "paired",
+    "metric": "mode_tv",
+    "wins": 0,
+    "mean_difference": 0.31404000000000004,
+    "differences": [
+      0.2959,
+      0.3791,
+      0.26259999999999994,
+      0.32300000000000006,
+      0.3096
+    ]
+  },
+  {
+    "accounting": "equal_d_samples",
+    "modes": 9,
+    "reference_steps": 10000,
+    "method": "paired_d512",
+    "against": "paired",
+    "metric": "spatial_tv",
+    "wins": 0,
+    "mean_difference": 0.10277008061377901,
+    "differences": [
+      0.08637019681489433,
+      0.13981351258490482,
+      0.08505275772870802,
+      0.10571010220247168,
+      0.09690383373791622
+    ]
+  },
+  {
+    "accounting": "equal_d_samples",
+    "modes": 9,
+    "reference_steps": 10000,
+    "method": "paired_d512",
+    "against": "vanilla",
+    "metric": "mode_tv",
+    "wins": 4,
+    "mean_difference": -0.023535555555555587,
+    "differences": [
+      -0.02215555555555554,
+      0.03004444444444443,
+      -0.027455555555555566,
+      -0.04375555555555555,
+      -0.05435555555555571
+    ]
+  },
+  {
+    "accounting": "equal_d_samples",
+    "modes": 9,
+    "reference_steps": 10000,
+    "method": "paired_d512",
+    "against": "vanilla",
+    "metric": "spatial_tv",
+    "wins": 0,
+    "mean_difference": 0.012591963195097899,
+    "differences": [
+      0.0025003233762797006,
+      0.007636780343237781,
+      0.04335385316672591,
+      0.008840220654539599,
+      0.0006286384347065077
+    ]
+  },
+  {
+    "accounting": "equal_d_samples",
+    "modes": 9,
+    "reference_steps": 10000,
+    "method": "paired_d512",
+    "against": "rsgan",
+    "metric": "mode_tv",
+    "wins": 4,
+    "mean_difference": -0.018455555555555593,
+    "differences": [
+      -0.016155555555555534,
+      0.032644444444444365,
+      -0.022555555555555662,
+      -0.041755555555555546,
+      -0.04445555555555558
+    ]
+  },
+  {
+    "accounting": "equal_d_samples",
+    "modes": 9,
+    "reference_steps": 10000,
+    "method": "paired_d512",
+    "against": "rsgan",
+    "metric": "spatial_tv",
+    "wins": 3,
+    "mean_difference": -0.021334850405625994,
+    "differences": [
+      -0.014950170400481078,
+      0.0057615538378726905,
+      0.005991912402201427,
+      -0.06904552095422523,
+      -0.03443202691349778
+    ]
+  },
+  {
+    "accounting": "equal_d_samples",
+    "modes": 9,
+    "reference_steps": 10000,
+    "method": "pacgan2_d512",
+    "against": "pacgan2",
+    "metric": "mode_tv",
+    "wins": 0,
+    "mean_difference": 0.30633999999999995,
+    "differences": [
+      0.25980000000000003,
+      0.3323999999999999,
+      0.31589999999999996,
+      0.31079999999999997,
+      0.3128000000000001
+    ]
+  },
+  {
+    "accounting": "equal_d_samples",
+    "modes": 9,
+    "reference_steps": 10000,
+    "method": "pacgan2_d512",
+    "against": "pacgan2",
+    "metric": "spatial_tv",
+    "wins": 0,
+    "mean_difference": 0.1294546215572708,
+    "differences": [
+      0.11956340082591854,
+      0.14947051373122944,
+      0.09109796086774224,
+      0.12843701757574244,
+      0.1587042147857214
+    ]
+  },
+  {
+    "accounting": "equal_d_samples",
+    "modes": 9,
+    "reference_steps": 10000,
+    "method": "pacgan2_d512",
+    "against": "vanilla",
+    "metric": "mode_tv",
+    "wins": 5,
+    "mean_difference": -0.022715555555555534,
+    "differences": [
+      -0.03395555555555552,
+      -0.022555555555555495,
+      -0.0159555555555555,
+      -0.021855555555555573,
+      -0.01925555555555558
+    ]
+  },
+  {
+    "accounting": "equal_d_samples",
+    "modes": 9,
+    "reference_steps": 10000,
+    "method": "pacgan2_d512",
+    "against": "vanilla",
+    "metric": "spatial_tv",
+    "wins": 0,
+    "mean_difference": 0.03143153518049824,
+    "differences": [
+      0.006371350042750246,
+      0.021701195223131076,
+      0.0239018973607934,
+      0.0697213221689269,
+      0.035461911106889565
+    ]
+  },
+  {
+    "accounting": "equal_d_samples",
+    "modes": 9,
+    "reference_steps": 10000,
+    "method": "pacgan2_d512",
+    "against": "rsgan",
+    "metric": "mode_tv",
+    "wins": 5,
+    "mean_difference": -0.017635555555555536,
+    "differences": [
+      -0.02795555555555551,
+      -0.01995555555555556,
+      -0.011055555555555596,
+      -0.01985555555555557,
+      -0.00935555555555545
+    ]
+  },
+  {
+    "accounting": "equal_d_samples",
+    "modes": 9,
+    "reference_steps": 10000,
+    "method": "pacgan2_d512",
+    "against": "rsgan",
+    "metric": "spatial_tv",
+    "wins": 3,
+    "mean_difference": -0.002495278420225655,
+    "differences": [
+      -0.011079143734010533,
+      0.019825968717765985,
+      -0.013460043403731081,
+      -0.008164419439837922,
+      0.0004012457586852758
+    ]
+  },
+  {
+    "accounting": "equal_d_samples",
+    "modes": 9,
+    "reference_steps": 10000,
+    "method": "dual_slot_d512",
+    "against": "dual_slot",
+    "metric": "mode_tv",
+    "wins": 0,
+    "mean_difference": 0.30234,
+    "differences": [
+      0.275,
+      0.2997,
+      0.29839999999999994,
+      0.3096,
+      0.329
+    ]
+  },
+  {
+    "accounting": "equal_d_samples",
+    "modes": 9,
+    "reference_steps": 10000,
+    "method": "dual_slot_d512",
+    "against": "dual_slot",
+    "metric": "spatial_tv",
+    "wins": 0,
+    "mean_difference": 0.13399887887221448,
+    "differences": [
+      0.16643783083010982,
+      0.07559957941245554,
+      0.15032856395436112,
+      0.09886578290804926,
+      0.17876263725609676
+    ]
+  },
+  {
+    "accounting": "equal_d_samples",
+    "modes": 9,
+    "reference_steps": 10000,
+    "method": "dual_slot_d512",
+    "against": "vanilla",
+    "metric": "mode_tv",
+    "wins": 5,
+    "mean_difference": -0.03169555555555555,
+    "differences": [
+      -0.05955555555555553,
+      -0.020055555555555493,
+      -0.03345555555555557,
+      -0.03655555555555556,
+      -0.008855555555555616
+    ]
+  },
+  {
+    "accounting": "equal_d_samples",
+    "modes": 9,
+    "reference_steps": 10000,
+    "method": "dual_slot_d512",
+    "against": "vanilla",
+    "metric": "spatial_tv",
+    "wins": 0,
+    "mean_difference": 0.014808980745787714,
+    "differences": [
+      0.010480249619567061,
+      0.0060439288048868,
+      0.02954099814870148,
+      0.001723826462115774,
+      0.026255900693667455
+    ]
+  },
+  {
+    "accounting": "equal_d_samples",
+    "modes": 9,
+    "reference_steps": 10000,
+    "method": "dual_slot_d512",
+    "against": "rsgan",
+    "metric": "mode_tv",
+    "wins": 4,
+    "mean_difference": -0.02661555555555556,
+    "differences": [
+      -0.05355555555555552,
+      -0.017455555555555557,
+      -0.028555555555555667,
+      -0.03455555555555556,
+      0.0010444444444445145
+    ]
+  },
+  {
+    "accounting": "equal_d_samples",
+    "modes": 9,
+    "reference_steps": 10000,
+    "method": "dual_slot_d512",
+    "against": "rsgan",
+    "metric": "spatial_tv",
+    "wins": 4,
+    "mean_difference": -0.01911783285493618,
+    "differences": [
+      -0.006970244157193717,
+      0.004168702299521709,
+      -0.007820942615823001,
+      -0.07616191514664905,
+      -0.008804764654536834
+    ]
+  },
+  {
+    "accounting": "equal_d_samples",
+    "modes": 9,
+    "reference_steps": 50000,
+    "method": "paired_d512",
+    "against": "paired",
+    "metric": "mode_tv",
+    "wins": 0,
+    "mean_difference": 0.030386666666666645,
+    "differences": [
+      0.025800000000000003,
+      0.02630000000000006,
+      0.01631111111111097,
+      0.061911111111111104,
+      0.021611111111111088
+    ]
+  },
+  {
+    "accounting": "equal_d_samples",
+    "modes": 9,
+    "reference_steps": 50000,
+    "method": "paired_d512",
+    "against": "paired",
+    "metric": "spatial_tv",
+    "wins": 4,
+    "mean_difference": -0.03889825870459727,
+    "differences": [
+      -0.07835803485950332,
+      -0.10842942104948716,
+      -0.014021705928120576,
+      0.05535293731305413,
+      -0.0490350689989294
+    ]
+  },
+  {
+    "accounting": "equal_d_samples",
+    "modes": 9,
+    "reference_steps": 50000,
+    "method": "paired_d512",
+    "against": "vanilla",
+    "metric": "mode_tv",
+    "wins": 5,
+    "mean_difference": -0.4538155555555556,
+    "differences": [
+      -0.45735555555555557,
+      -0.4636555555555556,
+      -0.4588555555555558,
+      -0.4205555555555557,
+      -0.4686555555555555
+    ]
+  },
+  {
+    "accounting": "equal_d_samples",
+    "modes": 9,
+    "reference_steps": 50000,
+    "method": "paired_d512",
+    "against": "vanilla",
+    "metric": "spatial_tv",
+    "wins": 4,
+    "mean_difference": -0.0973449942393223,
+    "differences": [
+      -0.19239221846596666,
+      -0.166618625145049,
+      -0.03819439590359475,
+      0.016342770375775695,
+      -0.10586250205777681
+    ]
+  },
+  {
+    "accounting": "equal_d_samples",
+    "modes": 9,
+    "reference_steps": 50000,
+    "method": "paired_d512",
+    "against": "rsgan",
+    "metric": "mode_tv",
+    "wins": 5,
+    "mean_difference": -0.4512955555555555,
+    "differences": [
+      -0.4537555555555555,
+      -0.4625555555555556,
+      -0.45895555555555556,
+      -0.41665555555555556,
+      -0.4645555555555555
+    ]
+  },
+  {
+    "accounting": "equal_d_samples",
+    "modes": 9,
+    "reference_steps": 50000,
+    "method": "paired_d512",
+    "against": "rsgan",
+    "metric": "spatial_tv",
+    "wins": 5,
+    "mean_difference": -0.12169269265786235,
+    "differences": [
+      -0.12993119917218332,
+      -0.2068497570876796,
+      -0.08541273682651107,
+      -0.04975951353868624,
+      -0.13651025666425154
+    ]
+  },
+  {
+    "accounting": "equal_d_samples",
+    "modes": 9,
+    "reference_steps": 50000,
+    "method": "pacgan2_d512",
+    "against": "pacgan2",
+    "metric": "mode_tv",
+    "wins": 1,
+    "mean_difference": 0.030742222222222233,
+    "differences": [
+      0.02730000000000002,
+      -0.006088888888888866,
+      0.02399999999999996,
+      0.09129999999999996,
+      0.01720000000000007
+    ]
+  },
+  {
+    "accounting": "equal_d_samples",
+    "modes": 9,
+    "reference_steps": 50000,
+    "method": "pacgan2_d512",
+    "against": "pacgan2",
+    "metric": "spatial_tv",
+    "wins": 1,
+    "mean_difference": 0.027394799098605517,
+    "differences": [
+      0.008405049696653677,
+      0.010835816262329323,
+      -0.015639747225914435,
+      0.06675951714947226,
+      0.06661335961048676
+    ]
+  },
+  {
+    "accounting": "equal_d_samples",
+    "modes": 9,
+    "reference_steps": 50000,
+    "method": "pacgan2_d512",
+    "against": "vanilla",
+    "metric": "mode_tv",
+    "wins": 5,
+    "mean_difference": -0.44742000000000004,
+    "differences": [
+      -0.4521666666666667,
+      -0.46585555555555563,
+      -0.4562666666666669,
+      -0.3928555555555556,
+      -0.46995555555555546
+    ]
+  },
+  {
+    "accounting": "equal_d_samples",
+    "modes": 9,
+    "reference_steps": 50000,
+    "method": "pacgan2_d512",
+    "against": "vanilla",
+    "metric": "spatial_tv",
+    "wins": 4,
+    "mean_difference": -0.053022046520369195,
+    "differences": [
+      -0.16659485190733914,
+      -0.01699042457616584,
+      -0.0921395017685751,
+      0.06098461665470978,
+      -0.05037007100447566
+    ]
+  },
+  {
+    "accounting": "equal_d_samples",
+    "modes": 9,
+    "reference_steps": 50000,
+    "method": "pacgan2_d512",
+    "against": "rsgan",
+    "metric": "mode_tv",
+    "wins": 5,
+    "mean_difference": -0.44489999999999996,
+    "differences": [
+      -0.44856666666666667,
+      -0.46475555555555564,
+      -0.45636666666666664,
+      -0.3889555555555555,
+      -0.46585555555555547
+    ]
+  },
+  {
+    "accounting": "equal_d_samples",
+    "modes": 9,
+    "reference_steps": 50000,
+    "method": "pacgan2_d512",
+    "against": "rsgan",
+    "metric": "spatial_tv",
+    "wins": 5,
+    "mean_difference": -0.07736974493890925,
+    "differences": [
+      -0.1041338326135558,
+      -0.05722155651879646,
+      -0.13935784269149143,
+      -0.005117667259752157,
+      -0.08101782561095039
+    ]
+  },
+  {
+    "accounting": "equal_d_samples",
+    "modes": 9,
+    "reference_steps": 50000,
+    "method": "dual_slot_d512",
+    "against": "dual_slot",
+    "metric": "mode_tv",
+    "wins": 1,
+    "mean_difference": 0.01864666666666668,
+    "differences": [
+      0.03772222222222227,
+      0.05341111111111109,
+      -0.03981111111111112,
+      0.02471111111111115,
+      0.017200000000000007
+    ]
+  },
+  {
+    "accounting": "equal_d_samples",
+    "modes": 9,
+    "reference_steps": 50000,
+    "method": "dual_slot_d512",
+    "against": "dual_slot",
+    "metric": "spatial_tv",
+    "wins": 2,
+    "mean_difference": -0.00026267529528929413,
+    "differences": [
+      -0.006324936554231941,
+      0.05375445532908396,
+      -0.12315816074219499,
+      0.038585138240763595,
+      0.035830127250132904
+    ]
+  },
+  {
+    "accounting": "equal_d_samples",
+    "modes": 9,
+    "reference_steps": 50000,
+    "method": "dual_slot_d512",
+    "against": "vanilla",
+    "metric": "mode_tv",
+    "wins": 5,
+    "mean_difference": -0.45111777777777784,
+    "differences": [
+      -0.44345555555555555,
+      -0.4302555555555557,
+      -0.45146666666666685,
+      -0.4629555555555556,
+      -0.4674555555555555
+    ]
+  },
+  {
+    "accounting": "equal_d_samples",
+    "modes": 9,
+    "reference_steps": 50000,
+    "method": "dual_slot_d512",
+    "against": "vanilla",
+    "metric": "spatial_tv",
+    "wins": 5,
+    "mean_difference": -0.0768389278380884,
+    "differences": [
+      -0.16771251179024838,
+      -0.04426942000873846,
+      -0.09080558002396943,
+      -0.053090748330165805,
+      -0.028316379037319983
+    ]
+  },
+  {
+    "accounting": "equal_d_samples",
+    "modes": 9,
+    "reference_steps": 50000,
+    "method": "dual_slot_d512",
+    "against": "rsgan",
+    "metric": "mode_tv",
+    "wins": 5,
+    "mean_difference": -0.4485977777777778,
+    "differences": [
+      -0.4398555555555555,
+      -0.42915555555555573,
+      -0.4515666666666666,
+      -0.4590555555555555,
+      -0.4633555555555555
+    ]
+  },
+  {
+    "accounting": "equal_d_samples",
+    "modes": 9,
+    "reference_steps": 50000,
+    "method": "dual_slot_d512",
+    "against": "rsgan",
+    "metric": "spatial_tv",
+    "wins": 5,
+    "mean_difference": -0.10118662625662847,
+    "differences": [
+      -0.10525149249646504,
+      -0.08450055195136907,
+      -0.13802392094688576,
+      -0.11919303224462774,
+      -0.058964133643794714
+    ]
+  },
+  {
+    "accounting": "equal_d_samples",
+    "modes": 25,
+    "reference_steps": 10000,
+    "method": "paired_d512",
+    "against": "paired",
+    "metric": "mode_tv",
+    "wins": 0,
+    "mean_difference": 0.10511999999999999,
+    "differences": [
+      0.0717000000000001,
+      0.15669999999999995,
+      0.1028,
+      0.09299999999999997,
+      0.10139999999999993
+    ]
+  },
+  {
+    "accounting": "equal_d_samples",
+    "modes": 25,
+    "reference_steps": 10000,
+    "method": "paired_d512",
+    "against": "paired",
+    "metric": "spatial_tv",
+    "wins": 0,
+    "mean_difference": 0.07522235625680192,
+    "differences": [
+      0.04863076150856527,
+      0.10985994613510663,
+      0.08212973281234126,
+      0.05917179047120524,
+      0.07631955035679117
+    ]
+  },
+  {
+    "accounting": "equal_d_samples",
+    "modes": 25,
+    "reference_steps": 10000,
+    "method": "paired_d512",
+    "against": "vanilla",
+    "metric": "mode_tv",
+    "wins": 0,
+    "mean_difference": 0.17626000000000003,
+    "differences": [
+      0.16170000000000018,
+      0.20879999999999987,
+      0.19120000000000015,
+      0.1724000000000001,
+      0.1471999999999999
+    ]
+  },
+  {
+    "accounting": "equal_d_samples",
+    "modes": 25,
+    "reference_steps": 10000,
+    "method": "paired_d512",
+    "against": "vanilla",
+    "metric": "spatial_tv",
+    "wins": 0,
+    "mean_difference": 0.11407733817539041,
+    "differences": [
+      0.09135992493670675,
+      0.142294167219276,
+      0.14031562464168212,
+      0.11245269078173159,
+      0.08396428329755556
+    ]
+  },
+  {
+    "accounting": "equal_d_samples",
+    "modes": 25,
+    "reference_steps": 10000,
+    "method": "paired_d512",
+    "against": "rsgan",
+    "metric": "mode_tv",
+    "wins": 0,
+    "mean_difference": 0.17338,
+    "differences": [
+      0.16480000000000006,
+      0.2136999999999999,
+      0.18530000000000013,
+      0.16379999999999995,
+      0.13929999999999998
+    ]
+  },
+  {
+    "accounting": "equal_d_samples",
+    "modes": 25,
+    "reference_steps": 10000,
+    "method": "paired_d512",
+    "against": "rsgan",
+    "metric": "spatial_tv",
+    "wins": 0,
+    "mean_difference": 0.11195833344688748,
+    "differences": [
+      0.10939733728099443,
+      0.15332707357724096,
+      0.1285291701935929,
+      0.09581615586853354,
+      0.07272193031407559
+    ]
+  },
+  {
+    "accounting": "equal_d_samples",
+    "modes": 25,
+    "reference_steps": 10000,
+    "method": "pacgan2_d512",
+    "against": "pacgan2",
+    "metric": "mode_tv",
+    "wins": 0,
+    "mean_difference": 0.06636,
+    "differences": [
+      0.05190000000000006,
+      0.03190000000000004,
+      0.0786,
+      0.06930000000000003,
+      0.10009999999999986
+    ]
+  },
+  {
+    "accounting": "equal_d_samples",
+    "modes": 25,
+    "reference_steps": 10000,
+    "method": "pacgan2_d512",
+    "against": "pacgan2",
+    "metric": "spatial_tv",
+    "wins": 0,
+    "mean_difference": 0.037969050143116245,
+    "differences": [
+      0.023744921236059202,
+      0.00044598505571880054,
+      0.04384324330750278,
+      0.04949304177030689,
+      0.07231805934599356
+    ]
+  },
+  {
+    "accounting": "equal_d_samples",
+    "modes": 25,
+    "reference_steps": 10000,
+    "method": "pacgan2_d512",
+    "against": "vanilla",
+    "metric": "mode_tv",
+    "wins": 0,
+    "mean_difference": 0.15066000000000002,
+    "differences": [
+      0.12790000000000012,
+      0.1634,
+      0.14229999999999998,
+      0.1643000000000001,
+      0.15539999999999987
+    ]
+  },
+  {
+    "accounting": "equal_d_samples",
+    "modes": 25,
+    "reference_steps": 10000,
+    "method": "pacgan2_d512",
+    "against": "vanilla",
+    "metric": "spatial_tv",
+    "wins": 0,
+    "mean_difference": 0.09240164740950219,
+    "differences": [
+      0.06263148546246411,
+      0.1023126782234175,
+      0.10065104013610171,
+      0.10490984852708307,
+      0.09150318469844454
+    ]
+  },
+  {
+    "accounting": "equal_d_samples",
+    "modes": 25,
+    "reference_steps": 10000,
+    "method": "pacgan2_d512",
+    "against": "rsgan",
+    "metric": "mode_tv",
+    "wins": 0,
+    "mean_difference": 0.14777999999999997,
+    "differences": [
+      0.131,
+      0.1683,
+      0.13639999999999997,
+      0.15569999999999995,
+      0.14749999999999996
+    ]
+  },
+  {
+    "accounting": "equal_d_samples",
+    "modes": 25,
+    "reference_steps": 10000,
+    "method": "pacgan2_d512",
+    "against": "rsgan",
+    "metric": "spatial_tv",
+    "wins": 0,
+    "mean_difference": 0.09028264268099925,
+    "differences": [
+      0.0806688978067518,
+      0.11334558458138244,
+      0.08886458568801248,
+      0.08827331361388502,
+      0.08026083171496456
+    ]
+  },
+  {
+    "accounting": "equal_d_samples",
+    "modes": 25,
+    "reference_steps": 10000,
+    "method": "dual_slot_d512",
+    "against": "dual_slot",
+    "metric": "mode_tv",
+    "wins": 0,
+    "mean_difference": 0.08855999999999997,
+    "differences": [
+      0.1268999999999999,
+      0.09509999999999996,
+      0.13169999999999993,
+      0.010599999999999943,
+      0.07850000000000013
+    ]
+  },
+  {
+    "accounting": "equal_d_samples",
+    "modes": 25,
+    "reference_steps": 10000,
+    "method": "dual_slot_d512",
+    "against": "dual_slot",
+    "metric": "spatial_tv",
+    "wins": 1,
+    "mean_difference": 0.059532986251228916,
+    "differences": [
+      0.1009914243506872,
+      0.0654944863301018,
+      0.08984800318167607,
+      -0.00711926567290011,
+      0.048450283066579614
+    ]
+  },
+  {
+    "accounting": "equal_d_samples",
+    "modes": 25,
+    "reference_steps": 10000,
+    "method": "dual_slot_d512",
+    "against": "vanilla",
+    "metric": "mode_tv",
+    "wins": 0,
+    "mean_difference": 0.17450000000000002,
+    "differences": [
+      0.20030000000000003,
+      0.15089999999999992,
+      0.1784,
+      0.16920000000000002,
+      0.17370000000000008
+    ]
+  },
+  {
+    "accounting": "equal_d_samples",
+    "modes": 25,
+    "reference_steps": 10000,
+    "method": "dual_slot_d512",
+    "against": "vanilla",
+    "metric": "spatial_tv",
+    "wins": 0,
+    "mean_difference": 0.11160638024258193,
+    "differences": [
+      0.11901713130919234,
+      0.09977596326682003,
+      0.1271701260386897,
+      0.10856296820127431,
+      0.10350571239693329
+    ]
+  },
+  {
+    "accounting": "equal_d_samples",
+    "modes": 25,
+    "reference_steps": 10000,
+    "method": "dual_slot_d512",
+    "against": "rsgan",
+    "metric": "mode_tv",
+    "wins": 0,
+    "mean_difference": 0.17161999999999997,
+    "differences": [
+      0.20339999999999991,
+      0.15579999999999994,
+      0.1725,
+      0.16059999999999985,
+      0.16580000000000017
+    ]
+  },
+  {
+    "accounting": "equal_d_samples",
+    "modes": 25,
+    "reference_steps": 10000,
+    "method": "dual_slot_d512",
+    "against": "rsgan",
+    "metric": "spatial_tv",
+    "wins": 0,
+    "mean_difference": 0.10948737551407901,
+    "differences": [
+      0.13705454365348002,
+      0.11080886962478498,
+      0.11538367159060048,
+      0.09192643328807626,
+      0.09226335941345332
+    ]
+  },
+  {
+    "accounting": "equal_d_samples",
+    "modes": 25,
+    "reference_steps": 50000,
+    "method": "paired_d512",
+    "against": "paired",
+    "metric": "mode_tv",
+    "wins": 0,
+    "mean_difference": 0.3587599999999999,
+    "differences": [
+      0.37960000000000005,
+      0.3707999999999999,
+      0.3903,
+      0.4220999999999999,
+      0.23099999999999998
+    ]
+  },
+  {
+    "accounting": "equal_d_samples",
+    "modes": 25,
+    "reference_steps": 50000,
+    "method": "paired_d512",
+    "against": "paired",
+    "metric": "spatial_tv",
+    "wins": 0,
+    "mean_difference": 0.16231745578387696,
+    "differences": [
+      0.19393062899228608,
+      0.14837505750261792,
+      0.19894062121217315,
+      0.19233743550966587,
+      0.07800353570264174
+    ]
+  },
+  {
+    "accounting": "equal_d_samples",
+    "modes": 25,
+    "reference_steps": 50000,
+    "method": "paired_d512",
+    "against": "vanilla",
+    "metric": "mode_tv",
+    "wins": 5,
+    "mean_difference": -0.11650000000000008,
+    "differences": [
+      -0.10240000000000005,
+      -0.16410000000000013,
+      -0.11269999999999991,
+      -0.07750000000000012,
+      -0.12580000000000013
+    ]
+  },
+  {
+    "accounting": "equal_d_samples",
+    "modes": 25,
+    "reference_steps": 50000,
+    "method": "paired_d512",
+    "against": "vanilla",
+    "metric": "spatial_tv",
+    "wins": 5,
+    "mean_difference": -0.03422157253977032,
+    "differences": [
+      -0.012733647518239799,
+      -0.06297661220908668,
+      -0.046213576163913195,
+      -0.0014393698920693865,
+      -0.04774465691554253
+    ]
+  },
+  {
+    "accounting": "equal_d_samples",
+    "modes": 25,
+    "reference_steps": 50000,
+    "method": "paired_d512",
+    "against": "rsgan",
+    "metric": "mode_tv",
+    "wins": 5,
+    "mean_difference": -0.08520000000000005,
+    "differences": [
+      -0.11349999999999993,
+      -0.14800000000000013,
+      -0.04090000000000005,
+      -0.010500000000000065,
+      -0.11310000000000009
+    ]
+  },
+  {
+    "accounting": "equal_d_samples",
+    "modes": 25,
+    "reference_steps": 50000,
+    "method": "paired_d512",
+    "against": "rsgan",
+    "metric": "spatial_tv",
+    "wins": 4,
+    "mean_difference": -0.02785540231435899,
+    "differences": [
+      -0.024912128622911034,
+      -0.05730245781780097,
+      -0.0219840973961144,
+      0.02409839778580658,
+      -0.05917672552077513
+    ]
+  },
+  {
+    "accounting": "equal_d_samples",
+    "modes": 25,
+    "reference_steps": 50000,
+    "method": "pacgan2_d512",
+    "against": "pacgan2",
+    "metric": "mode_tv",
+    "wins": 0,
+    "mean_difference": 0.3619799999999999,
+    "differences": [
+      0.3877999999999999,
+      0.3048,
+      0.39749999999999996,
+      0.36659999999999987,
+      0.35319999999999996
+    ]
+  },
+  {
+    "accounting": "equal_d_samples",
+    "modes": 25,
+    "reference_steps": 50000,
+    "method": "pacgan2_d512",
+    "against": "pacgan2",
+    "metric": "spatial_tv",
+    "wins": 0,
+    "mean_difference": 0.10820987864692262,
+    "differences": [
+      0.13578618297831657,
+      0.12039656957734557,
+      0.08784897769101885,
+      0.10903645539818896,
+      0.08798120758974315
+    ]
+  },
+  {
+    "accounting": "equal_d_samples",
+    "modes": 25,
+    "reference_steps": 50000,
+    "method": "pacgan2_d512",
+    "against": "vanilla",
+    "metric": "mode_tv",
+    "wins": 5,
+    "mean_difference": -0.13980000000000006,
+    "differences": [
+      -0.1423000000000001,
+      -0.17770000000000008,
+      -0.14119999999999988,
+      -0.14000000000000012,
+      -0.09780000000000011
+    ]
+  },
+  {
+    "accounting": "equal_d_samples",
+    "modes": 25,
+    "reference_steps": 50000,
+    "method": "pacgan2_d512",
+    "against": "vanilla",
+    "metric": "spatial_tv",
+    "wins": 5,
+    "mean_difference": -0.06384825670828373,
+    "differences": [
+      -0.06617196904178724,
+      -0.07227471252627549,
+      -0.06805761381017572,
+      -0.06580041427031591,
+      -0.04693657389286432
+    ]
+  },
+  {
+    "accounting": "equal_d_samples",
+    "modes": 25,
+    "reference_steps": 50000,
+    "method": "pacgan2_d512",
+    "against": "rsgan",
+    "metric": "mode_tv",
+    "wins": 5,
+    "mean_difference": -0.10850000000000004,
+    "differences": [
+      -0.15339999999999998,
+      -0.16160000000000008,
+      -0.06940000000000002,
+      -0.07300000000000006,
+      -0.08510000000000006
+    ]
+  },
+  {
+    "accounting": "equal_d_samples",
+    "modes": 25,
+    "reference_steps": 50000,
+    "method": "pacgan2_d512",
+    "against": "rsgan",
+    "metric": "spatial_tv",
+    "wins": 5,
+    "mean_difference": -0.05748208648287241,
+    "differences": [
+      -0.07835045014645847,
+      -0.06660055813498977,
+      -0.043828135042376926,
+      -0.040262646592439943,
+      -0.05836864249809692
+    ]
+  },
+  {
+    "accounting": "equal_d_samples",
+    "modes": 25,
+    "reference_steps": 50000,
+    "method": "dual_slot_d512",
+    "against": "dual_slot",
+    "metric": "mode_tv",
+    "wins": 0,
+    "mean_difference": 0.3693400000000001,
+    "differences": [
+      0.41960000000000014,
+      0.3548000000000001,
+      0.33020000000000005,
+      0.3922,
+      0.34990000000000004
+    ]
+  },
+  {
+    "accounting": "equal_d_samples",
+    "modes": 25,
+    "reference_steps": 50000,
+    "method": "dual_slot_d512",
+    "against": "dual_slot",
+    "metric": "spatial_tv",
+    "wins": 0,
+    "mean_difference": 0.09793719633902023,
+    "differences": [
+      0.08213204580298561,
+      0.10129165177830501,
+      0.10446724783352224,
+      0.15611723509006992,
+      0.04567780119021836
+    ]
+  },
+  {
+    "accounting": "equal_d_samples",
+    "modes": 25,
+    "reference_steps": 50000,
+    "method": "dual_slot_d512",
+    "against": "vanilla",
+    "metric": "mode_tv",
+    "wins": 5,
+    "mean_difference": -0.1377,
+    "differences": [
+      -0.08099999999999996,
+      -0.21789999999999998,
+      -0.15789999999999982,
+      -0.09520000000000006,
+      -0.13650000000000007
+    ]
+  },
+  {
+    "accounting": "equal_d_samples",
+    "modes": 25,
+    "reference_steps": 50000,
+    "method": "dual_slot_d512",
+    "against": "vanilla",
+    "metric": "spatial_tv",
+    "wins": 5,
+    "mean_difference": -0.04897228331301815,
+    "differences": [
+      -0.039104992182674714,
+      -0.09489654889196675,
+      -0.036349977630811714,
+      -0.020694347420961434,
+      -0.05381555043867614
+    ]
+  },
+  {
+    "accounting": "equal_d_samples",
+    "modes": 25,
+    "reference_steps": 50000,
+    "method": "dual_slot_d512",
+    "against": "rsgan",
+    "metric": "mode_tv",
+    "wins": 5,
+    "mean_difference": -0.10639999999999997,
+    "differences": [
+      -0.09209999999999985,
+      -0.20179999999999998,
+      -0.08609999999999995,
+      -0.028200000000000003,
+      -0.12380000000000002
+    ]
+  },
+  {
+    "accounting": "equal_d_samples",
+    "modes": 25,
+    "reference_steps": 50000,
+    "method": "dual_slot_d512",
+    "against": "rsgan",
+    "metric": "spatial_tv",
+    "wins": 4,
+    "mean_difference": -0.042606113087606826,
+    "differences": [
+      -0.05128347328734595,
+      -0.08922239450068103,
+      -0.012120498863012918,
+      0.004843420256914532,
+      -0.06524761904390874
+    ]
+  },
+  {
+    "accounting": "equal_d_samples",
+    "modes": 49,
+    "reference_steps": 10000,
+    "method": "paired_d512",
+    "against": "paired",
+    "metric": "mode_tv",
+    "wins": 0,
+    "mean_difference": 0.02619999999999998,
+    "differences": [
+      0.01079999999999992,
+      0.03579999999999994,
+      0.018299999999999983,
+      0.03770000000000007,
+      0.02839999999999998
+    ]
+  },
+  {
+    "accounting": "equal_d_samples",
+    "modes": 49,
+    "reference_steps": 10000,
+    "method": "paired_d512",
+    "against": "paired",
+    "metric": "spatial_tv",
+    "wins": 0,
+    "mean_difference": 0.015350137171245537,
+    "differences": [
+      0.008196261805158644,
+      0.021629122208279727,
+      0.009051826803038732,
+      0.02350381766124643,
+      0.014369657378504153
+    ]
+  },
+  {
+    "accounting": "equal_d_samples",
+    "modes": 49,
+    "reference_steps": 10000,
+    "method": "paired_d512",
+    "against": "vanilla",
+    "metric": "mode_tv",
+    "wins": 0,
+    "mean_difference": 0.11918163265306117,
+    "differences": [
+      0.12359999999999993,
+      0.12430816326530614,
+      0.07799999999999996,
+      0.13549999999999995,
+      0.13449999999999984
+    ]
+  },
+  {
+    "accounting": "equal_d_samples",
+    "modes": 49,
+    "reference_steps": 10000,
+    "method": "paired_d512",
+    "against": "vanilla",
+    "metric": "spatial_tv",
+    "wins": 0,
+    "mean_difference": 0.07549010555169233,
+    "differences": [
+      0.08277230476864406,
+      0.08090415058892719,
+      0.04299053279751697,
+      0.08256198334868325,
+      0.08822155625469019
+    ]
+  },
+  {
+    "accounting": "equal_d_samples",
+    "modes": 49,
+    "reference_steps": 10000,
+    "method": "paired_d512",
+    "against": "rsgan",
+    "metric": "mode_tv",
+    "wins": 0,
+    "mean_difference": 0.12505999999999995,
+    "differences": [
+      0.1358999999999999,
+      0.11499999999999988,
+      0.1318999999999999,
+      0.13640000000000008,
+      0.10609999999999997
+    ]
+  },
+  {
+    "accounting": "equal_d_samples",
+    "modes": 49,
+    "reference_steps": 10000,
+    "method": "paired_d512",
+    "against": "rsgan",
+    "metric": "spatial_tv",
+    "wins": 0,
+    "mean_difference": 0.08158564993490111,
+    "differences": [
+      0.09639116041767892,
+      0.06681453060453135,
+      0.08193470804446579,
+      0.09741815436527623,
+      0.06536969624255329
+    ]
+  },
+  {
+    "accounting": "equal_d_samples",
+    "modes": 49,
+    "reference_steps": 10000,
+    "method": "pacgan2_d512",
+    "against": "pacgan2",
+    "metric": "mode_tv",
+    "wins": 0,
+    "mean_difference": 0.026860000000000016,
+    "differences": [
+      0.025799999999999934,
+      0.021600000000000064,
+      0.049799999999999955,
+      0.01990000000000003,
+      0.017200000000000104
+    ]
+  },
+  {
+    "accounting": "equal_d_samples",
+    "modes": 49,
+    "reference_steps": 10000,
+    "method": "pacgan2_d512",
+    "against": "pacgan2",
+    "metric": "spatial_tv",
+    "wins": 0,
+    "mean_difference": 0.01820554049740526,
+    "differences": [
+      0.0188988693147778,
+      0.015710221573418393,
+      0.032806320932950106,
+      0.014074370981754125,
+      0.009537919684125873
+    ]
+  },
+  {
+    "accounting": "equal_d_samples",
+    "modes": 49,
+    "reference_steps": 10000,
+    "method": "pacgan2_d512",
+    "against": "vanilla",
+    "metric": "mode_tv",
+    "wins": 0,
+    "mean_difference": 0.11776163265306117,
+    "differences": [
+      0.11219999999999986,
+      0.12910816326530616,
+      0.07469999999999988,
+      0.1352,
+      0.13759999999999994
+    ]
+  },
+  {
+    "accounting": "equal_d_samples",
+    "modes": 49,
+    "reference_steps": 10000,
+    "method": "pacgan2_d512",
+    "against": "vanilla",
+    "metric": "spatial_tv",
+    "wins": 0,
+    "mean_difference": 0.07580122528669633,
+    "differences": [
+      0.0761926314458341,
+      0.08602684704933461,
+      0.04259554411667876,
+      0.08222264970328985,
+      0.09196845411834431
+    ]
+  },
+  {
+    "accounting": "equal_d_samples",
+    "modes": 49,
+    "reference_steps": 10000,
+    "method": "pacgan2_d512",
+    "against": "rsgan",
+    "metric": "mode_tv",
+    "wins": 0,
+    "mean_difference": 0.12363999999999994,
+    "differences": [
+      0.12449999999999983,
+      0.1197999999999999,
+      0.12859999999999983,
+      0.1361000000000001,
+      0.10920000000000007
+    ]
+  },
+  {
+    "accounting": "equal_d_samples",
+    "modes": 49,
+    "reference_steps": 10000,
+    "method": "pacgan2_d512",
+    "against": "rsgan",
+    "metric": "spatial_tv",
+    "wins": 0,
+    "mean_difference": 0.08189676966990511,
+    "differences": [
+      0.08981148709486897,
+      0.07193722706493877,
+      0.08153971936362758,
+      0.09707882071988283,
+      0.06911659410620741
+    ]
+  },
+  {
+    "accounting": "equal_d_samples",
+    "modes": 49,
+    "reference_steps": 10000,
+    "method": "dual_slot_d512",
+    "against": "dual_slot",
+    "metric": "mode_tv",
+    "wins": 1,
+    "mean_difference": 0.010460000000000002,
+    "differences": [
+      -0.0015000000000001679,
+      0.01880000000000015,
+      0.005599999999999938,
+      0.012199999999999989,
+      0.017200000000000104
+    ]
+  },
+  {
+    "accounting": "equal_d_samples",
+    "modes": 49,
+    "reference_steps": 10000,
+    "method": "dual_slot_d512",
+    "against": "dual_slot",
+    "metric": "spatial_tv",
+    "wins": 0,
+    "mean_difference": 0.006829704201084974,
+    "differences": [
+      0.00028264126458354966,
+      0.01525737501423352,
+      0.0011141375370758988,
+      0.00614633239705531,
+      0.011348034792476591
+    ]
+  },
+  {
+    "accounting": "equal_d_samples",
+    "modes": 49,
+    "reference_steps": 10000,
+    "method": "dual_slot_d512",
+    "against": "vanilla",
+    "metric": "mode_tv",
+    "wins": 0,
+    "mean_difference": 0.11890163265306115,
+    "differences": [
+      0.11919999999999986,
+      0.1327081632653062,
+      0.07029999999999992,
+      0.13859999999999983,
+      0.13369999999999993
+    ]
+  },
+  {
+    "accounting": "equal_d_samples",
+    "modes": 49,
+    "reference_steps": 10000,
+    "method": "dual_slot_d512",
+    "against": "vanilla",
+    "metric": "spatial_tv",
+    "wins": 0,
+    "mean_difference": 0.07540174967228566,
+    "differences": [
+      0.08058374039495075,
+      0.08738746081534177,
+      0.03867945310349996,
+      0.08171706491254616,
+      0.08864102913508964
+    ]
+  },
+  {
+    "accounting": "equal_d_samples",
+    "modes": 49,
+    "reference_steps": 10000,
+    "method": "dual_slot_d512",
+    "against": "rsgan",
+    "metric": "mode_tv",
+    "wins": 0,
+    "mean_difference": 0.12477999999999993,
+    "differences": [
+      0.13149999999999984,
+      0.12339999999999995,
+      0.12419999999999987,
+      0.13949999999999996,
+      0.10530000000000006
+    ]
+  },
+  {
+    "accounting": "equal_d_samples",
+    "modes": 49,
+    "reference_steps": 10000,
+    "method": "dual_slot_d512",
+    "against": "rsgan",
+    "metric": "spatial_tv",
+    "wins": 0,
+    "mean_difference": 0.08149729405549444,
+    "differences": [
+      0.09420259604398562,
+      0.07329784083094593,
+      0.07762362835044878,
+      0.09657323592913913,
+      0.06578916912295274
+    ]
+  },
+  {
+    "accounting": "equal_d_samples",
+    "modes": 49,
+    "reference_steps": 50000,
+    "method": "paired_d512",
+    "against": "paired",
+    "metric": "mode_tv",
+    "wins": 0,
+    "mean_difference": 0.07116326530612242,
+    "differences": [
+      0.027699999999999836,
+      0.048699999999999966,
+      0.0968,
+      0.0958,
+      0.08681632653061233
+    ]
+  },
+  {
+    "accounting": "equal_d_samples",
+    "modes": 49,
+    "reference_steps": 50000,
+    "method": "paired_d512",
+    "against": "paired",
+    "metric": "spatial_tv",
+    "wins": 0,
+    "mean_difference": 0.034909038794059356,
+    "differences": [
+      0.006797040515203356,
+      0.019066478627330685,
+      0.051679110805229245,
+      0.034900724734049704,
+      0.062101839288483784
+    ]
+  },
+  {
+    "accounting": "equal_d_samples",
+    "modes": 49,
+    "reference_steps": 50000,
+    "method": "paired_d512",
+    "against": "vanilla",
+    "metric": "mode_tv",
+    "wins": 0,
+    "mean_difference": 0.11431755102040815,
+    "differences": [
+      0.12734897959183666,
+      0.10113265306122443,
+      0.1536408163265306,
+      0.08693265306122444,
+      0.10253265306122461
+    ]
+  },
+  {
+    "accounting": "equal_d_samples",
+    "modes": 49,
+    "reference_steps": 50000,
+    "method": "paired_d512",
+    "against": "vanilla",
+    "metric": "spatial_tv",
+    "wins": 1,
+    "mean_difference": 0.05186633536622143,
+    "differences": [
+      0.08034648311202641,
+      0.06448224719360018,
+      0.09148225898436768,
+      -0.008569757137760425,
+      0.031590444678873286
+    ]
+  },
+  {
+    "accounting": "equal_d_samples",
+    "modes": 49,
+    "reference_steps": 50000,
+    "method": "paired_d512",
+    "against": "rsgan",
+    "metric": "mode_tv",
+    "wins": 0,
+    "mean_difference": 0.11286081632653062,
+    "differences": [
+      0.08083265306122445,
+      0.13384897959183661,
+      0.17204897959183674,
+      0.09754081632653067,
+      0.08003265306122465
+    ]
+  },
+  {
+    "accounting": "equal_d_samples",
+    "modes": 49,
+    "reference_steps": 50000,
+    "method": "paired_d512",
+    "against": "rsgan",
+    "metric": "spatial_tv",
+    "wins": 0,
+    "mean_difference": 0.056055398935970356,
+    "differences": [
+      0.03568153805966223,
+      0.0511126757090522,
+      0.09152133787534356,
+      0.04438741194611773,
+      0.05757403108967607
+    ]
+  },
+  {
+    "accounting": "equal_d_samples",
+    "modes": 49,
+    "reference_steps": 50000,
+    "method": "pacgan2_d512",
+    "against": "pacgan2",
+    "metric": "mode_tv",
+    "wins": 0,
+    "mean_difference": 0.041299999999999934,
+    "differences": [
+      0.0603999999999999,
+      0.025899999999999923,
+      0.06020000000000003,
+      0.021199999999999886,
+      0.038799999999999946
+    ]
+  },
+  {
+    "accounting": "equal_d_samples",
+    "modes": 49,
+    "reference_steps": 50000,
+    "method": "pacgan2_d512",
+    "against": "pacgan2",
+    "metric": "spatial_tv",
+    "wins": 1,
+    "mean_difference": 0.00834522613313291,
+    "differences": [
+      0.023020287484019075,
+      0.0013350884385613382,
+      0.02139452220980642,
+      -0.015035686078078148,
+      0.011011918611355864
+    ]
+  },
+  {
+    "accounting": "equal_d_samples",
+    "modes": 49,
+    "reference_steps": 50000,
+    "method": "pacgan2_d512",
+    "against": "vanilla",
+    "metric": "mode_tv",
+    "wins": 0,
+    "mean_difference": 0.1052375510204081,
+    "differences": [
+      0.12764897959183663,
+      0.11103265306122445,
+      0.1042408163265306,
+      0.07193265306122432,
+      0.11133265306122453
+    ]
+  },
+  {
+    "accounting": "equal_d_samples",
+    "modes": 49,
+    "reference_steps": 50000,
+    "method": "pacgan2_d512",
+    "against": "vanilla",
+    "metric": "spatial_tv",
+    "wins": 1,
+    "mean_difference": 0.04180950129134538,
+    "differences": [
+      0.08113843833722933,
+      0.07313631068459492,
+      0.05856624706296376,
+      -0.019888387577542743,
+      0.0160948979494816
+    ]
+  },
+  {
+    "accounting": "equal_d_samples",
+    "modes": 49,
+    "reference_steps": 50000,
+    "method": "pacgan2_d512",
+    "against": "rsgan",
+    "metric": "mode_tv",
+    "wins": 0,
+    "mean_difference": 0.10378081632653058,
+    "differences": [
+      0.08113265306122441,
+      0.14374897959183663,
+      0.12264897959183674,
+      0.08254081632653054,
+      0.08883265306122456
+    ]
+  },
+  {
+    "accounting": "equal_d_samples",
+    "modes": 49,
+    "reference_steps": 50000,
+    "method": "pacgan2_d512",
+    "against": "rsgan",
+    "metric": "spatial_tv",
+    "wins": 0,
+    "mean_difference": 0.045998564861094306,
+    "differences": [
+      0.036473493284865155,
+      0.05976673920004694,
+      0.058605325953939635,
+      0.03306878150633541,
+      0.042078484360284385
+    ]
+  },
+  {
+    "accounting": "equal_d_samples",
+    "modes": 49,
+    "reference_steps": 50000,
+    "method": "dual_slot_d512",
+    "against": "dual_slot",
+    "metric": "mode_tv",
+    "wins": 0,
+    "mean_difference": 0.06291999999999995,
+    "differences": [
+      0.03179999999999983,
+      0.10939999999999994,
+      0.04299999999999993,
+      0.08789999999999998,
+      0.04250000000000009
+    ]
+  },
+  {
+    "accounting": "equal_d_samples",
+    "modes": 49,
+    "reference_steps": 50000,
+    "method": "dual_slot_d512",
+    "against": "dual_slot",
+    "metric": "spatial_tv",
+    "wins": 0,
+    "mean_difference": 0.030032529663457642,
+    "differences": [
+      0.010119446188266545,
+      0.04985489974351798,
+      0.019580274356319483,
+      0.051161501920606645,
+      0.019446526108577555
+    ]
+  },
+  {
+    "accounting": "equal_d_samples",
+    "modes": 49,
+    "reference_steps": 50000,
+    "method": "dual_slot_d512",
+    "against": "vanilla",
+    "metric": "mode_tv",
+    "wins": 0,
+    "mean_difference": 0.1161575510204081,
+    "differences": [
+      0.13574897959183663,
+      0.11333265306122442,
+      0.09034081632653057,
+      0.12273265306122438,
+      0.1186326530612245
+    ]
+  },
+  {
+    "accounting": "equal_d_samples",
+    "modes": 49,
+    "reference_steps": 50000,
+    "method": "dual_slot_d512",
+    "against": "vanilla",
+    "metric": "spatial_tv",
+    "wins": 0,
+    "mean_difference": 0.04679982361937114,
+    "differences": [
+      0.08470351573669466,
+      0.06474167768528738,
+      0.040198367605863594,
+      0.018209135387842967,
+      0.026146421681167098
+    ]
+  },
+  {
+    "accounting": "equal_d_samples",
+    "modes": 49,
+    "reference_steps": 50000,
+    "method": "dual_slot_d512",
+    "against": "rsgan",
+    "metric": "mode_tv",
+    "wins": 0,
+    "mean_difference": 0.11470081632653058,
+    "differences": [
+      0.08923265306122441,
+      0.1460489795918366,
+      0.10874897959183671,
+      0.1333408163265306,
+      0.09613265306122454
+    ]
+  },
+  {
+    "accounting": "equal_d_samples",
+    "modes": 49,
+    "reference_steps": 50000,
+    "method": "dual_slot_d512",
+    "against": "rsgan",
+    "metric": "spatial_tv",
+    "wins": 0,
+    "mean_difference": 0.05098888718912007,
+    "differences": [
+      0.04003857068433048,
+      0.0513721062007394,
+      0.04023744649683947,
+      0.07116630447172112,
+      0.05213000809196988
+    ]
+  },
+  {
+    "accounting": "equal_d_samples",
+    "modes": 49,
+    "reference_steps": 100000,
+    "method": "paired_d512",
+    "against": "paired",
+    "metric": "mode_tv",
+    "wins": 0,
+    "mean_difference": 0.3068742857142857,
+    "differences": [
+      0.26697346938775507,
+      0.29667346938775513,
+      0.3517081632653061,
+      0.3646163265306122,
+      0.2544
+    ]
+  },
+  {
+    "accounting": "equal_d_samples",
+    "modes": 49,
+    "reference_steps": 100000,
+    "method": "paired_d512",
+    "against": "paired",
+    "metric": "spatial_tv",
+    "wins": 0,
+    "mean_difference": 0.15594022920602923,
+    "differences": [
+      0.1387289682580557,
+      0.05395790745560247,
+      0.1769604501081039,
+      0.22895156831103336,
+      0.18110225189735074
+    ]
+  },
+  {
+    "accounting": "equal_d_samples",
+    "modes": 49,
+    "reference_steps": 100000,
+    "method": "paired_d512",
+    "against": "vanilla",
+    "metric": "mode_tv",
+    "wins": 0,
+    "mean_difference": 0.09490897959183671,
+    "differences": [
+      0.12263061224489791,
+      0.12694693877551022,
+      0.08394693877551007,
+      0.05749795918367351,
+      0.08352244897959182
+    ]
+  },
+  {
+    "accounting": "equal_d_samples",
+    "modes": 49,
+    "reference_steps": 100000,
+    "method": "paired_d512",
+    "against": "vanilla",
+    "metric": "spatial_tv",
+    "wins": 0,
+    "mean_difference": 0.07439004549719093,
+    "differences": [
+      0.08791879333135322,
+      0.0765108404132463,
+      0.08424216882117663,
+      0.04725825627398539,
+      0.0760201686461931
+    ]
+  },
+  {
+    "accounting": "equal_d_samples",
+    "modes": 49,
+    "reference_steps": 100000,
+    "method": "paired_d512",
+    "against": "rsgan",
+    "metric": "mode_tv",
+    "wins": 0,
+    "mean_difference": 0.0808975510204081,
+    "differences": [
+      0.12503061224489787,
+      0.11781428571428576,
+      0.05843061224489787,
+      0.07299795918367336,
+      0.030214285714285638
+    ]
+  },
+  {
+    "accounting": "equal_d_samples",
+    "modes": 49,
+    "reference_steps": 100000,
+    "method": "paired_d512",
+    "against": "rsgan",
+    "metric": "spatial_tv",
+    "wins": 0,
+    "mean_difference": 0.03419444763546633,
+    "differences": [
+      0.07078906554542752,
+      0.017574209940316,
+      0.00510827311907569,
+      0.045660927761565606,
+      0.03183976181094683
+    ]
+  },
+  {
+    "accounting": "equal_d_samples",
+    "modes": 49,
+    "reference_steps": 100000,
+    "method": "pacgan2_d512",
+    "against": "pacgan2",
+    "metric": "mode_tv",
+    "wins": 0,
+    "mean_difference": 0.32209795918367345,
+    "differences": [
+      0.3789,
+      0.2539489795918366,
+      0.40664081632653065,
+      0.22450000000000003,
+      0.34650000000000003
+    ]
+  },
+  {
+    "accounting": "equal_d_samples",
+    "modes": 49,
+    "reference_steps": 100000,
+    "method": "pacgan2_d512",
+    "against": "pacgan2",
+    "metric": "spatial_tv",
+    "wins": 0,
+    "mean_difference": 0.16205453616155815,
+    "differences": [
+      0.2182304922706897,
+      0.08710551217192308,
+      0.18111988581763505,
+      0.12659810475383948,
+      0.1972186857937035
+    ]
+  },
+  {
+    "accounting": "equal_d_samples",
+    "modes": 49,
+    "reference_steps": 100000,
+    "method": "pacgan2_d512",
+    "against": "vanilla",
+    "metric": "mode_tv",
+    "wins": 0,
+    "mean_difference": 0.12865551020408164,
+    "differences": [
+      0.06393061224489793,
+      0.17116326530612236,
+      0.14544693877551018,
+      0.10239795918367356,
+      0.16033877551020415
+    ]
+  },
+  {
+    "accounting": "equal_d_samples",
+    "modes": 49,
+    "reference_steps": 100000,
+    "method": "pacgan2_d512",
+    "against": "vanilla",
+    "metric": "spatial_tv",
+    "wins": 0,
+    "mean_difference": 0.08422013175923262,
+    "differences": [
+      0.05102243308492227,
+      0.07982675373840131,
+      0.11095149747191158,
+      0.059573305316921066,
+      0.11972666918400687
+    ]
+  },
+  {
+    "accounting": "equal_d_samples",
+    "modes": 49,
+    "reference_steps": 100000,
+    "method": "pacgan2_d512",
+    "against": "rsgan",
+    "metric": "mode_tv",
+    "wins": 0,
+    "mean_difference": 0.11464408163265302,
+    "differences": [
+      0.06633061224489789,
+      0.1620306122448979,
+      0.11993061224489798,
+      0.1178979591836734,
+      0.10703061224489796
+    ]
+  },
+  {
+    "accounting": "equal_d_samples",
+    "modes": 49,
+    "reference_steps": 100000,
+    "method": "pacgan2_d512",
+    "against": "rsgan",
+    "metric": "spatial_tv",
+    "wins": 0,
+    "mean_difference": 0.044024533897508024,
+    "differences": [
+      0.03389270529899657,
+      0.020890123265471017,
+      0.03181760176981063,
+      0.057975976804501284,
+      0.0755462623487606
+    ]
+  },
+  {
+    "accounting": "equal_d_samples",
+    "modes": 49,
+    "reference_steps": 100000,
+    "method": "dual_slot_d512",
+    "against": "dual_slot",
+    "metric": "mode_tv",
+    "wins": 0,
+    "mean_difference": 0.3514595918367347,
+    "differences": [
+      0.24193265306122447,
+      0.30152448979591834,
+      0.35214897959183666,
+      0.48250000000000004,
+      0.37919183673469387
+    ]
+  },
+  {
+    "accounting": "equal_d_samples",
+    "modes": 49,
+    "reference_steps": 100000,
+    "method": "dual_slot_d512",
+    "against": "dual_slot",
+    "metric": "spatial_tv",
+    "wins": 0,
+    "mean_difference": 0.14793978779001563,
+    "differences": [
+      0.09770922349995559,
+      0.0950995802572957,
+      0.14618697733515007,
+      0.2471617569374498,
+      0.15354140092022694
+    ]
+  },
+  {
+    "accounting": "equal_d_samples",
+    "modes": 49,
+    "reference_steps": 100000,
+    "method": "dual_slot_d512",
+    "against": "vanilla",
+    "metric": "mode_tv",
+    "wins": 0,
+    "mean_difference": 0.1398689795918367,
+    "differences": [
+      0.09193061224489785,
+      0.1298551020408163,
+      0.1481469387755101,
+      0.15089795918367355,
+      0.17851428571428574
+    ]
+  },
+  {
+    "accounting": "equal_d_samples",
+    "modes": 49,
+    "reference_steps": 100000,
+    "method": "dual_slot_d512",
+    "against": "vanilla",
+    "metric": "spatial_tv",
+    "wins": 0,
+    "mean_difference": 0.08297100400417012,
+    "differences": [
+      0.057657777883617034,
+      0.051037901190125745,
+      0.12613418956692624,
+      0.08601215448591937,
+      0.09401299689426224
+    ]
+  },
+  {
+    "accounting": "equal_d_samples",
+    "modes": 49,
+    "reference_steps": 100000,
+    "method": "dual_slot_d512",
+    "against": "rsgan",
+    "metric": "mode_tv",
+    "wins": 0,
+    "mean_difference": 0.1258575510204081,
+    "differences": [
+      0.0943306122448978,
+      0.12072244897959183,
+      0.12263061224489791,
+      0.1663979591836734,
+      0.12520612244897955
+    ]
+  },
+  {
+    "accounting": "equal_d_samples",
+    "modes": 49,
+    "reference_steps": 100000,
+    "method": "dual_slot_d512",
+    "against": "rsgan",
+    "metric": "spatial_tv",
+    "wins": 1,
+    "mean_difference": 0.04277540614244553,
+    "differences": [
+      0.04052805009769134,
+      -0.00789872928280455,
+      0.04700029386482529,
+      0.08441482597349959,
+      0.04983259005901597
+    ]
+  },
+  {
+    "accounting": "equal_d_samples",
+    "modes": 49,
+    "reference_steps": 150000,
+    "method": "paired_d512",
+    "against": "paired",
+    "metric": "mode_tv",
+    "wins": 0,
+    "mean_difference": 0.2761828571428571,
+    "differences": [
+      0.2265918367346938,
+      0.31758367346938765,
+      0.28179183673469393,
+      0.2902551020408163,
+      0.2646918367346938
+    ]
+  },
+  {
+    "accounting": "equal_d_samples",
+    "modes": 49,
+    "reference_steps": 150000,
+    "method": "paired_d512",
+    "against": "paired",
+    "metric": "spatial_tv",
+    "wins": 0,
+    "mean_difference": 0.11657001754778876,
+    "differences": [
+      0.07597492504343573,
+      0.1283649008973461,
+      0.0950937569667154,
+      0.09022356930340103,
+      0.1931929355280455
+    ]
+  },
+  {
+    "accounting": "equal_d_samples",
+    "modes": 49,
+    "reference_steps": 150000,
+    "method": "paired_d512",
+    "against": "vanilla",
+    "metric": "mode_tv",
+    "wins": 4,
+    "mean_difference": -0.012928979591836776,
+    "differences": [
+      -0.0006938775510204609,
+      -0.008726530612244932,
+      -0.02314489795918362,
+      -0.04159387755102051,
+      0.009514285714285642
+    ]
+  },
+  {
+    "accounting": "equal_d_samples",
+    "modes": 49,
+    "reference_steps": 150000,
+    "method": "paired_d512",
+    "against": "vanilla",
+    "metric": "spatial_tv",
+    "wins": 1,
+    "mean_difference": 0.040679249593542834,
+    "differences": [
+      0.06601698609901319,
+      -0.0013129342753485096,
+      0.051118305886769466,
+      0.046224371209714565,
+      0.04134951904756545
+    ]
+  },
+  {
+    "accounting": "equal_d_samples",
+    "modes": 49,
+    "reference_steps": 150000,
+    "method": "paired_d512",
+    "against": "rsgan",
+    "metric": "mode_tv",
+    "wins": 3,
+    "mean_difference": -0.011848979591836761,
+    "differences": [
+      -0.01300204081632661,
+      0.07108979591836728,
+      -0.008728571428571363,
+      0.008046938775510104,
+      -0.11665102040816322
+    ]
+  },
+  {
+    "accounting": "equal_d_samples",
+    "modes": 49,
+    "reference_steps": 150000,
+    "method": "paired_d512",
+    "against": "rsgan",
+    "metric": "spatial_tv",
+    "wins": 0,
+    "mean_difference": 0.03758683759246826,
+    "differences": [
+      0.016752535886033093,
+      0.04259720697664371,
+      0.013066389207051499,
+      0.08832672726542978,
+      0.02719132862718321
+    ]
+  },
+  {
+    "accounting": "equal_d_samples",
+    "modes": 49,
+    "reference_steps": 150000,
+    "method": "pacgan2_d512",
+    "against": "pacgan2",
+    "metric": "mode_tv",
+    "wins": 0,
+    "mean_difference": 0.2828183673469388,
+    "differences": [
+      0.26228367346938775,
+      0.26294081632653055,
+      0.3756081632653061,
+      0.22990816326530616,
+      0.28335102040816346
+    ]
+  },
+  {
+    "accounting": "equal_d_samples",
+    "modes": 49,
+    "reference_steps": 150000,
+    "method": "pacgan2_d512",
+    "against": "pacgan2",
+    "metric": "spatial_tv",
+    "wins": 0,
+    "mean_difference": 0.08766170334423377,
+    "differences": [
+      0.09043054858323318,
+      0.07910293964104931,
+      0.20204398975998383,
+      0.03142833371312259,
+      0.03530270502377997
+    ]
+  },
+  {
+    "accounting": "equal_d_samples",
+    "modes": 49,
+    "reference_steps": 150000,
+    "method": "pacgan2_d512",
+    "against": "vanilla",
+    "metric": "mode_tv",
+    "wins": 3,
+    "mean_difference": -0.008194285714285699,
+    "differences": [
+      -0.0830530612244898,
+      -0.010761224489795884,
+      0.07769795918367345,
+      -0.0747938775510204,
+      0.04993877551020415
+    ]
+  },
+  {
+    "accounting": "equal_d_samples",
+    "modes": 49,
+    "reference_steps": 150000,
+    "method": "pacgan2_d512",
+    "against": "vanilla",
+    "metric": "spatial_tv",
+    "wins": 2,
+    "mean_difference": 0.020133567919537087,
+    "differences": [
+      0.005546744960165717,
+      -0.0024517249424380605,
+      0.09604463989326373,
+      -0.018248513479505957,
+      0.01977669316620001
+    ]
+  },
+  {
+    "accounting": "equal_d_samples",
+    "modes": 49,
+    "reference_steps": 150000,
+    "method": "pacgan2_d512",
+    "against": "rsgan",
+    "metric": "mode_tv",
+    "wins": 3,
+    "mean_difference": -0.007114285714285684,
+    "differences": [
+      -0.09536122448979595,
+      0.06905510204081633,
+      0.0921142857142857,
+      -0.025153061224489792,
+      -0.07622653061224471
+    ]
+  },
+  {
+    "accounting": "equal_d_samples",
+    "modes": 49,
+    "reference_steps": 150000,
+    "method": "pacgan2_d512",
+    "against": "rsgan",
+    "metric": "spatial_tv",
+    "wins": 1,
+    "mean_difference": 0.017041155918462513,
+    "differences": [
+      -0.043717705252814376,
+      0.04145841630955416,
+      0.05799272321354576,
+      0.02385384257620926,
+      0.005618502745817766
+    ]
+  },
+  {
+    "accounting": "equal_d_samples",
+    "modes": 49,
+    "reference_steps": 150000,
+    "method": "dual_slot_d512",
+    "against": "dual_slot",
+    "metric": "mode_tv",
+    "wins": 0,
+    "mean_difference": 0.3202983673469388,
+    "differences": [
+      0.29821632653061225,
+      0.3647244897959184,
+      0.19423265306122456,
+      0.38957551020408165,
+      0.354742857142857
+    ]
+  },
+  {
+    "accounting": "equal_d_samples",
+    "modes": 49,
+    "reference_steps": 150000,
+    "method": "dual_slot_d512",
+    "against": "dual_slot",
+    "metric": "spatial_tv",
+    "wins": 0,
+    "mean_difference": 0.16615227411387173,
+    "differences": [
+      0.1567190915032387,
+      0.1532535955241887,
+      0.16125485756677915,
+      0.11109905211266335,
+      0.2484347738624888
+    ]
+  },
+  {
+    "accounting": "equal_d_samples",
+    "modes": 49,
+    "reference_steps": 150000,
+    "method": "dual_slot_d512",
+    "against": "vanilla",
+    "metric": "mode_tv",
+    "wins": 2,
+    "mean_difference": 0.009082857142857148,
+    "differences": [
+      0.02648163265306125,
+      0.011797959183673545,
+      -0.05928571428571422,
+      -0.01731020408163264,
+      0.0837306122448978
+    ]
+  },
+  {
+    "accounting": "equal_d_samples",
+    "modes": 49,
+    "reference_steps": 150000,
+    "method": "dual_slot_d512",
+    "against": "vanilla",
+    "metric": "spatial_tv",
+    "wins": 0,
+    "mean_difference": 0.038520710418545545,
+    "differences": [
+      0.07007217366128404,
+      0.04364841953736032,
+      0.01087542313478207,
+      0.015285792134308807,
+      0.05272174362499249
+    ]
+  },
+  {
+    "accounting": "equal_d_samples",
+    "modes": 49,
+    "reference_steps": 150000,
+    "method": "dual_slot_d512",
+    "against": "rsgan",
+    "metric": "mode_tv",
+    "wins": 2,
+    "mean_difference": 0.010162857142857163,
+    "differences": [
+      0.0141734693877551,
+      0.09161428571428576,
+      -0.044869387755101964,
+      0.03233061224489797,
+      -0.042434693877551055
+    ]
+  },
+  {
+    "accounting": "equal_d_samples",
+    "modes": 49,
+    "reference_steps": 150000,
+    "method": "dual_slot_d512",
+    "against": "rsgan",
+    "metric": "spatial_tv",
+    "wins": 1,
+    "mean_difference": 0.03542829841747097,
+    "differences": [
+      0.02080772344830395,
+      0.08755856078935254,
+      -0.027176493544935898,
+      0.057388148190024024,
+      0.038563553204610246
+    ]
+  }
+]

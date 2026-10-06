@@ -1,0 +1,23 @@
+{
+  "d_real_points": 512,
+  "d_fake_points": 512,
+  "g_fake_points": 256,
+  "d_updates_per_step": 1,
+  "g_updates_per_step": 1,
+  "paired_d_pairs": 512,
+  "pacgan2_d_packs": {
+    "RR": 256,
+    "FF": 256
+  },
+  "dual_slot_d_pairs": {
+    "RR": 128,
+    "RF": 128,
+    "FR": 128,
+    "FF": 128
+  },
+  "g_workloads": "Unchanged from D256 baselines for each method",
+  "workers": 8,
+  "threads_per_worker": 1,
+  "rng_note": "D slots use seed+80000. Original slot draws retained so G slots, real-G, noise-G and eval streams remain unchanged.",
+  "extra_checkpoints": "5k/25k/75k support exact equal-D-sample comparisons to baseline 10k/50k/150k."
+}
