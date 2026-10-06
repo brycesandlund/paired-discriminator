@@ -175,3 +175,7 @@ and [five-seed results](results/mnist-v1/REPORT.md).
 The original unconditional checkpoints now have a [class-balance audit](results/cifar10-class-representation-v1/REPORT.md) using two validated frozen classifiers. Paired has lower raw class TV at 50k under both evaluators, despite worse FID; generated-image ambiguity and the single seed limit the conclusion.
 
 The [conditional CBN/projection audit](results/cifar10-conditional-representation-v1/REPORT.md) evaluates the original three methods every 10k through 100k. Paired trails both baselines on requested-class adherence under both classifiers at every checkpoint; class balance shows no consistent paired advantage.
+
+### Ring mode-count sweep
+
+The [8/16/32-component comparison](results/ring-mode-count-v1/REPORT.md) holds radius and Gaussian width fixed. It includes all three methods and five seeds, plus fine spatial metrics and a smooth-ring control to detect misleading coverage as components get closer.

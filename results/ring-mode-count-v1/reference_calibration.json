@@ -1,0 +1,41 @@
+{
+  "8": {
+    "real_spatial_tv_mean": 0.11059991700613697,
+    "real_spatial_tv_95_interval": [
+      0.10570249429979374,
+      0.1165523034896338
+    ],
+    "draws": 200,
+    "samples_per_draw": 10000,
+    "seed": 48200,
+    "continuous_ring_spatial_tv": 0.7071887693786315,
+    "continuous_ring_legacy_mode_tv": 0.636,
+    "continuous_ring_valid_fraction": 0.364
+  },
+  "16": {
+    "real_spatial_tv_mean": 0.15470682008457717,
+    "real_spatial_tv_95_interval": [
+      0.1483031335312402,
+      0.16072530672749877
+    ],
+    "draws": 200,
+    "samples_per_draw": 10000,
+    "seed": 48208,
+    "continuous_ring_spatial_tv": 0.5151531736329116,
+    "continuous_ring_legacy_mode_tv": 0.2862,
+    "continuous_ring_valid_fraction": 0.7138
+  },
+  "32": {
+    "real_spatial_tv_mean": 0.192433488950637,
+    "real_spatial_tv_95_interval": [
+      0.18639269113956808,
+      0.19768746247370922
+    ],
+    "draws": 200,
+    "samples_per_draw": 10000,
+    "seed": 48224,
+    "continuous_ring_spatial_tv": 0.2619980453728661,
+    "continuous_ring_legacy_mode_tv": 0.025699999999999994,
+    "continuous_ring_valid_fraction": 0.9918
+  }
+}

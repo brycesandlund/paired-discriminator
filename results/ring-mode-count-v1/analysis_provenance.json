@@ -1,0 +1,10 @@
+{
+  "source_sha256": {
+    "src/paired_discriminator/ring_mode_sweep.py": "4448900fbf8e23a88ff532344878c784a0d0bef4085aa927076b0ba02b7239a5",
+    "src/paired_discriminator/ring_mode_sweep_report.py": "c97255499d248e5eab88867c511dbfca2c74e24adb7203b7cc6969e548a45e50"
+  },
+  "only_training_config_change": "modes",
+  "new_runs": 30,
+  "reused_runs": 15,
+  "tests_passed": 69
+}

@@ -34,6 +34,10 @@ digit-frequency TV in all five seeds at 10k and 50k, while vanilla develops
 more severe late imbalance. Confidence and sample grids qualify this as a
 category-balance result, not an unconditional image-quality win.
 
+The mode-count sweep (#14) qualifies the synthetic results: fixed-radius 16/32-mode
+mixtures become easier to cover coarsely as gaps shrink. Fine spatial evaluation
+shows that successful mode allocation does not imply correct Gaussian density.
+
 ## Experiment ledger
 
 “Updates” counts generator updates, each accompanied by one discriminator update.
@@ -54,6 +58,7 @@ The 10k and 50k checkpoints of a trajectory are not independent trials.
 | 11 | Ordinary MNIST, unconditional | Vanilla and paired; seeds 0–4 | 10k / 50k; evaluation every 1k | Paired lower mode TV in all five seeds at 10k and 50k; 50k full coverage 5/5 paired versus 0/5 vanilla. |
 | 12 | Unconditional CIFAR class representation (evaluation only) | Reuse #4–5, all three methods, seed 0; two frozen classifiers | 10k / 50k | Paired has best raw class TV at 50k under both classifiers, worst at 10k; all methods cover ten classes at 50k. Confidence-filtered ranking is mixed. |
 | 13 | Conditional CIFAR class representation and adherence (evaluation only) | Reuse #9 original CBN/projection vanilla, RSGAN, paired; seed 0; two classifiers | 10k–100k every 10k | Paired adherence trails both baselines at every checkpoint under both evaluators; no consistent class-TV advantage. |
+| 14 | Ring mode-count sweep | 16/32 components, all three methods, seeds 0–4; reuse 8-component runs | 10k / 50k | At 16 modes paired retains a late coarse-TV advantage; at 32 modes coverage saturates for all methods and thin-ring outputs expose the metric’s limitations. |
 
 ## What the methods mean
 
@@ -501,6 +506,58 @@ confidence ≥0.9 is 59.81% / 66.31% vanilla, 58.93% / 65.74% RSGAN and
 All 60 classifier records, checkpoint/image/weight hashes and source snapshot
 verified; 67 tests passed. No model or optimizer changes; nothing about how the
 discriminator uses its paired input is causally established by this evaluation.
+
+## 14. Ring mode-count sweep: 8 → 16 → 32
+
+30 new unconditional runs: vanilla, RSGAN and paired × five seeds × 16/32
+components. Reuse the existing 8-component runs. Keep radius 2, sigma 0.1,
+networks, batch 256, Adam settings and 50k budget unchanged. Retain the 10k
+endpoint and evaluate mode metrics every 1k. Changing component count also
+changes separation and expected per-component samples per batch; this is a
+fixed-geometry stress test, not an isolated count intervention.
+
+Mean ± sample SD, five seeds, at 50k:
+
+| Components | Method | Original mode TV ↓ | Fine-grid distribution TV ↓ | Original 1% coverage |
+|---|---|---|---|---|
+| 8 | Vanilla | 0.183 ± 0.074 | 0.568 ± 0.021 | 6.8/8 |
+| 8 | RSGAN | 0.198 ± 0.220 | 0.540 ± 0.150 | 7.4/8 |
+| 8 | Paired | 0.069 ± 0.020 | 0.555 ± 0.043 | 8/8 |
+| 16 | Vanilla | 0.171 ± 0.089 | 0.539 ± 0.042 | 16/16 |
+| 16 | RSGAN | 0.165 ± 0.102 | 0.534 ± 0.049 | 16/16 |
+| 16 | Paired | 0.088 ± 0.010 | 0.568 ± 0.033 | 16/16 |
+| 32 | Vanilla | 0.038 ± 0.011 | 0.581 ± 0.110 | 32/32 |
+| 32 | RSGAN | 0.035 ± 0.012 | 0.554 ± 0.070 | 32/32 |
+| 32 | Paired | 0.053 ± 0.019 | 0.526 ± 0.055 | 32/32 |
+
+**Coverage is misleading at high density.** Adjacent means at 32 components
+are 0.392 apart, while 3-sigma acceptance disks have radius 0.3 and overlap.
+A continuous noisy ring, without the specified discrete Gaussian structure,
+scores mode TV 0.0257. All methods cover all 16/32 modes at both endpoints,
+even under the original 1% cutoff. A target-relative threshold (8% of each
+component’s ideal mass) is additionally retained to avoid making the cutoff
+proportionally stricter with increasing count; it does not change this conclusion.
+
+Fine-grid TV compares empirical mass in fixed 0.05×0.05 spatial cells against
+exact Gaussian-mixture cell probabilities, including an outside category.
+It tests placement and spread within/between modes as well as coarse mass.
+Its finite-sample real-distribution reference is 0.111 / 0.155 / 0.192 for
+8 / 16 / 32 components (200 independent 10,000-point draws). Scores across
+component counts need this reference; it is not a training confidence interval.
+Sensitivity to cell widths 0.025 and 0.1 is also saved.
+
+Paired keeps a 16-mode late coarse-TV advantage, but has worse mean fine-grid TV.
+At 32 modes it has better mean fine-grid TV but worse coarse TV, and all methods
+are far from the real-distribution reference. Plots show thin-ring behavior and
+imperfect Gaussian spread. Mean fine-grid TV worsens from 10k to 50k for every
+method/count combination at the primary resolution. Retrospectively, the original
+8-mode success is a mode-allocation result, not a demonstrated full-density fit.
+
+[Full report, all-seed samples, controls and plots](results/ring-mode-count-v1/REPORT.md).
+Configs: [16 modes](configs/ring16-50k.json), [32 modes](configs/ring32-50k.json).
+All 90 endpoints recomputed from saved samples; source snapshots and sample
+hashes verified. 69 tests passed. No architecture/objective changes or additional
+separation-preserving runs.
 
 ## Verification and storage
 
