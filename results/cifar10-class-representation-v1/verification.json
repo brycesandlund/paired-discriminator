@@ -1,0 +1,7 @@
+{
+  "verified_records": 12,
+  "all_sample_and_checkpoint_hashes_match": true,
+  "classifier_weight_hashes_match": true,
+  "real_test_classifier_agreement": 0.9393,
+  "modal_app": "https://modal.com/apps/bcsandlund/main/ap-ukSu5ODpoYV6OXOzPjCYpq"
+}

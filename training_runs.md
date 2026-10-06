@@ -8,9 +8,9 @@ extensions or reused checkpoints.
 ## Where we stand
 
 **Paired improved mode coverage and balance on the eight-Gaussian toy task across
-five seeds. That advantage has not carried over to our CIFAR-10 pilots.** On
+five seeds. CIFAR-10 fidelity metrics have not shown a consistent paired advantage.** On
 CIFAR, paired starts behind and improves with longer training, but has not shown
-a consistent advantage over vanilla or RSGAN. All CIFAR comparisons have only
+a consistent FID/KID advantage over vanilla or RSGAN. Retrospective class classification (#12) does find better raw class balance for paired at 50k under two classifiers, with substantial generated-image ambiguity. All CIFAR comparisons have only
 one training seed; #10 adds two targeted, untuned D batch/capacity probes.
 
 Our reference-proximity explanation is still a hypothesis. The G-only
@@ -52,6 +52,7 @@ The 10k and 50k checkpoints of a trajectory are not independent trials.
 | 9 | CIFAR integrity study, same #8 architecture | All three; replay seed 0 | 10k–100k, every 10k | Growing D train/held-out gap; smaller late quality gains; train/held-out FIDs nearly identical; no exact generated copies detected. |
 | 10 | CIFAR paired D batch/capacity probes | Paired D batch256 and paired D width128; seed 0; reuse #9 baselines | 10k–100k, every 10k | At 100k, held-out FID 41.05 (D batch256), 38.72 (wider D), versus 42.53 paired baseline; G update batch remains 128. |
 | 11 | Ordinary MNIST, unconditional | Vanilla and paired; seeds 0–4 | 10k / 50k; evaluation every 1k | Paired lower mode TV in all five seeds at 10k and 50k; 50k full coverage 5/5 paired versus 0/5 vanilla. |
+| 12 | Unconditional CIFAR class representation (evaluation only) | Reuse #4–5, all three methods, seed 0; two frozen classifiers | 10k / 50k | Paired has best raw class TV at 50k under both classifiers, worst at 10k; all methods cover ten classes at 50k. Confidence-filtered ranking is mixed. |
 
 ## What the methods mean
 
@@ -428,6 +429,40 @@ Classifier test accuracy is 99.14%; its probabilities are uncalibrated. Results
 support a repeatable digit-representation advantage in this configuration, not
 a general GAN ranking or a proof of within-digit style diversity.
 
+
+## 12. Retrospective unconditional CIFAR class representation
+
+No GAN retraining. Re-evaluate #4–5 checkpoints with the original fixed 10,000
+noise draws at 10k and 50k. Two frozen CIFAR classifiers (ResNet56 and VGG16-BN)
+achieve 94.37% and 94.16% accuracy on official test images. The target class
+frequencies are 10% each. Full protocol, threshold sensitivity, sample galleries,
+and provenance are in the [report](results/cifar10-class-representation-v1/REPORT.md).
+
+| Endpoint | Classifier | Vanilla class TV | RSGAN class TV | Paired class TV |
+|---|---|---:|---:|---:|
+| 10k | ResNet56 | 0.4265 | 0.4530 | 0.4874 |
+| 10k | VGG16-BN | 0.3523 | 0.3281 | 0.4150 |
+| 50k | ResNet56 | 0.2488 | 0.2214 | **0.2038** |
+| 50k | VGG16-BN | 0.2163 | 0.1818 | **0.1361** |
+
+Class TV is half the sum of absolute differences between predicted class
+frequencies and 10%; lower means more balanced. All methods exceed 1% in all
+ten predicted classes at 50k. At 10k, automobile falls below 1% under both
+classifiers for all methods. Coverage alone therefore misses the late difference.
+
+The confidence-filtered result is less consistent. At 50k, augmented TV at
+confidence ≥0.9 is vanilla/RSGAN/paired = 0.4315/0.4196/0.4296 under ResNet and
+0.3546/0.3194/0.2897 under VGG. Paired has lower acceptance under both classifiers.
+Accepted mass uses ALL generated images as denominator; rejected mass is included
+in augmented TV, exactly as in the MNIST audit.
+
+This supports a late class-balance signal alongside worse paired FID, but only
+for one training seed. The evaluators agree on only 55.82–59.24% of generated
+images at 50k versus 93.93% of real test images. Galleries contain ambiguous
+samples; real-test accuracy and high softmax confidence do not guarantee semantic
+accuracy on generated images. No within-class diversity or causal mechanism
+claim follows. All 12 records and retained checkpoint/image/weight hashes were
+verified; 65 local tests passed. No conditional CIFAR models were re-evaluated.
 
 ## Verification and storage
 

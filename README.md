@@ -169,3 +169,7 @@ and [100k comparison report](results/cifar10-capacity-v1/REPORT.md).
 Unconditional vanilla versus paired over five seeds, tracking digit coverage and
 frequency balance through 50k updates. See the [protocol](docs/MNIST.md)
 and [five-seed results](results/mnist-v1/REPORT.md).
+
+### Retrospective CIFAR class representation
+
+The original unconditional checkpoints now have a [class-balance audit](results/cifar10-class-representation-v1/REPORT.md) using two validated frozen classifiers. Paired has lower raw class TV at 50k under both evaluators, despite worse FID; generated-image ambiguity and the single seed limit the conclusion.
