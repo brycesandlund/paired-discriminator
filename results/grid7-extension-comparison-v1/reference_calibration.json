@@ -1,0 +1,10 @@
+{
+  "real_spatial_tv_mean": 0.26384900428382707,
+  "real_spatial_tv_95_interval": [
+    0.2588378615565815,
+    0.2695222137007108
+  ],
+  "draws": 200,
+  "samples_per_draw": 10000,
+  "seed": 48241
+}

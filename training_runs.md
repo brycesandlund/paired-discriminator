@@ -1,6 +1,6 @@
 # Training runs
 
-Last updated: 2026-10-05. Running overview of completed research experiments.
+Last updated: 2026-10-06. Running overview of completed research experiments.
 Detailed reports, configurations, and raw metrics are linked below. Add future
 experiments here, preserving earlier results and distinguishing new trials from
 extensions or reused checkpoints.
@@ -40,7 +40,9 @@ shows that successful mode allocation does not imply correct Gaussian density.
 
 The fixed-spacing grid sweep (#15) removes the shrinking-gap issue: paired
 strongly improves 9/25-mode representation at 50k across all seeds, but its
-49-mode outputs remain too diffuse to beat the baselines on mean TV.
+49-mode outputs remain too diffuse to beat the baselines on mean TV at 50k.
+The exact continuation (#16) reverses that ranking: paired is ahead in all
+five seeds on mode TV by 100k and on both TV measures at 150k.
 
 ## Experiment ledger
 
@@ -64,6 +66,7 @@ The 10k and 50k checkpoints of a trajectory are not independent trials.
 | 13 | Conditional CIFAR class representation and adherence (evaluation only) | Reuse #9 original CBN/projection vanilla, RSGAN, paired; seed 0; two classifiers | 10k–100k every 10k | Paired adherence trails both baselines at every checkpoint under both evaluators; no consistent class-TV advantage. |
 | 14 | Ring mode-count sweep | 16/32 components, all three methods, seeds 0–4; reuse 8-component runs | 10k / 50k | At 16 modes paired retains a late coarse-TV advantage; at 32 modes coverage saturates for all methods and thin-ring outputs expose the metric’s limitations. |
 | 15 | Fixed-spacing Gaussian grids | 3×3 / 5×5 / 7×7; vanilla, RSGAN, paired; seeds 0–4 | 10k / 50k | Paired wins mode and fine-grid TV in every seed at 50k on 9/25 modes; at 49 modes its broad coverage has low valid mass and worse mean TV. |
+| 16 | 7×7 exact continuation | Continue #15 all three methods, seeds 0–4; restore model/Adam/RNG state | 50k → 100k → 150k | Paired overtakes both baselines: lower mode TV in all seeds at 100k/150k, lower fine-grid TV in all seeds at 150k. |
 
 ## What the methods mean
 
@@ -622,6 +625,47 @@ Configs: [3×3](configs/grid3-50k.json), [5×5](configs/grid5-50k.json),
 saved logs; source snapshots and sample hashes verified. 73 tests passed.
 Fixed separation does not fix global coordinate range, modes per batch or
 capacity per mode; these results apply to the explicitly unscaled expansion.
+
+## 16. 7×7 continuation: another 100k updates
+
+Continue all fifteen #15 7×7 runs from 50k to total 150k, evaluating 100k and
+150k. Restore G, D, both Adam states and all explicit RNG streams; preserve the
+same fixed 10,000-point evaluation noise. No changes to geometry, networks,
+learning rates, batches or losses. Original 50k files remain unchanged.
+
+Mean ± sample SD over five seeds:
+
+| Total updates | Method | Mode TV ↓ | Fine-grid TV ↓ | Valid mass | Coverage ≥1% |
+|---|---|---|---|---|---|
+| 50k | Vanilla | 0.667 ± 0.017 | 0.813 ± 0.035 | 37.2% | 11.8/49 |
+| 50k | RSGAN | 0.668 ± 0.024 | 0.808 ± 0.007 | 38.8% | 12.8/49 |
+| 50k | Paired | 0.710 ± 0.028 | 0.829 ± 0.019 | 29.1% | 6.8/49 |
+| 100k | Vanilla | 0.564 ± 0.035 | 0.739 ± 0.025 | 66.8% | 18.2/49 |
+| 100k | RSGAN | 0.578 ± 0.022 | 0.780 ± 0.013 | 66.1% | 16.8/49 |
+| 100k | Paired | 0.352 ± 0.062 | 0.658 ± 0.070 | 65.6% | 33.6/49 |
+| 150k | Vanilla | 0.520 ± 0.042 | 0.723 ± 0.026 | 76.4% | 21.0/49 |
+| 150k | RSGAN | 0.519 ± 0.056 | 0.726 ± 0.018 | 74.8% | 21.0/49 |
+| 150k | Paired | 0.231 ± 0.045 | 0.647 ± 0.058 | 78.2% | 41.4/49 |
+
+The ranking reverses. Paired wins mode TV against both baselines in all five
+matched seeds at 100k and 150k. At 150k it also wins fine-grid TV against both
+in every seed (at 100k, 4/5 versus vanilla and 5/5 versus RSGAN). Similar valid
+fractions at 150k accompany markedly better mode allocation for paired.
+At the relative threshold of 8% of target mode mass, coverage is 47.8/49 paired,
+34.4/49 vanilla and 35.0/49 RSGAN. Original 1% coverage reaches all 49 modes in
+only one paired seed; recovery is not complete. Fine-grid TV also remains far
+above the real-draw reference of 0.264, with imperfect spread and bridges in
+sample plots. Paired's fine-grid metric improves only slightly after 100k even
+as its coarse mode TV improves further.
+
+[Full report, curves, mass maps and all-seed samples](results/grid7-extension-comparison-v1/REPORT.md).
+Config: [grid7-150k.json](configs/grid7-150k.json). Extension-only timing is stored
+in new logs. Full checkpoints at 100k and 150k are retained locally; source,
+plots, metrics and small sample arrays are kept for Git. Continuous-versus-split
+training matches bit-for-bit for all three methods, including optimizer and
+RNG state. All 15 real resume boundaries verified; all 45 reported endpoints
+(including reused 50k) regenerate samples exactly from checkpoints and match
+recomputed metrics. 74 local tests passed. No training beyond 150k was run.
 
 ## Verification and storage
 

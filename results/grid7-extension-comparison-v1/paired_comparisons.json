@@ -1,0 +1,38 @@
+[
+  {
+    "step": 50000,
+    "baseline": "vanilla",
+    "mode_tv_paired_wins": 1,
+    "spatial_tv_paired_wins": 2
+  },
+  {
+    "step": 50000,
+    "baseline": "rsgan",
+    "mode_tv_paired_wins": 1,
+    "spatial_tv_paired_wins": 1
+  },
+  {
+    "step": 100000,
+    "baseline": "vanilla",
+    "mode_tv_paired_wins": 5,
+    "spatial_tv_paired_wins": 4
+  },
+  {
+    "step": 100000,
+    "baseline": "rsgan",
+    "mode_tv_paired_wins": 5,
+    "spatial_tv_paired_wins": 5
+  },
+  {
+    "step": 150000,
+    "baseline": "vanilla",
+    "mode_tv_paired_wins": 5,
+    "spatial_tv_paired_wins": 5
+  },
+  {
+    "step": 150000,
+    "baseline": "rsgan",
+    "mode_tv_paired_wins": 5,
+    "spatial_tv_paired_wins": 5
+  }
+]

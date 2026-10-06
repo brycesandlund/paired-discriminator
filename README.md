@@ -183,3 +183,5 @@ The [8/16/32-component comparison](results/ring-mode-count-v1/REPORT.md) holds r
 ### Fixed-spacing Gaussian grids
 
 The [3×3 / 5×5 / 7×7 grid experiment](results/grid-mode-count-v1/REPORT.md) expands outward at fixed spacing 1.5 and sigma 0.1, with five seeds per method. Paired wins mode and fine-grid TV at 50k in every matched seed for 9/25 modes; the advantage is not present at 49 modes within this budget.
+
+The [7×7 continuation to 150k](results/grid7-extension-comparison-v1/REPORT.md) reverses the 50k ranking: paired beats both baselines on mode TV in all five seeds at 100k and 150k, and on fine-grid density TV in all five at 150k. Recovery remains incomplete.
