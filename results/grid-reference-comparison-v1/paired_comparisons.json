@@ -1,0 +1,1282 @@
+[
+  {
+    "modes": 9,
+    "step": 10000,
+    "method": "paired_near",
+    "against": "paired",
+    "metric": "mode_tv",
+    "wins": 0,
+    "mean_difference": 0.7296311111111112,
+    "differences": [
+      0.6889888888888889,
+      0.8320000000000001,
+      0.6569888888888891,
+      0.740088888888889,
+      0.7300888888888889
+    ]
+  },
+  {
+    "modes": 9,
+    "step": 10000,
+    "method": "paired_near",
+    "against": "paired",
+    "metric": "spatial_tv",
+    "wins": 0,
+    "mean_difference": 0.4304300639074402,
+    "differences": [
+      0.402467386839212,
+      0.5048242581782661,
+      0.3773514438796002,
+      0.4682228849580904,
+      0.3992843456820322
+    ]
+  },
+  {
+    "modes": 9,
+    "step": 10000,
+    "method": "paired_deficit",
+    "against": "paired",
+    "metric": "mode_tv",
+    "wins": 4,
+    "mean_difference": 0.1300777777777778,
+    "differences": [
+      -0.029599999999999987,
+      0.7208888888888889,
+      -0.02729999999999999,
+      -0.010099999999999942,
+      -0.0034999999999999754
+    ]
+  },
+  {
+    "modes": 9,
+    "step": 10000,
+    "method": "paired_deficit",
+    "against": "paired",
+    "metric": "spatial_tv",
+    "wins": 2,
+    "mean_difference": 0.07079842667021354,
+    "differences": [
+      -0.0885398726763118,
+      0.4311713375814611,
+      0.06259813117456758,
+      0.007410022001883787,
+      -0.058647484730532995
+    ]
+  },
+  {
+    "modes": 9,
+    "step": 10000,
+    "method": "vanilla_deficit",
+    "against": "vanilla",
+    "metric": "mode_tv",
+    "wins": 5,
+    "mean_difference": -0.08998444444444441,
+    "differences": [
+      -0.016099999999999892,
+      -0.0045999999999999375,
+      -0.010699999999999932,
+      -0.20600000000000002,
+      -0.21252222222222228
+    ]
+  },
+  {
+    "modes": 9,
+    "step": 10000,
+    "method": "vanilla_deficit",
+    "against": "vanilla",
+    "metric": "spatial_tv",
+    "wins": 3,
+    "mean_difference": -0.0017404195778284448,
+    "differences": [
+      -0.03550297855155604,
+      0.09969682189951845,
+      0.0482350690259814,
+      -0.034280630424975644,
+      -0.08685037983811039
+    ]
+  },
+  {
+    "modes": 9,
+    "step": 10000,
+    "method": "paired_deficit",
+    "against": "vanilla_deficit",
+    "metric": "mode_tv",
+    "wins": 4,
+    "mean_difference": -0.11751333333333336,
+    "differences": [
+      -0.3315555555555556,
+      0.3764333333333333,
+      -0.30665555555555557,
+      -0.17085555555555554,
+      -0.1549333333333334
+    ]
+  },
+  {
+    "modes": 9,
+    "step": 10000,
+    "method": "paired_deficit",
+    "against": "vanilla_deficit",
+    "metric": "spatial_tv",
+    "wins": 4,
+    "mean_difference": -0.017639271170639136,
+    "differences": [
+      -0.1369067675633704,
+      0.1992977834402756,
+      -0.027335842413395928,
+      -0.05517922912107265,
+      -0.06807230019563232
+    ]
+  },
+  {
+    "modes": 9,
+    "step": 10000,
+    "method": "paired_near",
+    "against": "paired_deficit",
+    "metric": "mode_tv",
+    "wins": 0,
+    "mean_difference": 0.5995533333333334,
+    "differences": [
+      0.7185888888888888,
+      0.11111111111111116,
+      0.6842888888888891,
+      0.750188888888889,
+      0.7335888888888888
+    ]
+  },
+  {
+    "modes": 9,
+    "step": 10000,
+    "method": "paired_near",
+    "against": "paired_deficit",
+    "metric": "spatial_tv",
+    "wins": 0,
+    "mean_difference": 0.3596316372372267,
+    "differences": [
+      0.4910072595155238,
+      0.07365292059680506,
+      0.3147533127050326,
+      0.4608128629562066,
+      0.4579318304125652
+    ]
+  },
+  {
+    "modes": 9,
+    "step": 50000,
+    "method": "paired_near",
+    "against": "paired",
+    "metric": "mode_tv",
+    "wins": 0,
+    "mean_difference": 0.8856022222222222,
+    "differences": [
+      0.8305888888888888,
+      0.8893000000000001,
+      0.933011111111111,
+      0.8292000000000002,
+      0.9459111111111111
+    ]
+  },
+  {
+    "modes": 9,
+    "step": 50000,
+    "method": "paired_near",
+    "against": "paired",
+    "metric": "spatial_tv",
+    "wins": 0,
+    "mean_difference": 0.3486934171915904,
+    "differences": [
+      0.30813099756357376,
+      0.3726160017121588,
+      0.36479279831376743,
+      0.3088004173493042,
+      0.389126871019148
+    ]
+  },
+  {
+    "modes": 9,
+    "step": 50000,
+    "method": "paired_deficit",
+    "against": "paired",
+    "metric": "mode_tv",
+    "wins": 3,
+    "mean_difference": 0.1864444444444444,
+    "differences": [
+      -0.003000000000000072,
+      0.9479000000000001,
+      -0.007288888888888942,
+      -0.005788888888888941,
+      0.0003999999999999629
+    ]
+  },
+  {
+    "modes": 9,
+    "step": 50000,
+    "method": "paired_deficit",
+    "against": "paired",
+    "metric": "spatial_tv",
+    "wins": 1,
+    "mean_difference": 0.08156489133569553,
+    "differences": [
+      -0.07517611758719511,
+      0.3752402302279698,
+      0.0006260149623295019,
+      0.061590604307012575,
+      0.04554372476836088
+    ]
+  },
+  {
+    "modes": 9,
+    "step": 50000,
+    "method": "vanilla_deficit",
+    "against": "vanilla",
+    "metric": "mode_tv",
+    "wins": 5,
+    "mean_difference": -0.08852888888888896,
+    "differences": [
+      -0.0038000000000000256,
+      -0.0034999999999999476,
+      -0.001300000000000301,
+      -0.2168222222222223,
+      -0.2172222222222222
+    ]
+  },
+  {
+    "modes": 9,
+    "step": 50000,
+    "method": "vanilla_deficit",
+    "against": "vanilla",
+    "metric": "spatial_tv",
+    "wins": 2,
+    "mean_difference": 0.010423025639424854,
+    "differences": [
+      0.02733012676041502,
+      -0.00994791529036032,
+      0.055517150797506964,
+      -0.052963615762326444,
+      0.03217938169188905
+    ]
+  },
+  {
+    "modes": 9,
+    "step": 50000,
+    "method": "paired_deficit",
+    "against": "vanilla_deficit",
+    "metric": "mode_tv",
+    "wins": 4,
+    "mean_difference": -0.2092288888888889,
+    "differences": [
+      -0.48235555555555565,
+      0.4614444444444443,
+      -0.4811555555555554,
+      -0.2714333333333334,
+      -0.2726444444444444
+    ]
+  },
+  {
+    "modes": 9,
+    "step": 50000,
+    "method": "paired_deficit",
+    "against": "vanilla_deficit",
+    "metric": "spatial_tv",
+    "wins": 3,
+    "mean_difference": 0.012695130161545642,
+    "differences": [
+      -0.21654042795407347,
+      0.3269989414227683,
+      -0.07906382581065163,
+      0.07554405313206058,
+      -0.04346308998237558
+    ]
+  },
+  {
+    "modes": 9,
+    "step": 50000,
+    "method": "paired_near",
+    "against": "paired_deficit",
+    "metric": "mode_tv",
+    "wins": 1,
+    "mean_difference": 0.6991577777777779,
+    "differences": [
+      0.8335888888888889,
+      -0.058599999999999985,
+      0.9403,
+      0.8349888888888891,
+      0.9455111111111112
+    ]
+  },
+  {
+    "modes": 9,
+    "step": 50000,
+    "method": "paired_near",
+    "against": "paired_deficit",
+    "metric": "spatial_tv",
+    "wins": 1,
+    "mean_difference": 0.2671285258558949,
+    "differences": [
+      0.3833071151507689,
+      -0.0026242285158110112,
+      0.36416678335143793,
+      0.24720981304229162,
+      0.3435831462507871
+    ]
+  },
+  {
+    "modes": 25,
+    "step": 10000,
+    "method": "paired_near",
+    "against": "paired",
+    "metric": "mode_tv",
+    "wins": 0,
+    "mean_difference": 0.24749999999999997,
+    "differences": [
+      0.21039999999999992,
+      0.25129999999999997,
+      0.2587999999999999,
+      0.26849999999999996,
+      0.24849999999999994
+    ]
+  },
+  {
+    "modes": 25,
+    "step": 10000,
+    "method": "paired_near",
+    "against": "paired",
+    "metric": "spatial_tv",
+    "wins": 0,
+    "mean_difference": 0.1862927483184845,
+    "differences": [
+      0.15256504542237326,
+      0.17752063853278954,
+      0.197664938975059,
+      0.19264349731185426,
+      0.21106962135034646
+    ]
+  },
+  {
+    "modes": 25,
+    "step": 10000,
+    "method": "paired_deficit",
+    "against": "paired",
+    "metric": "mode_tv",
+    "wins": 0,
+    "mean_difference": 0.03201999999999998,
+    "differences": [
+      0.061899999999999955,
+      0.039100000000000024,
+      0.020499999999999963,
+      0.006099999999999994,
+      0.03249999999999997
+    ]
+  },
+  {
+    "modes": 25,
+    "step": 10000,
+    "method": "paired_deficit",
+    "against": "paired",
+    "metric": "spatial_tv",
+    "wins": 0,
+    "mean_difference": 0.026092264177252987,
+    "differences": [
+      0.05759358497832889,
+      0.02629970939938342,
+      0.018989400359329833,
+      0.0006142848240386911,
+      0.026964341325184105
+    ]
+  },
+  {
+    "modes": 25,
+    "step": 10000,
+    "method": "vanilla_deficit",
+    "against": "vanilla",
+    "metric": "mode_tv",
+    "wins": 0,
+    "mean_difference": 0.028800000000000027,
+    "differences": [
+      0.018900000000000028,
+      0.014499999999999957,
+      0.03860000000000008,
+      0.03490000000000015,
+      0.03709999999999991
+    ]
+  },
+  {
+    "modes": 25,
+    "step": 10000,
+    "method": "vanilla_deficit",
+    "against": "vanilla",
+    "metric": "spatial_tv",
+    "wins": 0,
+    "mean_difference": 0.021326687272392043,
+    "differences": [
+      0.008848672590094475,
+      0.006991486608897257,
+      0.029770618478303645,
+      0.03231864692086428,
+      0.028704011763800552
+    ]
+  },
+  {
+    "modes": 25,
+    "step": 10000,
+    "method": "paired_deficit",
+    "against": "vanilla_deficit",
+    "metric": "mode_tv",
+    "wins": 0,
+    "mean_difference": 0.07436000000000001,
+    "differences": [
+      0.133,
+      0.07669999999999999,
+      0.07030000000000003,
+      0.05059999999999998,
+      0.041200000000000014
+    ]
+  },
+  {
+    "modes": 25,
+    "step": 10000,
+    "method": "paired_deficit",
+    "against": "vanilla_deficit",
+    "metric": "spatial_tv",
+    "wins": 0,
+    "mean_difference": 0.04362055882344944,
+    "differences": [
+      0.0914740758163759,
+      0.05174244387465554,
+      0.04740467371036705,
+      0.021576538213700758,
+      0.005905062502147951
+    ]
+  },
+  {
+    "modes": 25,
+    "step": 10000,
+    "method": "paired_near",
+    "against": "paired_deficit",
+    "metric": "mode_tv",
+    "wins": 0,
+    "mean_difference": 0.21547999999999998,
+    "differences": [
+      0.14849999999999997,
+      0.21219999999999994,
+      0.23829999999999996,
+      0.26239999999999997,
+      0.21599999999999997
+    ]
+  },
+  {
+    "modes": 25,
+    "step": 10000,
+    "method": "paired_near",
+    "against": "paired_deficit",
+    "metric": "spatial_tv",
+    "wins": 0,
+    "mean_difference": 0.1602004841412315,
+    "differences": [
+      0.09497146044404436,
+      0.15122092913340612,
+      0.17867553861572916,
+      0.19202921248781557,
+      0.18410528002516235
+    ]
+  },
+  {
+    "modes": 25,
+    "step": 50000,
+    "method": "paired_near",
+    "against": "paired",
+    "metric": "mode_tv",
+    "wins": 0,
+    "mean_difference": 0.7392799999999999,
+    "differences": [
+      0.7707,
+      0.7474,
+      0.759,
+      0.7505999999999999,
+      0.6687000000000001
+    ]
+  },
+  {
+    "modes": 25,
+    "step": 50000,
+    "method": "paired_near",
+    "against": "paired",
+    "metric": "spatial_tv",
+    "wins": 0,
+    "mean_difference": 0.39426263090673,
+    "differences": [
+      0.4174738974009168,
+      0.36677872937425515,
+      0.4335175110221019,
+      0.4085210299820716,
+      0.34502198675430473
+    ]
+  },
+  {
+    "modes": 25,
+    "step": 50000,
+    "method": "paired_deficit",
+    "against": "paired",
+    "metric": "mode_tv",
+    "wins": 3,
+    "mean_difference": -0.027939999999999986,
+    "differences": [
+      0.015499999999999986,
+      0.0010000000000000009,
+      -0.005400000000000044,
+      -0.01929999999999993,
+      -0.13149999999999995
+    ]
+  },
+  {
+    "modes": 25,
+    "step": 50000,
+    "method": "paired_deficit",
+    "against": "paired",
+    "metric": "spatial_tv",
+    "wins": 2,
+    "mean_difference": 0.008587214582496849,
+    "differences": [
+      -0.03352325136810674,
+      0.0029869083446896205,
+      0.11386429778061946,
+      0.03936589357022735,
+      -0.07975777541494544
+    ]
+  },
+  {
+    "modes": 25,
+    "step": 50000,
+    "method": "vanilla_deficit",
+    "against": "vanilla",
+    "metric": "mode_tv",
+    "wins": 5,
+    "mean_difference": -0.11502000000000008,
+    "differences": [
+      -0.05810000000000015,
+      -0.09450000000000003,
+      -0.2602999999999999,
+      -0.07490000000000008,
+      -0.08730000000000016
+    ]
+  },
+  {
+    "modes": 25,
+    "step": 50000,
+    "method": "vanilla_deficit",
+    "against": "vanilla",
+    "metric": "spatial_tv",
+    "wins": 5,
+    "mean_difference": -0.046212184044937855,
+    "differences": [
+      -0.02559708846372466,
+      -0.013671899571820467,
+      -0.13606202229551478,
+      -0.01860938667912515,
+      -0.03712052321450421
+    ]
+  },
+  {
+    "modes": 25,
+    "step": 50000,
+    "method": "paired_deficit",
+    "against": "vanilla_deficit",
+    "metric": "mode_tv",
+    "wins": 5,
+    "mean_difference": -0.3881799999999999,
+    "differences": [
+      -0.40839999999999993,
+      -0.4394,
+      -0.24810000000000001,
+      -0.4439999999999999,
+      -0.4009999999999999
+    ]
+  },
+  {
+    "modes": 25,
+    "step": 50000,
+    "method": "paired_deficit",
+    "against": "vanilla_deficit",
+    "metric": "spatial_tv",
+    "wins": 4,
+    "mean_difference": -0.14173962969621257,
+    "differences": [
+      -0.21459043941490796,
+      -0.19469286179519452,
+      0.004772122700047898,
+      -0.13580152515238275,
+      -0.1683854448186255
+    ]
+  },
+  {
+    "modes": 25,
+    "step": 50000,
+    "method": "paired_near",
+    "against": "paired_deficit",
+    "metric": "mode_tv",
+    "wins": 0,
+    "mean_difference": 0.76722,
+    "differences": [
+      0.7552000000000001,
+      0.7464,
+      0.7644000000000001,
+      0.7698999999999998,
+      0.8002
+    ]
+  },
+  {
+    "modes": 25,
+    "step": 50000,
+    "method": "paired_near",
+    "against": "paired_deficit",
+    "metric": "spatial_tv",
+    "wins": 0,
+    "mean_difference": 0.3856754163242332,
+    "differences": [
+      0.4509971487690235,
+      0.36379182102956553,
+      0.31965321324148244,
+      0.3691551364118443,
+      0.4247797621692502
+    ]
+  },
+  {
+    "modes": 49,
+    "step": 10000,
+    "method": "paired_near",
+    "against": "paired",
+    "metric": "mode_tv",
+    "wins": 0,
+    "mean_difference": 0.10801673469387751,
+    "differences": [
+      0.012599999999999945,
+      0.11909183673469381,
+      0.13449999999999995,
+      0.1479999999999999,
+      0.12589183673469395
+    ]
+  },
+  {
+    "modes": 49,
+    "step": 10000,
+    "method": "paired_near",
+    "against": "paired",
+    "metric": "spatial_tv",
+    "wins": 0,
+    "mean_difference": 0.07500996307905143,
+    "differences": [
+      0.008465025407407456,
+      0.08954245793196136,
+      0.0861434835413406,
+      0.09806571503786854,
+      0.09283313347667921
+    ]
+  },
+  {
+    "modes": 49,
+    "step": 10000,
+    "method": "paired_deficit",
+    "against": "paired",
+    "metric": "mode_tv",
+    "wins": 1,
+    "mean_difference": 0.0035600000000000076,
+    "differences": [
+      0.00029999999999996696,
+      0.0017000000000000348,
+      -0.0121,
+      0.009700000000000042,
+      0.018199999999999994
+    ]
+  },
+  {
+    "modes": 49,
+    "step": 10000,
+    "method": "paired_deficit",
+    "against": "paired",
+    "metric": "spatial_tv",
+    "wins": 2,
+    "mean_difference": 0.0014591463454741494,
+    "differences": [
+      0.0006288728845551539,
+      -0.0015619789394548667,
+      -0.008693785736552107,
+      0.0027442728581373865,
+      0.01417835066068518
+    ]
+  },
+  {
+    "modes": 49,
+    "step": 10000,
+    "method": "vanilla_deficit",
+    "against": "vanilla",
+    "metric": "mode_tv",
+    "wins": 1,
+    "mean_difference": 0.016141632653061143,
+    "differences": [
+      0.011699999999999933,
+      0.0329081632653061,
+      -0.013000000000000012,
+      0.02379999999999982,
+      0.025299999999999878
+    ]
+  },
+  {
+    "modes": 49,
+    "step": 10000,
+    "method": "vanilla_deficit",
+    "against": "vanilla",
+    "metric": "spatial_tv",
+    "wins": 1,
+    "mean_difference": 0.008673757330779752,
+    "differences": [
+      0.00395196780605378,
+      0.03199866638823434,
+      -0.012205747873339945,
+      0.003977926707967816,
+      0.015645973624982767
+    ]
+  },
+  {
+    "modes": 49,
+    "step": 10000,
+    "method": "paired_deficit",
+    "against": "vanilla_deficit",
+    "metric": "mode_tv",
+    "wins": 0,
+    "mean_difference": 0.08040000000000005,
+    "differences": [
+      0.10140000000000005,
+      0.05730000000000013,
+      0.06059999999999999,
+      0.08370000000000011,
+      0.09899999999999998
+    ]
+  },
+  {
+    "modes": 49,
+    "step": 10000,
+    "method": "paired_deficit",
+    "against": "vanilla_deficit",
+    "metric": "spatial_tv",
+    "wins": 0,
+    "mean_difference": 0.05292535739514119,
+    "differences": [
+      0.07125294804198679,
+      0.025714383052958256,
+      0.037450668131266074,
+      0.057824511837606396,
+      0.07238427591188845
+    ]
+  },
+  {
+    "modes": 49,
+    "step": 10000,
+    "method": "paired_near",
+    "against": "paired_deficit",
+    "metric": "mode_tv",
+    "wins": 0,
+    "mean_difference": 0.1044567346938775,
+    "differences": [
+      0.012299999999999978,
+      0.11739183673469378,
+      0.14659999999999995,
+      0.13829999999999987,
+      0.10769183673469396
+    ]
+  },
+  {
+    "modes": 49,
+    "step": 10000,
+    "method": "paired_near",
+    "against": "paired_deficit",
+    "metric": "spatial_tv",
+    "wins": 0,
+    "mean_difference": 0.07355081673357729,
+    "differences": [
+      0.007836152522852302,
+      0.09110443687141623,
+      0.09483726927789271,
+      0.09532144217973115,
+      0.07865478281599403
+    ]
+  },
+  {
+    "modes": 49,
+    "step": 50000,
+    "method": "paired_near",
+    "against": "paired",
+    "metric": "mode_tv",
+    "wins": 0,
+    "mean_difference": 0.2660951020408163,
+    "differences": [
+      0.23659183673469375,
+      0.273,
+      0.22778367346938777,
+      0.2967918367346938,
+      0.29630816326530607
+    ]
+  },
+  {
+    "modes": 49,
+    "step": 50000,
+    "method": "paired_near",
+    "against": "paired",
+    "metric": "spatial_tv",
+    "wins": 0,
+    "mean_difference": 0.160131450452672,
+    "differences": [
+      0.13555883781529765,
+      0.1642733511578207,
+      0.14635796889134933,
+      0.17859916807076037,
+      0.17586792632813186
+    ]
+  },
+  {
+    "modes": 49,
+    "step": 50000,
+    "method": "paired_deficit",
+    "against": "paired",
+    "metric": "mode_tv",
+    "wins": 3,
+    "mean_difference": -0.013216734693877585,
+    "differences": [
+      -0.08540000000000014,
+      -0.02069999999999994,
+      0.0024000000000000687,
+      0.04039999999999988,
+      -0.002783673469387793
+    ]
+  },
+  {
+    "modes": 49,
+    "step": 50000,
+    "method": "paired_deficit",
+    "against": "paired",
+    "metric": "spatial_tv",
+    "wins": 3,
+    "mean_difference": -0.013654737426263264,
+    "differences": [
+      -0.06575407846383763,
+      -0.012476316219999783,
+      -0.013298447338209396,
+      0.01178659804762261,
+      0.01146855684310788
+    ]
+  },
+  {
+    "modes": 49,
+    "step": 50000,
+    "method": "vanilla_deficit",
+    "against": "vanilla",
+    "metric": "mode_tv",
+    "wins": 3,
+    "mean_difference": -0.005480408163265315,
+    "differences": [
+      0.04964081632653061,
+      -0.0002836734693877352,
+      -0.059699999999999975,
+      -0.03386734693877558,
+      0.016808163265306098
+    ]
+  },
+  {
+    "modes": 49,
+    "step": 50000,
+    "method": "vanilla_deficit",
+    "against": "vanilla",
+    "metric": "spatial_tv",
+    "wins": 3,
+    "mean_difference": -0.00846004898314876,
+    "differences": [
+      0.07156102361965799,
+      0.014630608927663324,
+      -0.03678971726828262,
+      -0.07438305113021437,
+      -0.017319109064568128
+    ]
+  },
+  {
+    "modes": 49,
+    "step": 50000,
+    "method": "paired_deficit",
+    "against": "vanilla_deficit",
+    "metric": "mode_tv",
+    "wins": 2,
+    "mean_difference": 0.03541795918367345,
+    "differences": [
+      -0.03539183673469393,
+      0.03201632653061226,
+      0.11894081632653064,
+      0.0653999999999999,
+      -0.0038755102040816114
+    ]
+  },
+  {
+    "modes": 49,
+    "step": 50000,
+    "method": "paired_deficit",
+    "against": "vanilla_deficit",
+    "metric": "spatial_tv",
+    "wins": 2,
+    "mean_difference": 0.011762608129047569,
+    "differences": [
+      -0.06376565948667257,
+      0.01830884341860639,
+      0.06329441810921166,
+      0.04269916730602685,
+      -0.0017237287019344905
+    ]
+  },
+  {
+    "modes": 49,
+    "step": 50000,
+    "method": "paired_near",
+    "against": "paired_deficit",
+    "metric": "mode_tv",
+    "wins": 0,
+    "mean_difference": 0.27931183673469384,
+    "differences": [
+      0.3219918367346939,
+      0.29369999999999996,
+      0.2253836734693877,
+      0.2563918367346939,
+      0.29909183673469386
+    ]
+  },
+  {
+    "modes": 49,
+    "step": 50000,
+    "method": "paired_near",
+    "against": "paired_deficit",
+    "metric": "spatial_tv",
+    "wins": 0,
+    "mean_difference": 0.17378618787893524,
+    "differences": [
+      0.20131291627913528,
+      0.1767496673778205,
+      0.15965641622955873,
+      0.16681257002313776,
+      0.16439936948502398
+    ]
+  },
+  {
+    "modes": 49,
+    "step": 100000,
+    "method": "paired_near",
+    "against": "paired",
+    "metric": "mode_tv",
+    "wins": 0,
+    "mean_difference": 0.6241526530612245,
+    "differences": [
+      0.5122571428571427,
+      0.6097816326530612,
+      0.6839000000000001,
+      0.6812081632653062,
+      0.6336163265306123
+    ]
+  },
+  {
+    "modes": 49,
+    "step": 100000,
+    "method": "paired_near",
+    "against": "paired",
+    "metric": "spatial_tv",
+    "wins": 0,
+    "mean_difference": 0.3246944165924875,
+    "differences": [
+      0.2716901665480238,
+      0.21667209253134168,
+      0.36071006867140953,
+      0.39442199374514797,
+      0.3799777614665145
+    ]
+  },
+  {
+    "modes": 49,
+    "step": 100000,
+    "method": "paired_deficit",
+    "against": "paired",
+    "metric": "mode_tv",
+    "wins": 2,
+    "mean_difference": -0.0008608163265306001,
+    "differences": [
+      -0.1263265306122449,
+      0.0004897959183673417,
+      0.06940816326530613,
+      0.1294163265306123,
+      -0.07729183673469386
+    ]
+  },
+  {
+    "modes": 49,
+    "step": 100000,
+    "method": "paired_deficit",
+    "against": "paired",
+    "metric": "spatial_tv",
+    "wins": 4,
+    "mean_difference": -0.041039522491859895,
+    "differences": [
+      -0.11151889193942333,
+      -0.0971479941439175,
+      -0.019199346913965076,
+      0.061455877377017076,
+      -0.03878725683901063
+    ]
+  },
+  {
+    "modes": 49,
+    "step": 100000,
+    "method": "vanilla_deficit",
+    "against": "vanilla",
+    "metric": "mode_tv",
+    "wins": 5,
+    "mean_difference": -0.13375346938775506,
+    "differences": [
+      -0.17378367346938778,
+      -0.08751632653061225,
+      -0.12039999999999995,
+      -0.1742755102040815,
+      -0.1127918367346939
+    ]
+  },
+  {
+    "modes": 49,
+    "step": 100000,
+    "method": "vanilla_deficit",
+    "against": "vanilla",
+    "metric": "spatial_tv",
+    "wins": 4,
+    "mean_difference": -0.04755478694409896,
+    "differences": [
+      -0.07733039173624534,
+      -0.04632695513796359,
+      0.007053308062976549,
+      -0.11253508510305121,
+      -0.008634810806211202
+    ]
+  },
+  {
+    "modes": 49,
+    "step": 100000,
+    "method": "paired_deficit",
+    "against": "vanilla_deficit",
+    "metric": "mode_tv",
+    "wins": 5,
+    "mean_difference": -0.07907265306122452,
+    "differences": [
+      -0.0968857142857143,
+      -0.08172040816326531,
+      -0.07795306122448992,
+      -0.0034265306122449046,
+      -0.13537755102040816
+    ]
+  },
+  {
+    "modes": 49,
+    "step": 100000,
+    "method": "paired_deficit",
+    "against": "vanilla_deficit",
+    "metric": "spatial_tv",
+    "wins": 5,
+    "mean_difference": -0.07503491925659925,
+    "differences": [
+      -0.08499867512988046,
+      -0.028268106048310093,
+      -0.1189709362638689,
+      -0.007702349556979682,
+      -0.13523452928395707
+    ]
+  },
+  {
+    "modes": 49,
+    "step": 100000,
+    "method": "paired_near",
+    "against": "paired_deficit",
+    "metric": "mode_tv",
+    "wins": 0,
+    "mean_difference": 0.6250134693877551,
+    "differences": [
+      0.6385836734693877,
+      0.6092918367346939,
+      0.6144918367346939,
+      0.5517918367346939,
+      0.7109081632653063
+    ]
+  },
+  {
+    "modes": 49,
+    "step": 100000,
+    "method": "paired_near",
+    "against": "paired_deficit",
+    "metric": "spatial_tv",
+    "wins": 0,
+    "mean_difference": 0.3657339390843474,
+    "differences": [
+      0.38320905848744713,
+      0.3138200866752592,
+      0.3799094155853746,
+      0.3329661163681309,
+      0.41876501830552515
+    ]
+  },
+  {
+    "modes": 49,
+    "step": 150000,
+    "method": "paired_near",
+    "against": "paired",
+    "metric": "mode_tv",
+    "wins": 0,
+    "mean_difference": 0.7320620408163265,
+    "differences": [
+      0.6577326530612244,
+      0.7439571428571428,
+      0.780991836734694,
+      0.7483714285714286,
+      0.7292571428571428
+    ]
+  },
+  {
+    "modes": 49,
+    "step": 150000,
+    "method": "paired_near",
+    "against": "paired",
+    "metric": "spatial_tv",
+    "wins": 0,
+    "mean_difference": 0.3298390881466914,
+    "differences": [
+      0.2847098082873787,
+      0.3599159890515933,
+      0.31225713649024445,
+      0.286832415623794,
+      0.4054800912804464
+    ]
+  },
+  {
+    "modes": 49,
+    "step": 150000,
+    "method": "paired_deficit",
+    "against": "paired",
+    "metric": "mode_tv",
+    "wins": 4,
+    "mean_difference": -0.04794816326530614,
+    "differences": [
+      -0.13055102040816324,
+      -0.017626530612244895,
+      0.0043999999999999595,
+      -0.05522857142857143,
+      -0.040734693877551104
+    ]
+  },
+  {
+    "modes": 49,
+    "step": 150000,
+    "method": "paired_deficit",
+    "against": "paired",
+    "metric": "spatial_tv",
+    "wins": 4,
+    "mean_difference": -0.07398126187634786,
+    "differences": [
+      -0.10245903380862043,
+      -0.04306389826492785,
+      -0.05426269531256733,
+      -0.18450776435438676,
+      0.01438708235876307
+    ]
+  },
+  {
+    "modes": 49,
+    "step": 150000,
+    "method": "vanilla_deficit",
+    "against": "vanilla",
+    "metric": "mode_tv",
+    "wins": 5,
+    "mean_difference": -0.20053265306122445,
+    "differences": [
+      -0.16677346938775506,
+      -0.185973469387755,
+      -0.21874081632653053,
+      -0.23441632653061223,
+      -0.1967591836734694
+    ]
+  },
+  {
+    "modes": 49,
+    "step": 150000,
+    "method": "vanilla_deficit",
+    "against": "vanilla",
+    "metric": "spatial_tv",
+    "wins": 4,
+    "mean_difference": -0.041580330084354175,
+    "differences": [
+      -0.0757732918841264,
+      -0.07637245769419154,
+      -0.05805994441034934,
+      -0.028711717416859406,
+      0.031015760983755802
+    ]
+  },
+  {
+    "modes": 49,
+    "step": 150000,
+    "method": "paired_deficit",
+    "against": "vanilla_deficit",
+    "metric": "mode_tv",
+    "wins": 5,
+    "mean_difference": -0.13652734693877558,
+    "differences": [
+      -0.19106326530612244,
+      -0.15796326530612248,
+      -0.08179591836734706,
+      -0.152661224489796,
+      -0.09915306122448989
+    ]
+  },
+  {
+    "modes": 49,
+    "step": 150000,
+    "method": "paired_deficit",
+    "against": "vanilla_deficit",
+    "metric": "spatial_tv",
+    "wins": 5,
+    "mean_difference": -0.1082916997462396,
+    "differences": [
+      -0.03664368086891656,
+      -0.0963692757434309,
+      -0.04017820198216393,
+      -0.19979524503121382,
+      -0.16847209510547279
+    ]
+  },
+  {
+    "modes": 49,
+    "step": 150000,
+    "method": "paired_near",
+    "against": "paired_deficit",
+    "metric": "mode_tv",
+    "wins": 0,
+    "mean_difference": 0.7800102040816326,
+    "differences": [
+      0.7882836734693877,
+      0.7615836734693877,
+      0.776591836734694,
+      0.8036,
+      0.769991836734694
+    ]
+  },
+  {
+    "modes": 49,
+    "step": 150000,
+    "method": "paired_near",
+    "against": "paired_deficit",
+    "metric": "spatial_tv",
+    "wins": 0,
+    "mean_difference": 0.4038203500230392,
+    "differences": [
+      0.3871688420959991,
+      0.4029798873165211,
+      0.3665198318028118,
+      0.4713401799781808,
+      0.3910930089216833
+    ]
+  }
+]

@@ -220,3 +220,17 @@ method/grid; 3×3/5×5 through 50k and 7×7 through 150k.
 uv run python -m paired_discriminator.grid_d_batch_run
 uv run python -m paired_discriminator.grid_d_batch_report results/grid-d512-comparison-v1
 ```
+
+### Grid reference selection
+
+The [D-only reference experiment](results/grid-reference-comparison-v1/REPORT.md)
+compares nearby one-to-one pairing with adaptive sampling of underrepresented
+Gaussian modes, including vanilla with the same reweighting rule. G references
+stay random. The [protocol](docs/GRID_REFERENCE_PROTOCOL.md) specifies the
+matching, EMA, probability floor and real-versus-real diagnostic.
+
+```sh
+uv run python -m paired_discriminator.grid_reference_audit
+uv run python -m paired_discriminator.grid_reference_run
+uv run python -m paired_discriminator.grid_reference_report results/grid-reference-comparison-v1
+```

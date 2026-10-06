@@ -55,6 +55,11 @@ Doubling only D’s batch (#19) yields modest early gains but no general speedup
 all three joint methods have worse final mean mode TV on 5×5/7×7. More D
 examples per update do not substitute for more updates, and the experiment
 does not establish the mechanism or convergence plateaus.
+D-only reference interventions (#20) find that adaptive missing-mode sampling
+improves both vanilla and paired on the larger grids. Paired reaches all 49
+modes at the original threshold in all five seeds, but one adaptive 3×3 seed
+fails. D-only nearby matching performs poorly; G still sees random references,
+so this does not test matching consistently in both phases.
 
 ## Experiment ledger
 
@@ -82,6 +87,7 @@ The 10k and 50k checkpoints of a trajectory are not independent trials.
 | 17 | PacGAN2 on fixed-spacing grids | New PacGAN2, seeds 0–4; reuse #15–16 baselines | 10k / 50k; 7×7 also 100k / 150k | Closely tracks paired; final 7×7 mode TV 0.229 vs 0.231 paired. No consistent winner across coarse and fine density metrics. |
 | 18 | Two-output joint discriminator | New dual_slot, seeds 0–4; reuse #15–17 | 10k / 50k; 7×7 also 100k / 150k | Retains joint-input mode-TV gains; at 7×7/150k fine-grid TV 0.595 vs 0.647 paired and 0.655 PacGAN2, but 5×5 density fit is worse than both. |
 | 19 | D-only batch doubling on grids | Paired, PacGAN2, two-output D512/G256; seeds 0–4; reuse #15–18 | 3×3/5×5 to 50k; 7×7 to 150k; equal-G and equal-D-sample comparisons | Modest early gains do not persist; all three have worse final mean mode TV on 5×5/7×7. Equal-D-sample mode TV worsens versus D256 in all 24 comparisons. |
+| 20 | D-only grid reference selection | Paired near, paired deficit, vanilla deficit; seeds 0–4; reuse baselines | 3×3/5×5 to 50k; 7×7 to 150k | D-only near matching fails; deficit sampling helps vanilla and paired on larger grids. 7×7 paired mode TV 0.231→0.183; one paired 3×3 seed fails. |
 
 ## What the methods mean
 
@@ -861,6 +867,73 @@ and checks that only D’s workload doubles. Models and optimizer checkpoints
 remain locally ignored; small sample arrays, metrics, figures and source are
 retained for Git.
 
+## 20. D-only nearby and underrepresented-mode references
+
+**Question:** Does pairing G outputs with nearby real samples or emphasizing
+real samples from missing modes improve grid learning?
+
+45 new runs: paired-near, paired-deficit, vanilla-deficit × seeds 0–4 ×
+3×3/5×5/7×7. Original D256/G256, models, optimizer settings and budgets:
+50k on smaller grids, 150k on 7×7, with 10k/50k and 100k/150k endpoints.
+Only D's real sampling/pairing changes; G still uses independent uniform random
+references. Reuse previous random paired/vanilla and other baseline results.
+
+Nearby: exact minimum-total-squared-distance one-to-one assignment between
+sampled real and fake batches. Preserve both marginals and all 256 points from
+each source. Deficit: EMA of accepted mode mass (decay .99, initialized at 1/K),
+updated from the existing D fake batch. Sample real modes with half uniform
+probability plus half normalized positive deficit from 1/K, using the previous
+EMA. Every mode retains at least .5/K probability. Both paired and vanilla use
+the same adaptive algorithm, driven by their own generators; their actual weight
+trajectories differ. Evaluate every arm against the original uniform mixture.
+[Full prespecified protocol](docs/GRID_REFERENCE_PROTOCOL.md).
+
+Nearby changes association while deficit changes the real training distribution.
+These are distinct interventions, not a pure distance-only comparison. D-near
+versus G-random contexts also differ, so a negative near result cannot reject
+nearby pairing in both phases. A structural source-swap test and learned real-real
+audit check accidental source-role information: held-out accuracy is 49.0%,
+50.0%, 49.7% across three seeds, consistent with chance at the measured batch SEs.
+
+Final results, mean ± sample SD across five seeds:
+
+| Grid / budget | Method | Mode TV ↓ | Fine-grid TV ↓ | Valid | Coverage ≥1% |
+|---|---|---:|---:|---:|---:|
+| 3×3 / 50k | vanilla | 0.542 ± 0.001 | 0.679 ± 0.031 | 94.9% | 4.0/9 |
+| 3×3 / 50k | paired | 0.058 ± 0.006 | 0.621 ± 0.010 | 94.3% | 9.0/9 |
+| 3×3 / 50k | paired_near | 0.944 ± 0.056 | 0.969 ± 0.041 | 36.8% | 0.6/9 |
+| 3×3 / 50k | paired_deficit | 0.245 ± 0.422 | 0.702 ± 0.174 | 75.5% | 7.2/9 |
+| 3×3 / 50k | vanilla_deficit | 0.454 ± 0.117 | 0.689 ± 0.058 | 94.4% | 4.8/9 |
+| 5×5 / 50k | vanilla | 0.718 ± 0.023 | 0.794 ± 0.015 | 73.7% | 7.2/25 |
+| 5×5 / 50k | paired | 0.242 ± 0.050 | 0.597 ± 0.034 | 75.8% | 24.4/25 |
+| 5×5 / 50k | paired_near | 0.982 ± 0.020 | 0.992 ± 0.015 | 10.5% | 0.6/25 |
+| 5×5 / 50k | paired_deficit | 0.214 ± 0.022 | 0.606 ± 0.050 | 78.6% | 25.0/25 |
+| 5×5 / 50k | vanilla_deficit | 0.603 ± 0.075 | 0.748 ± 0.045 | 69.6% | 10.2/25 |
+| 7×7 / 150k | vanilla | 0.520 ± 0.042 | 0.723 ± 0.026 | 76.3% | 21.0/49 |
+| 7×7 / 150k | paired | 0.231 ± 0.045 | 0.647 ± 0.058 | 78.2% | 41.4/49 |
+| 7×7 / 150k | paired_near | 0.963 ± 0.016 | 0.977 ± 0.011 | 10.9% | 1.6/49 |
+| 7×7 / 150k | paired_deficit | 0.183 ± 0.010 | 0.573 ± 0.030 | 81.7% | 49.0/49 |
+| 7×7 / 150k | vanilla_deficit | 0.320 ± 0.045 | 0.681 ± 0.052 | 77.3% | 33.0/49 |
+
+The useful signal comes from emphasizing underrepresented modes, not from the D-only nearby matching tested here. Adaptive sampling improves final mean mode TV for vanilla on every grid and for paired on 5×5/7×7, but destabilizes one paired 3×3 seed. Neither policy is a universal improvement.
+
+Nearby paired performs poorly: final mean mode TV is 0.944 on 3×3, 0.982 on 5×5, 0.963 on 7×7. The corresponding random-paired scores are 0.058, 0.242, 0.231. The matching diagnostics confirm reduced pair distances and the real-real audit is consistent with chance source-role prediction. However, D learns on matched pairs while G uses independent random references; the result may reflect that context mismatch and does not reject nearby pairing in both phases. One-to-one matching also cannot make every reference local after G collapses, because it must retain the full real batch.
+
+On 7×7 at 150k, adaptive paired improves mode TV 0.231→0.183 and fine-grid TV 0.647→0.573. It wins those metrics in 4/5 and 4/5 matched seeds, respectively. Original-threshold coverage improves 41.4→49.0 of 49 modes; all 49 clear that threshold in all five adaptive-paired seeds, versus one original-paired seed. Adaptive vanilla also benefits substantially: mode TV 0.520→0.320, fine-grid TV 0.723→0.681. Thus an appreciable part of the benefit comes from the real-sampling rule itself, not uniquely from joint inputs. Paired remains ahead of the adaptive vanilla control at this endpoint. Both remain above the real-sample fine-grid reference of 0.264.
+
+On 5×5 at 50k, adaptive paired improves mode TV 0.242→0.214, with all 25 modes above the original 1% threshold in all five seeds. But fine-grid TV slightly worsens (0.597→0.606). Adaptive vanilla improves mode TV 0.718→0.603 while remaining far behind paired. On 3×3, adaptive vanilla improves mode allocation (two seeds reach six modes rather than four), without improving mean fine-grid TV. Adaptive paired has four full-coverage seeds and one catastrophic failure: seed 1 has zero valid samples at 50k, raising mean mode TV to 0.245 versus 0.058. Generated coordinates and losses remain finite; the failure is retained, not excluded.
+
+Interpretation: prioritizing missing modes is a promising synthetic-data intervention, with meaningful benefits beyond ordinary paired training on 7×7. It uses known Gaussian geometry and changes D’s real training distribution, so it is not a pure reference-association test or a ready-made image method. The vanilla control uses the same algorithm driven by its own G, not the same realized weights. Paired-deficit also retains uniform G references, introducing a D/G context difference. No mixture strength or EMA tuning was performed, and the seed failure and mixed density rankings matter. Further tests could isolate the phase choice, but none were added to this run.
+
+[Full report, sampling weights, matching diagnostics and all-seed samples](results/grid-reference-comparison-v1/REPORT.md).
+All 320 endpoints verified, including 120 exact new checkpoint replays and 200
+unchanged baseline sample hashes. G reference/noise/slot/eval and D-noise RNG
+states match at all 75 mutually retained checkpoints. Configurations, source
+hashes, optimizer budgets, weight normalization/floor and reduced matching cost
+verified. 98 tests passed. SciPy's assignment solver is recorded in the lockfile.
+Full checkpoints remain locally ignored; source, figures, metrics and small
+sample arrays are retained for Git.
+
 ## Verification and storage
 
 Smoke runs and interrupted-versus-continuous replay checks are engineering
@@ -881,14 +954,13 @@ gets a separate run directory; old results should remain unchanged.
    and projection together. Possible next tests include an auxiliary class loss
    and separate architectural ablations. Measure semantic accuracy with an
    independently validated classifier before interpreting closer-reference effects.
-2. **Toy reference-distance intervention:** keep the target distribution and
-   real/fake batches fixed while varying near/random/far associations. Include
-   vanilla and RSGAN controls. First check that the pairing rule does not leak
-   slot identity when both batches come from the true distribution.
+2. **Further reference interventions:** #20 tests D-only near matching and
+   adaptive deficit sampling. Matching in both D and G, explicit far associations,
+   and learned-feature matching on images remain untested.
 3. **Hyperparameter sensitivity and replication:** G/D learning rates, update
    ratio, capacity, and pair-interaction architecture have not been swept.
    CIFAR conclusions need more seeds before claiming a reliable ranking.
 
-No auxiliary-classification-loss experiment, reference-distance experiment,
-dedicated mode-recovery test, or hyperparameter sweep has been completed. Experiment #9 now measures the learning curves every 10k through 100k;
+No auxiliary-classification-loss experiment, dedicated mode-recovery test, or
+hyperparameter sweep has been completed. #20 adds D-only reference interventions. Experiment #9 now measures the learning curves every 10k through 100k;
 a universal “twice as many steps” convergence penalty is still not established. The mechanism behind the toy advantage remains unresolved.

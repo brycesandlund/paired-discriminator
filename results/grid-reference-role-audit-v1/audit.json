@@ -1,0 +1,56 @@
+{
+  "config": {
+    "modes": 25,
+    "sigma": 0.1,
+    "latent_dim": 16,
+    "generator_width": 128,
+    "discriminator_width": 128,
+    "batch_size": 256,
+    "steps": 50000,
+    "eval_every": 1000,
+    "eval_samples": 10000,
+    "learning_rate": 0.0002,
+    "betas": [
+      0.5,
+      0.999
+    ],
+    "valid_radius_sigma": 3.0,
+    "coverage_min_mass": 0.01,
+    "seeds": [
+      0,
+      1,
+      2,
+      3,
+      4
+    ],
+    "threads": 1,
+    "device": "cpu",
+    "grid_side": 5,
+    "spacing": 1.5
+  },
+  "results": [
+    {
+      "seed": 0,
+      "heldout_accuracy": 0.49046875,
+      "batch_accuracy_se": 0.005258285830081754,
+      "training_steps": 2000,
+      "heldout_pairs": 51200
+    },
+    {
+      "seed": 1,
+      "heldout_accuracy": 0.49962890625,
+      "batch_accuracy_se": 0.004899339766508001,
+      "training_steps": 2000,
+      "heldout_pairs": 51200
+    },
+    {
+      "seed": 2,
+      "heldout_accuracy": 0.49693359375,
+      "batch_accuracy_se": 0.006904860919480072,
+      "training_steps": 2000,
+      "heldout_pairs": 51200
+    }
+  ],
+  "scope": "5x5 null diagnostic: both source batches sampled independently from the same real mixture; nearby matching and randomized slots.",
+  "qualification": "Empirical chance accuracy plus source-swap-equivariance test; not a power guarantee against every possible classifier."
+}

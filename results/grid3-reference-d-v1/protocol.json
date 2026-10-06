@@ -1,0 +1,18 @@
+{
+  "methods": [
+    "paired_near",
+    "paired_deficit",
+    "vanilla_deficit"
+  ],
+  "d_real_points": 256,
+  "d_fake_points": 256,
+  "g_fake_points": 256,
+  "reference_phase": "D only; G uses original random/uniform real sampling",
+  "near": "Minimum-sum squared Euclidean distance one-to-one assignment of the original real and fake batches. No point is duplicated or removed.",
+  "deficit": "D real mode probabilities = 0.5/K + 0.5 * max(1/K - EMA accepted generator mass, 0) / sum positive deficits; uniform fallback.",
+  "ema": "Decay .99, initialized at 1/K, updated once per step using D fake batch after selecting this step\u2019s real samples. Invalid fake mass stays in the denominator.",
+  "control": "Vanilla uses the same adaptive rule driven by its own generator. Weight trajectories are not identical between methods.",
+  "target": "All metrics still compare with the original uniform mixture.",
+  "workers": 8,
+  "threads_per_worker": 1
+}
