@@ -53,6 +53,7 @@ The 10k and 50k checkpoints of a trajectory are not independent trials.
 | 10 | CIFAR paired D batch/capacity probes | Paired D batch256 and paired D width128; seed 0; reuse #9 baselines | 10k–100k, every 10k | At 100k, held-out FID 41.05 (D batch256), 38.72 (wider D), versus 42.53 paired baseline; G update batch remains 128. |
 | 11 | Ordinary MNIST, unconditional | Vanilla and paired; seeds 0–4 | 10k / 50k; evaluation every 1k | Paired lower mode TV in all five seeds at 10k and 50k; 50k full coverage 5/5 paired versus 0/5 vanilla. |
 | 12 | Unconditional CIFAR class representation (evaluation only) | Reuse #4–5, all three methods, seed 0; two frozen classifiers | 10k / 50k | Paired has best raw class TV at 50k under both classifiers, worst at 10k; all methods cover ten classes at 50k. Confidence-filtered ranking is mixed. |
+| 13 | Conditional CIFAR class representation and adherence (evaluation only) | Reuse #9 original CBN/projection vanilla, RSGAN, paired; seed 0; two classifiers | 10k–100k every 10k | Paired adherence trails both baselines at every checkpoint under both evaluators; no consistent class-TV advantage. |
 
 ## What the methods mean
 
@@ -463,6 +464,43 @@ samples; real-test accuracy and high softmax confidence do not guarantee semanti
 accuracy on generated images. No within-class diversity or causal mechanism
 claim follows. All 12 records and retained checkpoint/image/weight hashes were
 verified; 65 local tests passed. No conditional CIFAR models were re-evaluated.
+
+## 13. Conditional CIFAR class representation and adherence
+
+Re-evaluate the original CBN G / projection D integrity-study checkpoints (#9),
+vanilla, RSGAN and paired, seed 0, every 10k through 100k. No GAN training.
+D width 64, D batch 128 and G batch 128 throughout; #10 capacity/batch arms are
+excluded. The 10,000 generated images at each of 30 checkpoints match the earlier
+integrity evaluation byte-for-byte. Requested labels are exactly balanced.
+Use the same frozen ResNet56 and VGG16-BN classifiers as #12.
+
+| Updates | Method | Class TV ResNet / VGG ↓ | Requested-class adherence ResNet / VGG ↑ |
+|---|---|---|---|
+| 50k | Vanilla | 0.1178 / 0.0865 | 64.42% / 66.77% |
+| 50k | RSGAN | 0.1268 / 0.1001 | 61.83% / 65.77% |
+| 50k | Paired | 0.1492 / 0.0989 | 56.95% / 61.42% |
+| 100k | Vanilla | 0.1021 / 0.0747 | 68.89% / 72.07% |
+| 100k | RSGAN | 0.0981 / 0.0772 | 68.72% / 71.60% |
+| 100k | Paired | 0.1232 / 0.0876 | 64.41% / 67.43% |
+
+Paired has lower requested-class adherence at all ten checkpoints under both
+classifiers. Longer training improves all three; paired continues improving
+through 100k. Marginal class balance has no consistent paired advantage (there
+is a VGG-only paired TV win at 80k). All methods cover ten predicted classes at
+50k and 100k. The late unconditional result in #12 does not generalize cleanly
+to this conditional setup. Balanced marginal predictions can hide incorrect
+conditioning, so requested/predicted confusion matrices are included.
+
+Classifier agreement at 100k is 74.30% vanilla, 74.40% RSGAN and 71.67% paired,
+versus 93.93% on real images. Single-seed results and generated-image ambiguity
+still limit conclusions. At 100k, the fraction both correct for the request and
+confidence ≥0.9 is 59.81% / 66.31% vanilla, 58.93% / 65.74% RSGAN and
+54.89% / 61.29% paired (ResNet / VGG); the denominator includes ALL images.
+
+[Full report, curves, confusion matrices and galleries](results/cifar10-conditional-representation-v1/REPORT.md).
+All 60 classifier records, checkpoint/image/weight hashes and source snapshot
+verified; 67 tests passed. No model or optimizer changes; nothing about how the
+discriminator uses its paired input is causally established by this evaluation.
 
 ## Verification and storage
 

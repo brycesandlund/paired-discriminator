@@ -173,3 +173,5 @@ and [five-seed results](results/mnist-v1/REPORT.md).
 ### Retrospective CIFAR class representation
 
 The original unconditional checkpoints now have a [class-balance audit](results/cifar10-class-representation-v1/REPORT.md) using two validated frozen classifiers. Paired has lower raw class TV at 50k under both evaluators, despite worse FID; generated-image ambiguity and the single seed limit the conclusion.
+
+The [conditional CBN/projection audit](results/cifar10-conditional-representation-v1/REPORT.md) evaluates the original three methods every 10k through 100k. Paired trails both baselines on requested-class adherence under both classifiers at every checkpoint; class balance shows no consistent paired advantage.

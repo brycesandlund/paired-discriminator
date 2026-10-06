@@ -1,0 +1,7 @@
+{
+  "app_url": "https://modal.com/apps/bcsandlund/main/ap-PtHURPUMECyfuUjyy6X4X2",
+  "training_run": "cifar10-integrity-v1",
+  "evaluation_only": true,
+  "records": 60,
+  "checkpoints": 30
+}
