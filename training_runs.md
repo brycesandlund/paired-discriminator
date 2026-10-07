@@ -1,6 +1,6 @@
 # Training runs
 
-Last updated: 2026-10-06. Running overview of completed research experiments.
+Last updated: 2026-10-07. Running overview of completed research experiments.
 Detailed reports, configurations, and raw metrics are linked below. Add future
 experiments here, preserving earlier results and distinguishing new trials from
 extensions or reused checkpoints.
@@ -93,6 +93,8 @@ The 10k and 50k checkpoints of a trajectory are not independent trials.
 | 23 | Dual-slot D-only grid deficit sampling | dual_slot; seeds 0–4; reuse prior grid arms | 3×3/5×5 to 50k; 7×7 to 150k | Better coverage consistency, no density win: 7×7 full coverage 4/5 vs 2/5 original dual_slot; fine TV worsens 0.595→0.614. Paired D-deficit remains stronger. |
 | 24 | Fixed-spacing 10×10 grid | Vanilla, paired, each uniform vs D-deficit; seeds 0–4 | 150k, retained 10k/50k/100k/150k | At 150k all arms remain diffuse. Paired D-deficit has widest lenient coverage (98.2/100) and lowest mean fine TV (0.836); vanilla has lowest mode TV (0.688). |
 | 25 | 10×10 exact continuation | Resume all #24 methods/seeds | 150k → 300k; eval every 50k | Paired D-deficit leads both TVs at 300k in every matched seed; mode TV 0.488 vs 0.549 paired / 0.580 vanilla-deficit / 0.619 vanilla. Still far from fitting all modes. |
+| 26 | 10×10 exact continuation to 600k | Resume all #25 methods/seeds | 300k → 600k; eval every 50k | Complete: paired D-deficit best mean mode/fine TV (0.290/0.641); 76/100 modes at half-target mass. Still improving through 600k. |
+| 27 | 10×10 exact continuation to 1.2M | Resume all #26 methods/seeds | 600k → 1.2M; eval every 50k | Complete: paired D-deficit best mean mode/fine TV (0.209/0.625); 82.8/100 modes at half-target mass. Lenient presence coverage declines 96.4 → 92.8; no seed achieves full half-target coverage. |
 
 ## What the methods mean
 
@@ -1129,3 +1131,53 @@ Validation: 111 tests passed, including four exact continuation tests comparing
 all model/Adam/RNG/EMA tensors. All 20 starting sample arrays match #24 exactly;
 80 retained endpoint replays, 40 adaptive/control G/noise RNG comparisons, source
 hash and optimizer-count checks passed. All seeds retained.
+
+## 26. 10×10 exact continuation to 600k
+
+[Protocol](docs/GRID10_600K_PROTOCOL.md) · [Report](results/grid10-600k-comparison-v1/REPORT.md).
+All 20 continuations completed, with evaluations every 50k. Models, Adam, RNG
+streams and deficit EMA restored exactly from 300k. No other training changes.
+Evaluation overhead measured before launch was ~0.1% of previous loop runtime.
+
+Final means across five seeds:
+
+| Method | Mode TV ↓ | Fine TV ↓ | Valid mass | Coverage ≥50% target | Coverage ≥8% target |
+|---|---:|---:|---:|---:|---:|
+| Vanilla | 0.5928 | 0.7755 | 0.6566 | 34.6/100 | 71.2/100 |
+| Paired | 0.4295 | 0.7018 | 0.6368 | 51.8/100 | 91.4/100 |
+| Vanilla D deficit | 0.4830 | 0.7384 | 0.5905 | 48.8/100 | 80.0/100 |
+| Paired D deficit | 0.2898 | 0.6406 | 0.7278 | 76.0/100 | 96.4/100 |
+
+Paired D-deficit's mode TV improves 0.4883→0.2898 from 300k, and half-target
+coverage rises 48.6→76.0. It wins mode TV against every other arm in all five
+matched seeds; fine TV wins are 4/5 against paired and 5/5 against both vanilla
+arms. No seed achieves full half-target coverage. Mean mode TV continues to fall
+0.3252→0.3033→0.2898 at 500k/550k/600k; no demonstrated plateau.
+
+All 140 retained endpoint replays, 70 adaptive/control G/noise RNG comparisons,
+source hashes and optimizer-count checks passed. Original boundaries verified.
+
+## 27. 10×10 exact continuation to 1.2M
+
+[Protocol](docs/GRID10_1200K_PROTOCOL.md) · [Report](results/grid10-1200k-comparison-v1/REPORT.md).
+All 20 runs completed 600k→1,200,000 updates, with evaluations every 50k.
+Networks, Adam, RNG and deficit EMA restored exactly; no other training changes.
+
+Five-seed means (600k → 1.2M):
+
+| Method | Mode TV ↓ | Fine TV ↓ | Coverage ≥50% target |
+|---|---:|---:|---:|
+| Vanilla | 0.5928 → 0.5612 | 0.7755 → 0.7436 | 34.6 → 39.6 |
+| Paired | 0.4295 → 0.3570 | 0.7018 → 0.6548 | 51.8 → 63.0 |
+| Vanilla D deficit | 0.4830 → 0.3853 | 0.7384 → 0.6670 | 48.8 → 61.6 |
+| Paired D deficit | 0.2898 → 0.2088 | 0.6406 → 0.6248 | 76.0 → 82.8 |
+
+Paired D-deficit remains best on mean mode and fine TV. Its valid mass rises
+72.8%→82.8%, but lenient ≥8%-of-target coverage falls 96.4→92.8 modes.
+All methods lose some lenient presence coverage despite improved half-target
+coverage: mass fitting improves without uniformly preserving mode presence.
+No seed reaches full half-target coverage. These endpoints do not establish
+convergence, and fine-density TV remains far above the real-sample baseline.
+
+All 260 endpoint replays and 130 adaptive/control RNG comparisons passed,
+including source hashes and optimizer-count checks. Completion monitor paused.

@@ -1,0 +1,13 @@
+{
+  "source_checkpoint": "/Users/brycesandlund/GitHub/paired-discriminator/results/grid10-600k-v1/paired_deficit_seed1/checkpoint.pt",
+  "sha256": "4dca983dc98f372b33667248e075cc0f2c3b181cb5b8c0293a99c29c47fd4bc7",
+  "start_step": 600000,
+  "restored": [
+    "generator",
+    "discriminator",
+    "optimizer_g",
+    "optimizer_d",
+    "rng_states",
+    "ema_mass"
+  ]
+}

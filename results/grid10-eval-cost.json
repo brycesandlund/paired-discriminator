@@ -1,0 +1,6 @@
+{
+  "single_thread_eval_plus_checkpoint_memory_median_seconds": 0.0033865830628201365,
+  "previous_run_nontraining_wall_median_seconds": 0.15079436171799898,
+  "previous_run_nontraining_percent_median": 0.09734995193993218,
+  "note": "Nontraining wall includes evaluation and disk checkpoint writes; benchmark checkpoint writes to memory, not disk."
+}

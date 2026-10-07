@@ -285,3 +285,14 @@ uv run python -m paired_discriminator.grid10_run
 ```sh
 uv run python -m paired_discriminator.grid10_continue_run
 ```
+
+### 10×10 continuation to 600k
+
+[Protocol](docs/GRID10_600K_PROTOCOL.md): resume all 20 trajectories from
+300k, with evaluations every 50k.
+
+```sh
+uv run python -m paired_discriminator.grid10_600k_run
+```
+
+10×10 continuation to 1.2M: [protocol](docs/GRID10_1200K_PROTOCOL.md), run with `uv run python -m paired_discriminator.grid10_1200k_run`.
