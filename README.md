@@ -234,3 +234,17 @@ uv run python -m paired_discriminator.grid_reference_audit
 uv run python -m paired_discriminator.grid_reference_run
 uv run python -m paired_discriminator.grid_reference_report results/grid-reference-comparison-v1
 ```
+
+### CIFAR class deficit sampling
+
+The [CIFAR deficit protocol](docs/CIFAR_DEFICIT_PROTOCOL.md) transfers the grid
+sampler to classifier-estimated class deficits. Four unconditional arms compare
+vanilla/paired with uniform/adaptive D real sampling, keeping G unchanged.
+ResNet56 guides sampling; VGG16-BN supplies a separate class audit. Held-out
+FID/KID/precision/recall and both classifiers are evaluated every 10k through
+100k, seed 0. See experiment #21 in [training_runs.md](training_runs.md).
+
+```sh
+uv run --extra cifar modal run --detach modal_deficit.py --run-id cifar10-deficit-v1 --steps 100000
+uv run --extra cifar python -m paired_discriminator.cifar_deficit_report --sync
+```

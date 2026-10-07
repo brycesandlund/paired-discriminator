@@ -88,6 +88,7 @@ The 10k and 50k checkpoints of a trajectory are not independent trials.
 | 18 | Two-output joint discriminator | New dual_slot, seeds 0–4; reuse #15–17 | 10k / 50k; 7×7 also 100k / 150k | Retains joint-input mode-TV gains; at 7×7/150k fine-grid TV 0.595 vs 0.647 paired and 0.655 PacGAN2, but 5×5 density fit is worse than both. |
 | 19 | D-only batch doubling on grids | Paired, PacGAN2, two-output D512/G256; seeds 0–4; reuse #15–18 | 3×3/5×5 to 50k; 7×7 to 150k; equal-G and equal-D-sample comparisons | Modest early gains do not persist; all three have worse final mean mode TV on 5×5/7×7. Equal-D-sample mode TV worsens versus D256 in all 24 comparisons. |
 | 20 | D-only grid reference selection | Paired near, paired deficit, vanilla deficit; seeds 0–4; reuse baselines | 3×3/5×5 to 50k; 7×7 to 150k | D-only near matching fails; deficit sampling helps vanilla and paired on larger grids. 7×7 paired mode TV 0.231→0.183; one paired 3×3 seed fails. |
+| 21 | Unconditional CIFAR class deficit sampling | Vanilla and paired, uniform vs adaptive real D sampling; seed 0 | 100k, held-out evaluation every 10k | Completed: deficit improves final class TV for both; paired deficit FID 50.85 vs 48.79 original. Vanilla arms deteriorate after 60k; seed 0 only. |
 
 ## What the methods mean
 
@@ -964,3 +965,36 @@ gets a separate run directory; old results should remain unchanged.
 No auxiliary-classification-loss experiment, dedicated mode-recovery test, or
 hyperparameter sweep has been completed. #20 adds D-only reference interventions. Experiment #9 now measures the learning curves every 10k through 100k;
 a universal “twice as many steps” convergence penalty is still not established. The mechanism behind the toy advantage remains unresolved.
+
+## 21. Unconditional CIFAR class deficit sampling
+
+[Protocol](docs/CIFAR_DEFICIT_PROTOCOL.md) · [Report](results/cifar10-deficit-v1/REPORT.md).
+All four seed-0 runs completed 100k updates and all 40 endpoint evaluations.
+Original unconditional architectures and D/G batches; only adaptive arms reweight
+D real classes using ResNet56 confidence-filtered generated deficits. G references
+remain uniform. VGG16-BN is a separate evaluator, not used for sampling.
+
+Final 100k results (lower is better for all columns):
+
+| Method | Held-out FID | KID | VGG class TV | VGG accepted-mass TV, confidence ≥0.9 |
+|---|---:|---:|---:|---:|
+| Vanilla | 62.23 | 0.04754 | 0.3817 | 0.4585 |
+| Vanilla + deficit | 60.23 | 0.04634 | 0.3622 | 0.4515 |
+| Paired | 48.79 | 0.03398 | 0.1759 | 0.3117 |
+| Paired + deficit | 50.85 | 0.03583 | 0.1590 | 0.3096 |
+
+Deficit improves final raw class TV under both classifiers for both methods,
+but the paired quality result is mixed: worse FID/KID, better recall
+(0.3316→0.3500), nearly unchanged precision (0.5685→0.5716).
+Both paired arms cover all ten classes at the confidence-filtered ≥1%-mass
+threshold under both classifiers. Both vanilla arms cover nine under VGG and
+eight under ResNet56. Class coverage is not within-class diversity.
+
+The early gains are not monotonic. At 60k, vanilla/vanilla-deficit FIDs were
+51.97/48.41, versus 62.23/60.23 at 100k; VGG class TVs worsened from
+0.2516/0.1652 to 0.3817/0.3622. Paired/paired-deficit class TVs also worsened
+from 0.1353/0.1065 at 60k to 0.1759/0.1590 at 100k. This does not establish
+convergence or the cause of late deterioration. It remains a single-seed pilot.
+
+Validation: 104 local tests passed; A10 exact resume, original uniform
+trajectory equivalence, and preserved G/noise RNG checks passed.

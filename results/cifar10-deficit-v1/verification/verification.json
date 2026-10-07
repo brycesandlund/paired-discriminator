@@ -1,0 +1,13 @@
+{
+  "cuda_exact_resume": true,
+  "uniform_matches_original": true,
+  "G_and_noise_RNG_preserved": true,
+  "methods": [
+    "vanilla",
+    "paired",
+    "vanilla_deficit",
+    "paired_deficit"
+  ],
+  "steps": 4,
+  "split_at": 2
+}

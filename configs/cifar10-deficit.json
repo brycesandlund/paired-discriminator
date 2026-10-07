@@ -1,0 +1,24 @@
+{
+  "dataset": "CIFAR10-train",
+  "latent_dim": 128,
+  "width": 64,
+  "batch_size": 128,
+  "learning_rate": 0.0002,
+  "betas": [
+    0.5,
+    0.999
+  ],
+  "checkpoint_every": 1000,
+  "log_every": 1000,
+  "eval_samples": 10000,
+  "eval_seed": 99173,
+  "precision": "float32",
+  "augmentation": "none",
+  "discriminator_regularization": "none",
+  "sampling": "D-only deficit or uniform by arm; G uniform",
+  "eval_every": 10000,
+  "confidence_threshold": 0.9,
+  "ema_decay": 0.99,
+  "uniform_floor": 0.5,
+  "training_classifier": "cifar10_resnet56"
+}

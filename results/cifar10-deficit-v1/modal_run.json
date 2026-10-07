@@ -1,0 +1,25 @@
+{
+  "app_id": "ap-TbIPEztZWJDZibhxvoYZbz",
+  "url": "https://modal.com/apps/bcsandlund/main/ap-TbIPEztZWJDZibhxvoYZbz",
+  "run_id": "cifar10-deficit-v1",
+  "status": "completed",
+  "methods": [
+    "vanilla",
+    "paired",
+    "vanilla_deficit",
+    "paired_deficit"
+  ],
+  "seeds": [
+    0
+  ],
+  "target_steps": 100000,
+  "eval_every": 10000,
+  "local_tests": "104 passed",
+  "launch_command": "uv run --extra cifar modal run --detach modal_deficit.py --run-id cifar10-deficit-v1 --steps 100000",
+  "failed_initial_launch": "Module packaging error before training; stopped ap-d16Wihgf9IhePR5WgxLb8g, fixed standalone Modal imports",
+  "evaluations_downloaded": 4,
+  "latest_common_evaluation_step": 10000,
+  "cuda_preflight": "passed",
+  "completed_steps": 100000,
+  "completed_evaluations": 40
+}

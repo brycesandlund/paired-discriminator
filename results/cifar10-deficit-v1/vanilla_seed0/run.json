@@ -1,0 +1,39 @@
+{
+  "config": {
+    "dataset": "CIFAR10-train",
+    "latent_dim": 128,
+    "width": 64,
+    "batch_size": 128,
+    "learning_rate": 0.0002,
+    "betas": [
+      0.5,
+      0.999
+    ],
+    "checkpoint_every": 1000,
+    "log_every": 1000,
+    "eval_samples": 10000,
+    "eval_seed": 99173,
+    "precision": "float32",
+    "augmentation": "none",
+    "discriminator_regularization": "none",
+    "sampling": "D-only deficit or uniform by arm; G uniform",
+    "eval_every": 10000,
+    "confidence_threshold": 0.9,
+    "ema_decay": 0.99,
+    "uniform_floor": 0.5,
+    "training_classifier": "cifar10_resnet56"
+  },
+  "method": "vanilla",
+  "seed": 0,
+  "source_sha256": "5d18e96c47dec7e0907bab15c6fee408ae67ea0825ae7f3e08469a72ba1da031",
+  "classifier_sha256": "fab0533ed45cd6d002684438a2d415af1481b7c62249fb69a96b41853b03bf0c",
+  "labels_sha256": "f5cfe00b0f00968c0cc5ff3b1d2de51b10e33efa277c2986f4e0fa63e58c9f4f",
+  "dataset_sha256": "9d5c2eddadb0deff02c14c350c0385aab7b1d5ff1edfeb4997c8dc8644960111",
+  "torch": "2.14.1+cu130",
+  "device": "cuda",
+  "python": "3.12.6",
+  "cuda": "13.0",
+  "gpu": "NVIDIA A10",
+  "parameters_g": 1183619,
+  "parameters_d": 662977
+}

@@ -1,0 +1,33 @@
+{
+  "step": 100000,
+  "target_steps": 100000,
+  "training_seconds": 2626.8123760679982,
+  "last_log": {
+    "step": 100000,
+    "d_loss": 0.18200039863586426,
+    "g_loss": 3.478067636489868,
+    "training_seconds": 2626.8123760679982,
+    "seconds_per_step": 0.026302630394000062,
+    "accepted_ema_0": 0.027247192094939497,
+    "accepted_ema_1": 0.0052375721359554685,
+    "accepted_ema_2": 0.07535614497184923,
+    "accepted_ema_3": 0.14754203807557192,
+    "accepted_ema_4": 0.09529153561254569,
+    "accepted_ema_5": 0.025780486177068587,
+    "accepted_ema_6": 0.21334545498002058,
+    "accepted_ema_7": 0.0134317166865318,
+    "accepted_ema_8": 0.042611827632702284,
+    "accepted_ema_9": 0.010358896476841864,
+    "next_real_weight_0": 0.12207749536861488,
+    "next_real_weight_1": 0.14388281569011824,
+    "next_real_weight_2": 0.07441510366135026,
+    "next_real_weight_3": 0.05,
+    "next_real_weight_4": 0.05466475906363499,
+    "next_real_weight_5": 0.12353058689932828,
+    "next_real_weight_6": 0.05,
+    "next_real_weight_7": 0.13576473155150115,
+    "next_real_weight_8": 0.10685547880729229,
+    "next_real_weight_9": 0.13880902895815983
+  },
+  "peak_gpu_memory_gib": 0.4035501480102539
+}
