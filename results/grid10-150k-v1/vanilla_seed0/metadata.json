@@ -1,0 +1,43 @@
+{
+  "config": {
+    "modes": 100,
+    "sigma": 0.1,
+    "latent_dim": 16,
+    "generator_width": 128,
+    "discriminator_width": 128,
+    "batch_size": 256,
+    "steps": 150000,
+    "eval_every": 1000,
+    "eval_samples": 10000,
+    "learning_rate": 0.0002,
+    "betas": [
+      0.5,
+      0.999
+    ],
+    "valid_radius_sigma": 3.0,
+    "coverage_min_mass": 0.01,
+    "seeds": [
+      0,
+      1,
+      2,
+      3,
+      4
+    ],
+    "threads": 1,
+    "device": "cpu",
+    "grid_side": 10,
+    "spacing": 1.5,
+    "reference_phase": "d_only",
+    "uniform_mix": 0.5,
+    "coverage_ema_decay": 0.99
+  },
+  "method": "vanilla",
+  "seed": 0,
+  "parameters_g": 18946,
+  "parameters_d": 17025,
+  "torch": "2.14.1",
+  "python": "3.12.7",
+  "platform": "macOS-26.5.1-arm64-arm-64bit",
+  "training_seconds": 139.03164051636122,
+  "wall_seconds": 140.35258416703437
+}

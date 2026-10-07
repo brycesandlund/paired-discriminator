@@ -1,0 +1,14 @@
+{
+  "paired_deficit_vs_paired": {
+    "mode_tv": 4,
+    "spatial_tv": 4
+  },
+  "vanilla_deficit_vs_vanilla": {
+    "mode_tv": 1,
+    "spatial_tv": 1
+  },
+  "paired_deficit_vs_vanilla": {
+    "mode_tv": 2,
+    "spatial_tv": 3
+  }
+}

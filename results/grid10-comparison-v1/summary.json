@@ -1,0 +1,482 @@
+[
+  {
+    "method": "vanilla",
+    "step": 10000,
+    "mode_tv": {
+      "mean": 0.82164,
+      "sd": 0.012457648253181661
+    },
+    "spatial_tv": {
+      "mean": 0.906469018094508,
+      "sd": 0.0068211956430717655
+    },
+    "valid_fraction": {
+      "mean": 0.17851999999999996,
+      "sd": 0.012158001480506568
+    },
+    "coverage_1pct": {
+      "mean": 0.2,
+      "sd": 0.44721359549995804
+    },
+    "coverage_half_target": {
+      "mean": 2.0,
+      "sd": 0.7071067811865476
+    },
+    "coverage_relative": {
+      "mean": 90.0,
+      "sd": 5.244044240850758
+    },
+    "full_half_target_seeds": 0,
+    "full_relative_seeds": 0
+  },
+  {
+    "method": "paired",
+    "step": 10000,
+    "mode_tv": {
+      "mean": 0.8790600000000002,
+      "sd": 0.0026679580206592653
+    },
+    "spatial_tv": {
+      "mean": 0.9368206239187892,
+      "sd": 0.00255052438860026
+    },
+    "valid_fraction": {
+      "mean": 0.12094000000000002,
+      "sd": 0.0026679580206592154
+    },
+    "coverage_1pct": {
+      "mean": 0.0,
+      "sd": 0.0
+    },
+    "coverage_half_target": {
+      "mean": 0.0,
+      "sd": 0.0
+    },
+    "coverage_relative": {
+      "mean": 77.4,
+      "sd": 4.098780306383839
+    },
+    "full_half_target_seeds": 0,
+    "full_relative_seeds": 0
+  },
+  {
+    "method": "vanilla_deficit",
+    "step": 10000,
+    "mode_tv": {
+      "mean": 0.82044,
+      "sd": 0.016615143694834578
+    },
+    "spatial_tv": {
+      "mean": 0.9072663270325634,
+      "sd": 0.009834887939720023
+    },
+    "valid_fraction": {
+      "mean": 0.17956,
+      "sd": 0.016615143694834567
+    },
+    "coverage_1pct": {
+      "mean": 0.0,
+      "sd": 0.0
+    },
+    "coverage_half_target": {
+      "mean": 1.6,
+      "sd": 1.140175425099138
+    },
+    "coverage_relative": {
+      "mean": 92.0,
+      "sd": 2.5495097567963922
+    },
+    "full_half_target_seeds": 0,
+    "full_relative_seeds": 0
+  },
+  {
+    "method": "paired_deficit",
+    "step": 10000,
+    "mode_tv": {
+      "mean": 0.8772800000000001,
+      "sd": 0.0035541525009487166
+    },
+    "spatial_tv": {
+      "mean": 0.9357029184350962,
+      "sd": 0.0013559190340171605
+    },
+    "valid_fraction": {
+      "mean": 0.12271999999999997,
+      "sd": 0.00355415250094872
+    },
+    "coverage_1pct": {
+      "mean": 0.0,
+      "sd": 0.0
+    },
+    "coverage_half_target": {
+      "mean": 0.0,
+      "sd": 0.0
+    },
+    "coverage_relative": {
+      "mean": 77.8,
+      "sd": 1.9235384061671343
+    },
+    "full_half_target_seeds": 0,
+    "full_relative_seeds": 0
+  },
+  {
+    "method": "vanilla",
+    "step": 50000,
+    "mode_tv": {
+      "mean": 0.7820600000000001,
+      "sd": 0.011540493923571874
+    },
+    "spatial_tv": {
+      "mean": 0.8903421480625097,
+      "sd": 0.011896065213541408
+    },
+    "valid_fraction": {
+      "mean": 0.21938000000000005,
+      "sd": 0.012918088093831832
+    },
+    "coverage_1pct": {
+      "mean": 1.8,
+      "sd": 0.8366600265340756
+    },
+    "coverage_half_target": {
+      "mean": 5.2,
+      "sd": 1.0954451150103321
+    },
+    "coverage_relative": {
+      "mean": 88.2,
+      "sd": 3.3466401061363023
+    },
+    "full_half_target_seeds": 0,
+    "full_relative_seeds": 0
+  },
+  {
+    "method": "paired",
+    "step": 50000,
+    "mode_tv": {
+      "mean": 0.8274799999999999,
+      "sd": 0.019032787499470467
+    },
+    "spatial_tv": {
+      "mean": 0.9101011129543382,
+      "sd": 0.012824280833961647
+    },
+    "valid_fraction": {
+      "mean": 0.17251999999999998,
+      "sd": 0.01903278749947047
+    },
+    "coverage_1pct": {
+      "mean": 0.0,
+      "sd": 0.0
+    },
+    "coverage_half_target": {
+      "mean": 1.2,
+      "sd": 1.3038404810405297
+    },
+    "coverage_relative": {
+      "mean": 90.8,
+      "sd": 3.492849839314596
+    },
+    "full_half_target_seeds": 0,
+    "full_relative_seeds": 0
+  },
+  {
+    "method": "vanilla_deficit",
+    "step": 50000,
+    "mode_tv": {
+      "mean": 0.79308,
+      "sd": 0.004721969927900818
+    },
+    "spatial_tv": {
+      "mean": 0.8912251631782986,
+      "sd": 0.004431874083525433
+    },
+    "valid_fraction": {
+      "mean": 0.20692000000000005,
+      "sd": 0.0047219699279008156
+    },
+    "coverage_1pct": {
+      "mean": 0.0,
+      "sd": 0.0
+    },
+    "coverage_half_target": {
+      "mean": 4.4,
+      "sd": 0.5477225575051661
+    },
+    "coverage_relative": {
+      "mean": 92.2,
+      "sd": 1.9235384061671346
+    },
+    "full_half_target_seeds": 0,
+    "full_relative_seeds": 0
+  },
+  {
+    "method": "paired_deficit",
+    "step": 50000,
+    "mode_tv": {
+      "mean": 0.83918,
+      "sd": 0.03523779221233927
+    },
+    "spatial_tv": {
+      "mean": 0.9168010322182255,
+      "sd": 0.020189294828263926
+    },
+    "valid_fraction": {
+      "mean": 0.16081999999999996,
+      "sd": 0.03523779221233929
+    },
+    "coverage_1pct": {
+      "mean": 0.0,
+      "sd": 0.0
+    },
+    "coverage_half_target": {
+      "mean": 1.4,
+      "sd": 2.1908902300206643
+    },
+    "coverage_relative": {
+      "mean": 87.2,
+      "sd": 8.700574693662482
+    },
+    "full_half_target_seeds": 0,
+    "full_relative_seeds": 0
+  },
+  {
+    "method": "vanilla",
+    "step": 100000,
+    "mode_tv": {
+      "mean": 0.7456400000000001,
+      "sd": 0.013286007677252042
+    },
+    "spatial_tv": {
+      "mean": 0.8726417733495042,
+      "sd": 0.015806305332908135
+    },
+    "valid_fraction": {
+      "mean": 0.26352000000000003,
+      "sd": 0.018159074866303065
+    },
+    "coverage_1pct": {
+      "mean": 3.6,
+      "sd": 0.5477225575051661
+    },
+    "coverage_half_target": {
+      "mean": 13.6,
+      "sd": 5.458937625582473
+    },
+    "coverage_relative": {
+      "mean": 82.0,
+      "sd": 3.8078865529319543
+    },
+    "full_half_target_seeds": 0,
+    "full_relative_seeds": 0
+  },
+  {
+    "method": "paired",
+    "step": 100000,
+    "mode_tv": {
+      "mean": 0.79632,
+      "sd": 0.015477467493101037
+    },
+    "spatial_tv": {
+      "mean": 0.896131044707381,
+      "sd": 0.011300353571527954
+    },
+    "valid_fraction": {
+      "mean": 0.20466,
+      "sd": 0.016516294984045308
+    },
+    "coverage_1pct": {
+      "mean": 0.6,
+      "sd": 0.5477225575051662
+    },
+    "coverage_half_target": {
+      "mean": 3.2,
+      "sd": 0.8366600265340756
+    },
+    "coverage_relative": {
+      "mean": 90.8,
+      "sd": 3.96232255123179
+    },
+    "full_half_target_seeds": 0,
+    "full_relative_seeds": 0
+  },
+  {
+    "method": "vanilla_deficit",
+    "step": 100000,
+    "mode_tv": {
+      "mean": 0.7452,
+      "sd": 0.019695811737524344
+    },
+    "spatial_tv": {
+      "mean": 0.8690591715453673,
+      "sd": 0.007794726175085545
+    },
+    "valid_fraction": {
+      "mean": 0.25515999999999994,
+      "sd": 0.020063598879562987
+    },
+    "coverage_1pct": {
+      "mean": 0.6,
+      "sd": 0.5477225575051662
+    },
+    "coverage_half_target": {
+      "mean": 11.4,
+      "sd": 4.03732584763727
+    },
+    "coverage_relative": {
+      "mean": 83.4,
+      "sd": 3.974921382870358
+    },
+    "full_half_target_seeds": 0,
+    "full_relative_seeds": 0
+  },
+  {
+    "method": "paired_deficit",
+    "step": 100000,
+    "mode_tv": {
+      "mean": 0.7798200000000001,
+      "sd": 0.01856803705295746
+    },
+    "spatial_tv": {
+      "mean": 0.8876391237128447,
+      "sd": 0.011000468023088836
+    },
+    "valid_fraction": {
+      "mean": 0.22017999999999996,
+      "sd": 0.01856803705295744
+    },
+    "coverage_1pct": {
+      "mean": 0.0,
+      "sd": 0.0
+    },
+    "coverage_half_target": {
+      "mean": 3.4,
+      "sd": 1.51657508881031
+    },
+    "coverage_relative": {
+      "mean": 95.2,
+      "sd": 2.16794833886788
+    },
+    "full_half_target_seeds": 0,
+    "full_relative_seeds": 0
+  },
+  {
+    "method": "vanilla",
+    "step": 150000,
+    "mode_tv": {
+      "mean": 0.6874800000000001,
+      "sd": 0.023985558154856413
+    },
+    "spatial_tv": {
+      "mean": 0.8420072853343006,
+      "sd": 0.0077486941184498675
+    },
+    "valid_fraction": {
+      "mean": 0.34548,
+      "sd": 0.030380536532457727
+    },
+    "coverage_1pct": {
+      "mean": 7.4,
+      "sd": 2.4083189157584592
+    },
+    "coverage_half_target": {
+      "mean": 22.4,
+      "sd": 4.722287581247038
+    },
+    "coverage_relative": {
+      "mean": 76.8,
+      "sd": 3.7682887362833544
+    },
+    "full_half_target_seeds": 0,
+    "full_relative_seeds": 0
+  },
+  {
+    "method": "paired",
+    "step": 150000,
+    "mode_tv": {
+      "mean": 0.72228,
+      "sd": 0.011100990946757844
+    },
+    "spatial_tv": {
+      "mean": 0.8532627404759131,
+      "sd": 0.009760345228509522
+    },
+    "valid_fraction": {
+      "mean": 0.27874,
+      "sd": 0.010921217880804347
+    },
+    "coverage_1pct": {
+      "mean": 1.2,
+      "sd": 1.3038404810405297
+    },
+    "coverage_half_target": {
+      "mean": 7.6,
+      "sd": 0.8944271909999159
+    },
+    "coverage_relative": {
+      "mean": 95.6,
+      "sd": 2.073644135332772
+    },
+    "full_half_target_seeds": 0,
+    "full_relative_seeds": 0
+  },
+  {
+    "method": "vanilla_deficit",
+    "step": 150000,
+    "mode_tv": {
+      "mean": 0.7162599999999999,
+      "sd": 0.02951589402339018
+    },
+    "spatial_tv": {
+      "mean": 0.8625804938535033,
+      "sd": 0.016692306843844866
+    },
+    "valid_fraction": {
+      "mean": 0.28634,
+      "sd": 0.031063048787908755
+    },
+    "coverage_1pct": {
+      "mean": 3.4,
+      "sd": 1.51657508881031
+    },
+    "coverage_half_target": {
+      "mean": 15.6,
+      "sd": 4.159326868617084
+    },
+    "coverage_relative": {
+      "mean": 81.2,
+      "sd": 1.3038404810405297
+    },
+    "full_half_target_seeds": 0,
+    "full_relative_seeds": 0
+  },
+  {
+    "method": "paired_deficit",
+    "step": 150000,
+    "mode_tv": {
+      "mean": 0.6932400000000001,
+      "sd": 0.036166185864699614
+    },
+    "spatial_tv": {
+      "mean": 0.8354641488656274,
+      "sd": 0.02067049764901574
+    },
+    "valid_fraction": {
+      "mean": 0.30678,
+      "sd": 0.03617066490956447
+    },
+    "coverage_1pct": {
+      "mean": 0.2,
+      "sd": 0.44721359549995804
+    },
+    "coverage_half_target": {
+      "mean": 12.2,
+      "sd": 6.058052492344384
+    },
+    "coverage_relative": {
+      "mean": 98.2,
+      "sd": 0.8366600265340756
+    },
+    "full_half_target_seeds": 0,
+    "full_relative_seeds": 0
+  }
+]

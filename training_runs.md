@@ -91,6 +91,7 @@ The 10k and 50k checkpoints of a trajectory are not independent trials.
 | 21 | Unconditional CIFAR class deficit sampling | Vanilla and paired, uniform vs adaptive real D sampling; seed 0 | 100k, held-out evaluation every 10k | Completed: deficit improves final class TV for both; paired deficit FID 50.85 vs 48.79 original. Vanilla arms deteriorate after 60k; seed 0 only. |
 | 22 | G-only grid deficit references | Paired; seeds 0–4; reuse earlier grid baselines | 3×3/5×5 to 50k; 7×7 to 150k | G-only does not reproduce D-only gains: 7×7 mode TV 0.235 vs 0.231 uniform and 0.183 D-only; full coverage 1/5 vs 1/5 and 5/5. |
 | 23 | Dual-slot D-only grid deficit sampling | dual_slot; seeds 0–4; reuse prior grid arms | 3×3/5×5 to 50k; 7×7 to 150k | Better coverage consistency, no density win: 7×7 full coverage 4/5 vs 2/5 original dual_slot; fine TV worsens 0.595→0.614. Paired D-deficit remains stronger. |
+| 24 | Fixed-spacing 10×10 grid | Vanilla, paired, each uniform vs D-deficit; seeds 0–4 | 150k, retained 10k/50k/100k/150k | At 150k all arms remain diffuse. Paired D-deficit has widest lenient coverage (98.2/100) and lowest mean fine TV (0.836); vanilla has lowest mode TV (0.688). |
 
 ## What the methods mean
 
@@ -1062,3 +1063,36 @@ RNG comparisons passed; historical metrics recomputed. The first report attempt
 selected the final baseline checkpoint for an intermediate endpoint; this was
 corrected to the matching checkpoint and verification rerun successfully.
 Training was unaffected. All source/configuration snapshots and seeds retained.
+
+## 24. Fixed-spacing 10×10 grid
+
+[Protocol](docs/GRID10_PROTOCOL.md) · [Report](results/grid10-comparison-v1/REPORT.md).
+All 20 runs completed: vanilla/paired, uniform vs D-deficit, five seeds, 150k.
+Spacing remains 1.5 and sigma .1; centers extend to ±6.75. Networks, losses,
+batches and optimizer are unchanged. Density bounds expand to ±7.75 with .05
+cells. Legacy 1% coverage equals a full mode's target mass at 100 modes, so
+relative thresholds were specified before results.
+
+Final means across five seeds:
+
+| Method | Mode TV ↓ | Fine TV ↓ | Valid mass | Coverage ≥50% target | Coverage ≥8% target |
+|---|---:|---:|---:|---:|---:|
+| Vanilla | 0.6875 | 0.8420 | 0.3455 | 22.4/100 | 76.8/100 |
+| Paired | 0.7223 | 0.8533 | 0.2787 | 7.6/100 | 95.6/100 |
+| Vanilla D deficit | 0.7163 | 0.8626 | 0.2863 | 15.6/100 | 81.2/100 |
+| Paired D deficit | 0.6932 | 0.8355 | 0.3068 | 12.2/100 | 98.2/100 |
+
+Paired D-deficit improves both TVs over original paired in 4/5 matched seeds.
+Vanilla D-deficit improves either TV over vanilla in only 1/5. Against vanilla,
+paired D-deficit wins mode TV in 2/5 and fine TV in 3/5; there is no clear overall
+winner. No method covers all modes at half-target mass in any seed. The lenient
+coverage advantage reflects thin mass spread broadly, not a solved mixture.
+Seed-0 scatter plots show substantial bridges and diffuse interiors.
+
+True-mixture calibration (200 draws of 10k): mean mode TV 0.0452 and fine TV
+0.3622. All models remain far from that reference. These are budget-limited
+results, not demonstrated convergence; larger mode count also changes grid extent.
+
+Validation: 107 tests passed; all 80 retained checkpoints replay exactly;
+40 adaptive/control G/noise/slot/evaluation RNG comparisons passed. Source
+hashes, configurations and optimizer step counts verified. All seeds retained.

@@ -267,3 +267,12 @@ in all D pair types, with original dual-slot G training unchanged.
 ```sh
 uv run python -m paired_discriminator.grid_dual_deficit_run
 ```
+
+### 10×10 fixed-spacing grid
+
+[Protocol](docs/GRID10_PROTOCOL.md): vanilla and paired, uniform vs D-deficit,
+five seeds through 150k. Grid extent grows; spacing stays fixed.
+
+```sh
+uv run python -m paired_discriminator.grid10_run
+```
