@@ -1,0 +1,42 @@
+{
+  "methods": [
+    "vanilla",
+    "paired",
+    "vanilla_deficit",
+    "paired_deficit"
+  ],
+  "seeds": [
+    0,
+    1,
+    2,
+    3,
+    4
+  ],
+  "steps": 300000,
+  "start_step": 150000,
+  "eval_every": 50000,
+  "spacing": 1.5,
+  "sigma": 0.1,
+  "center_extent": [
+    -6.75,
+    6.75
+  ],
+  "deficit_phase": "D only; G references uniform",
+  "ema_decay": 0.99,
+  "uniform_mix": 0.5,
+  "d_real": 256,
+  "d_fake": 256,
+  "g_fake": 256,
+  "evaluation_samples": 10000,
+  "coverage_thresholds": {
+    "legacy": 0.01,
+    "half_target": 0.005,
+    "relative_8pct_target": 0.0008
+  },
+  "density_edges": {
+    "min": -7.75,
+    "max": 7.75,
+    "width": 0.05
+  },
+  "workers": 8
+}

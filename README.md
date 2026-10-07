@@ -276,3 +276,12 @@ five seeds through 150k. Grid extent grows; spacing stays fixed.
 ```sh
 uv run python -m paired_discriminator.grid10_run
 ```
+
+### 10×10 continuation to 300k
+
+[Protocol](docs/GRID10_CONTINUATION_PROTOCOL.md): exact continuation of all
+20 runs, with retained evaluations at 200k, 250k and 300k.
+
+```sh
+uv run python -m paired_discriminator.grid10_continue_run
+```

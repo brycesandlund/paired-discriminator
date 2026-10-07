@@ -1,0 +1,14 @@
+{
+  "paired": {
+    "mode_tv": 5,
+    "spatial_tv": 5
+  },
+  "vanilla": {
+    "mode_tv": 5,
+    "spatial_tv": 5
+  },
+  "vanilla_deficit": {
+    "mode_tv": 5,
+    "spatial_tv": 5
+  }
+}
