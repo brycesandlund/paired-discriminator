@@ -1,0 +1,12 @@
+{
+  "method": "paired_deficit",
+  "phase": "G only; D real sampling uniform",
+  "d_real": 256,
+  "d_fake": 256,
+  "g_fake": 256,
+  "g_real_references": 256,
+  "ema": "Accepted mass of existing D fake batch; updated after both optimizer steps; decay .99; initial 1/K",
+  "weights": "0.5 uniform + 0.5 normalized positive deficits; computed from previous EMA and used for G references",
+  "evaluation_target": "original uniform Gaussian mixture",
+  "workers": 8
+}

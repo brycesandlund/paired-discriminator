@@ -89,6 +89,7 @@ The 10k and 50k checkpoints of a trajectory are not independent trials.
 | 19 | D-only batch doubling on grids | Paired, PacGAN2, two-output D512/G256; seeds 0–4; reuse #15–18 | 3×3/5×5 to 50k; 7×7 to 150k; equal-G and equal-D-sample comparisons | Modest early gains do not persist; all three have worse final mean mode TV on 5×5/7×7. Equal-D-sample mode TV worsens versus D256 in all 24 comparisons. |
 | 20 | D-only grid reference selection | Paired near, paired deficit, vanilla deficit; seeds 0–4; reuse baselines | 3×3/5×5 to 50k; 7×7 to 150k | D-only near matching fails; deficit sampling helps vanilla and paired on larger grids. 7×7 paired mode TV 0.231→0.183; one paired 3×3 seed fails. |
 | 21 | Unconditional CIFAR class deficit sampling | Vanilla and paired, uniform vs adaptive real D sampling; seed 0 | 100k, held-out evaluation every 10k | Completed: deficit improves final class TV for both; paired deficit FID 50.85 vs 48.79 original. Vanilla arms deteriorate after 60k; seed 0 only. |
+| 22 | G-only grid deficit references | Paired; seeds 0–4; reuse earlier grid baselines | 3×3/5×5 to 50k; 7×7 to 150k | G-only does not reproduce D-only gains: 7×7 mode TV 0.235 vs 0.231 uniform and 0.183 D-only; full coverage 1/5 vs 1/5 and 5/5. |
 
 ## What the methods mean
 
@@ -998,3 +999,37 @@ convergence or the cause of late deterioration. It remains a single-seed pilot.
 
 Validation: 104 local tests passed; A10 exact resume, original uniform
 trajectory equivalence, and preserved G/noise RNG checks passed.
+
+## 22. G-only grid deficit references
+
+[Protocol](docs/GRID_REFERENCE_G_PROTOCOL.md) · [Report](results/grid-reference-g-comparison-v1/REPORT.md).
+All 15 runs completed. D real sampling stays uniform; only G references are
+weighted with the existing EMA .99 and 50% uniform floor. Same five seeds,
+architectures, losses, batches, and budgets; all historical baselines reused.
+
+Mean final mode TV (lower is better):
+
+| Grid / endpoint | Original paired | D-only deficit | G-only deficit |
+|---|---:|---:|---:|
+| 3×3 / 50k | 0.0582 | 0.2447 | 0.0945 |
+| 5×5 / 50k | 0.2423 | 0.2144 | 0.2513 |
+| 7×7 / 150k | 0.2310 | 0.1830 | 0.2348 |
+
+The 3×3 D-only mean includes its previously observed catastrophic seed; no
+failures were removed. G-only covers all modes in 5/5 seeds on 3×3, 3/5 on
+5×5, and 1/5 on 7×7. Original paired counts are 5/5, 4/5, 1/5; D-only counts
+are 4/5, 5/5, 5/5.
+
+On 7×7, G-only mean coverage is 41.0/49 (original 41.4; D-only 49.0).
+Fine-density TV is 0.6245 versus 0.6469 original and 0.5729 D-only.
+G-only beats original paired on both mode and fine TV in 3/5 matched seeds,
+but loses both metrics to D-only in all five. On smaller grids, its mean fine
+TV worsens versus original paired (3×3 0.6205→0.7216; 5×5 0.5972→0.6381).
+
+This weighting policy supplies no consistent improvement when moved to G.
+It does not establish that every G reference-selection strategy is ineffective,
+nor test weighting both phases or selecting references separately for each fake.
+
+Verification: 105 tests passed, 40 new endpoint checkpoint replays matched
+exactly, 25 full-run D/noise/slot/evaluation RNG comparisons passed; historical
+coarse and fine metrics recomputed from saved samples. Source snapshots retained.

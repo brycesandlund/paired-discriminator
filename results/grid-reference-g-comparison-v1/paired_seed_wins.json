@@ -1,0 +1,32 @@
+{
+  "3": {
+    "paired": {
+      "mode_tv": 1,
+      "spatial_tv": 0
+    },
+    "paired_deficit": {
+      "mode_tv": 1,
+      "spatial_tv": 1
+    }
+  },
+  "5": {
+    "paired": {
+      "mode_tv": 3,
+      "spatial_tv": 1
+    },
+    "paired_deficit": {
+      "mode_tv": 1,
+      "spatial_tv": 2
+    }
+  },
+  "7": {
+    "paired": {
+      "mode_tv": 3,
+      "spatial_tv": 3
+    },
+    "paired_deficit": {
+      "mode_tv": 0,
+      "spatial_tv": 0
+    }
+  }
+}

@@ -248,3 +248,13 @@ FID/KID/precision/recall and both classifiers are evaluated every 10k through
 uv run --extra cifar modal run --detach modal_deficit.py --run-id cifar10-deficit-v1 --steps 100000
 uv run --extra cifar python -m paired_discriminator.cifar_deficit_report --sync
 ```
+
+### G-only grid deficit references
+
+[Protocol](docs/GRID_REFERENCE_G_PROTOCOL.md): original uniform D training,
+deficit-weighted real references only during paired G updates. Five seeds
+on each grid; compares against frozen uniform and D-only deficit runs.
+
+```sh
+uv run python -m paired_discriminator.grid_reference_g_run
+```
