@@ -1,0 +1,32 @@
+{
+  "3": {
+    "dual_slot": {
+      "mode_tv": 3,
+      "spatial_tv": 1
+    },
+    "paired_deficit": {
+      "mode_tv": 2,
+      "spatial_tv": 3
+    }
+  },
+  "5": {
+    "dual_slot": {
+      "mode_tv": 2,
+      "spatial_tv": 2
+    },
+    "paired_deficit": {
+      "mode_tv": 2,
+      "spatial_tv": 1
+    }
+  },
+  "7": {
+    "dual_slot": {
+      "mode_tv": 2,
+      "spatial_tv": 2
+    },
+    "paired_deficit": {
+      "mode_tv": 2,
+      "spatial_tv": 0
+    }
+  }
+}

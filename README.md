@@ -258,3 +258,12 @@ on each grid; compares against frozen uniform and D-only deficit runs.
 ```sh
 uv run python -m paired_discriminator.grid_reference_g_run
 ```
+
+### Dual-slot D-only deficit sampling
+
+[Protocol](docs/GRID_DUAL_DEFICIT_PROTOCOL.md): deficit-weighted real points
+in all D pair types, with original dual-slot G training unchanged.
+
+```sh
+uv run python -m paired_discriminator.grid_dual_deficit_run
+```

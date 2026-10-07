@@ -90,6 +90,7 @@ The 10k and 50k checkpoints of a trajectory are not independent trials.
 | 20 | D-only grid reference selection | Paired near, paired deficit, vanilla deficit; seeds 0–4; reuse baselines | 3×3/5×5 to 50k; 7×7 to 150k | D-only near matching fails; deficit sampling helps vanilla and paired on larger grids. 7×7 paired mode TV 0.231→0.183; one paired 3×3 seed fails. |
 | 21 | Unconditional CIFAR class deficit sampling | Vanilla and paired, uniform vs adaptive real D sampling; seed 0 | 100k, held-out evaluation every 10k | Completed: deficit improves final class TV for both; paired deficit FID 50.85 vs 48.79 original. Vanilla arms deteriorate after 60k; seed 0 only. |
 | 22 | G-only grid deficit references | Paired; seeds 0–4; reuse earlier grid baselines | 3×3/5×5 to 50k; 7×7 to 150k | G-only does not reproduce D-only gains: 7×7 mode TV 0.235 vs 0.231 uniform and 0.183 D-only; full coverage 1/5 vs 1/5 and 5/5. |
+| 23 | Dual-slot D-only grid deficit sampling | dual_slot; seeds 0–4; reuse prior grid arms | 3×3/5×5 to 50k; 7×7 to 150k | Better coverage consistency, no density win: 7×7 full coverage 4/5 vs 2/5 original dual_slot; fine TV worsens 0.595→0.614. Paired D-deficit remains stronger. |
 
 ## What the methods mean
 
@@ -1033,3 +1034,31 @@ nor test weighting both phases or selecting references separately for each fake.
 Verification: 105 tests passed, 40 new endpoint checkpoint replays matched
 exactly, 25 full-run D/noise/slot/evaluation RNG comparisons passed; historical
 coarse and fine metrics recomputed from saved samples. Source snapshots retained.
+
+## 23. Dual-slot D-only grid deficit sampling
+
+[Protocol](docs/GRID_DUAL_DEFICIT_PROTOCOL.md) · [Report](results/grid-dual-deficit-comparison-v1/REPORT.md).
+All 15 runs completed. Weighted D real points include both members of RR pairs;
+G training is unchanged. Same five seeds, EMA .99, 50% uniform floor and budgets.
+
+Mean final results; arrows show original dual_slot → D-deficit dual_slot:
+
+| Grid / endpoint | Mode TV ↓ | Fine-density TV ↓ | Full coverage seeds |
+|---|---:|---:|---:|
+| 3×3 / 50k | 0.0727 → 0.0647 | 0.6024 → 0.6753 | 5/5 → 5/5 |
+| 5×5 / 50k | 0.2105 → 0.2271 | 0.6469 → 0.6631 | 4/5 → 5/5 |
+| 7×7 / 150k | 0.2089 → 0.2076 | 0.5951 → 0.6143 | 2/5 → 4/5 |
+
+At 7×7, mean coverage improves 44.8→46.4 of 49 modes. One new seed still
+covers only 36 modes. Paired D-deficit remains stronger on mean mode TV
+(0.1830), fine-density TV (0.5729), and coverage (49/49 in all five seeds).
+Dual-slot D-deficit beats paired D-deficit on mode TV in 2/5 matched seeds,
+but loses on fine-density TV in all five. It beats original dual_slot on each
+TV metric in only 2/5 matched seeds on 7×7. Coverage gains do not yield a
+consistent distribution-fit improvement under this rule and budget.
+
+Validation: 106 tests passed; 40 endpoint checkpoint replays and 25 G/noise
+RNG comparisons passed; historical metrics recomputed. The first report attempt
+selected the final baseline checkpoint for an intermediate endpoint; this was
+corrected to the matching checkpoint and verification rerun successfully.
+Training was unaffected. All source/configuration snapshots and seeds retained.

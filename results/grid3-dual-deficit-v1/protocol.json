@@ -1,0 +1,13 @@
+{
+  "method": "dual_slot",
+  "phase": "D only; G references uniform",
+  "d_real": 256,
+  "d_fake": 256,
+  "g_fake": 256,
+  "g_real_drawn": 256,
+  "g_real_used": 128,
+  "ema": "Accepted mass of existing D fake batch; updated after both optimizer steps; decay .99; initial 1/K",
+  "weights": "0.5 uniform + 0.5 normalized positive deficits; computed from previous EMA and used for D real sampling",
+  "evaluation_target": "original uniform Gaussian mixture",
+  "workers": 8
+}
