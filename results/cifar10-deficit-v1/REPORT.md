@@ -10,6 +10,14 @@ ResNet56 controls sampling; VGG16-BN is a separate evaluator. Confidence is not 
 
 ![Sampling weights](sampling_weights.png)
 
+![Original vanilla and paired class mass](sampling_weights_originals.png)
+
+![Original class representation](class_representation_originals.png)
+
+Best checkpoints below are selected retrospectively by minimum held-out FID, separately for each method.
+
+![Best-FID class representation](class_representation_best_fid.png)
+
 ## Latest common endpoint: 100,000 updates
 
 | Method | Held-out FID ↓ | KID ↓ | Precision ↑ | Recall ↑ | VGG raw class TV ↓ | VGG accepted TV ↓ | VGG acceptance ↑ |

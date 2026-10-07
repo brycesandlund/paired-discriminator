@@ -1,0 +1,26 @@
+{
+  "criterion": "minimum held-out FID among evaluated checkpoints; earliest step breaks ties",
+  "selection_is_retrospective": true,
+  "checkpoints": [
+    {
+      "method": "vanilla",
+      "step": 50000,
+      "heldout_fid": 49.85061523673875
+    },
+    {
+      "method": "paired",
+      "step": 80000,
+      "heldout_fid": 48.37132364661596
+    },
+    {
+      "method": "vanilla_deficit",
+      "step": 50000,
+      "heldout_fid": 47.21232736167087
+    },
+    {
+      "method": "paired_deficit",
+      "step": 80000,
+      "heldout_fid": 48.029614439528075
+    }
+  ]
+}
