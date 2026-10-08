@@ -1,0 +1,10 @@
+[
+  {
+    "name": "wide256",
+    "width": 256,
+    "depth": 3,
+    "precondition": true,
+    "fourier": true,
+    "cosine": true
+  }
+]

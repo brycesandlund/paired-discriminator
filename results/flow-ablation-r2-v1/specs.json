@@ -1,0 +1,46 @@
+[
+  {
+    "name": "reference",
+    "depth": 3,
+    "precondition": true,
+    "fourier": true
+  },
+  {
+    "name": "cosine",
+    "depth": 3,
+    "precondition": true,
+    "fourier": true,
+    "cosine": true
+  },
+  {
+    "name": "batch1024",
+    "depth": 3,
+    "precondition": true,
+    "fourier": true,
+    "batch": 1024,
+    "cosine": true
+  },
+  {
+    "name": "two_layers",
+    "depth": 2,
+    "precondition": true,
+    "fourier": true,
+    "cosine": true
+  },
+  {
+    "name": "late_time",
+    "depth": 3,
+    "precondition": true,
+    "fourier": true,
+    "late": true,
+    "cosine": true
+  },
+  {
+    "name": "wide256",
+    "width": 256,
+    "depth": 3,
+    "precondition": true,
+    "fourier": true,
+    "cosine": true
+  }
+]

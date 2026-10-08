@@ -1,0 +1,54 @@
+[
+  {
+    "step": 10000,
+    "seed": 0,
+    "name": "oracle_fourier",
+    "variant": "raw",
+    "train_seconds": 8.865031086141244,
+    "mode_tv": 0.07424999999999997,
+    "spatial_tv": 0.532442863236065,
+    "valid_fraction": 0.9772500000000001,
+    "coverage_1pct": 48,
+    "coverage_half_target": 100,
+    "coverage_relative": 100
+  },
+  {
+    "step": 10000,
+    "seed": 0,
+    "name": "oracle_fourier",
+    "variant": "ema",
+    "train_seconds": 8.865031086141244,
+    "mode_tv": 0.07450000000000004,
+    "spatial_tv": 0.5293259998421365,
+    "valid_fraction": 0.9794999999999999,
+    "coverage_1pct": 46,
+    "coverage_half_target": 100,
+    "coverage_relative": 100
+  },
+  {
+    "step": 20000,
+    "seed": 0,
+    "name": "oracle_fourier",
+    "variant": "raw",
+    "train_seconds": 16.430756484973244,
+    "mode_tv": 0.07075,
+    "spatial_tv": 0.5368826499540351,
+    "valid_fraction": 0.98575,
+    "coverage_1pct": 50,
+    "coverage_half_target": 100,
+    "coverage_relative": 100
+  },
+  {
+    "step": 20000,
+    "seed": 0,
+    "name": "oracle_fourier",
+    "variant": "ema",
+    "train_seconds": 16.430756484973244,
+    "mode_tv": 0.0705,
+    "spatial_tv": 0.5311251440741982,
+    "valid_fraction": 0.98275,
+    "coverage_1pct": 49,
+    "coverage_half_target": 100,
+    "coverage_relative": 100
+  }
+]

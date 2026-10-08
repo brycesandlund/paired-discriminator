@@ -1,0 +1,9 @@
+{
+  "steps": 50000,
+  "seed": 2,
+  "parameters": 24962,
+  "training_seconds": 23.448842656216584,
+  "wall_seconds": 28.1518206250621,
+  "real_samples": 12800000,
+  "oracle_supervised": false
+}

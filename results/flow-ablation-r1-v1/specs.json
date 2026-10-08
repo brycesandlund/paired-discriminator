@@ -1,0 +1,44 @@
+[
+  {
+    "name": "adam",
+    "depth": 2
+  },
+  {
+    "name": "deep",
+    "depth": 4
+  },
+  {
+    "name": "normalized",
+    "depth": 3,
+    "normalize": true
+  },
+  {
+    "name": "fourier",
+    "depth": 3,
+    "normalize": true,
+    "fourier": true
+  },
+  {
+    "name": "precond",
+    "depth": 3,
+    "precondition": true
+  },
+  {
+    "name": "precond_fourier",
+    "depth": 3,
+    "precondition": true,
+    "fourier": true
+  },
+  {
+    "name": "oracle_small",
+    "depth": 2,
+    "oracle": true
+  },
+  {
+    "name": "oracle_fourier",
+    "depth": 3,
+    "precondition": true,
+    "fourier": true,
+    "oracle": true
+  }
+]

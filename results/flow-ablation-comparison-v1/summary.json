@@ -1,0 +1,282 @@
+[
+  {
+    "name": "analytic",
+    "solver_steps": 128,
+    "mode_tv": {
+      "mean": 0.04698000000000001,
+      "sd": 0.0021194338866782135
+    },
+    "spatial_tv": {
+      "mean": 0.36417733721134427,
+      "sd": 0.0032929935545917854
+    },
+    "valid_fraction": {
+      "mean": 0.9889000000000001,
+      "sd": 0.0005656854249492297
+    },
+    "coverage_half_target": {
+      "mean": 100.0,
+      "sd": 0.0
+    },
+    "coverage_relative": {
+      "mean": 100.0,
+      "sd": 0.0
+    },
+    "sampling_seconds": {
+      "mean": 1.8638167085824535,
+      "sd": 0.0443109835877571
+    }
+  },
+  {
+    "name": "analytic",
+    "solver_steps": 256,
+    "mode_tv": {
+      "mean": 0.04686000000000003,
+      "sd": 0.002058640327983483
+    },
+    "spatial_tv": {
+      "mean": 0.3640721747624319,
+      "sd": 0.003151981637901662
+    },
+    "valid_fraction": {
+      "mean": 0.98912,
+      "sd": 0.00047116875957559806
+    },
+    "coverage_half_target": {
+      "mean": 100.0,
+      "sd": 0.0
+    },
+    "coverage_relative": {
+      "mean": 100.0,
+      "sd": 0.0
+    },
+    "sampling_seconds": {
+      "mean": 3.692721933615394,
+      "sd": 0.02866357224313022
+    }
+  },
+  {
+    "name": "two_layers",
+    "solver_steps": 128,
+    "mode_tv": {
+      "mean": 0.05850000000000002,
+      "sd": 0.001519868415357078
+    },
+    "spatial_tv": {
+      "mean": 0.37247054826687515,
+      "sd": 0.005353909902500801
+    },
+    "valid_fraction": {
+      "mean": 0.974,
+      "sd": 0.0024606909598728867
+    },
+    "coverage_half_target": {
+      "mean": 100.0,
+      "sd": 0.0
+    },
+    "coverage_relative": {
+      "mean": 100.0,
+      "sd": 0.0
+    },
+    "sampling_seconds": {
+      "mean": 0.7876321086427197,
+      "sd": 0.005161111730818229
+    }
+  },
+  {
+    "name": "two_layers",
+    "solver_steps": 256,
+    "mode_tv": {
+      "mean": 0.05844000000000003,
+      "sd": 0.001553383404057121
+    },
+    "spatial_tv": {
+      "mean": 0.3724085785437473,
+      "sd": 0.005153894197230844
+    },
+    "valid_fraction": {
+      "mean": 0.9740599999999999,
+      "sd": 0.0024724481794367683
+    },
+    "coverage_half_target": {
+      "mean": 100.0,
+      "sd": 0.0
+    },
+    "coverage_relative": {
+      "mean": 100.0,
+      "sd": 0.0
+    },
+    "sampling_seconds": {
+      "mean": 1.567536500003189,
+      "sd": 0.006193123948627856
+    }
+  },
+  {
+    "name": "cosine",
+    "solver_steps": 128,
+    "mode_tv": {
+      "mean": 0.055319999999999966,
+      "sd": 0.0026771253239248993
+    },
+    "spatial_tv": {
+      "mean": 0.3697077469579185,
+      "sd": 0.0017098574199520804
+    },
+    "valid_fraction": {
+      "mean": 0.9800800000000001,
+      "sd": 0.003749266594948953
+    },
+    "coverage_half_target": {
+      "mean": 100.0,
+      "sd": 0.0
+    },
+    "coverage_relative": {
+      "mean": 100.0,
+      "sd": 0.0
+    },
+    "sampling_seconds": {
+      "mean": 1.0564371581887826,
+      "sd": 0.012582800583258738
+    }
+  },
+  {
+    "name": "cosine",
+    "solver_steps": 256,
+    "mode_tv": {
+      "mean": 0.055299999999999974,
+      "sd": 0.0026748831750190508
+    },
+    "spatial_tv": {
+      "mean": 0.3696171723428959,
+      "sd": 0.0016099362446544243
+    },
+    "valid_fraction": {
+      "mean": 0.98012,
+      "sd": 0.0037625789028271697
+    },
+    "coverage_half_target": {
+      "mean": 100.0,
+      "sd": 0.0
+    },
+    "coverage_relative": {
+      "mean": 100.0,
+      "sd": 0.0
+    },
+    "sampling_seconds": {
+      "mean": 2.10099574981723,
+      "sd": 0.0029947445399799992
+    }
+  },
+  {
+    "name": "refine",
+    "solver_steps": 128,
+    "mode_tv": {
+      "mean": 0.05246000000000002,
+      "sd": 0.0022333830840229815
+    },
+    "spatial_tv": {
+      "mean": 0.3685514893551993,
+      "sd": 0.002697685945043964
+    },
+    "valid_fraction": {
+      "mean": 0.98052,
+      "sd": 0.00280124972110664
+    },
+    "coverage_half_target": {
+      "mean": 100.0,
+      "sd": 0.0
+    },
+    "coverage_relative": {
+      "mean": 100.0,
+      "sd": 0.0
+    },
+    "sampling_seconds": {
+      "mean": 1.4104997497983276,
+      "sd": 0.012253687371892709
+    }
+  },
+  {
+    "name": "refine",
+    "solver_steps": 256,
+    "mode_tv": {
+      "mean": 0.05224000000000002,
+      "sd": 0.0022378561169118846
+    },
+    "spatial_tv": {
+      "mean": 0.36842536879829674,
+      "sd": 0.002822094115714255
+    },
+    "valid_fraction": {
+      "mean": 0.98074,
+      "sd": 0.0027609780875624203
+    },
+    "coverage_half_target": {
+      "mean": 100.0,
+      "sd": 0.0
+    },
+    "coverage_relative": {
+      "mean": 100.0,
+      "sd": 0.0
+    },
+    "sampling_seconds": {
+      "mean": 2.841058266791515,
+      "sd": 0.01651272068546788
+    }
+  },
+  {
+    "name": "wide256",
+    "solver_steps": 128,
+    "mode_tv": {
+      "mean": 0.05194,
+      "sd": 0.0015725775020646864
+    },
+    "spatial_tv": {
+      "mean": 0.3698014788800975,
+      "sd": 0.00390412200233642
+    },
+    "valid_fraction": {
+      "mean": 0.9868,
+      "sd": 0.0010885770528538492
+    },
+    "coverage_half_target": {
+      "mean": 100.0,
+      "sd": 0.0
+    },
+    "coverage_relative": {
+      "mean": 100.0,
+      "sd": 0.0
+    },
+    "sampling_seconds": {
+      "mean": 2.1104185583768413,
+      "sd": 0.004873459903804672
+    }
+  },
+  {
+    "name": "wide256",
+    "solver_steps": 256,
+    "mode_tv": {
+      "mean": 0.05182000000000001,
+      "sd": 0.0015172343260024207
+    },
+    "spatial_tv": {
+      "mean": 0.3698061487892711,
+      "sd": 0.004043501513463817
+    },
+    "valid_fraction": {
+      "mean": 0.9869599999999998,
+      "sd": 0.0010853570840971961
+    },
+    "coverage_half_target": {
+      "mean": 100.0,
+      "sd": 0.0
+    },
+    "coverage_relative": {
+      "mean": 100.0,
+      "sd": 0.0
+    },
+    "sampling_seconds": {
+      "mean": 4.2385820500086995,
+      "sd": 0.012931602756966573
+    }
+  }
+]

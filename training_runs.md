@@ -96,12 +96,10 @@ The 10k and 50k checkpoints of a trajectory are not independent trials.
 | 26 | 10×10 exact continuation to 600k | Resume all #25 methods/seeds | 300k → 600k; eval every 50k | Complete: paired D-deficit best mean mode/fine TV (0.290/0.641); 76/100 modes at half-target mass. Still improving through 600k. |
 | 27 | 10×10 exact continuation to 1.2M | Resume all #26 methods/seeds | 600k → 1.2M; eval every 50k | Complete: paired D-deficit best mean mode/fine TV (0.209/0.625); 82.8/100 modes at half-target mass. Lenient presence coverage declines 96.4 → 92.8; no seed achieves full half-target coverage. |
 | 28 | 10×10 paired D+G deficit | Five fresh seeds; reuse paired uniform and D-only baselines | 0 → 1.2M; eval every 50k | Complete: D+G bias trails D-only at 1.2M: mode TV 0.234 vs 0.209, fine TV 0.648 vs 0.625, half-target coverage 80.4 vs 82.8. |
-
 | 29 | 10×10 stronger D deficit | Five fresh paired seeds; α=.9, p=2; G uniform | 0 → 1.2M; eval every 50k | Complete: stronger bias reaches 91.0 half-target modes vs 82.8; fine TV 0.614 vs 0.625, mode TV 0.214 vs 0.209. |
-
 | 30 | Vanilla flow matching on 10×10 | Five fresh seeds, uniform data | 50k; eval 10k/25k/50k | Complete: at 50k, mode TV .8575, fine TV .9248, valid mass 14.2%, zero half-target modes; 128→256 solver steps has negligible effect. |
-
 | 31 | Flow matching extension | Resume five #30 seeds | 50k → 1.2M | Complete: mode TV .6166, valid mass 38.5%, half-target coverage 24.8/100; solver refinement negligible. |
+| 32 | Flow-matching tuning against analytic reference | 31 short jobs; five-seed validation of sample-only models | 20k screens, 50k confirmation, 100k refinement | Complete: tuned flow reaches all 100 half-target modes in every seed; near-analytic mass/density metrics. |
 
 ## What the methods mean
 
@@ -1306,3 +1304,23 @@ marginals. This locates substantial fitting error but does not separate network
 capacity from optimization or regression-target noise. Oracle uses known mixture
 parameters and is not a learned baseline.
 [Derivation, metrics and plot](results/grid10-flow-oracle-v1/REPORT.md).
+
+## 32. Flow matching tuning against the analytic reference
+
+[Protocol](docs/FLOW_ABLATIONS_PROTOCOL.md) · [Report](results/flow-ablation-comparison-v1/REPORT.md).
+
+31 short jobs across screening, confirmation, and refinement. Two oracle-teacher trials are diagnostics only. Final learned models train on ordinary independent noise/real pairs with velocity MSE; no mixture parameters or labels. The pilot estimates only data scale. Fixed generic Fourier features, Gaussian scale/residual preconditioning, Adam (.9,.999), and cosine lr .001→.0001 over 50k make the major improvement. Batch256. Both two- and three-hidden-layer networks work.
+
+Five-seed fresh-noise means at midpoint128:
+
+| Model | Mode TV | Fine TV | Valid mass | Half-target coverage |
+|---|---:|---:|---:|---:|
+| Analytic oracle | 0.0470 | 0.3642 | 98.89% | 100.0/100 |
+| Tuned 2×128, 50k | 0.0585 | 0.3725 | 97.40% | 100.0/100 |
+| Tuned 3×128, 50k | 0.0553 | 0.3697 | 98.01% | 100.0/100 |
+| Tuned 3×128, 100k | 0.0525 | 0.3686 | 98.05% | 100.0/100 |
+| Tuned 3×256, 50k | 0.0519 | 0.3698 | 98.68% | 100.0/100 |
+
+All tuned models cover 100/100 half-target modes in every seed. Raw weights fixed before confirmation. Seed0 development, seeds1–4 initial confirmation; follow-up decisions were adaptive. Midpoint256 barely changes results. Original #30–31 flow results were an under-tuned setup and do not represent a competitive flow baseline.
+
+20 final checkpoint/sample replays, all source hashes, optimizer steps, and five refinement resume boundaries passed; three focused tests passed. No claim of exact field equality everywhere. Results are not matched-parameter or matched-compute GAN comparisons. Checkpoints, all trial outcomes and plots preserved; no commits made.

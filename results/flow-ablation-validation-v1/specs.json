@@ -1,0 +1,16 @@
+[
+  {
+    "name": "cosine",
+    "depth": 3,
+    "precondition": true,
+    "fourier": true,
+    "cosine": true
+  },
+  {
+    "name": "two_layers",
+    "depth": 2,
+    "precondition": true,
+    "fourier": true,
+    "cosine": true
+  }
+]

@@ -1,0 +1,11 @@
+[
+  {
+    "name": "refine",
+    "depth": 3,
+    "precondition": true,
+    "fourier": true,
+    "cosine": true,
+    "lr": 0.0001,
+    "resume": true
+  }
+]

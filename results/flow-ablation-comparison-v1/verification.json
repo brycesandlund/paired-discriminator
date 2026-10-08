@@ -1,0 +1,20 @@
+{
+  "final_checkpoint_replays": 10,
+  "source_hash_checks": true,
+  "optimizer_counts": true,
+  "independent_noise_seeds": [
+    902000,
+    902001,
+    902002,
+    902003,
+    902004
+  ],
+  "chosen_variant": "raw",
+  "selection_seed": 0,
+  "confirmation_seeds": [
+    1,
+    2,
+    3,
+    4
+  ]
+}

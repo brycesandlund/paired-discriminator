@@ -1,0 +1,54 @@
+[
+  {
+    "step": 25000,
+    "seed": 4,
+    "name": "cosine",
+    "variant": "raw",
+    "train_seconds": 15.95069111220073,
+    "mode_tv": 0.07020000000000004,
+    "spatial_tv": 0.39036729736361964,
+    "valid_fraction": 0.9662999999999999,
+    "coverage_1pct": 45,
+    "coverage_half_target": 100,
+    "coverage_relative": 100
+  },
+  {
+    "step": 25000,
+    "seed": 4,
+    "name": "cosine",
+    "variant": "ema",
+    "train_seconds": 15.95069111220073,
+    "mode_tv": 0.07139999999999996,
+    "spatial_tv": 0.38914137806276944,
+    "valid_fraction": 0.9651000000000001,
+    "coverage_1pct": 40,
+    "coverage_half_target": 100,
+    "coverage_relative": 100
+  },
+  {
+    "step": 50000,
+    "seed": 4,
+    "name": "cosine",
+    "variant": "raw",
+    "train_seconds": 30.731530707678758,
+    "mode_tv": 0.0568,
+    "spatial_tv": 0.3714128171406189,
+    "valid_fraction": 0.9779,
+    "coverage_1pct": 43,
+    "coverage_half_target": 100,
+    "coverage_relative": 100
+  },
+  {
+    "step": 50000,
+    "seed": 4,
+    "name": "cosine",
+    "variant": "ema",
+    "train_seconds": 30.731530707678758,
+    "mode_tv": 0.05739999999999988,
+    "spatial_tv": 0.3740955255912821,
+    "valid_fraction": 0.9737000000000002,
+    "coverage_1pct": 41,
+    "coverage_half_target": 100,
+    "coverage_relative": 100
+  }
+]
