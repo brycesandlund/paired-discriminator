@@ -1292,3 +1292,17 @@ versus one generator pass in the GANs. Existing 1.2M vanilla / paired / original
 paired D-deficit mode TVs: .5612 / .3570 / .2088. This particular flow setup
 remains worse at this budget, with no claim about tuned flow matching generally.
 [Report and samples](results/grid10-flow-1200k-v1/REPORT.md). Monitor paused.
+
+### Analytic velocity diagnostic after #31
+
+Derived exact E[x1-x0 | x_t] for the known Gaussian mixture and independent
+standard-normal source. No model training. Same seed-0 10k source points and
+midpoint solver: at 128 steps, mode TV .0461, fine TV .3683, valid mass 98.84%,
+and 100/100 half-target modes. 64/256-step results are close. This is near the
+finite-sample target reference, demonstrating the path and solver can resolve
+the grid when supplied the correct field. The learned seed-0 field has RMSE
+.088 at t=.5 versus .785 at t=.75 and .676 at t=.9 on true interpolation
+marginals. This locates substantial fitting error but does not separate network
+capacity from optimization or regression-target noise. Oracle uses known mixture
+parameters and is not a learned baseline.
+[Derivation, metrics and plot](results/grid10-flow-oracle-v1/REPORT.md).

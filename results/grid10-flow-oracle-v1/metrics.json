@@ -1,0 +1,81 @@
+{
+  "oracle_sampling": [
+    {
+      "solver_steps": 64,
+      "seconds": 1.4667276670224965,
+      "mode_tv": 0.046100000000000016,
+      "spatial_tv": 0.36900402254517073,
+      "valid_fraction": 0.9881,
+      "coverage_1pct": 49,
+      "coverage_half_target": 100,
+      "coverage_relative": 100
+    },
+    {
+      "solver_steps": 128,
+      "seconds": 2.911687291925773,
+      "mode_tv": 0.04610000000000003,
+      "spatial_tv": 0.368334346634651,
+      "valid_fraction": 0.9884,
+      "coverage_1pct": 49,
+      "coverage_half_target": 100,
+      "coverage_relative": 100
+    },
+    {
+      "solver_steps": 256,
+      "seconds": 5.806137291016057,
+      "mode_tv": 0.04599999999999998,
+      "spatial_tv": 0.368241862268187,
+      "valid_fraction": 0.9885,
+      "coverage_1pct": 49,
+      "coverage_half_target": 100,
+      "coverage_relative": 100
+    }
+  ],
+  "learned_field_error_seed0": [
+    {
+      "t": 0.0,
+      "velocity_rmse": 0.125616654753685,
+      "oracle_rms": 1.0067598819732666
+    },
+    {
+      "t": 0.25,
+      "velocity_rmse": 0.060056038200855255,
+      "oracle_rms": 3.0780653953552246
+    },
+    {
+      "t": 0.5,
+      "velocity_rmse": 0.08820531517267227,
+      "oracle_rms": 4.029237270355225
+    },
+    {
+      "t": 0.75,
+      "velocity_rmse": 0.7849833369255066,
+      "oracle_rms": 4.35150146484375
+    },
+    {
+      "t": 0.9,
+      "velocity_rmse": 0.6760931015014648,
+      "oracle_rms": 4.386988162994385
+    },
+    {
+      "t": 0.95,
+      "velocity_rmse": 0.401874303817749,
+      "oracle_rms": 4.349201679229736
+    },
+    {
+      "t": 0.98,
+      "velocity_rmse": 0.24303413927555084,
+      "oracle_rms": 4.332505226135254
+    },
+    {
+      "t": 0.99,
+      "velocity_rmse": 0.24601943790912628,
+      "oracle_rms": 4.330798625946045
+    },
+    {
+      "t": 1.0,
+      "velocity_rmse": 0.2885158360004425,
+      "oracle_rms": 4.331486225128174
+    }
+  ]
+}
