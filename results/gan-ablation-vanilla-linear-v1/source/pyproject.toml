@@ -1,0 +1,31 @@
+[project]
+name = "paired-discriminator"
+version = "0.1.0"
+description = "Controlled experiments with joint paired discriminators"
+requires-python = ">=3.12,<3.13"
+dependencies = [
+    "torch>=2.6",
+    "numpy>=2.0",
+    "matplotlib>=3.9",
+    "scipy>=1.18.1",
+]
+
+[dependency-groups]
+dev = ["pytest>=8"]
+
+[project.scripts]
+paired-discriminator = "paired_discriminator.experiment:main"
+
+[project.optional-dependencies]
+cifar = [
+    "modal>=1.6.0",
+    "torch-fidelity>=0.4.0",
+    "torchvision>=0.29.1",
+]
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]

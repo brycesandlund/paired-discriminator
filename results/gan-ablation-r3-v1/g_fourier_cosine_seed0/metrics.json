@@ -1,0 +1,54 @@
+[
+  {
+    "name": "g_fourier_cosine",
+    "seed": 0,
+    "step": 15000,
+    "variant": "raw",
+    "training_seconds": 19.165203461656347,
+    "mode_tv": 0.1507499999999999,
+    "spatial_tv": 0.6064119405760393,
+    "valid_fraction": 0.9227500000000002,
+    "coverage_1pct": 35,
+    "coverage_half_target": 99,
+    "coverage_relative": 100
+  },
+  {
+    "name": "g_fourier_cosine",
+    "seed": 0,
+    "step": 15000,
+    "variant": "ema",
+    "training_seconds": 19.165203461656347,
+    "mode_tv": 0.14524999999999993,
+    "spatial_tv": 0.6013328216787271,
+    "valid_fraction": 0.9345000000000001,
+    "coverage_1pct": 37,
+    "coverage_half_target": 99,
+    "coverage_relative": 100
+  },
+  {
+    "name": "g_fourier_cosine",
+    "seed": 0,
+    "step": 30000,
+    "variant": "raw",
+    "training_seconds": 37.80856869183481,
+    "mode_tv": 0.13349999999999995,
+    "spatial_tv": 0.5702642286119204,
+    "valid_fraction": 0.9505000000000001,
+    "coverage_1pct": 37,
+    "coverage_half_target": 99,
+    "coverage_relative": 100
+  },
+  {
+    "name": "g_fourier_cosine",
+    "seed": 0,
+    "step": 30000,
+    "variant": "ema",
+    "training_seconds": 37.80856869183481,
+    "mode_tv": 0.13174999999999998,
+    "spatial_tv": 0.5379342776196463,
+    "valid_fraction": 0.9535,
+    "coverage_1pct": 37,
+    "coverage_half_target": 99,
+    "coverage_relative": 100
+  }
+]

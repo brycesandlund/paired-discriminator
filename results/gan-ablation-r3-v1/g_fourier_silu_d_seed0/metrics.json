@@ -1,0 +1,54 @@
+[
+  {
+    "name": "g_fourier_silu_d",
+    "seed": 0,
+    "step": 15000,
+    "variant": "raw",
+    "training_seconds": 22.3648930946365,
+    "mode_tv": 0.26025000000000004,
+    "spatial_tv": 0.6561588410552668,
+    "valid_fraction": 0.9265,
+    "coverage_1pct": 44,
+    "coverage_half_target": 75,
+    "coverage_relative": 99
+  },
+  {
+    "name": "g_fourier_silu_d",
+    "seed": 0,
+    "step": 15000,
+    "variant": "ema",
+    "training_seconds": 22.3648930946365,
+    "mode_tv": 0.25600000000000006,
+    "spatial_tv": 0.6620673692082868,
+    "valid_fraction": 0.9462499999999999,
+    "coverage_1pct": 45,
+    "coverage_half_target": 76,
+    "coverage_relative": 99
+  },
+  {
+    "name": "g_fourier_silu_d",
+    "seed": 0,
+    "step": 30000,
+    "variant": "raw",
+    "training_seconds": 42.61864594905637,
+    "mode_tv": 0.24225000000000005,
+    "spatial_tv": 0.6410680724299849,
+    "valid_fraction": 0.9532499999999999,
+    "coverage_1pct": 47,
+    "coverage_half_target": 76,
+    "coverage_relative": 98
+  },
+  {
+    "name": "g_fourier_silu_d",
+    "seed": 0,
+    "step": 30000,
+    "variant": "ema",
+    "training_seconds": 42.61864594905637,
+    "mode_tv": 0.23675000000000002,
+    "spatial_tv": 0.66471799490373,
+    "valid_fraction": 0.9675,
+    "coverage_1pct": 49,
+    "coverage_half_target": 77,
+    "coverage_relative": 99
+  }
+]

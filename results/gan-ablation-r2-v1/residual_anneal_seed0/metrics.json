@@ -1,0 +1,54 @@
+[
+  {
+    "name": "residual_anneal",
+    "seed": 0,
+    "step": 15000,
+    "variant": "raw",
+    "training_seconds": 18.84399145259522,
+    "mode_tv": 0.74275,
+    "spatial_tv": 0.891703290443546,
+    "valid_fraction": 0.45175,
+    "coverage_1pct": 4,
+    "coverage_half_target": 29,
+    "coverage_relative": 41
+  },
+  {
+    "name": "residual_anneal",
+    "seed": 0,
+    "step": 15000,
+    "variant": "ema",
+    "training_seconds": 18.84399145259522,
+    "mode_tv": 0.73825,
+    "spatial_tv": 0.8896923121798495,
+    "valid_fraction": 0.4590000000000001,
+    "coverage_1pct": 6,
+    "coverage_half_target": 29,
+    "coverage_relative": 39
+  },
+  {
+    "name": "residual_anneal",
+    "seed": 0,
+    "step": 30000,
+    "variant": "raw",
+    "training_seconds": 37.39176433929242,
+    "mode_tv": 0.8085,
+    "spatial_tv": 0.9382317160018627,
+    "valid_fraction": 0.4455,
+    "coverage_1pct": 3,
+    "coverage_half_target": 24,
+    "coverage_relative": 26
+  },
+  {
+    "name": "residual_anneal",
+    "seed": 0,
+    "step": 30000,
+    "variant": "ema",
+    "training_seconds": 37.39176433929242,
+    "mode_tv": 0.77,
+    "spatial_tv": 0.9079587302822926,
+    "valid_fraction": 0.46699999999999997,
+    "coverage_1pct": 6,
+    "coverage_half_target": 27,
+    "coverage_relative": 33
+  }
+]

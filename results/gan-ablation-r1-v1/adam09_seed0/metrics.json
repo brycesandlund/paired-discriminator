@@ -1,0 +1,54 @@
+[
+  {
+    "name": "adam09",
+    "seed": 0,
+    "step": 15000,
+    "variant": "raw",
+    "training_seconds": 14.280294065829366,
+    "mode_tv": 0.87725,
+    "spatial_tv": 0.9614208352907954,
+    "valid_fraction": 0.12275000000000003,
+    "coverage_1pct": 0,
+    "coverage_half_target": 5,
+    "coverage_relative": 39
+  },
+  {
+    "name": "adam09",
+    "seed": 0,
+    "step": 15000,
+    "variant": "ema",
+    "training_seconds": 14.280294065829366,
+    "mode_tv": 0.875,
+    "spatial_tv": 0.959215869407497,
+    "valid_fraction": 0.12624999999999997,
+    "coverage_1pct": 2,
+    "coverage_half_target": 6,
+    "coverage_relative": 31
+  },
+  {
+    "name": "adam09",
+    "seed": 0,
+    "step": 30000,
+    "variant": "raw",
+    "training_seconds": 28.36728173913434,
+    "mode_tv": 0.8462500000000001,
+    "spatial_tv": 0.949179033354525,
+    "valid_fraction": 0.15375000000000005,
+    "coverage_1pct": 0,
+    "coverage_half_target": 4,
+    "coverage_relative": 72
+  },
+  {
+    "name": "adam09",
+    "seed": 0,
+    "step": 30000,
+    "variant": "ema",
+    "training_seconds": 28.36728173913434,
+    "mode_tv": 0.8435,
+    "spatial_tv": 0.9490254617119338,
+    "valid_fraction": 0.15650000000000008,
+    "coverage_1pct": 0,
+    "coverage_half_target": 0,
+    "coverage_relative": 81
+  }
+]

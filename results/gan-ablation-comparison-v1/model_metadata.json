@@ -1,0 +1,222 @@
+[
+  {
+    "name": "ema_fast",
+    "steps": 50000,
+    "seed": 0,
+    "parameters_g": 22274,
+    "parameters_d": 27521,
+    "training_seconds": 64.49487884633709,
+    "wall_seconds": 64.54349729209207,
+    "d_real_samples": 12800000,
+    "g_real_references": 12800000
+  },
+  {
+    "name": "linear",
+    "steps": 50000,
+    "seed": 0,
+    "parameters_g": 22274,
+    "parameters_d": 27521,
+    "training_seconds": 63.701216792920604,
+    "wall_seconds": 63.74982508306857,
+    "d_real_samples": 12800000,
+    "g_real_references": 12800000
+  },
+  {
+    "name": "vanilla_fast",
+    "steps": 50000,
+    "seed": 0,
+    "parameters_g": 22274,
+    "parameters_d": 22145,
+    "training_seconds": 55.07203106977977,
+    "wall_seconds": 55.11451154202223,
+    "d_real_samples": 12800000,
+    "g_real_references": 0
+  },
+  {
+    "name": "vanilla_linear",
+    "steps": 50000,
+    "seed": 0,
+    "parameters_g": 22274,
+    "parameters_d": 22145,
+    "training_seconds": 55.386118472204544,
+    "wall_seconds": 55.42882475000806,
+    "d_real_samples": 12800000,
+    "g_real_references": 0
+  },
+  {
+    "name": "ema_fast",
+    "steps": 50000,
+    "seed": 1,
+    "parameters_g": 22274,
+    "parameters_d": 27521,
+    "training_seconds": 63.64346758159809,
+    "wall_seconds": 63.69054820796009,
+    "d_real_samples": 12800000,
+    "g_real_references": 12800000
+  },
+  {
+    "name": "linear",
+    "steps": 50000,
+    "seed": 1,
+    "parameters_g": 22274,
+    "parameters_d": 27521,
+    "training_seconds": 63.88617670640815,
+    "wall_seconds": 63.93611100001726,
+    "d_real_samples": 12800000,
+    "g_real_references": 12800000
+  },
+  {
+    "name": "vanilla_fast",
+    "steps": 50000,
+    "seed": 1,
+    "parameters_g": 22274,
+    "parameters_d": 22145,
+    "training_seconds": 55.23237920051906,
+    "wall_seconds": 55.274125916999765,
+    "d_real_samples": 12800000,
+    "g_real_references": 0
+  },
+  {
+    "name": "vanilla_linear",
+    "steps": 50000,
+    "seed": 1,
+    "parameters_g": 22274,
+    "parameters_d": 22145,
+    "training_seconds": 55.39110133203212,
+    "wall_seconds": 55.433742583030835,
+    "d_real_samples": 12800000,
+    "g_real_references": 0
+  },
+  {
+    "name": "ema_fast",
+    "steps": 50000,
+    "seed": 2,
+    "parameters_g": 22274,
+    "parameters_d": 27521,
+    "training_seconds": 63.81718130467925,
+    "wall_seconds": 63.86681508296169,
+    "d_real_samples": 12800000,
+    "g_real_references": 12800000
+  },
+  {
+    "name": "linear",
+    "steps": 50000,
+    "seed": 2,
+    "parameters_g": 22274,
+    "parameters_d": 27521,
+    "training_seconds": 63.09481372369919,
+    "wall_seconds": 63.14587804104667,
+    "d_real_samples": 12800000,
+    "g_real_references": 12800000
+  },
+  {
+    "name": "vanilla_fast",
+    "steps": 50000,
+    "seed": 2,
+    "parameters_g": 22274,
+    "parameters_d": 22145,
+    "training_seconds": 55.044473739224486,
+    "wall_seconds": 55.08874425000977,
+    "d_real_samples": 12800000,
+    "g_real_references": 0
+  },
+  {
+    "name": "vanilla_linear",
+    "steps": 50000,
+    "seed": 2,
+    "parameters_g": 22274,
+    "parameters_d": 22145,
+    "training_seconds": 55.2152257115813,
+    "wall_seconds": 55.25850491703022,
+    "d_real_samples": 12800000,
+    "g_real_references": 0
+  },
+  {
+    "name": "ema_fast",
+    "steps": 50000,
+    "seed": 3,
+    "parameters_g": 22274,
+    "parameters_d": 27521,
+    "training_seconds": 63.57399089296814,
+    "wall_seconds": 63.62494195799809,
+    "d_real_samples": 12800000,
+    "g_real_references": 12800000
+  },
+  {
+    "name": "linear",
+    "steps": 50000,
+    "seed": 3,
+    "parameters_g": 22274,
+    "parameters_d": 27521,
+    "training_seconds": 63.54505058960058,
+    "wall_seconds": 63.59484724991489,
+    "d_real_samples": 12800000,
+    "g_real_references": 12800000
+  },
+  {
+    "name": "vanilla_fast",
+    "steps": 50000,
+    "seed": 3,
+    "parameters_g": 22274,
+    "parameters_d": 22145,
+    "training_seconds": 54.999034126638435,
+    "wall_seconds": 55.03814983309712,
+    "d_real_samples": 12800000,
+    "g_real_references": 0
+  },
+  {
+    "name": "vanilla_linear",
+    "steps": 50000,
+    "seed": 3,
+    "parameters_g": 22274,
+    "parameters_d": 22145,
+    "training_seconds": 54.91197283100337,
+    "wall_seconds": 54.95469366700854,
+    "d_real_samples": 12800000,
+    "g_real_references": 0
+  },
+  {
+    "name": "ema_fast",
+    "steps": 50000,
+    "seed": 4,
+    "parameters_g": 22274,
+    "parameters_d": 27521,
+    "training_seconds": 63.41206383367535,
+    "wall_seconds": 63.465810040943325,
+    "d_real_samples": 12800000,
+    "g_real_references": 12800000
+  },
+  {
+    "name": "linear",
+    "steps": 50000,
+    "seed": 4,
+    "parameters_g": 22274,
+    "parameters_d": 27521,
+    "training_seconds": 63.166715933708474,
+    "wall_seconds": 63.215725957998075,
+    "d_real_samples": 12800000,
+    "g_real_references": 12800000
+  },
+  {
+    "name": "vanilla_fast",
+    "steps": 50000,
+    "seed": 4,
+    "parameters_g": 22274,
+    "parameters_d": 22145,
+    "training_seconds": 55.08655774744693,
+    "wall_seconds": 55.12500979099423,
+    "d_real_samples": 12800000,
+    "g_real_references": 0
+  },
+  {
+    "name": "vanilla_linear",
+    "steps": 50000,
+    "seed": 4,
+    "parameters_g": 22274,
+    "parameters_d": 22145,
+    "training_seconds": 55.24236482556444,
+    "wall_seconds": 55.28539916698355,
+    "d_real_samples": 12800000,
+    "g_real_references": 0
+  }
+]

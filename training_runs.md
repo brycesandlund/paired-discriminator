@@ -1,6 +1,6 @@
 # Training runs
 
-Last updated: 2026-10-07. Running overview of completed research experiments.
+Last updated: 2026-10-08. Running overview of completed research experiments.
 Detailed reports, configurations, and raw metrics are linked below. Add future
 experiments here, preserving earlier results and distinguishing new trials from
 extensions or reused checkpoints.
@@ -61,6 +61,14 @@ modes at the original threshold in all five seeds, but one adaptive 3×3 seed
 fails. D-only nearby matching performs poorly; G still sees random references,
 so this does not test matching consistently in both phases.
 
+Representation and optimizer tuning substantially change the 10×10 picture
+(#32–33). Tuned flow and both tuned GAN objectives reach all 100 half-target
+modes in every confirmation seed at 50k updates. With the same feature and
+linear-deficit settings, paired and vanilla have similar mode TV (.070/.067).
+The earlier grid advantages therefore depend on the architecture and training
+settings tested; they do not establish a general paired advantage. Tuned GANs
+still have more within-mode density error than tuned flow on this problem.
+
 ## Experiment ledger
 
 “Updates” counts generator updates, each accompanied by one discriminator update.
@@ -100,6 +108,7 @@ The 10k and 50k checkpoints of a trajectory are not independent trials.
 | 30 | Vanilla flow matching on 10×10 | Five fresh seeds, uniform data | 50k; eval 10k/25k/50k | Complete: at 50k, mode TV .8575, fine TV .9248, valid mass 14.2%, zero half-target modes; 128→256 solver steps has negligible effect. |
 | 31 | Flow matching extension | Resume five #30 seeds | 50k → 1.2M | Complete: mode TV .6166, valid mass 38.5%, half-target coverage 24.8/100; solver refinement negligible. |
 | 32 | Flow-matching tuning against analytic reference | 31 short jobs; five-seed validation of sample-only models | 20k screens, 50k confirmation, 100k refinement | Complete: tuned flow reaches all 100 half-target modes in every seed; near-analytic mass/density metrics. |
+| 33 | GAN feature, optimizer and deficit tuning | 53 short jobs; paired and vanilla, final seeds 0–4 | 30k screens, 50k refinement/confirmation | Complete: unchanged BCE with Fourier G/D features and linear D deficit reaches all 100 half-target modes in every seed for both methods; mode TV .070 paired / .067 vanilla. |
 
 ## What the methods mean
 
@@ -1324,3 +1333,66 @@ Five-seed fresh-noise means at midpoint128:
 All tuned models cover 100/100 half-target modes in every seed. Raw weights fixed before confirmation. Seed0 development, seeds1–4 initial confirmation; follow-up decisions were adaptive. Midpoint256 barely changes results. Original #30–31 flow results were an under-tuned setup and do not represent a competitive flow baseline.
 
 20 final checkpoint/sample replays, all source hashes, optimizer steps, and five refinement resume boundaries passed; three focused tests passed. No claim of exact field equality everywhere. Results are not matched-parameter or matched-compute GAN comparisons. Checkpoints, all trial outcomes and plots preserved; no commits made.
+
+## 33. GAN features, optimizer and deficit sampling
+
+[Protocol](docs/GAN_ABLATIONS_PROTOCOL.md) · [Report and samples](results/gan-ablation-comparison-v1/REPORT.md).
+
+53 short jobs: 35 seed-0 screens across four rounds, 13 initial confirmation
+jobs, and five matched vanilla linear-deficit follow-ups. Original BCE D and
+non-saturating BCE G objectives throughout; no reconstruction loss. Raw G is
+the primary comparison, fixed before confirmation. Final evaluation uses 10k
+fresh latent samples per seed; old checkpoints are also re-evaluated. Seed0
+participated in development, and later choices were adaptive; these five-seed
+summaries include development seed0 rather than five untouched test seeds.
+
+The successful G uses a 2D normal latent, generic sine/cosine features at ten
+log-spaced frequencies .5–16, two width128 LeakyReLU hidden layers, and output
+`s_data * (z + MLP(features(z)))`. The shared 100k-real-point pilot estimates
+only scale. D uses normalized coordinates plus Fourier features introduced
+from low to high over the first 25k updates, also two width128 hidden layers.
+Neither feature map contains mode centers or grid spacing. The deficit sampler
+still uses known mode identities, as in earlier grid experiments.
+
+Both Adam optimizers retain betas (.5,.999), with lr .001 for 25k updates,
+then cosine decay to .0001 at 50k. D batch256 real/256 fake; G batch256 fake,
+with 256 uniform real references for paired. Linear deficit uses alpha=.9,
+power=1, mass EMA decay=.99. The squared/fast alternative uses alpha=.9,
+power=2, mass EMA decay=.9. Optional generator-weight EMA decay=.999 is
+reported separately for every seed, never selected per seed.
+
+Fresh-noise five-seed means, raw outputs:
+
+| Model | Updates | Mode TV ↓ | Fine TV ↓ | Valid mass | Half-target coverage |
+|---|---:|---:|---:|---:|---:|
+| Original vanilla | 1.2M | .5628 | .7445 | 79.73% | 39.4/100 |
+| Original paired, strong D deficit | 1.2M | .2121 | .6148 | 79.34% | 91.4/100 |
+| Tuned paired, squared deficit / fast estimator | 50k | .0889 | .4130 | 95.71% | 99.0/100 |
+| Tuned paired, linear deficit | 50k | .0702 | .4260 | 96.61% | 100.0/100 |
+| Tuned vanilla, squared deficit / fast estimator | 50k | .0707 | .4208 | 96.32% | 100.0/100 |
+| Tuned vanilla, linear deficit | 50k | .0674 | .4265 | 96.41% | 100.0/100 |
+| Real mixture reference | — | .0432 | .3623 | 98.91% | 100.0/100 |
+
+Both linear-deficit methods reach all 100 half-target modes in all five seeds.
+The squared/fast paired variant does so in only two of five, despite better
+mean fine TV. Generator EMA improves fine TV to .3894 paired-linear and .3932
+vanilla-linear; real finite-sample fine TV is .3623. All-mode coverage does
+not imply perfect balance or correct within-mode density.
+
+D features or broader G initialization alone did not solve coverage in the
+short screens. Combining G Fourier features with the residual parameterization
+and gradual D features produced the large observed gain. Sampler and late
+learning-rate adjustments then improved the result. The gains transfer to
+vanilla: this experiment does not demonstrate a paired-only benefit.
+
+Final models train in about 55–64 seconds per seed under concurrent workloads.
+Each consumes 12.8M D real draws; paired additionally uses 12.8M G references,
+plus the shared scale pilot. Vanilla draws unused G reference batches only to
+keep RNG streams aligned. G has 22,274 parameters; D has 27,521 paired or
+22,145 vanilla. Inference is one G pass. These are different architectures
+from the original runs; 24× fewer updates does not mean 24× less compute.
+
+40 exact raw/EMA checkpoint/sample replays, five matched paired/vanilla RNG
+checks, frozen-source hashes and optimizer step counts passed. Three focused
+tests passed, including a two-update bitwise regression against the original
+trainer. All trials and source snapshots retained; no commits made.

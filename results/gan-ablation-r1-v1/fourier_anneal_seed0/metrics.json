@@ -1,0 +1,54 @@
+[
+  {
+    "name": "fourier_anneal",
+    "seed": 0,
+    "step": 15000,
+    "variant": "raw",
+    "training_seconds": 18.731789035489783,
+    "mode_tv": 0.783,
+    "spatial_tv": 0.9184395975594967,
+    "valid_fraction": 0.42325,
+    "coverage_1pct": 3,
+    "coverage_half_target": 19,
+    "coverage_relative": 41
+  },
+  {
+    "name": "fourier_anneal",
+    "seed": 0,
+    "step": 15000,
+    "variant": "ema",
+    "training_seconds": 18.731789035489783,
+    "mode_tv": 0.8089999999999999,
+    "spatial_tv": 0.9276351440740758,
+    "valid_fraction": 0.29400000000000004,
+    "coverage_1pct": 3,
+    "coverage_half_target": 19,
+    "coverage_relative": 31
+  },
+  {
+    "name": "fourier_anneal",
+    "seed": 0,
+    "step": 30000,
+    "variant": "raw",
+    "training_seconds": 36.455217261449434,
+    "mode_tv": 0.80325,
+    "spatial_tv": 0.91114865068712,
+    "valid_fraction": 0.6460000000000001,
+    "coverage_1pct": 4,
+    "coverage_half_target": 17,
+    "coverage_relative": 36
+  },
+  {
+    "name": "fourier_anneal",
+    "seed": 0,
+    "step": 30000,
+    "variant": "ema",
+    "training_seconds": 36.455217261449434,
+    "mode_tv": 0.7895000000000001,
+    "spatial_tv": 0.9071488912753773,
+    "valid_fraction": 0.6567500000000001,
+    "coverage_1pct": 4,
+    "coverage_half_target": 19,
+    "coverage_relative": 36
+  }
+]

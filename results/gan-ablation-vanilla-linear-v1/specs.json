@@ -1,0 +1,16 @@
+[
+  {
+    "name": "vanilla_linear",
+    "method": "vanilla",
+    "residual_g": true,
+    "fourier": true,
+    "g_fourier": true,
+    "latent": 2,
+    "lr_g": 0.001,
+    "anneal": true,
+    "cosine": true,
+    "cosine_after": 0.5,
+    "alpha": 0.9,
+    "power": 1
+  }
+]

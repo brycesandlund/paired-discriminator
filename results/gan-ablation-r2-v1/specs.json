@@ -1,0 +1,57 @@
+[
+  {
+    "name": "residual_raw",
+    "residual_g": true
+  },
+  {
+    "name": "residual_fourier",
+    "residual_g": true,
+    "fourier": true
+  },
+  {
+    "name": "residual_fast",
+    "residual_g": true,
+    "fourier": true,
+    "lr_g": 0.001
+  },
+  {
+    "name": "residual_anneal",
+    "residual_g": true,
+    "fourier": true,
+    "lr_g": 0.001,
+    "anneal": true
+  },
+  {
+    "name": "residual_fast_d",
+    "residual_g": true,
+    "fourier": true,
+    "lr_d": 0.001,
+    "anneal": true
+  },
+  {
+    "name": "residual_fast_g",
+    "residual_g": true,
+    "fourier": true,
+    "lr_g": 0.001,
+    "lr_d": 0.0002,
+    "anneal": true
+  },
+  {
+    "name": "residual_weak",
+    "residual_g": true,
+    "fourier": true,
+    "lr_g": 0.001,
+    "anneal": true,
+    "alpha": 0.5,
+    "power": 1
+  },
+  {
+    "name": "residual_uniform",
+    "residual_g": true,
+    "fourier": true,
+    "lr_g": 0.001,
+    "anneal": true,
+    "alpha": 0,
+    "power": 1
+  }
+]

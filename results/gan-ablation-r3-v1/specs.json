@@ -1,0 +1,80 @@
+[
+  {
+    "residual_g": true,
+    "fourier": true,
+    "lr_g": 0.001,
+    "anneal": true,
+    "latent": 2,
+    "g_fourier": false,
+    "name": "latent2"
+  },
+  {
+    "residual_g": true,
+    "fourier": true,
+    "lr_g": 0.001,
+    "anneal": true,
+    "latent": 2,
+    "g_fourier": true,
+    "name": "g_fourier"
+  },
+  {
+    "residual_g": false,
+    "fourier": true,
+    "lr_g": 0.001,
+    "anneal": true,
+    "latent": 2,
+    "g_fourier": true,
+    "name": "g_fourier_noskip"
+  },
+  {
+    "residual_g": true,
+    "fourier": true,
+    "lr_g": 0.001,
+    "anneal": true,
+    "latent": 16,
+    "g_fourier": true,
+    "name": "g_fourier_z16"
+  },
+  {
+    "residual_g": true,
+    "fourier": false,
+    "lr_g": 0.001,
+    "anneal": true,
+    "latent": 2,
+    "g_fourier": true,
+    "name": "g_fourier_raw_d"
+  },
+  {
+    "residual_g": true,
+    "fourier": true,
+    "lr_g": 0.001,
+    "anneal": true,
+    "latent": 2,
+    "g_fourier": true,
+    "name": "g_fourier_cosine",
+    "cosine": true
+  },
+  {
+    "residual_g": true,
+    "fourier": true,
+    "lr_g": 0.001,
+    "anneal": true,
+    "latent": 2,
+    "g_fourier": true,
+    "name": "g_fourier_silu_d",
+    "silu": true
+  },
+  {
+    "residual_g": true,
+    "fourier": true,
+    "lr_g": 0.001,
+    "anneal": true,
+    "latent": 2,
+    "g_fourier": true,
+    "name": "g_fourier_beta0",
+    "betas": [
+      0.0,
+      0.99
+    ]
+  }
+]

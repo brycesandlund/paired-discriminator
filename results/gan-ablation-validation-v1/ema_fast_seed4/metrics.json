@@ -1,0 +1,54 @@
+[
+  {
+    "name": "ema_fast",
+    "seed": 4,
+    "step": 25000,
+    "variant": "raw",
+    "training_seconds": 31.76134373061359,
+    "mode_tv": 0.14370000000000002,
+    "spatial_tv": 0.4941416532634816,
+    "valid_fraction": 0.8774,
+    "coverage_1pct": 22,
+    "coverage_half_target": 98,
+    "coverage_relative": 100
+  },
+  {
+    "name": "ema_fast",
+    "seed": 4,
+    "step": 25000,
+    "variant": "ema",
+    "training_seconds": 31.76134373061359,
+    "mode_tv": 0.12200000000000004,
+    "spatial_tv": 0.5174300024519061,
+    "valid_fraction": 0.9067999999999999,
+    "coverage_1pct": 33,
+    "coverage_half_target": 98,
+    "coverage_relative": 100
+  },
+  {
+    "name": "ema_fast",
+    "seed": 4,
+    "step": 50000,
+    "variant": "raw",
+    "training_seconds": 63.41206383367535,
+    "mode_tv": 0.10220000000000003,
+    "spatial_tv": 0.426420471491892,
+    "valid_fraction": 0.9359,
+    "coverage_1pct": 38,
+    "coverage_half_target": 98,
+    "coverage_relative": 100
+  },
+  {
+    "name": "ema_fast",
+    "seed": 4,
+    "step": 50000,
+    "variant": "ema",
+    "training_seconds": 63.41206383367535,
+    "mode_tv": 0.09770000000000001,
+    "spatial_tv": 0.38434116211883396,
+    "valid_fraction": 0.9427,
+    "coverage_1pct": 39,
+    "coverage_half_target": 98,
+    "coverage_relative": 100
+  }
+]

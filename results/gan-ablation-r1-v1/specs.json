@@ -1,0 +1,59 @@
+[
+  {
+    "name": "control"
+  },
+  {
+    "name": "lr1e3",
+    "lr_g": 0.001
+  },
+  {
+    "name": "adam09",
+    "lr_g": 0.001,
+    "betas": [
+      0.9,
+      0.999
+    ]
+  },
+  {
+    "name": "normalized",
+    "normalized": true
+  },
+  {
+    "name": "fourier",
+    "fourier": true
+  },
+  {
+    "name": "fourier_fast",
+    "fourier": true,
+    "lr_g": 0.001
+  },
+  {
+    "name": "fourier_beta0",
+    "fourier": true,
+    "lr_g": 0.001,
+    "betas": [
+      0.0,
+      0.99
+    ]
+  },
+  {
+    "name": "fourier_anneal",
+    "fourier": true,
+    "lr_g": 0.001,
+    "anneal": true
+  },
+  {
+    "name": "fourier_weak",
+    "fourier": true,
+    "lr_g": 0.001,
+    "alpha": 0.5,
+    "power": 1
+  },
+  {
+    "name": "fourier_uniform",
+    "fourier": true,
+    "lr_g": 0.001,
+    "alpha": 0,
+    "power": 1
+  }
+]

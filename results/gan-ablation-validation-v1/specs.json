@@ -1,0 +1,59 @@
+[
+  {
+    "residual_g": true,
+    "fourier": true,
+    "g_fourier": true,
+    "latent": 2,
+    "lr_g": 0.001,
+    "anneal": true,
+    "cosine": true,
+    "cosine_after": 0.5,
+    "name": "ema_fast",
+    "mass_decay": 0.9,
+    "seeds": [
+      1,
+      2,
+      3,
+      4
+    ]
+  },
+  {
+    "residual_g": true,
+    "fourier": true,
+    "g_fourier": true,
+    "latent": 2,
+    "lr_g": 0.001,
+    "anneal": true,
+    "cosine": true,
+    "cosine_after": 0.5,
+    "name": "linear",
+    "alpha": 0.9,
+    "power": 1,
+    "seeds": [
+      1,
+      2,
+      3,
+      4
+    ]
+  },
+  {
+    "residual_g": true,
+    "fourier": true,
+    "g_fourier": true,
+    "latent": 2,
+    "lr_g": 0.001,
+    "anneal": true,
+    "cosine": true,
+    "cosine_after": 0.5,
+    "name": "vanilla_fast",
+    "mass_decay": 0.9,
+    "method": "vanilla",
+    "seeds": [
+      0,
+      1,
+      2,
+      3,
+      4
+    ]
+  }
+]

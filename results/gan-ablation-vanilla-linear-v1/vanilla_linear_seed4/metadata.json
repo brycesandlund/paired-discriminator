@@ -1,0 +1,10 @@
+{
+  "steps": 50000,
+  "seed": 4,
+  "parameters_g": 22274,
+  "parameters_d": 22145,
+  "training_seconds": 55.24236482556444,
+  "wall_seconds": 55.28539916698355,
+  "d_real_samples": 12800000,
+  "g_real_references": 0
+}

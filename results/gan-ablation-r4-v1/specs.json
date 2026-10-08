@@ -1,0 +1,112 @@
+[
+  {
+    "residual_g": true,
+    "fourier": true,
+    "g_fourier": true,
+    "latent": 2,
+    "lr_g": 0.001,
+    "anneal": true,
+    "cosine": false,
+    "cosine_after": 0.5,
+    "name": "strong_constant"
+  },
+  {
+    "residual_g": true,
+    "fourier": true,
+    "g_fourier": true,
+    "latent": 2,
+    "lr_g": 0.001,
+    "anneal": true,
+    "cosine": true,
+    "cosine_after": 0.5,
+    "name": "strong_latecos"
+  },
+  {
+    "residual_g": true,
+    "fourier": true,
+    "g_fourier": true,
+    "latent": 2,
+    "lr_g": 0.001,
+    "anneal": true,
+    "cosine": true,
+    "cosine_after": 0.5,
+    "name": "uniform",
+    "alpha": 0,
+    "power": 1
+  },
+  {
+    "residual_g": true,
+    "fourier": true,
+    "g_fourier": true,
+    "latent": 2,
+    "lr_g": 0.001,
+    "anneal": true,
+    "cosine": true,
+    "cosine_after": 0.5,
+    "name": "weak",
+    "alpha": 0.5,
+    "power": 1
+  },
+  {
+    "residual_g": true,
+    "fourier": true,
+    "g_fourier": true,
+    "latent": 2,
+    "lr_g": 0.001,
+    "anneal": true,
+    "cosine": true,
+    "cosine_after": 0.5,
+    "name": "linear",
+    "alpha": 0.9,
+    "power": 1
+  },
+  {
+    "residual_g": true,
+    "fourier": true,
+    "g_fourier": true,
+    "latent": 2,
+    "lr_g": 0.001,
+    "anneal": true,
+    "cosine": true,
+    "cosine_after": 0.5,
+    "name": "half_square",
+    "alpha": 0.5,
+    "power": 2
+  },
+  {
+    "residual_g": true,
+    "fourier": true,
+    "g_fourier": true,
+    "latent": 2,
+    "lr_g": 0.001,
+    "anneal": true,
+    "cosine": true,
+    "cosine_after": 0.5,
+    "name": "ema_fast",
+    "mass_decay": 0.9
+  },
+  {
+    "residual_g": true,
+    "fourier": true,
+    "g_fourier": true,
+    "latent": 2,
+    "lr_g": 0.001,
+    "anneal": true,
+    "cosine": true,
+    "cosine_after": 0.5,
+    "name": "ema_slow",
+    "mass_decay": 0.999
+  },
+  {
+    "residual_g": true,
+    "fourier": true,
+    "g_fourier": true,
+    "latent": 2,
+    "lr_g": 0.001,
+    "anneal": true,
+    "cosine": true,
+    "cosine_after": 0.5,
+    "name": "vanilla_strong",
+    "method": "vanilla"
+  }
+]
