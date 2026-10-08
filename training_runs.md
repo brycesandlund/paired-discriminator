@@ -99,6 +99,8 @@ The 10k and 50k checkpoints of a trajectory are not independent trials.
 
 | 29 | 10×10 stronger D deficit | Five fresh paired seeds; α=.9, p=2; G uniform | 0 → 1.2M; eval every 50k | Complete: stronger bias reaches 91.0 half-target modes vs 82.8; fine TV 0.614 vs 0.625, mode TV 0.214 vs 0.209. |
 
+| 30 | Vanilla flow matching on 10×10 | Five fresh seeds, uniform data | 50k; eval 10k/25k/50k | Complete: at 50k, mode TV .8575, fine TV .9248, valid mass 14.2%, zero half-target modes; 128→256 solver steps has negligible effect. |
+
 ## What the methods mean
 
 - **Vanilla:** unary real/fake discriminator, BCE; G uses non-saturating BCE.
@@ -1237,3 +1239,31 @@ retains slightly lower mode TV and higher valid mass. This is a mixed outcome,
 not a uniform improvement; alpha and power changed together. All 120 checkpoint
 replays and five final RNG comparisons passed, including uniform G reference RNG.
 [Report and plots](results/grid10-strong-comparison-v1/REPORT.md). Monitor paused.
+
+## 30. Vanilla straight-line flow matching
+
+Five fresh seeds 0–4; 50k updates; evaluations at 10k, 25k, 50k.
+Independent 2D standard-normal noise and uniform target examples; t uniform
+on [0,1], interpolate x_t=(1-t)x_0+t*x_1, regress velocity x_1-x_0 by MSE.
+Velocity MLP: two 128-wide SiLU hidden layers with scalar time concatenated.
+Batch 256, Adam lr .0002 and betas (.5,.999). No mode labels or deficit sampling.
+Midpoint solver 64/128/256 steps (128/256/512 network evaluations), fixed 10k
+noise samples for solver comparisons. Report training and sampling time and
+real sample consumption; update counts are not equivalent to GAN compute.
+Constant-velocity solver check and gradient smoke check passed.
+
+Status: complete. Command: `uv run python -m paired_discriminator.grid10_flow`.
+Report: `results/grid10-flow-v1/REPORT.md`.
+
+Experiment 30: final five-seed means at 50k, midpoint 128 steps: mode TV
+0.8575, fine TV 0.9248, valid mass 14.25%, half-target coverage 0/100.
+128→256 integration steps changes mean mode TV by less than 0.0001; solver
+resolution does not explain this poor fit. Seed-0 final samples replay exactly.
+Training takes about 24 seconds per seed (five parallel workers); about 39
+seconds per seed including evaluations. Each run consumes 12.8M real points.
+Sampling requires 256 velocity-network evaluations at the primary setting,
+versus a single generator pass for the GANs. At their much larger 1.2M budgets,
+original/strong paired D-deficit mode TVs were .2088/.2143. These are different
+training and inference budgets, not a matched-compute ranking. This small,
+untuned flow model at 50k is a poor fit; no conclusion about flow matching in
+general follows. Completion monitor paused.
