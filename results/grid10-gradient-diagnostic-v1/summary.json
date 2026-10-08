@@ -1,0 +1,26 @@
+[
+  {
+    "method": "vanilla",
+    "weak_modes": 35,
+    "median_displacement": 0.12107320874929428,
+    "max_displacement": 0.44745463132858276
+  },
+  {
+    "method": "paired",
+    "weak_modes": 13,
+    "median_displacement": 0.04923040419816971,
+    "max_displacement": 0.22757014632225037
+  },
+  {
+    "method": "vanilla_deficit",
+    "weak_modes": 26,
+    "median_displacement": 0.06584814190864563,
+    "max_displacement": 0.310429185628891
+  },
+  {
+    "method": "paired_deficit",
+    "weak_modes": 7,
+    "median_displacement": 0.06383845955133438,
+    "max_displacement": 0.3624662756919861
+  }
+]
