@@ -101,6 +101,8 @@ The 10k and 50k checkpoints of a trajectory are not independent trials.
 
 | 30 | Vanilla flow matching on 10×10 | Five fresh seeds, uniform data | 50k; eval 10k/25k/50k | Complete: at 50k, mode TV .8575, fine TV .9248, valid mass 14.2%, zero half-target modes; 128→256 solver steps has negligible effect. |
 
+| 31 | Flow matching extension | Resume five #30 seeds | 50k → 1.2M | Complete: mode TV .6166, valid mass 38.5%, half-target coverage 24.8/100; solver refinement negligible. |
+
 ## What the methods mean
 
 - **Vanilla:** unary real/fake discriminator, BCE; G uses non-saturating BCE.
@@ -1267,3 +1269,26 @@ original/strong paired D-deficit mode TVs were .2088/.2143. These are different
 training and inference budgets, not a matched-compute ranking. This small,
 untuned flow model at 50k is a poor fit; no conclusion about flow matching in
 general follows. Completion monitor paused.
+
+## 31. Flow matching extension to 1.2M
+
+Resume all five #30 seeds with model, Adam and RNG states restored; replay
+50k boundary samples before training. Evaluate at 150k/300k/600k/1.2M with
+64/128/256 midpoint steps. Same model, objective and training settings.
+At 1.2M, 307.2M real points per run matches D real-data consumption in the
+GAN arms; paired GANs additionally consume real G references. Equal updates
+and this data budget do not equate compute. Report cumulative training time.
+Status: complete. Output: `results/grid10-flow-1200k-v1/REPORT.md`.
+
+Experiment 31 final means, five seeds, midpoint128: mode TV .6166, fine TV
+.7753, valid mass 38.45%, half-target coverage 24.8/100. Midpoint256 yields
+mode TV .6166 and fine TV .7752: integration resolution is not the explanation.
+All five final saved samples replay exactly; all five resume boundaries verified.
+Cumulative training time averages about 599 seconds per seed; the extension
+finished in about ten minutes with five parallel workers. Each run consumed
+307.2M real points. This matches GAN D real draws but not paired G reference
+draws or training compute. Sampling uses 256 network evaluations at midpoint128
+versus one generator pass in the GANs. Existing 1.2M vanilla / paired / original
+paired D-deficit mode TVs: .5612 / .3570 / .2088. This particular flow setup
+remains worse at this budget, with no claim about tuned flow matching generally.
+[Report and samples](results/grid10-flow-1200k-v1/REPORT.md). Monitor paused.
