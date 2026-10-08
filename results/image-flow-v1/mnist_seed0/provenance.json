@@ -1,0 +1,32 @@
+{
+  "config": {
+    "width": 32,
+    "batch_size": 128,
+    "learning_rate": 0.0002,
+    "betas": [
+      0.9,
+      0.999
+    ],
+    "warmup_steps": 500,
+    "ema_decay": 0.999,
+    "log_every": 100,
+    "checkpoint_every": 1000,
+    "eval_samples": 10000,
+    "eval_seed": 99174,
+    "solver_steps": 64,
+    "solver_check_steps": 128,
+    "solver": "explicit_midpoint",
+    "primary_weights": "raw",
+    "conditioning": "none",
+    "sampling": "uniform_with_replacement",
+    "precision": "float32",
+    "augmentation": "none"
+  },
+  "dataset": "mnist",
+  "seed": 0,
+  "source_sha256": "06d87e156716241cb517171750b3f0d74dbdd417d2c3476f3987c5e367a892d9",
+  "data_sha256": "741c988805d008ac6e4c904b69001ba184c24b2c540a4ef403f4c71b676cf757",
+  "torch": "2.14.1+cu130",
+  "device": "cuda",
+  "gpu": "NVIDIA A10"
+}

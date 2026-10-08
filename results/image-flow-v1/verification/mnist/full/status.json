@@ -1,0 +1,8 @@
+{
+  "step": 20,
+  "target_steps": 20,
+  "phase": "training_complete",
+  "training_seconds": 1.5198369010000015,
+  "real_samples": 2560,
+  "parameters": 1168929
+}

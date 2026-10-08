@@ -1,0 +1,20 @@
+{
+  "step": 10000,
+  "target_steps": 10000,
+  "phase": "complete",
+  "training_seconds": 281.23110070000007,
+  "real_samples": 1280000,
+  "parameters": 1168929,
+  "evaluations": [
+    {
+      "solver_steps": 64,
+      "evaluation_seconds": 79.87217325799998,
+      "sampling_seconds": 78.57549363300001
+    },
+    {
+      "solver_steps": 128,
+      "evaluation_seconds": 159.66700190399996,
+      "sampling_seconds": 157.513343565
+    }
+  ]
+}

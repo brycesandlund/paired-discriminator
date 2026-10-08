@@ -1,0 +1,23 @@
+{
+  "cuda_exact_resume": true,
+  "sampling_does_not_change_training": true,
+  "classifier_sha256": "dcd4f9cc09c4081aacbf303e7381189e3d7d3b1a0b660df8621a76bf9a3ac56f",
+  "timings": {
+    "mnist": {
+      "step": 20,
+      "target_steps": 20,
+      "phase": "training_complete",
+      "training_seconds": 1.5198369010000015,
+      "real_samples": 2560,
+      "parameters": 1168929
+    },
+    "cifar10": {
+      "step": 20,
+      "target_steps": 20,
+      "phase": "training_complete",
+      "training_seconds": 0.655384435000002,
+      "real_samples": 2560,
+      "parameters": 1170083
+    }
+  }
+}

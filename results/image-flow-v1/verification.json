@@ -1,0 +1,9 @@
+{
+  "jobs_complete": 6,
+  "evaluations_complete": 8,
+  "endpoint_first_batch_replays": 8,
+  "source_hashes": true,
+  "classifier_and_reference_matches": true,
+  "cuda_exact_resume": true,
+  "sampling_neutral": true
+}

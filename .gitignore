@@ -12,6 +12,8 @@ results/**/*.log
 /results/smoke*/
 /results/repro-check*/
 /results/scratch/
+/results/image-flow*/**/*.npy
+/results/image-flow*/**/*.npz
 .DS_Store
 # CIFAR downloads and large image/feature arrays stay local or in Modal Volumes.
 /data/

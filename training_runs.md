@@ -114,6 +114,7 @@ The 10k and 50k checkpoints of a trajectory are not independent trials.
 | 32 | Flow-matching tuning against analytic reference | 31 short jobs; five-seed validation of sample-only models | 20k screens, 50k confirmation, 100k refinement | Complete: tuned flow reaches all 100 half-target modes in every seed; near-analytic mass/density metrics. |
 | 33 | GAN feature, optimizer and deficit tuning | 53 short jobs; paired and vanilla, final seeds 0–4 | 30k screens, 50k refinement/confirmation | Complete: unchanged BCE with Fourier G/D features and linear D deficit reaches all 100 half-target modes in every seed for both methods; mode TV .070 paired / .067 vanilla. |
 | 34 | Tuned GANs without deficit | Vanilla/paired uniform, seeds 0–4; nine new jobs, reuse paired seed0 and #33 deficit arms | 50k | Complete: uniform mode TV .123 vanilla / .137 paired, versus .067/.070 with linear deficit. About 96% valid mass throughout; uniform full half-target coverage 1/5 seeds per method versus deficit 5/5. |
+| 35 | Native-image flow matching | Unconditional MNIST seeds0–4 and CIFAR seed0; existing evaluators | 10k pilot; midpoint64, seed0 midpoint128 check | Complete: MNIST digit TV .098 between vanilla .140 / paired .082, higher acceptance85.9%; CIFAR held-out FID68.99 versus96.90/122.54. Solver sensitivity negligible; no50k extension. |
 
 ## What the methods mean
 
@@ -1445,3 +1446,68 @@ alpha=0, the trainer's unused deficit estimate cannot affect sampling or losses.
 comparison groups, source hashes, config/spec matches, optimizer counts and
 completion metadata passed. Training implementation unchanged from #33.
 Reports, sources and samples retained; no commits made.
+
+## 35. Unconditional image flow matching on MNIST and CIFAR
+
+[Protocol](docs/IMAGE_FLOW_PROTOCOL.md) · [Report and plots](results/image-flow-v1/REPORT.md).
+Completed initial10k pilot: five MNIST seeds and
+one CIFAR seed. Native-resolution U-Net with widths32/64/128, GroupNorm/SiLU,
+sinusoidal time embedding, and straight-line independent-pair velocity MSE.
+1,168,929 parameters on MNIST; 1,170,083 on CIFAR. Adam .0002, betas(.9,.999),
+500-step warmup, batch128, uniform real sampling. No labels or deficit sampling.
+Raw weights primary; EMA retained but not used for selection.
+
+Full evaluation at10k uses the existing frozen MNIST classifier and CIFAR
+classifiers/Inception metrics. Midpoint64 (128 network evaluations per image),
+with a full midpoint128 seed0 sensitivity check on each dataset. Retain
+checkpoints and midpoint16 previews every1k. Evaluation frequency differs from
+the original MNIST every1k full-metric schedule to limit ODE sampling cost.
+Equal updates/real draws do not equate compute or inference cost.
+
+Four local tests passed: interpolation/velocity target, midpoint integration,
+native shapes and time gradients, and exact CPU resume with sampling neutrality.
+CUDA resume/evaluation-neutrality preflight passed for both datasets, including
+raw/EMA weights, optimizer state, RNG states and losses. All six runs and eight
+full evaluations finished. Source/reference/classifier checks and first-batch
+float sample replays passed. Status: complete. Results: `results/image-flow-v1`.
+Run: `uv run --extra cifar modal run --detach modal_image_flow.py::main --run-id image-flow-v1 --steps 10000`.
+No commits or unrequested extensions.
+
+MNIST10k, five-seed means (raw weights, midpoint64):
+
+| Method | Digit TV ↓ | Covered digits | Confidence acceptance | Confidence-augmented TV ↓ |
+|---|---:|---:|---:|---:|
+| Original vanilla | .1401 | 10/10 | 76.30% | .2621 |
+| Original paired | .0815 | 10/10 | 77.30% | .2323 |
+| Flow matching | .0980 | 10/10 | 85.89% | .1826 |
+
+Flow has all-ten-digit raw and confidence-filtered coverage in every seed.
+Its digit balance is between the GAN means, while acceptance/augmented TV
+improve. This10k checkpoint does not yet test the late instability seen at50k.
+Mean flow digit TV SD is .0189 across seeds. Classifier confidence remains an
+uncalibrated proxy and does not establish within-digit diversity or fidelity.
+
+CIFAR10k, seed0, matched official held-out test references:
+
+| Method | FID ↓ | KID ↓ | Precision ↑ | Recall ↑ | ResNet class TV ↓ | VGG class TV ↓ |
+|---|---:|---:|---:|---:|---:|---:|
+| Original vanilla | 96.90 | .08597 | .710 | .040 | .4265 | .3523 |
+| Original paired | 122.54 | .10853 | .627 | .007 | .4874 | .4150 |
+| Flow matching | 68.99 | .06025 | .641 | .140 | .2358 | .1984 |
+
+Flow improves FID/KID, feature recall and raw class balance at this endpoint,
+with lower precision than vanilla. All ten classes exceed1% raw and accepted
+mass under both classifiers. Evaluator agreement is only49.67%, and confidence
+acceptance is54.21% ResNet /66.50% VGG, so category claims remain tentative.
+One seed and different architectures/compute do not establish a general ranking.
+
+Solver64→128 changes MNIST seed0 digit TV .1177→.1174 and CIFAR FID
+68.99→69.01, so these results are not materially solver-resolution limited.
+Mean MNIST training time is274.6 seconds/seed; CIFAR332.7 seconds, A10-class GPUs.
+Primary10k-sample generation costs66–79 seconds on MNIST and92 seconds on CIFAR.
+Each generated image requires128 network evaluations versus one GAN G pass.
+Each training run consumes1.28M real draws; paired GAN additionally consumes
+real G references. Results compare update/data endpoints, not equal compute.
+
+An export-only ZIP timestamp issue was repaired; no training/evaluation reruns
+were needed. Four local tests and both CUDA exact-resume checks passed.

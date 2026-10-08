@@ -1,0 +1,61 @@
+{
+  "run_id": "image-flow-v1",
+  "steps": 10000,
+  "calls": [
+    {
+      "dataset": "mnist",
+      "seed": 0,
+      "call_id": "fc-01M4EQGSCF293SW68XMHDH0RHZ"
+    },
+    {
+      "dataset": "mnist",
+      "seed": 1,
+      "call_id": "fc-01M4EQGSGRSQ6DTDH3E7V95X31"
+    },
+    {
+      "dataset": "mnist",
+      "seed": 2,
+      "call_id": "fc-01M4EQGSMQMV05C24MPR911AJP"
+    },
+    {
+      "dataset": "mnist",
+      "seed": 3,
+      "call_id": "fc-01M4EQGSRG5GVZKKT28W2C3TZF"
+    },
+    {
+      "dataset": "mnist",
+      "seed": 4,
+      "call_id": "fc-01M4EQGSWMVA5Y86X0AA42BKX9"
+    },
+    {
+      "dataset": "cifar10",
+      "seed": 0,
+      "call_id": "fc-01M4EQGT0CSNW83948Y3392JDT"
+    }
+  ],
+  "verification": {
+    "cuda_exact_resume": true,
+    "sampling_does_not_change_training": true,
+    "classifier_sha256": "dcd4f9cc09c4081aacbf303e7381189e3d7d3b1a0b660df8621a76bf9a3ac56f",
+    "timings": {
+      "mnist": {
+        "step": 20,
+        "target_steps": 20,
+        "phase": "training_complete",
+        "training_seconds": 1.5198369010000015,
+        "real_samples": 2560,
+        "parameters": 1168929
+      },
+      "cifar10": {
+        "step": 20,
+        "target_steps": 20,
+        "phase": "training_complete",
+        "training_seconds": 0.655384435000002,
+        "real_samples": 2560,
+        "parameters": 1170083
+      }
+    }
+  },
+  "modal_app_id": "ap-GvrOqsEVZfqn6hoohL1pvm",
+  "modal_url": "https://modal.com/apps/bcsandlund/main/ap-GvrOqsEVZfqn6hoohL1pvm"
+}
