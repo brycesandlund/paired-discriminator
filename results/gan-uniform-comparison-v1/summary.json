@@ -1,0 +1,191 @@
+[
+  {
+    "arm": "vanilla_uniform",
+    "variant": "raw",
+    "full_coverage_seeds": 1,
+    "mode_tv": {
+      "mean": 0.12275999999999998,
+      "sd": 0.02300104345459138
+    },
+    "spatial_tv": {
+      "mean": 0.40708651073286983,
+      "sd": 0.008226431485750089
+    },
+    "valid_fraction": {
+      "mean": 0.96426,
+      "sd": 0.006013567992465065
+    },
+    "coverage_half_target": {
+      "mean": 96.6,
+      "sd": 3.9115214431215892
+    }
+  },
+  {
+    "arm": "vanilla_uniform",
+    "variant": "ema",
+    "full_coverage_seeds": 1,
+    "mode_tv": {
+      "mean": 0.11986,
+      "sd": 0.023225804614695252
+    },
+    "spatial_tv": {
+      "mean": 0.3883715397384081,
+      "sd": 0.007343364398513398
+    },
+    "valid_fraction": {
+      "mean": 0.97116,
+      "sd": 0.006947877373701983
+    },
+    "coverage_half_target": {
+      "mean": 96.6,
+      "sd": 3.9115214431215892
+    }
+  },
+  {
+    "arm": "paired_uniform",
+    "variant": "raw",
+    "full_coverage_seeds": 1,
+    "mode_tv": {
+      "mean": 0.13731999999999997,
+      "sd": 0.028642573208425233
+    },
+    "spatial_tv": {
+      "mean": 0.41872730342632786,
+      "sd": 0.016236582711438383
+    },
+    "valid_fraction": {
+      "mean": 0.9634,
+      "sd": 0.003765634076752516
+    },
+    "coverage_half_target": {
+      "mean": 95.4,
+      "sd": 5.727128425310541
+    }
+  },
+  {
+    "arm": "paired_uniform",
+    "variant": "ema",
+    "full_coverage_seeds": 1,
+    "mode_tv": {
+      "mean": 0.13400000000000004,
+      "sd": 0.029761552378866254
+    },
+    "spatial_tv": {
+      "mean": 0.39020901038227673,
+      "sd": 0.013329455972140067
+    },
+    "valid_fraction": {
+      "mean": 0.9705,
+      "sd": 0.003377128958153671
+    },
+    "coverage_half_target": {
+      "mean": 95.4,
+      "sd": 5.727128425310541
+    }
+  },
+  {
+    "arm": "vanilla_linear",
+    "variant": "raw",
+    "full_coverage_seeds": 5,
+    "mode_tv": {
+      "mean": 0.06744000000000003,
+      "sd": 0.007573836544314903
+    },
+    "spatial_tv": {
+      "mean": 0.4265018410447478,
+      "sd": 0.008899406545302826
+    },
+    "valid_fraction": {
+      "mean": 0.9640799999999998,
+      "sd": 0.006430163294971611
+    },
+    "coverage_half_target": {
+      "mean": 100.0,
+      "sd": 0.0
+    }
+  },
+  {
+    "arm": "vanilla_linear",
+    "variant": "ema",
+    "full_coverage_seeds": 5,
+    "mode_tv": {
+      "mean": 0.06352,
+      "sd": 0.006453061289031753
+    },
+    "spatial_tv": {
+      "mean": 0.39316328675494916,
+      "sd": 0.004523383352893017
+    },
+    "valid_fraction": {
+      "mean": 0.9714,
+      "sd": 0.002006240264773877
+    },
+    "coverage_half_target": {
+      "mean": 100.0,
+      "sd": 0.0
+    }
+  },
+  {
+    "arm": "paired_linear",
+    "variant": "raw",
+    "full_coverage_seeds": 5,
+    "mode_tv": {
+      "mean": 0.07016000000000003,
+      "sd": 0.013397499766747515
+    },
+    "spatial_tv": {
+      "mean": 0.42599951208597064,
+      "sd": 0.008734604641747317
+    },
+    "valid_fraction": {
+      "mean": 0.9661199999999999,
+      "sd": 0.0061937064831972775
+    },
+    "coverage_half_target": {
+      "mean": 100.0,
+      "sd": 0.0
+    }
+  },
+  {
+    "arm": "paired_linear",
+    "variant": "ema",
+    "full_coverage_seeds": 5,
+    "mode_tv": {
+      "mean": 0.06628000000000002,
+      "sd": 0.013431939547213567
+    },
+    "spatial_tv": {
+      "mean": 0.38940637631905356,
+      "sd": 0.01293901040138995
+    },
+    "valid_fraction": {
+      "mean": 0.97352,
+      "sd": 0.004216277979450612
+    },
+    "coverage_half_target": {
+      "mean": 100.0,
+      "sd": 0.0
+    }
+  },
+  {
+    "arm": "real",
+    "variant": "raw",
+    "full_coverage_seeds": 5,
+    "mode_tv": {
+      "mean": 0.043159999999999976,
+      "sd": 0.0016682325976913538
+    },
+    "spatial_tv": {
+      "mean": 0.36225154650742275,
+      "sd": 0.003032553350875612
+    },
+    "valid_fraction": {
+      "mean": 0.9891200000000001,
+      "sd": 0.0010616025621671744
+    },
+    "coverage_half_target": {
+      "mean": 100.0,
+      "sd": 0.0
+    }
+  }
+]

@@ -68,6 +68,10 @@ linear-deficit settings, paired and vanilla have similar mode TV (.070/.067).
 The earlier grid advantages therefore depend on the architecture and training
 settings tested; they do not establish a general paired advantage. Tuned GANs
 still have more within-mode density error than tuned flow on this problem.
+The uniform-sampling confirmation (#34) retains about 96% valid mass for both
+GANs, but only one of five seeds per method reaches full half-target coverage.
+Deficit improves mode balance in every matched seed; uniform has slightly lower
+mean raw fine TV. Tuned vanilla-uniform is competitive with paired-uniform.
 
 ## Experiment ledger
 
@@ -109,6 +113,7 @@ The 10k and 50k checkpoints of a trajectory are not independent trials.
 | 31 | Flow matching extension | Resume five #30 seeds | 50k → 1.2M | Complete: mode TV .6166, valid mass 38.5%, half-target coverage 24.8/100; solver refinement negligible. |
 | 32 | Flow-matching tuning against analytic reference | 31 short jobs; five-seed validation of sample-only models | 20k screens, 50k confirmation, 100k refinement | Complete: tuned flow reaches all 100 half-target modes in every seed; near-analytic mass/density metrics. |
 | 33 | GAN feature, optimizer and deficit tuning | 53 short jobs; paired and vanilla, final seeds 0–4 | 30k screens, 50k refinement/confirmation | Complete: unchanged BCE with Fourier G/D features and linear D deficit reaches all 100 half-target modes in every seed for both methods; mode TV .070 paired / .067 vanilla. |
+| 34 | Tuned GANs without deficit | Vanilla/paired uniform, seeds 0–4; nine new jobs, reuse paired seed0 and #33 deficit arms | 50k | Complete: uniform mode TV .123 vanilla / .137 paired, versus .067/.070 with linear deficit. About 96% valid mass throughout; uniform full half-target coverage 1/5 seeds per method versus deficit 5/5. |
 
 ## What the methods mean
 
@@ -1396,3 +1401,47 @@ from the original runs; 24× fewer updates does not mean 24× less compute.
 checks, frozen-source hashes and optimizer step counts passed. Three focused
 tests passed, including a two-update bitwise regression against the original
 trainer. All trials and source snapshots retained; no commits made.
+
+## 34. Tuned GANs with uniform D sampling
+
+[Protocol](docs/GAN_UNIFORM_PROTOCOL.md) · [Report and samples](results/gan-uniform-comparison-v1/REPORT.md).
+
+Freeze #33's successful feature architecture and optimizer schedule, and set
+alpha=0 for uniform D real sampling. Paired G references remain uniform.
+Train vanilla seeds0–4 and paired seeds1–4, reusing the exactly matched paired
+seed0 screen. Nine new jobs complete in 110 seconds elapsed with up to eight
+workers; all ten uniform trajectories reach 50k updates. All linear-deficit
+checkpoints are reused from #33. No uniform-specific hyperparameter search and
+no loss changes. Run: `uv run python -m paired_discriminator.gan_uniform`;
+report: `uv run python -m paired_discriminator.gan_uniform_report`.
+
+Raw generators, five-seed means on the same 10k evaluation-noise samples as
+#33, independent of training and the earlier screening noise:
+
+| Method | Mode TV ↓ | Fine TV ↓ | Valid mass | Half-target modes | Full coverage seeds |
+|---|---:|---:|---:|---:|---:|
+| Vanilla uniform | .1228 | .4071 | 96.43% | 96.6/100 | 1/5 |
+| Paired uniform | .1373 | .4187 | 96.34% | 95.4/100 | 1/5 |
+| Vanilla linear deficit | .0674 | .4265 | 96.41% | 100/100 | 5/5 |
+| Paired linear deficit | .0702 | .4260 | 96.61% | 100/100 | 5/5 |
+
+The feature-based improvement survives uniform sampling. Linear deficit lowers
+mode TV in every matched seed for both objectives, while uniform raw outputs
+have slightly lower mean fine TV. Full half-target coverage is not the same as
+merely detecting a mode: each mode must contain at least .5% of all samples
+within radius .3. Uniform paired seed2 has the weakest half-target coverage
+(86/100). There is no paired advantage in these five-seed means.
+
+Generator EMA is a separately reported option. Its mode/fine TVs are
+.1199/.3884 vanilla-uniform and .1340/.3902 paired-uniform. Coverage counts
+remain unchanged on final evaluation. Means include development seed0.
+
+All arms use the same G, updates, nominal batches, optimizer schedule and shared
+100k-point scale pilot. Each uses 12.8M D real draws; paired additionally uses
+12.8M G references and a larger D. Equal updates do not equate compute. With
+alpha=0, the trainer's unused deficit estimate cannot affect sampling or losses.
+
+40 exact final raw/EMA checkpoint replays across all four arms, 20 matched RNG
+comparison groups, source hashes, config/spec matches, optimizer counts and
+completion metadata passed. Training implementation unchanged from #33.
+Reports, sources and samples retained; no commits made.

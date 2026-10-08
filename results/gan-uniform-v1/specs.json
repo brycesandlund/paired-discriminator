@@ -1,0 +1,43 @@
+[
+  {
+    "residual_g": true,
+    "fourier": true,
+    "g_fourier": true,
+    "latent": 2,
+    "lr_g": 0.001,
+    "anneal": true,
+    "cosine": true,
+    "cosine_after": 0.5,
+    "alpha": 0,
+    "power": 1,
+    "name": "paired_uniform",
+    "method": "paired",
+    "seeds": [
+      1,
+      2,
+      3,
+      4
+    ]
+  },
+  {
+    "residual_g": true,
+    "fourier": true,
+    "g_fourier": true,
+    "latent": 2,
+    "lr_g": 0.001,
+    "anneal": true,
+    "cosine": true,
+    "cosine_after": 0.5,
+    "alpha": 0,
+    "power": 1,
+    "name": "vanilla_uniform",
+    "method": "vanilla",
+    "seeds": [
+      0,
+      1,
+      2,
+      3,
+      4
+    ]
+  }
+]

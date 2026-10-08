@@ -1,0 +1,10 @@
+{
+  "checkpoint_sample_replays": 40,
+  "rng_comparison_groups": 20,
+  "source_hashes": true,
+  "optimizer_counts": true,
+  "matched_configs": true,
+  "torch": "2.14.1",
+  "python": "3.12.7",
+  "report_source_sha256": "1e8f0c716297f4968610d1dac423355fab0733dfa0092e81bd878e224a3f955b"
+}
