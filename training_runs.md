@@ -95,6 +95,7 @@ The 10k and 50k checkpoints of a trajectory are not independent trials.
 | 25 | 10×10 exact continuation | Resume all #24 methods/seeds | 150k → 300k; eval every 50k | Paired D-deficit leads both TVs at 300k in every matched seed; mode TV 0.488 vs 0.549 paired / 0.580 vanilla-deficit / 0.619 vanilla. Still far from fitting all modes. |
 | 26 | 10×10 exact continuation to 600k | Resume all #25 methods/seeds | 300k → 600k; eval every 50k | Complete: paired D-deficit best mean mode/fine TV (0.290/0.641); 76/100 modes at half-target mass. Still improving through 600k. |
 | 27 | 10×10 exact continuation to 1.2M | Resume all #26 methods/seeds | 600k → 1.2M; eval every 50k | Complete: paired D-deficit best mean mode/fine TV (0.209/0.625); 82.8/100 modes at half-target mass. Lenient presence coverage declines 96.4 → 92.8; no seed achieves full half-target coverage. |
+| 28 | 10×10 paired D+G deficit | Five fresh seeds; reuse paired uniform and D-only baselines | 0 → 1.2M; eval every 50k | Complete: D+G bias trails D-only at 1.2M: mode TV 0.234 vs 0.209, fine TV 0.648 vs 0.625, half-target coverage 80.4 vs 82.8. |
 
 ## What the methods mean
 
@@ -1181,3 +1182,30 @@ convergence, and fine-density TV remains far above the real-sample baseline.
 
 All 260 endpoint replays and 130 adaptive/control RNG comparisons passed,
 including source hashes and optimizer-count checks. Completion monitor paused.
+
+## 28. 10×10 paired deficit in both phases
+
+Five fresh paired seeds 0–4 to 1.2M updates; evaluations/checkpoints every 50k.
+Both D real examples and G real references use 50% uniform plus 50% normalized
+positive accepted-mass deficit, based on the existing EMA (decay .99). Separate
+real RNG streams. Same models, losses, batches and optimizer settings as #24–27.
+Compare with retained uniform paired and D-only paired baselines; no retraining
+of baselines. Status: complete. A smoke check verified two weighted draws per
+round with separate RNG streams. Results: `results/grid10-both-1200k-v1`;
+automatic report: `results/grid10-both-comparison-v1/REPORT.md`.
+
+Command: `uv run python -m paired_discriminator.grid10_both_run`.
+
+Experiment 28 final means across five seeds:
+
+| Paired sampling | Mode TV ↓ | Fine TV ↓ | Coverage ≥50% target |
+|---|---:|---:|---:|
+| Uniform | 0.3570 | 0.6548 | 63.0/100 |
+| D-only deficit | 0.2088 | 0.6248 | 82.8/100 |
+| D+G deficit | 0.2340 | 0.6475 | 80.4/100 |
+
+Adding G-reference bias did not improve final mean performance over D-only bias.
+All 120 checkpoint replays and five final noise/slot/eval RNG comparisons passed.
+[Report and curves](results/grid10-both-comparison-v1/REPORT.md). Completion check paused.
+Future experiments should start with shorter budgets and intermediate comparisons
+before extensions, per user feedback on iteration pace.
