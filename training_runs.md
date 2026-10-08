@@ -97,6 +97,8 @@ The 10k and 50k checkpoints of a trajectory are not independent trials.
 | 27 | 10×10 exact continuation to 1.2M | Resume all #26 methods/seeds | 600k → 1.2M; eval every 50k | Complete: paired D-deficit best mean mode/fine TV (0.209/0.625); 82.8/100 modes at half-target mass. Lenient presence coverage declines 96.4 → 92.8; no seed achieves full half-target coverage. |
 | 28 | 10×10 paired D+G deficit | Five fresh seeds; reuse paired uniform and D-only baselines | 0 → 1.2M; eval every 50k | Complete: D+G bias trails D-only at 1.2M: mode TV 0.234 vs 0.209, fine TV 0.648 vs 0.625, half-target coverage 80.4 vs 82.8. |
 
+| 29 | 10×10 stronger D deficit | Five fresh paired seeds; α=.9, p=2; G uniform | 0 → 1.2M; eval every 50k | Complete: stronger bias reaches 91.0 half-target modes vs 82.8; fine TV 0.614 vs 0.625, mode TV 0.214 vs 0.209. |
+
 ## What the methods mean
 
 - **Vanilla:** unary real/fake discriminator, BCE; G uses non-saturating BCE.
@@ -1209,3 +1211,29 @@ All 120 checkpoint replays and five final noise/slot/eval RNG comparisons passed
 [Report and curves](results/grid10-both-comparison-v1/REPORT.md). Completion check paused.
 Future experiments should start with shorter budgets and intermediate comparisons
 before extensions, per user feedback on iteration pace.
+
+## 29. Stronger D-only deficit sampling
+
+User-requested fresh 10×10 run to 1.2M, seeds 0–4. D real weights are
+0.1/K + 0.9 × squared positive deficit / sum of squared positive deficits.
+Uniform fallback if deficits vanish. G references remain uniform. All other
+settings match the original D-only experiment, with checkpoints every 50k.
+Formula and two-step sampling smoke checks passed. Five local workers.
+Monitor intermediate results at common checkpoints against existing D-only runs.
+
+Command: `uv run python -m paired_discriminator.grid10_strong_run`.
+Results: `results/grid10-strong-1200k-v1`; report:
+`results/grid10-strong-comparison-v1/REPORT.md`. Status: complete.
+
+Experiment 29 final five-seed means at 1.2M:
+
+| D-only bias | Mode TV ↓ | Fine TV ↓ | Valid mass | Half-target coverage | Lenient coverage |
+|---|---:|---:|---:|---:|---:|
+| Original α=.5, p=1 | 0.2088 | 0.6248 | 82.8% | 82.8/100 | 92.8/100 |
+| Stronger α=.9, p=2 | 0.2143 | 0.6143 | 79.2% | 91.0/100 | 99.2/100 |
+
+Stronger bias improves mean coverage and fine-density TV, while original bias
+retains slightly lower mode TV and higher valid mass. This is a mixed outcome,
+not a uniform improvement; alpha and power changed together. All 120 checkpoint
+replays and five final RNG comparisons passed, including uniform G reference RNG.
+[Report and plots](results/grid10-strong-comparison-v1/REPORT.md). Monitor paused.

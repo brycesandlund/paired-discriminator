@@ -1,0 +1,4 @@
+{
+  "checkpoint_replays": 120,
+  "noise_slot_eval_rng_comparisons": 5
+}
