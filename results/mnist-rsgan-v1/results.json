@@ -1,0 +1,85 @@
+{
+  "results": [
+    {
+      "seed": 0,
+      "status": {
+        "step": 50000,
+        "target_steps": 50000,
+        "training_seconds": 671.4124435319997,
+        "last_log": {
+          "step": 50000,
+          "d_loss": 0.18882863223552704,
+          "g_loss": 4.916459560394287,
+          "training_seconds": 671.4124435319997,
+          "seconds_per_step": 0.013334387300000116
+        },
+        "peak_gpu_memory_gib": 0.18199968338012695
+      }
+    },
+    {
+      "seed": 1,
+      "status": {
+        "step": 50000,
+        "target_steps": 50000,
+        "training_seconds": 675.1204145259983,
+        "last_log": {
+          "step": 50000,
+          "d_loss": 0.13257919251918793,
+          "g_loss": 4.8441925048828125,
+          "training_seconds": 675.1204145259983,
+          "seconds_per_step": 0.013515342210000654
+        },
+        "peak_gpu_memory_gib": 0.18199968338012695
+      }
+    },
+    {
+      "seed": 2,
+      "status": {
+        "step": 50000,
+        "target_steps": 50000,
+        "training_seconds": 672.097614085,
+        "last_log": {
+          "step": 50000,
+          "d_loss": 0.20844772458076477,
+          "g_loss": 4.9043989181518555,
+          "training_seconds": 672.097614085,
+          "seconds_per_step": 0.01325654906000068
+        },
+        "peak_gpu_memory_gib": 0.18199968338012695
+      }
+    },
+    {
+      "seed": 3,
+      "status": {
+        "step": 50000,
+        "target_steps": 50000,
+        "training_seconds": 671.1454004709996,
+        "last_log": {
+          "step": 50000,
+          "d_loss": 0.1929706186056137,
+          "g_loss": 4.546088218688965,
+          "training_seconds": 671.1454004709996,
+          "seconds_per_step": 0.013447869459999992
+        },
+        "peak_gpu_memory_gib": 0.18199968338012695
+      }
+    },
+    {
+      "seed": 4,
+      "status": {
+        "step": 50000,
+        "target_steps": 50000,
+        "training_seconds": 666.733107870003,
+        "last_log": {
+          "step": 50000,
+          "d_loss": 0.12610727548599243,
+          "g_loss": 7.067750453948975,
+          "training_seconds": 666.733107870003,
+          "seconds_per_step": 0.013265284530000372
+        },
+        "peak_gpu_memory_gib": 0.18199968338012695
+      }
+    }
+  ],
+  "errors": []
+}

@@ -1,0 +1,32 @@
+[
+  {
+    "seed": 0,
+    "method": "rsgan",
+    "steps": 50000,
+    "call_id": "fc-01M4H4SZ4KG1SVK5CBW8ZS06DQ"
+  },
+  {
+    "seed": 1,
+    "method": "rsgan",
+    "steps": 50000,
+    "call_id": "fc-01M4H4T063CAPHW9TX9AJ5VHED"
+  },
+  {
+    "seed": 2,
+    "method": "rsgan",
+    "steps": 50000,
+    "call_id": "fc-01M4H4T13AW8FX7ADTPNZDS7MD"
+  },
+  {
+    "seed": 3,
+    "method": "rsgan",
+    "steps": 50000,
+    "call_id": "fc-01M4H4T1S73GR8FKA2R3YE45ZT"
+  },
+  {
+    "seed": 4,
+    "method": "rsgan",
+    "steps": 50000,
+    "call_id": "fc-01M4H4T2RZSY1XHFA707TY3Q05"
+  }
+]

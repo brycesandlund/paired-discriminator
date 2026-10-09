@@ -1,0 +1,7 @@
+{
+  "cuda_exact_resume": true,
+  "optimizer_and_rng_exact": true,
+  "evaluation_neutral": true,
+  "initial_g_and_d_match_vanilla": true,
+  "classifier_sha256": "dcd4f9cc09c4081aacbf303e7381189e3d7d3b1a0b660df8621a76bf9a3ac56f"
+}

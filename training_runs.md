@@ -118,6 +118,7 @@ The 10k and 50k checkpoints of a trajectory are not independent trials.
 | 36 | Best image checkpoints: GANs vs flow | Original unconditional vanilla/paired; flow MNIST seeds0–4 + CIFAR seed0 | MNIST through50k; CIFAR through100k | Complete: selected MNIST digit TV .1261 vanilla / .0745 paired / .0633 flow; CIFAR FID49.85 /48.37 /47.02. Paired retains best CIFAR KID and VGG class TV; unequal compute, single-seed CIFAR. |
 | 37 | CIFAR optimizer and EMA tuning | Vanilla/paired/flow; uniform unconditional | 16 seed-0 screens, saved EMA, 30k refinement; frozen recipes confirmed on seeds 1–2 | Complete: EMA is the clearest gain. Mean FID 51.38 vanilla / 49.03 paired / 46.62 raw flow / 42.79 secondary flow+EMA. Vanilla extra training regresses; 6.50 GPU-hours. |
 | 38 | Paired CIFAR architecture comparisons | Original/wider concat, shared scoring, global context, self-/cross-attention; slot-symmetry probe | Fixed 50k EMA; seed-0 screen then frozen fresh seeds 1–2 | Complete: cross-attention / independent shared scoring mean FID 49.06 / 48.99 vs original 51.68. Cross-attention has highest recall, but worse class balance; no uniform mode-coverage win. 5.23 A10 GPU-hours. |
+| 39 | MNIST RSGAN baseline | Matched addition to #11; reuse original vanilla/paired | Five seeds, 50k raw weights, evaluation every 1k | Complete: paired TV 0.126 vs RSGAN 0.368 at 50k; paired lower TV in all five seeds at 10k/50k. All 250 new evaluations verified. |
 
 ## What the methods mean
 
@@ -1768,3 +1769,62 @@ Original confirmation: `fc-01M4GVQXTTHG4HV16YGKFE4Z3Z` / `ap-X5HAwfYaf6AxXxsTfPY
 Recovery: `fc-01M4GW0V4BT0MXYKA3219CF49B` / `ap-mFczMencQdpR51BbOeDtBg`.
 Logs: `/tmp/cifar-pair-arch-v1.log`, `/tmp/cifar-pair-arch-confirm.log`,
 `/tmp/cifar-pair-arch-recover.log`. No commits.
+
+
+## 39. Matched MNIST RSGAN baseline
+
+User-requested RSGAN addition to #11. Five fresh seeds 0–4 train to 50,000
+updates using configs/mnist.json, with 10,000 generated images evaluated every
+1,000 updates (250 evaluations). Compare fixed 10k and 50k endpoints and full
+curves against archived vanilla/paired runs in results/mnist-v1; aggregate
+individual-seed metrics, never pooled seed distributions. Raw generator weights,
+no EMA, conditioning, augmentation, or sampling changes.
+
+The existing RSGAN D/G loss branches were already implemented. The sole trainer
+change enables rsgan in METHODS; reverting that tuple exactly reproduces the
+archived #11 training_source.py. Seven local tests pass, including relative-loss
+formulas, initial vanilla/RSGAN parameter equality, and exact CPU resume. The
+remote gate checks exact CUDA model/optimizer/RNG resume, evaluation neutrality,
+and the original classifier hash before dispatching five training calls.
+
+Launcher: modal_mnist_rsgan.py::launch_rsgan. App ap-UfCfoVMnU4fynKGUW3LkrS,
+coordinator fc-01M4H4SCAFDH5HFA1ZFGS2VJ5J. Original MNIST run/data volumes,
+run root mnist-rsgan-v1; log /tmp/mnist-rsgan-v1.log. Collection command:
+`uv run --extra cifar modal run modal_mnist_rsgan.py::collect_rsgan`.
+The coordinator rejoins a complete persisted dispatch on restart; partial
+ dispatch requires inspection and must never be blindly rerun. Initial local
+entrypoint-name collisions were corrected before any remote work launched.
+No vanilla/paired retraining and no commits.
+
+CUDA gate passed and all five calls dispatched. Launcher packaging and verification
+restart/device-comparison issues were repaired before training dispatch; no duplicate
+training. The standalone launcher copies the original train_job body unchanged.
+
+
+Experiment 39 completed: five RSGAN 50k endpoints and 250 new evaluations;
+750 combined baseline/new records pass source/config/reference/classifier checks.
+CUDA model/Adam/RNG split-resume and evaluation-neutrality checks passed, as did
+seven local tests. Coordinator completed with zero training errors.
+
+| Fixed endpoint | Vanilla digit TV | RSGAN digit TV | Paired digit TV |
+|---|---:|---:|---:|
+| 10k | 0.140 ± 0.019 | 0.151 ± 0.024 | 0.082 ± 0.011 |
+| 50k | 0.341 ± 0.064 | 0.368 ± 0.050 | 0.126 ± 0.008 |
+
+Mean ± sample SD of individual-seed metrics. Paired beats RSGAN in all five
+matched seeds on both digit TV and confidence-augmented TV at both endpoints.
+At 50k, all-ten-digit coverage (≥1% mass per digit) holds in 5/5 paired,
+1/5 RSGAN and 0/5 vanilla runs. RSGAN mean confidence-augmented TV is 0.456
+versus paired 0.220; confidence acceptance is 83.09% versus 82.46%.
+RSGAN concentrates on 1/7/9 late in training. These are category-balance
+findings, not a universal image-fidelity or within-digit diversity ranking.
+
+RSGAN recorded 55.94 A10 training minutes total, excluding evaluation,
+startup/checkpoint I/O and small verification attempts; evaluation GPU time
+was not separately instrumented. G inference architecture/work is unchanged.
+Baseline timings mix A10/A10G and are descriptive. No checkpoint selection,
+no pooled-seed scoring, no baseline retraining. Sources/artifacts preserved.
+Plots (trajectories, class mass, all-seed random samples) inspected.
+[Report](results/mnist-rsgan-v1/REPORT.md),
+[verification](results/mnist-rsgan-v1/verification_report.json),
+[samples](results/mnist-rsgan-v1/samples_50k.png).

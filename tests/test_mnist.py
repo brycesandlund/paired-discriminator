@@ -29,7 +29,7 @@ def test_digit_metrics_known_cases():
 
 def test_same_g_and_input_shapes(config):
     gs=[]
-    for method in ('vanilla','paired'):
+    for method in ('vanilla','paired','rsgan'):
         g,d=mnist.models(config,method,0);g.eval();gs.append(g)
         x=g(torch.randn(2,8));assert x.shape==(2,1,28,28)
         assert d(torch.cat([x,x],1) if method=='paired' else x).shape==(2,)
@@ -37,7 +37,7 @@ def test_same_g_and_input_shapes(config):
     assert DigitClassifier()(torch.rand(2,1,28,28)).shape==(2,10)
 
 
-@pytest.mark.parametrize('method',['vanilla','paired'])
+@pytest.mark.parametrize('method',['vanilla','paired','rsgan'])
 def test_resume_and_sample_counts(config,tmp_path,method,monkeypatch):
     data=torch.randint(256,(20,1,28,28),dtype=torch.uint8,generator=torch.Generator().manual_seed(3))
     original=mnist.models;observed=[]
@@ -49,7 +49,7 @@ def test_resume_and_sample_counts(config,tmp_path,method,monkeypatch):
     monkeypatch.setattr(mnist,'models',instrumented)
     mnist.train(config,method,0,4,tmp_path/'full',data,device='cpu')
     assert [n for who,tr,grad,n in observed if who=='g' and tr and grad]==[12]*4
-    assert [n for who,tr,grad,n in observed if who=='d' and grad]==[24 if method=='vanilla' else 12]*4
+    assert [n for who,tr,grad,n in observed if who=='d' and grad]==([12]*8 if method=='rsgan' else [24 if method=='vanilla' else 12]*4)
     mnist.train(config,method,0,2,tmp_path/'split',data,device='cpu')
     mnist.train(config,method,0,4,tmp_path/'split',data,device='cpu')
     a=torch.load(tmp_path/'full/latest.pt',weights_only=False);b=torch.load(tmp_path/'split/latest.pt',weights_only=False)
@@ -59,8 +59,21 @@ def test_resume_and_sample_counts(config,tmp_path,method,monkeypatch):
 
 
 def test_losses_detach_d_and_pass_g_gradient(config):
-    for method in ('vanilla','paired'):
+    for method in ('vanilla','paired','rsgan'):
         g,d=mnist.models(config,method,0);real=torch.randn(4,1,28,28);fake=g(torch.randn(4,8));slots=torch.tensor([0,1,0,1],dtype=torch.bool)
         mnist.loss_d(d,real,fake,method,slots).backward();assert all(p.grad is None for p in g.parameters())
         d.requires_grad_(False);mnist.loss_g(d,real,fake,method,slots).backward()
         assert sum(p.grad.abs().sum() for p in g.parameters())>0
+
+
+def test_rsgan_matches_pairwise_relative_objective(config):
+    g,d=mnist.models(config,'rsgan',2)
+    gv,dv=mnist.models(config,'vanilla',2)
+    for a,b in ((g,gv),(d,dv)):
+        for k,v in a.state_dict().items():torch.testing.assert_close(v,b.state_dict()[k],rtol=0,atol=0)
+    real=torch.randn(4,1,28,28);fake=g(torch.randn(4,8))
+    slots=torch.tensor([0,1,0,1],dtype=torch.bool)
+    margin=d(real)-d(fake)
+    torch.testing.assert_close(mnist.loss_d(d,real,fake,'rsgan',slots),torch.nn.functional.softplus(-margin).mean())
+    torch.testing.assert_close(mnist.loss_g(d,real,fake,'rsgan',slots),torch.nn.functional.softplus(margin).mean())
+    torch.testing.assert_close(mnist.loss_g(d,real,fake,'rsgan',~slots),mnist.loss_g(d,real,fake,'rsgan',slots))

@@ -1,0 +1,45 @@
+{
+  "config": {
+    "dataset": "MNIST-train",
+    "latent_dim": 128,
+    "width": 64,
+    "batch_size": 128,
+    "learning_rate": 0.0002,
+    "betas": [
+      0.5,
+      0.999
+    ],
+    "log_every": 10,
+    "checkpoint_every": 20,
+    "eval_every": 20,
+    "eval_samples": 128,
+    "eval_seed": 99173,
+    "confidence_threshold": 0.9,
+    "coverage_min_mass": 0.01,
+    "seeds": [
+      0,
+      1,
+      2,
+      3,
+      4
+    ],
+    "steps": 50000,
+    "conditioning": "none",
+    "sampling": "uniform_with_replacement",
+    "precision": "float32",
+    "augmentation": "none",
+    "discriminator_regularization": "none"
+  },
+  "method": "rsgan",
+  "seed": 0,
+  "source_sha256": "8b3a8817ce89f9cd7d62939d5301cd6ce7092124d0023cfa0ab6fadf7001eaa8",
+  "dataset_sha256": "f782b423870fc84c585eeb97ec20d4967357fefd6da192c7de21bab17ec22da4",
+  "torch": "2.14.1+cu130",
+  "device": "cuda",
+  "evaluation_signature": null,
+  "python": "3.12.6",
+  "cuda": "13.0",
+  "gpu": "NVIDIA A10",
+  "parameters_g": 941569,
+  "parameters_d": 659137
+}

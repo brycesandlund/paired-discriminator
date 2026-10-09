@@ -1,0 +1,115 @@
+{
+  "runs": 15,
+  "evaluations": 750,
+  "steps_per_run": 50000,
+  "classifier_sha256": "dcd4f9cc09c4081aacbf303e7381189e3d7d3b1a0b660df8621a76bf9a3ac56f",
+  "same_configuration": true,
+  "same_reference_distribution": true,
+  "source_hashes_valid": true,
+  "runtimes": [
+    {
+      "method": "vanilla",
+      "seed": 0,
+      "training_minutes": 9.509647664316653,
+      "gpu": "NVIDIA A10"
+    },
+    {
+      "method": "vanilla",
+      "seed": 1,
+      "training_minutes": 9.351329055866675,
+      "gpu": "NVIDIA A10"
+    },
+    {
+      "method": "vanilla",
+      "seed": 2,
+      "training_minutes": 8.299231113750041,
+      "gpu": "NVIDIA A10G"
+    },
+    {
+      "method": "vanilla",
+      "seed": 3,
+      "training_minutes": 9.355309190600002,
+      "gpu": "NVIDIA A10"
+    },
+    {
+      "method": "vanilla",
+      "seed": 4,
+      "training_minutes": 8.33381482566663,
+      "gpu": "NVIDIA A10G"
+    },
+    {
+      "method": "rsgan",
+      "seed": 0,
+      "training_minutes": 11.190207392199994,
+      "gpu": "NVIDIA A10"
+    },
+    {
+      "method": "rsgan",
+      "seed": 1,
+      "training_minutes": 11.252006908766639,
+      "gpu": "NVIDIA A10"
+    },
+    {
+      "method": "rsgan",
+      "seed": 2,
+      "training_minutes": 11.201626901416667,
+      "gpu": "NVIDIA A10"
+    },
+    {
+      "method": "rsgan",
+      "seed": 3,
+      "training_minutes": 11.185756674516659,
+      "gpu": "NVIDIA A10"
+    },
+    {
+      "method": "rsgan",
+      "seed": 4,
+      "training_minutes": 11.11221846450005,
+      "gpu": "NVIDIA A10"
+    },
+    {
+      "method": "paired",
+      "seed": 0,
+      "training_minutes": 8.07519838108335,
+      "gpu": "NVIDIA A10"
+    },
+    {
+      "method": "paired",
+      "seed": 1,
+      "training_minutes": 7.504091389699994,
+      "gpu": "NVIDIA A10G"
+    },
+    {
+      "method": "paired",
+      "seed": 2,
+      "training_minutes": 8.114127217183315,
+      "gpu": "NVIDIA A10"
+    },
+    {
+      "method": "paired",
+      "seed": 3,
+      "training_minutes": 8.095352553216708,
+      "gpu": "NVIDIA A10"
+    },
+    {
+      "method": "paired",
+      "seed": 4,
+      "training_minutes": 8.133443525983276,
+      "gpu": "NVIDIA A10"
+    }
+  ],
+  "parameters": {
+    "vanilla": {
+      "parameters_g": 941569,
+      "parameters_d": 659137
+    },
+    "rsgan": {
+      "parameters_g": 941569,
+      "parameters_d": 659137
+    },
+    "paired": {
+      "parameters_g": 941569,
+      "parameters_d": 660161
+    }
+  }
+}
