@@ -1,0 +1,14 @@
+[
+  {
+    "method": "vanilla",
+    "exact_cuda_resume": true
+  },
+  {
+    "method": "paired",
+    "exact_cuda_resume": true
+  },
+  {
+    "method": "flow",
+    "exact_cuda_resume": true
+  }
+]

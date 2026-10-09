@@ -1,0 +1,14 @@
+[
+  {
+    "step": 2,
+    "loss": 1.26993727684021,
+    "d_loss": null,
+    "training_seconds": 0.03044356099999934
+  },
+  {
+    "step": 4,
+    "loss": 1.2347875833511353,
+    "d_loss": null,
+    "training_seconds": 0.05626808599999844
+  }
+]

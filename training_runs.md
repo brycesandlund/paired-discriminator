@@ -116,6 +116,7 @@ The 10k and 50k checkpoints of a trajectory are not independent trials.
 | 34 | Tuned GANs without deficit | Vanilla/paired uniform, seeds 0–4; nine new jobs, reuse paired seed0 and #33 deficit arms | 50k | Complete: uniform mode TV .123 vanilla / .137 paired, versus .067/.070 with linear deficit. About 96% valid mass throughout; uniform full half-target coverage 1/5 seeds per method versus deficit 5/5. |
 | 35 | Native-image flow matching | Unconditional MNIST seeds0–4 and CIFAR seed0; existing evaluators | 10k pilot; midpoint64, seed0 midpoint128 check | Complete: MNIST digit TV .098 between vanilla .140 / paired .082, higher acceptance85.9%; CIFAR held-out FID68.99 versus96.90/122.54. Solver sensitivity negligible; no50k extension. |
 | 36 | Best image checkpoints: GANs vs flow | Original unconditional vanilla/paired; flow MNIST seeds0–4 + CIFAR seed0 | MNIST through50k; CIFAR through100k | Complete: selected MNIST digit TV .1261 vanilla / .0745 paired / .0633 flow; CIFAR FID49.85 /48.37 /47.02. Paired retains best CIFAR KID and VGG class TV; unequal compute, single-seed CIFAR. |
+| 37 | CIFAR optimizer and EMA tuning | Vanilla/paired/flow; uniform unconditional | 16 seed-0 screens, saved EMA, 30k refinement; frozen recipes confirmed on seeds 1–2 | Complete: EMA is the clearest gain. Mean FID 51.38 vanilla / 49.03 paired / 46.62 raw flow / 42.79 secondary flow+EMA. Vanilla extra training regresses; 6.50 GPU-hours. |
 
 ## What the methods mean
 
@@ -1556,3 +1557,83 @@ A10/A10G transitions are recorded in hardware_migration.json after saved10k
 first-batch replay with maximum error below.001. Model/optimizer/RNG state was
 restored unchanged; cross-GPU continuation is not claimed bitwise identical.
 The completion monitor is paused. No commits made.
+
+## 37. CIFAR optimizer and EMA tuning
+
+Complete. Three rounds: screen on seed 0, refine promising settings, then freeze
+recipes and confirm on fresh training seeds 1 and 2 with new evaluation noise.
+Uniform unconditional CIFAR throughout; original architectures, BCE / velocity
+MSE, no deficit sampling or classifier guidance. No architecture feature sweep.
+
+[Full report](results/cifar-tune-v1/REPORT.md) ·
+[Samples](results/cifar-tune-v1/confirmation_samples.png) ·
+[Class proportions](results/cifar-tune-v1/confirmation_class_mass.png) ·
+[All candidates](results/cifar-tune-v1/ALL_CANDIDATES.md) ·
+[Verification](results/cifar-tune-v1/final_verification.json)
+
+| Frozen recipe | Total updates | FID, new-seed mean ± SD | VGG class TV | Precision | Recall |
+|---|---:|---:|---:|---:|---:|
+| Vanilla, original Adam + EMA | 60k | 51.38 ± 1.11 | .2384 | .5890 | .3516 |
+| Paired, original Adam + EMA | 70k | 49.03 ± .40 | .1598 | .5688 | .3428 |
+| Flow, original Adam, raw (primary) | 110k | 46.62 ± 4.08 | .1661 | .6197 | .3544 |
+| Flow, quarter LR + EMA (frozen secondary) | 110k | 42.79 ± .03 | .1257 | .6278 | .3743 |
+
+Scores average individual seeds, never pooled distributions. All recipes and
+endpoints were fixed before confirmation. Both flow variants remain visible;
+we did not switch the primary to the better-looking confirmation result.
+Two seeds provide limited evidence. Train-reference FID drove tuning; held-out
+scores are descriptive, with shared reference history rather than an untouched test.
+
+**What improved:** EMA is the clearest repeatable intervention. The secondary
+flow recipe reaches FID 42.78 / 42.81; original-rate flow EMA at the same
+checkpoints is similarly strong (42.57 / 42.86), so lowering the learning rate
+has no convincing independent benefit. Primary raw flow is variable (49.50 /
+43.74); its seed-0 FID of 42.11 did not reproduce consistently. Further training
+improves both paired and flow EMA relative to their earlier EMA bases.
+
+Paired beats vanilla on FID and category balance in both confirmation seeds,
+but has slightly lower feature recall. Vanilla's prescribed extra 10k updates
+worsen FID in both seeds: earlier 50k EMA bases average 49.39, versus 51.38 at
+the frozen 60k endpoint. That narrows the broader paired-versus-vanilla FID
+claim; it is not evidence of a large universal quality advantage. Neither class
+balance nor feature recall establishes within-class diversity.
+
+**Search and control protocol:** three saved flow EMA evaluations at 50k/80k/100k;
+six GAN settings per method (original Adam 2e-4, half both LRs, half D only, half
+G only, cosine decay, lazy R1); four flow settings (2e-4, 1e-4, 5e-5, cosine).
+Screen 10k branch updates, then refine winners and controls through 30k. All
+branches start from matched model weights (GAN 50k / flow 80k), resetting Adam
+and sampling RNG identically, including controls. They are warm starts, not
+exact continuations. No tested GAN LR or R1 setting beat the original optimizer.
+
+EMA decay .999 includes floating BatchNorm buffers; integer buffers copied.
+Cosine reaches 10% of the initial LR at 30k branch updates. R1 gamma 1 is applied
+every 16 D updates with interval scaling; paired penalizes both input slots.
+Seed-0 selected FIDs were 49.58 vanilla EMA, 48.23 paired EMA, 42.11 raw flow,
+and 43.33 secondary flow EMA; these are discovery results, separate from the table.
+
+Confirmation trains six fresh bases, then eight branches. Frozen choices:
+vanilla +10k / EMA; paired +20k / EMA; flow +30k original LR / raw as primary,
+and +30k quarter LR / EMA as secondary. Evaluation uses 10k samples with new
+noise seed 99274 and the same classifiers / reference images as earlier work.
+Source and recipe details are saved in `results/cifar-tune-v1`.
+
+**Compute:** 4.94 GPU-hours training + 1.56 evaluation = **6.50 A10 GPU-hours**,
+using at most four workers. This excludes startup, checkpoint / volume I/O,
+tiny verification runs and earlier reused parents; no failed training observed.
+Fresh recipe training takes about 16 min for vanilla, 14–16 min for paired,
+and 57–62 min for flow per seed. Total real draws are 7.68M / 17.92M / 14.08M,
+respectively (paired also draws references during G updates). This is unequal
+compute. GAN inference remains one G forward; flow uses 64 midpoint steps /
+128 velocity evaluations. EMA adds no deployment network passes.
+
+All 30 training endpoints completed, all 79 evaluations passed saved first-batch
+replay and source / classifier / reference checks. Dataset and all three trainer
+source hashes match across runs. Three CUDA split-resume checks and five local
+tests passed. Sample and class-mass plots were inspected. The monitor is paused;
+no commits made.
+
+Reproduce collection with `python -m paired_discriminator.cifar_tune_report --collect`,
+then final reporting with `python -m paired_discriminator.cifar_tune_finalize`.
+Launcher: `modal_cifar_tune.py`; remote volume `paired-discriminator-cifar-tuning`.
+Logs: `/tmp/cifar-tune-v1.log` and `/tmp/cifar-tune-confirm.log`.

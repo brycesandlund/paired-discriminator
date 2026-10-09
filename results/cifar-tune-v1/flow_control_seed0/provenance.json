@@ -1,0 +1,25 @@
+{
+  "method": "flow",
+  "seed": 0,
+  "config": {
+    "name": "control",
+    "lr_g": 0.0002,
+    "lr_d": 0.0,
+    "decay": false,
+    "r1": 0.0
+  },
+  "source_hashes": {
+    "cifar_tune": "9d769fdbd3fae68ae4f817d4e2d3c6d2cb2d5cc7240c3e3f3d4d118b10374fda",
+    "cifar": "a22b0642c1493c763a364f7ce74ba681a58c775e10c3d50baabee0616a88437b",
+    "image_flow": "06d87e156716241cb517171750b3f0d74dbdd417d2c3476f3987c5e367a892d9"
+  },
+  "data_sha256": "9d5c2eddadb0deff02c14c350c0385aab7b1d5ff1edfeb4997c8dc8644960111",
+  "torch": "2.14.1+cu130",
+  "device": "cuda",
+  "parent_sha256": "b6bf04cf3eff715564a34ac3e3d80560a6a1d37d3a49b23d1ab27fde0ddc5c38",
+  "gpu": "NVIDIA A10",
+  "parameters_g": 1170083,
+  "parameters_d": 0,
+  "optimizer_reset_at_branch": true,
+  "base_step": 80000
+}

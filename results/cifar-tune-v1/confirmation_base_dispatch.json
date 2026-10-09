@@ -1,0 +1,118 @@
+{
+  "calls": [
+    {
+      "spec": {
+        "kind": "base",
+        "method": "vanilla",
+        "seed": 1,
+        "config": {
+          "name": "control",
+          "lr_g": 0.0002,
+          "lr_d": 0.0002,
+          "decay": false,
+          "r1": 0.0
+        },
+        "steps": 50000,
+        "fresh": true,
+        "group": "base_",
+        "noise_seed": 99274
+      },
+      "call_id": "fc-01M4F4MKAR6MP653J91A3M988Z"
+    },
+    {
+      "spec": {
+        "kind": "base",
+        "method": "vanilla",
+        "seed": 2,
+        "config": {
+          "name": "control",
+          "lr_g": 0.0002,
+          "lr_d": 0.0002,
+          "decay": false,
+          "r1": 0.0
+        },
+        "steps": 50000,
+        "fresh": true,
+        "group": "base_",
+        "noise_seed": 99274
+      },
+      "call_id": "fc-01M4F4MKF3RZ9VEPE5P2Q3K1B4"
+    },
+    {
+      "spec": {
+        "kind": "base",
+        "method": "paired",
+        "seed": 1,
+        "config": {
+          "name": "control",
+          "lr_g": 0.0002,
+          "lr_d": 0.0002,
+          "decay": false,
+          "r1": 0.0
+        },
+        "steps": 50000,
+        "fresh": true,
+        "group": "base_",
+        "noise_seed": 99274
+      },
+      "call_id": "fc-01M4F4MKKBFR76YBHVX2DS8CPA"
+    },
+    {
+      "spec": {
+        "kind": "base",
+        "method": "paired",
+        "seed": 2,
+        "config": {
+          "name": "control",
+          "lr_g": 0.0002,
+          "lr_d": 0.0002,
+          "decay": false,
+          "r1": 0.0
+        },
+        "steps": 50000,
+        "fresh": true,
+        "group": "base_",
+        "noise_seed": 99274
+      },
+      "call_id": "fc-01M4F4MKQSSZ0XFQ2T8KW9XK8N"
+    },
+    {
+      "spec": {
+        "kind": "base",
+        "method": "flow",
+        "seed": 1,
+        "config": {
+          "name": "control",
+          "lr_g": 0.0002,
+          "lr_d": 0.0,
+          "decay": false,
+          "r1": 0.0
+        },
+        "steps": 80000,
+        "fresh": true,
+        "group": "base_",
+        "noise_seed": 99274
+      },
+      "call_id": "fc-01M4F4MKVZZ04VN1KB3EQX1CSQ"
+    },
+    {
+      "spec": {
+        "kind": "base",
+        "method": "flow",
+        "seed": 2,
+        "config": {
+          "name": "control",
+          "lr_g": 0.0002,
+          "lr_d": 0.0,
+          "decay": false,
+          "r1": 0.0
+        },
+        "steps": 80000,
+        "fresh": true,
+        "group": "base_",
+        "noise_seed": 99274
+      },
+      "call_id": "fc-01M4F4MM0CBP2H4FG0S8VYXFSS"
+    }
+  ]
+}

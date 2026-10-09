@@ -1,0 +1,25 @@
+{
+  "method": "vanilla",
+  "seed": 0,
+  "config": {
+    "name": "slow_g",
+    "lr_g": 0.0001,
+    "lr_d": 0.0002,
+    "decay": false,
+    "r1": 0.0
+  },
+  "source_hashes": {
+    "cifar_tune": "9d769fdbd3fae68ae4f817d4e2d3c6d2cb2d5cc7240c3e3f3d4d118b10374fda",
+    "cifar": "a22b0642c1493c763a364f7ce74ba681a58c775e10c3d50baabee0616a88437b",
+    "image_flow": "06d87e156716241cb517171750b3f0d74dbdd417d2c3476f3987c5e367a892d9"
+  },
+  "data_sha256": "9d5c2eddadb0deff02c14c350c0385aab7b1d5ff1edfeb4997c8dc8644960111",
+  "torch": "2.14.1+cu130",
+  "device": "cuda",
+  "parent_sha256": "8d5cbb88560901ea26860a177ad993f4ef1ec960c7d9161c8eca0066e6b6a4f7",
+  "gpu": "NVIDIA A10",
+  "parameters_g": 1183619,
+  "parameters_d": 662977,
+  "optimizer_reset_at_branch": true,
+  "base_step": 50000
+}

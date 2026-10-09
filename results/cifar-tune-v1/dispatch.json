@@ -1,0 +1,269 @@
+{
+  "stage": "screen",
+  "calls": [
+    {
+      "spec": {
+        "kind": "saved_ema",
+        "method": "flow",
+        "step": 50000
+      },
+      "call_id": "fc-01M4F1STD8F22Y1R7Z90PHHPY2"
+    },
+    {
+      "spec": {
+        "kind": "saved_ema",
+        "method": "flow",
+        "step": 80000
+      },
+      "call_id": "fc-01M4F1STF49MPZ33CXHJEPX573"
+    },
+    {
+      "spec": {
+        "kind": "saved_ema",
+        "method": "flow",
+        "step": 100000
+      },
+      "call_id": "fc-01M4F1STH64HEH7TQDXH01H5XG"
+    },
+    {
+      "spec": {
+        "kind": "screen",
+        "method": "vanilla",
+        "config": {
+          "name": "control",
+          "lr_g": 0.0002,
+          "lr_d": 0.0002,
+          "decay": false,
+          "r1": 0.0
+        },
+        "steps": 10000
+      },
+      "call_id": "fc-01M4F1STKA4MA2A09K0XB3NTFY"
+    },
+    {
+      "spec": {
+        "kind": "screen",
+        "method": "vanilla",
+        "config": {
+          "name": "low_both",
+          "lr_g": 0.0001,
+          "lr_d": 0.0001,
+          "decay": false,
+          "r1": 0.0
+        },
+        "steps": 10000
+      },
+      "call_id": "fc-01M4F1STNAXYDAYX964C17XFV4"
+    },
+    {
+      "spec": {
+        "kind": "screen",
+        "method": "vanilla",
+        "config": {
+          "name": "slow_d",
+          "lr_g": 0.0002,
+          "lr_d": 0.0001,
+          "decay": false,
+          "r1": 0.0
+        },
+        "steps": 10000
+      },
+      "call_id": "fc-01M4F1STQB2GVRPDJRE69Y2KW3"
+    },
+    {
+      "spec": {
+        "kind": "screen",
+        "method": "vanilla",
+        "config": {
+          "name": "slow_g",
+          "lr_g": 0.0001,
+          "lr_d": 0.0002,
+          "decay": false,
+          "r1": 0.0
+        },
+        "steps": 10000
+      },
+      "call_id": "fc-01M4F1STSAGCEBJJ8B6WSWVMAC"
+    },
+    {
+      "spec": {
+        "kind": "screen",
+        "method": "vanilla",
+        "config": {
+          "name": "decay",
+          "lr_g": 0.0002,
+          "lr_d": 0.0002,
+          "decay": true,
+          "r1": 0.0
+        },
+        "steps": 10000
+      },
+      "call_id": "fc-01M4F1STV2WDSHY7P35WW2GPWR"
+    },
+    {
+      "spec": {
+        "kind": "screen",
+        "method": "vanilla",
+        "config": {
+          "name": "r1",
+          "lr_g": 0.0002,
+          "lr_d": 0.0002,
+          "decay": false,
+          "r1": 1.0
+        },
+        "steps": 10000
+      },
+      "call_id": "fc-01M4F1STX3R8ZA0TVGW4H8MXGG"
+    },
+    {
+      "spec": {
+        "kind": "screen",
+        "method": "paired",
+        "config": {
+          "name": "control",
+          "lr_g": 0.0002,
+          "lr_d": 0.0002,
+          "decay": false,
+          "r1": 0.0
+        },
+        "steps": 10000
+      },
+      "call_id": "fc-01M4F1STZ30JDVH81J2BJ7HN7T"
+    },
+    {
+      "spec": {
+        "kind": "screen",
+        "method": "paired",
+        "config": {
+          "name": "low_both",
+          "lr_g": 0.0001,
+          "lr_d": 0.0001,
+          "decay": false,
+          "r1": 0.0
+        },
+        "steps": 10000
+      },
+      "call_id": "fc-01M4F1SV0WX87X5KAQK964B5W8"
+    },
+    {
+      "spec": {
+        "kind": "screen",
+        "method": "paired",
+        "config": {
+          "name": "slow_d",
+          "lr_g": 0.0002,
+          "lr_d": 0.0001,
+          "decay": false,
+          "r1": 0.0
+        },
+        "steps": 10000
+      },
+      "call_id": "fc-01M4F1SV35D65NJRKSCY3QW13S"
+    },
+    {
+      "spec": {
+        "kind": "screen",
+        "method": "paired",
+        "config": {
+          "name": "slow_g",
+          "lr_g": 0.0001,
+          "lr_d": 0.0002,
+          "decay": false,
+          "r1": 0.0
+        },
+        "steps": 10000
+      },
+      "call_id": "fc-01M4F1SV5DRQVKBRD1PCHD1186"
+    },
+    {
+      "spec": {
+        "kind": "screen",
+        "method": "paired",
+        "config": {
+          "name": "decay",
+          "lr_g": 0.0002,
+          "lr_d": 0.0002,
+          "decay": true,
+          "r1": 0.0
+        },
+        "steps": 10000
+      },
+      "call_id": "fc-01M4F1SV7MXCQBSDST2PTAZ44A"
+    },
+    {
+      "spec": {
+        "kind": "screen",
+        "method": "paired",
+        "config": {
+          "name": "r1",
+          "lr_g": 0.0002,
+          "lr_d": 0.0002,
+          "decay": false,
+          "r1": 1.0
+        },
+        "steps": 10000
+      },
+      "call_id": "fc-01M4F1SV9JXMSBX0FBJFCWPD21"
+    },
+    {
+      "spec": {
+        "kind": "screen",
+        "method": "flow",
+        "config": {
+          "name": "control",
+          "lr_g": 0.0002,
+          "lr_d": 0.0,
+          "decay": false,
+          "r1": 0.0
+        },
+        "steps": 10000
+      },
+      "call_id": "fc-01M4F1SVBRWTX5KAJPER7R1Y27"
+    },
+    {
+      "spec": {
+        "kind": "screen",
+        "method": "flow",
+        "config": {
+          "name": "lr1e4",
+          "lr_g": 0.0001,
+          "lr_d": 0.0,
+          "decay": false,
+          "r1": 0.0
+        },
+        "steps": 10000
+      },
+      "call_id": "fc-01M4F1SVDH9V07P8DWAT12A54S"
+    },
+    {
+      "spec": {
+        "kind": "screen",
+        "method": "flow",
+        "config": {
+          "name": "lr5e5",
+          "lr_g": 5e-05,
+          "lr_d": 0.0,
+          "decay": false,
+          "r1": 0.0
+        },
+        "steps": 10000
+      },
+      "call_id": "fc-01M4F1SVF5140MF5H2GPNQKS5R"
+    },
+    {
+      "spec": {
+        "kind": "screen",
+        "method": "flow",
+        "config": {
+          "name": "decay",
+          "lr_g": 0.0002,
+          "lr_d": 0.0,
+          "decay": true,
+          "r1": 0.0
+        },
+        "steps": 10000
+      },
+      "call_id": "fc-01M4F1SVHAY09KZGQQK5WSZMQA"
+    }
+  ]
+}

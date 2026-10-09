@@ -1,0 +1,44 @@
+{
+  "call_id": "fc-01M4F4M9JNGRZCD0Q1GN700ZNS",
+  "recipes": {
+    "vanilla": {
+      "config": {
+        "name": "control",
+        "lr_g": 0.0002,
+        "lr_d": 0.0002,
+        "decay": false,
+        "r1": 0.0
+      },
+      "branch_steps": 10000,
+      "primary_weights": "ema",
+      "reason": "Minimum seed0 train-reference FID; raw same-run control evaluated too."
+    },
+    "paired": {
+      "config": {
+        "name": "control",
+        "lr_g": 0.0002,
+        "lr_d": 0.0002,
+        "decay": false,
+        "r1": 0.0
+      },
+      "branch_steps": 20000,
+      "primary_weights": "ema",
+      "reason": "Minimum seed0 train-reference FID; raw same-run control evaluated too."
+    },
+    "flow": {
+      "config": {
+        "name": "lr5e5",
+        "lr_g": 5e-05,
+        "lr_d": 0.0,
+        "decay": false,
+        "r1": 0.0
+      },
+      "branch_steps": 30000,
+      "primary_config": "control",
+      "primary_weights": "model",
+      "secondary_config": "lr5e5",
+      "secondary_weights": "ema",
+      "reason": "Control/raw minimizes train FID; quarter-LR/EMA has better class balance, frozen secondary tradeoff."
+    }
+  }
+}

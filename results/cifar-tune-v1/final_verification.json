@@ -1,0 +1,10 @@
+{
+  "evaluations": 79,
+  "training_jobs": 30,
+  "replays": true,
+  "classifier_reference_identity": true,
+  "source_data_identity": true,
+  "training_endpoints_complete": true,
+  "confirmation_recipes_frozen": true,
+  "confirmation_noise": 99274
+}

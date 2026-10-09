@@ -1,0 +1,8 @@
+{
+  "call_id": "fc-01M4F1S8857E60PWYZGJWYCT8X",
+  "app_id": "ap-uJ1dVAWbVTEwccryJbMkEj",
+  "monitor": "iterate-cifar-optimization",
+  "max_parallel_gpus": 4,
+  "local_tests_passed": 5,
+  "initial_gpu_hour_budget": 8
+}

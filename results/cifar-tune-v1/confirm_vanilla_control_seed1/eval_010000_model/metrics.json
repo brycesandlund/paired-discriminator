@@ -1,0 +1,258 @@
+{
+  "signature": {
+    "checkpoint_sha256": "a7fbb70031ae2e1cefbe9b5aa1ca91b4eefd6e6a764cffa1bf34f53ea6f7d783",
+    "source_sha256": "9d769fdbd3fae68ae4f817d4e2d3c6d2cb2d5cc7240c3e3f3d4d118b10374fda",
+    "method": "vanilla",
+    "seed": 1,
+    "weights": "model",
+    "noise_seed": 99274,
+    "samples": 10000,
+    "solver_steps": null
+  },
+  "step": 10000,
+  "base_step": 50000,
+  "first_batch_replay_exact": true,
+  "sampling_seconds": 0.2193768509999927,
+  "classifiers": {
+    "cifar10_resnet56": {
+      "n": 10000,
+      "class_mass": [
+        0.0625,
+        0.0186,
+        0.0963,
+        0.1443,
+        0.1852,
+        0.0591,
+        0.2377,
+        0.0433,
+        0.1075,
+        0.0455
+      ],
+      "class_tv": 0.27470000000000006,
+      "covered_classes_1pct": 10,
+      "confidence": {
+        "0.5": {
+          "accepted_mass": [
+            0.0591,
+            0.0164,
+            0.0897,
+            0.136,
+            0.177,
+            0.0547,
+            0.2302,
+            0.039,
+            0.1036,
+            0.0426
+          ],
+          "acceptance": 0.9483,
+          "covered_classes_1pct": 10,
+          "augmented_tv": 0.2985
+        },
+        "0.7": {
+          "accepted_mass": [
+            0.0504,
+            0.0125,
+            0.0726,
+            0.116,
+            0.1527,
+            0.0441,
+            0.2093,
+            0.0315,
+            0.0911,
+            0.0338
+          ],
+          "acceptance": 0.814,
+          "covered_classes_1pct": 10,
+          "augmented_tv": 0.36400000000000005
+        },
+        "0.9": {
+          "accepted_mass": [
+            0.0365,
+            0.0095,
+            0.0515,
+            0.0874,
+            0.1187,
+            0.0312,
+            0.1785,
+            0.0219,
+            0.0732,
+            0.0257
+          ],
+          "acceptance": 0.6341,
+          "covered_classes_1pct": 9,
+          "augmented_tv": 0.4631
+        },
+        "0.95": {
+          "accepted_mass": [
+            0.0314,
+            0.0081,
+            0.0427,
+            0.0733,
+            0.1037,
+            0.0265,
+            0.1616,
+            0.0178,
+            0.0644,
+            0.0224
+          ],
+          "acceptance": 0.5519,
+          "covered_classes_1pct": 9,
+          "augmented_tv": 0.5134000000000001
+        }
+      }
+    },
+    "cifar10_vgg16_bn": {
+      "n": 10000,
+      "class_mass": [
+        0.0654,
+        0.0211,
+        0.0931,
+        0.148,
+        0.154,
+        0.0833,
+        0.2304,
+        0.0552,
+        0.0919,
+        0.0576
+      ],
+      "class_tv": 0.2324,
+      "covered_classes_1pct": 10,
+      "confidence": {
+        "0.5": {
+          "accepted_mass": [
+            0.0636,
+            0.0204,
+            0.09,
+            0.1426,
+            0.1485,
+            0.0808,
+            0.2269,
+            0.0525,
+            0.0896,
+            0.0554
+          ],
+          "acceptance": 0.9703,
+          "covered_classes_1pct": 10,
+          "augmented_tv": 0.2477
+        },
+        "0.7": {
+          "accepted_mass": [
+            0.0559,
+            0.0177,
+            0.0786,
+            0.129,
+            0.1346,
+            0.0715,
+            0.2144,
+            0.0462,
+            0.0829,
+            0.05
+          ],
+          "acceptance": 0.8808,
+          "covered_classes_1pct": 10,
+          "augmented_tv": 0.2972
+        },
+        "0.9": {
+          "accepted_mass": [
+            0.0478,
+            0.0143,
+            0.0646,
+            0.1078,
+            0.1163,
+            0.0592,
+            0.1972,
+            0.0372,
+            0.075,
+            0.0419
+          ],
+          "acceptance": 0.7613,
+          "covered_classes_1pct": 10,
+          "augmented_tv": 0.36
+        },
+        "0.95": {
+          "accepted_mass": [
+            0.0433,
+            0.0122,
+            0.0574,
+            0.0965,
+            0.1066,
+            0.0543,
+            0.1864,
+            0.0333,
+            0.0696,
+            0.0383
+          ],
+          "acceptance": 0.6979,
+          "covered_classes_1pct": 10,
+          "augmented_tv": 0.3951
+        }
+      }
+    }
+  },
+  "classifier_weight_hashes": {
+    "cifar10_resnet56": "187c023aee0c9cf3093a682d9447a538cbaf5489f7ae78a7df4edf2246ce380b",
+    "cifar10_vgg16_bn": "6ee7ea24b52cfbbe9751608a81d5a7b2f5bac4e8f7d19e420030072ca257ed97"
+  },
+  "images_sha256": "0e545a089e4c3f20c485306ed36cf8862bca179c8c734daaf8ca92f186041a0e",
+  "classifier_agreement": 0.5987,
+  "train_metrics": {
+    "frechet_inception_distance": 52.895328529077574,
+    "kernel_inception_distance_mean": 0.037365424633026126,
+    "kernel_inception_distance_std": 0.0016026029578471573,
+    "precision": 0.5795999765396118,
+    "recall": 0.33219999074935913,
+    "f_score": 0.42233628811650603
+  },
+  "heldout_metrics": {
+    "frechet_inception_distance": 52.860080186625055,
+    "kernel_inception_distance_mean": 0.037386138439178464,
+    "kernel_inception_distance_std": 0.0014483217430135385,
+    "precision": 0.5764999985694885,
+    "recall": 0.3366999924182892,
+    "f_score": 0.4251150833620375
+  },
+  "reference_manifest": {
+    "version": "integrity-v1",
+    "train_images": 50000,
+    "heldout_images": 10000,
+    "heldout_split": "official CIFAR10 test; never used in GAN updates",
+    "train_sha256": "9d5c2eddadb0deff02c14c350c0385aab7b1d5ff1edfeb4997c8dc8644960111",
+    "heldout_sha256": "177777c33ba79825320efa646ad04a94bdc3c80e4ebe3bd21724f8cdfd4b9d56",
+    "train_labels_sha256": "f5cfe00b0f00968c0cc5ff3b1d2de51b10e33efa277c2986f4e0fa63e58c9f4f",
+    "heldout_labels_sha256": "cbb7365de8ed11f05cc4c3a1e7f78144127c5e851efd83762fb18202461230bb",
+    "exact_test_images_also_in_train": 0,
+    "train_reference_ids_sha256": "fa935b0e2fd853dd84c8920ab6b4c1ba80c95ba63da49d5169d30f777a4c14fe",
+    "balanced_train_ids_sha256": "4974cd580155265ae6a60302be599faebabeb8626ff6723a69bfff224c6caf2d",
+    "balanced_test_ids_sha256": "f15db7c86727c7cd2908fa7962602d70060e79e1ab06b8b33381055474391f9e",
+    "real_train10k_vs_test10k_metrics": {
+      "frechet_inception_distance": 5.196906685349347,
+      "kernel_inception_distance_mean": -3.999710083007812e-05,
+      "kernel_inception_distance_std": 8.803527902064033e-05,
+      "precision": 0.6917999982833862,
+      "recall": 0.6920999884605408,
+      "f_score": 0.6919499608572922
+    },
+    "real_test_to_train10k_nearest_baseline": {
+      "inception": {
+        "mean": 12.556268692016602,
+        "median": 12.594715118408203,
+        "p01": 6.808598041534424,
+        "p05": 8.344833374023438,
+        "p95": 16.66671371459961,
+        "min": 3.1745502948760986
+      },
+      "pixel_rms": {
+        "mean": 0.1760372817516327,
+        "median": 0.17628368735313416,
+        "p01": 0.08762601017951965,
+        "p05": 0.11119982600212097,
+        "p95": 0.2406836897134781,
+        "min": 0.06290318816900253
+      }
+    },
+    "feature_extractor": "torch-fidelity inception-v3-compat 2048; raw uint8 preprocessing",
+    "torch": "2.14.1+cu130"
+  },
+  "evaluation_seconds": 34.04430714,
+  "selection_metric": "train-reference FID; test-reference metrics are descriptive, not untouched validation"
+}

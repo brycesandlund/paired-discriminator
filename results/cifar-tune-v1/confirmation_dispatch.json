@@ -1,0 +1,164 @@
+{
+  "calls": [
+    {
+      "spec": {
+        "kind": "confirm",
+        "method": "vanilla",
+        "seed": 1,
+        "config": {
+          "name": "control",
+          "lr_g": 0.0002,
+          "lr_d": 0.0002,
+          "decay": false,
+          "r1": 0.0
+        },
+        "steps": 10000,
+        "group": "confirm_",
+        "noise_seed": 99274,
+        "parent": "/tuning/cifar-tune-v1/base_vanilla_control_seed1/checkpoint_050000.pt",
+        "parent_step": 50000
+      },
+      "call_id": "fc-01M4F8N8VK6JW0Q45B7ZADSXCR"
+    },
+    {
+      "spec": {
+        "kind": "confirm",
+        "method": "vanilla",
+        "seed": 2,
+        "config": {
+          "name": "control",
+          "lr_g": 0.0002,
+          "lr_d": 0.0002,
+          "decay": false,
+          "r1": 0.0
+        },
+        "steps": 10000,
+        "group": "confirm_",
+        "noise_seed": 99274,
+        "parent": "/tuning/cifar-tune-v1/base_vanilla_control_seed2/checkpoint_050000.pt",
+        "parent_step": 50000
+      },
+      "call_id": "fc-01M4F8N8ZTTA0HCA28GQ55G8P8"
+    },
+    {
+      "spec": {
+        "kind": "confirm",
+        "method": "paired",
+        "seed": 1,
+        "config": {
+          "name": "control",
+          "lr_g": 0.0002,
+          "lr_d": 0.0002,
+          "decay": false,
+          "r1": 0.0
+        },
+        "steps": 20000,
+        "group": "confirm_",
+        "noise_seed": 99274,
+        "parent": "/tuning/cifar-tune-v1/base_paired_control_seed1/checkpoint_050000.pt",
+        "parent_step": 50000
+      },
+      "call_id": "fc-01M4F8N955H9F8G58NASNCSTRZ"
+    },
+    {
+      "spec": {
+        "kind": "confirm",
+        "method": "paired",
+        "seed": 2,
+        "config": {
+          "name": "control",
+          "lr_g": 0.0002,
+          "lr_d": 0.0002,
+          "decay": false,
+          "r1": 0.0
+        },
+        "steps": 20000,
+        "group": "confirm_",
+        "noise_seed": 99274,
+        "parent": "/tuning/cifar-tune-v1/base_paired_control_seed2/checkpoint_050000.pt",
+        "parent_step": 50000
+      },
+      "call_id": "fc-01M4F8N99T5FEMJWYF782B1PXC"
+    },
+    {
+      "spec": {
+        "kind": "confirm",
+        "method": "flow",
+        "seed": 1,
+        "config": {
+          "name": "lr5e5",
+          "lr_g": 5e-05,
+          "lr_d": 0.0,
+          "decay": false,
+          "r1": 0.0
+        },
+        "steps": 30000,
+        "group": "confirm_",
+        "noise_seed": 99274,
+        "parent": "/tuning/cifar-tune-v1/base_flow_control_seed1/checkpoint_080000.pt",
+        "parent_step": 80000
+      },
+      "call_id": "fc-01M4F8N9E3S2BDAWT9ZPDVC483"
+    },
+    {
+      "spec": {
+        "kind": "confirm",
+        "method": "flow",
+        "seed": 1,
+        "config": {
+          "name": "control",
+          "lr_g": 0.0002,
+          "lr_d": 0.0,
+          "decay": false,
+          "r1": 0.0
+        },
+        "steps": 30000,
+        "group": "confirm_",
+        "noise_seed": 99274,
+        "parent": "/tuning/cifar-tune-v1/base_flow_control_seed1/checkpoint_080000.pt",
+        "parent_step": 80000
+      },
+      "call_id": "fc-01M4F8N9JDPJSZEHA1SQ585S29"
+    },
+    {
+      "spec": {
+        "kind": "confirm",
+        "method": "flow",
+        "seed": 2,
+        "config": {
+          "name": "lr5e5",
+          "lr_g": 5e-05,
+          "lr_d": 0.0,
+          "decay": false,
+          "r1": 0.0
+        },
+        "steps": 30000,
+        "group": "confirm_",
+        "noise_seed": 99274,
+        "parent": "/tuning/cifar-tune-v1/base_flow_control_seed2/checkpoint_080000.pt",
+        "parent_step": 80000
+      },
+      "call_id": "fc-01M4F8N9PPPXP8P5ZX2KSE8WEG"
+    },
+    {
+      "spec": {
+        "kind": "confirm",
+        "method": "flow",
+        "seed": 2,
+        "config": {
+          "name": "control",
+          "lr_g": 0.0002,
+          "lr_d": 0.0,
+          "decay": false,
+          "r1": 0.0
+        },
+        "steps": 30000,
+        "group": "confirm_",
+        "noise_seed": 99274,
+        "parent": "/tuning/cifar-tune-v1/base_flow_control_seed2/checkpoint_080000.pt",
+        "parent_step": 80000
+      },
+      "call_id": "fc-01M4F8N9VCJV30AFQGTKWEQDNV"
+    }
+  ]
+}

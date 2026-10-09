@@ -1,0 +1,81 @@
+{
+  "stage": "refine",
+  "calls": [
+    {
+      "spec": {
+        "kind": "refine",
+        "method": "vanilla",
+        "config": {
+          "name": "control",
+          "lr_g": 0.0002,
+          "lr_d": 0.0002,
+          "decay": false,
+          "r1": 0.0
+        },
+        "steps": 30000,
+        "eval_steps": [
+          20000,
+          30000
+        ]
+      },
+      "call_id": "fc-01M4F397VZDG86GBYDXNTHYE66"
+    },
+    {
+      "spec": {
+        "kind": "refine",
+        "method": "paired",
+        "config": {
+          "name": "control",
+          "lr_g": 0.0002,
+          "lr_d": 0.0002,
+          "decay": false,
+          "r1": 0.0
+        },
+        "steps": 30000,
+        "eval_steps": [
+          20000,
+          30000
+        ]
+      },
+      "call_id": "fc-01M4F397XXNDAG3ZEB9SW0SBCZ"
+    },
+    {
+      "spec": {
+        "kind": "refine",
+        "method": "flow",
+        "config": {
+          "name": "lr5e5",
+          "lr_g": 5e-05,
+          "lr_d": 0.0,
+          "decay": false,
+          "r1": 0.0
+        },
+        "steps": 30000,
+        "eval_steps": [
+          20000,
+          30000
+        ]
+      },
+      "call_id": "fc-01M4F398000EZGJXKE57QD7VH0"
+    },
+    {
+      "spec": {
+        "kind": "refine",
+        "method": "flow",
+        "config": {
+          "name": "control",
+          "lr_g": 0.0002,
+          "lr_d": 0.0,
+          "decay": false,
+          "r1": 0.0
+        },
+        "steps": 30000,
+        "eval_steps": [
+          20000,
+          30000
+        ]
+      },
+      "call_id": "fc-01M4F39821A9FE9KW2CTRPWHDM"
+    }
+  ]
+}
