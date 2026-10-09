@@ -1,0 +1,101 @@
+[
+  {
+    "architecture": "symmetric_concat",
+    "seed": 0,
+    "steps": 50000,
+    "eval_steps": [
+      50000
+    ],
+    "noise_seed": 99374
+  },
+  {
+    "architecture": "concat",
+    "seed": 1,
+    "steps": 50000,
+    "eval_steps": [
+      50000
+    ],
+    "noise_seed": 99474
+  },
+  {
+    "architecture": "shared_difference",
+    "seed": 1,
+    "steps": 50000,
+    "eval_steps": [
+      50000
+    ],
+    "noise_seed": 99474
+  },
+  {
+    "architecture": "self_attention",
+    "seed": 1,
+    "steps": 50000,
+    "eval_steps": [
+      50000
+    ],
+    "noise_seed": 99474
+  },
+  {
+    "architecture": "cross_attention",
+    "seed": 1,
+    "steps": 50000,
+    "eval_steps": [
+      50000
+    ],
+    "noise_seed": 99474
+  },
+  {
+    "architecture": "symmetric_concat",
+    "seed": 1,
+    "steps": 50000,
+    "eval_steps": [
+      50000
+    ],
+    "noise_seed": 99474
+  },
+  {
+    "architecture": "concat",
+    "seed": 2,
+    "steps": 50000,
+    "eval_steps": [
+      50000
+    ],
+    "noise_seed": 99474
+  },
+  {
+    "architecture": "shared_difference",
+    "seed": 2,
+    "steps": 50000,
+    "eval_steps": [
+      50000
+    ],
+    "noise_seed": 99474
+  },
+  {
+    "architecture": "self_attention",
+    "seed": 2,
+    "steps": 50000,
+    "eval_steps": [
+      50000
+    ],
+    "noise_seed": 99474
+  },
+  {
+    "architecture": "cross_attention",
+    "seed": 2,
+    "steps": 50000,
+    "eval_steps": [
+      50000
+    ],
+    "noise_seed": 99474
+  },
+  {
+    "architecture": "symmetric_concat",
+    "seed": 2,
+    "steps": 50000,
+    "eval_steps": [
+      50000
+    ],
+    "noise_seed": 99474
+  }
+]

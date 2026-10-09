@@ -1,0 +1,5 @@
+{
+  "architecture": "self_attention",
+  "exact_cuda_resume": true,
+  "original_control_equivalent": false
+}

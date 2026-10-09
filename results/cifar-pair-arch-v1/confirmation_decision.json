@@ -1,0 +1,47 @@
+{
+  "frozen_at": "2026-10-09T17:35:19.221350+00:00",
+  "phase": "confirmation",
+  "primary_candidate": "cross_attention",
+  "controls": [
+    "concat",
+    "shared_difference",
+    "self_attention"
+  ],
+  "fresh_confirmation_seeds": [
+    1,
+    2
+  ],
+  "endpoint": 50000,
+  "weights": "ema",
+  "selection_metric": "train-reference FID",
+  "selected_train_fid": 48.17080008977416,
+  "selection_scope": "six seed-0 screen arms at 50k EMA",
+  "tradeoff": "Cross-attention had better FID and feature recall, but worse class TV than original concat.",
+  "targeted_probe": {
+    "architecture": "symmetric_concat",
+    "seeds": [
+      0,
+      1,
+      2
+    ],
+    "forward": "0.5 * (D(A,B) - D(B,A))",
+    "parameters": "same as original concat",
+    "rationale": "Original concat strongly responds to references but has large slot-swap inconsistency. Isolate antisymmetry from shared encoders and attention.",
+    "inference": "G unchanged",
+    "status": "exploratory; fixed before these runs, not selected on confirmation seeds"
+  },
+  "restrictions": "No further recipe, checkpoint or raw/EMA selection on confirmation seeds. No new architecture sweep.",
+  "screen_gpu_hours": 2.0007362058561116,
+  "estimated_total_gpu_hours": 5.5,
+  "initial_bound_gpu_hours": 6,
+  "worker_limit": 4,
+  "local_tests": "15 passed",
+  "specs_sha256": "a360f130d13309da804c0902c2622f8466d3f58ec8a2a16e12c6ec5f356a69cc",
+  "frozen_sources": {
+    "cifar_pair_arch": "999828a35364999507c9b8b032bda0b31f62d1d8e3145e480a4f94656afab132",
+    "cifar_pair_symmetry": "daa958a12d52b2eb63308c8406fff724c7daaca1aaade6625e85e5a43c19eab8",
+    "cifar": "a22b0642c1493c763a364f7ce74ba681a58c775e10c3d50baabee0616a88437b",
+    "cifar_tune": "9d769fdbd3fae68ae4f817d4e2d3c6d2cb2d5cc7240c3e3f3d4d118b10374fda",
+    "image_flow": "06d87e156716241cb517171750b3f0d74dbdd417d2c3476f3987c5e367a892d9"
+  }
+}

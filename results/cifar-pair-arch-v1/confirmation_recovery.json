@@ -1,0 +1,17 @@
+{
+  "reason": "Original coordinator was preempted, then its duplicate-dispatch guard stopped the restarted coordinator.",
+  "action": "Rejoin existing saved FunctionCall IDs only; no new training jobs.",
+  "calls": [
+    "fc-01M4GVRMEENMQ4W0Q89RX8R2D1",
+    "fc-01M4GVRMJD52DTCRBVAFJCVBYF",
+    "fc-01M4GVRMPBWEG6NM3HQ84EWBWA",
+    "fc-01M4GVRMTB5CJNBVG3MN1FH7JZ",
+    "fc-01M4GVRMY46JK7FWT5JJFH0RS6",
+    "fc-01M4GVRN1PBJ07RJVVPWAH86TK",
+    "fc-01M4GVRN5VQWMB30FTHADCKNB3",
+    "fc-01M4GVRN9JN8CX9ZAJJMF6H60R",
+    "fc-01M4GVRND7B0WKRNDP6Z6KQJ0R",
+    "fc-01M4GVRNH21PZVTFRTT3A5BKE1",
+    "fc-01M4GVRNN2ASCQP0NW3CDV1ZYC"
+  ]
+}

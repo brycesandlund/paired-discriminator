@@ -1,0 +1,60 @@
+{
+  "evaluations": 36,
+  "first_batch_replays": true,
+  "reference_matches_baseline": true,
+  "classifier_matches_baseline": true,
+  "evaluation_sources_match": true,
+  "noise_matches_protocol": true,
+  "training_sources_match": true,
+  "screen_primary_endpoints": 6,
+  "statuses": [
+    {
+      "folder": "concat_wide_seed0",
+      "phase": "complete",
+      "step": 50000,
+      "training_seconds": 847.3618622189997,
+      "target": 50000,
+      "evaluated_step": 50000
+    },
+    {
+      "folder": "self_attention_seed0",
+      "phase": "complete",
+      "step": 50000,
+      "training_seconds": 1223.1204028529996,
+      "target": 50000,
+      "evaluated_step": 50000
+    },
+    {
+      "folder": "global_context_seed0",
+      "phase": "complete",
+      "step": 50000,
+      "training_seconds": 1070.5228293170012,
+      "target": 50000,
+      "evaluated_step": 50000
+    },
+    {
+      "folder": "shared_difference_seed0",
+      "phase": "complete",
+      "step": 50000,
+      "training_seconds": 892.1121179960004,
+      "target": 50000,
+      "evaluated_step": 50000
+    },
+    {
+      "folder": "concat_seed0",
+      "phase": "complete",
+      "step": 50000,
+      "training_seconds": 672.476267161,
+      "target": 50000,
+      "evaluated_step": 50000
+    },
+    {
+      "folder": "cross_attention_seed0",
+      "phase": "complete",
+      "step": 50000,
+      "training_seconds": 1284.9850307850004,
+      "target": 50000,
+      "evaluated_step": 50000
+    }
+  ]
+}

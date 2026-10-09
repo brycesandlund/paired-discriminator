@@ -1,0 +1,32 @@
+[
+  {
+    "architecture": "concat",
+    "exact_cuda_resume": true,
+    "original_control_equivalent": true
+  },
+  {
+    "architecture": "concat_wide",
+    "exact_cuda_resume": true,
+    "original_control_equivalent": false
+  },
+  {
+    "architecture": "shared_difference",
+    "exact_cuda_resume": true,
+    "original_control_equivalent": false
+  },
+  {
+    "architecture": "global_context",
+    "exact_cuda_resume": true,
+    "original_control_equivalent": false
+  },
+  {
+    "architecture": "self_attention",
+    "exact_cuda_resume": true,
+    "original_control_equivalent": false
+  },
+  {
+    "architecture": "cross_attention",
+    "exact_cuda_resume": true,
+    "original_control_equivalent": false
+  }
+]

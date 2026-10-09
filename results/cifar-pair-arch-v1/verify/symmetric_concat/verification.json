@@ -1,0 +1,5 @@
+{
+  "architecture": "symmetric_concat",
+  "exact_cuda_resume": true,
+  "original_control_equivalent": false
+}

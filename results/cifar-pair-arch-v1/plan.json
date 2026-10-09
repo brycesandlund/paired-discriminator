@@ -1,0 +1,28 @@
+{
+  "architectures": [
+    "concat",
+    "concat_wide",
+    "shared_difference",
+    "global_context",
+    "self_attention",
+    "cross_attention"
+  ],
+  "screen_seeds": [
+    0
+  ],
+  "eval_steps": [
+    10000,
+    20000,
+    50000
+  ],
+  "primary_step": 50000,
+  "primary_weights": "ema",
+  "selection": "train-reference FID, inspect class TV and recall tradeoffs",
+  "screen_noise": 99374,
+  "confirmation_noise": 99474,
+  "budget_gpu_hours": 6,
+  "max_workers": 4,
+  "local_tests_passed": 13,
+  "generator_unchanged": true,
+  "no_deficit_or_conditioning": true
+}

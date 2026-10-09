@@ -1,0 +1,23 @@
+{
+  "architecture": "cross_attention",
+  "seed": 0,
+  "batch": 128,
+  "lr": 0.0002,
+  "betas": [
+    0.5,
+    0.999
+  ],
+  "ema_decay": 0.999,
+  "source_hashes": {
+    "cifar_pair_arch": "999828a35364999507c9b8b032bda0b31f62d1d8e3145e480a4f94656afab132",
+    "cifar": "a22b0642c1493c763a364f7ce74ba681a58c775e10c3d50baabee0616a88437b",
+    "cifar_tune": "9d769fdbd3fae68ae4f817d4e2d3c6d2cb2d5cc7240c3e3f3d4d118b10374fda",
+    "image_flow": "06d87e156716241cb517171750b3f0d74dbdd417d2c3476f3987c5e367a892d9"
+  },
+  "device": "cuda",
+  "torch": "2.14.1+cu130",
+  "data_sha256": "9d5c2eddadb0deff02c14c350c0385aab7b1d5ff1edfeb4997c8dc8644960111",
+  "parameters_g": 1183619,
+  "parameters_d": 712770,
+  "gpu": "NVIDIA A10"
+}

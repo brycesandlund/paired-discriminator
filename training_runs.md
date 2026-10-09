@@ -117,6 +117,7 @@ The 10k and 50k checkpoints of a trajectory are not independent trials.
 | 35 | Native-image flow matching | Unconditional MNIST seeds0–4 and CIFAR seed0; existing evaluators | 10k pilot; midpoint64, seed0 midpoint128 check | Complete: MNIST digit TV .098 between vanilla .140 / paired .082, higher acceptance85.9%; CIFAR held-out FID68.99 versus96.90/122.54. Solver sensitivity negligible; no50k extension. |
 | 36 | Best image checkpoints: GANs vs flow | Original unconditional vanilla/paired; flow MNIST seeds0–4 + CIFAR seed0 | MNIST through50k; CIFAR through100k | Complete: selected MNIST digit TV .1261 vanilla / .0745 paired / .0633 flow; CIFAR FID49.85 /48.37 /47.02. Paired retains best CIFAR KID and VGG class TV; unequal compute, single-seed CIFAR. |
 | 37 | CIFAR optimizer and EMA tuning | Vanilla/paired/flow; uniform unconditional | 16 seed-0 screens, saved EMA, 30k refinement; frozen recipes confirmed on seeds 1–2 | Complete: EMA is the clearest gain. Mean FID 51.38 vanilla / 49.03 paired / 46.62 raw flow / 42.79 secondary flow+EMA. Vanilla extra training regresses; 6.50 GPU-hours. |
+| 38 | Paired CIFAR architecture comparisons | Original/wider concat, shared scoring, global context, self-/cross-attention; slot-symmetry probe | Fixed 50k EMA; seed-0 screen then frozen fresh seeds 1–2 | Complete: cross-attention / independent shared scoring mean FID 49.06 / 48.99 vs original 51.68. Cross-attention has highest recall, but worse class balance; no uniform mode-coverage win. 5.23 A10 GPU-hours. |
 
 ## What the methods mean
 
@@ -1637,3 +1638,133 @@ Reproduce collection with `python -m paired_discriminator.cifar_tune_report --co
 then final reporting with `python -m paired_discriminator.cifar_tune_finalize`.
 Launcher: `modal_cifar_tune.py`; remote volume `paired-discriminator-cifar-tuning`.
 Logs: `/tmp/cifar-tune-v1.log` and `/tmp/cifar-tune-confirm.log`.
+
+## 38. Paired CIFAR architecture comparisons
+
+Complete. Improving the comparison architecture helps some quality metrics, but
+**cross-attention does not clearly outperform simpler shared independent scoring
+on FID, and neither improves original paired class balance**. Cross-attention
+has higher feature recall and lower KID, with more training cost. These results
+do not establish that richer pair comparisons solve mode collapse.
+
+[Full report](results/cifar-pair-arch-v1/REPORT.md),
+[fixed confirmation samples](results/cifar-pair-arch-v1/confirmation_samples.png),
+[class mass by seed](results/cifar-pair-arch-v1/confirmation_class_mass.png),
+[verification](results/cifar-pair-arch-v1/verification_report.json).
+
+**Fresh confirmation seeds 1 and 2, fixed 50k EMA:** means of individual-seed
+metrics; seed 0 is excluded. FID uncertainty is sample standard deviation across
+these two seeds, not a confidence interval. No scoring of pooled distributions.
+
+| Architecture | Train FID ↓ | Test FID ↓ (mean ± SD) | KID ↓ | Precision ↑ | Recall ↑ | VGG TV ↓ | ResNet TV ↓ | Training min/seed |
+|---|---:|---:|---:|---:|---:|---:|---:|---:|
+| Original concat | 51.95 | 51.68 ± 1.95 | .03558 | .555 | .321 | **.148** | **.204** | 11.33 |
+| Shared independent scores | 49.25 | **48.99 ± .34** | .03690 | .574 | .354 | .180 | .223 | 14.77 |
+| Self-attention control | 53.68 | 53.69 ± .81 | .03884 | **.595** | .376 | .289 | .314 | 20.62 |
+| Cross-attention | **49.12** | 49.06 ± 1.71 | **.03371** | .549 | **.385** | .231 | .260 | 21.28 |
+| Antisymmetric concat (exploratory) | 50.91 | 50.68 ± 2.87 | .03513 | .550 | .331 | .180 | .249 | 15.05 |
+
+Cross-attention essentially ties original paired on seed 1 (FID 50.27 vs 50.31),
+but improves strongly on seed 2 (47.85 vs 53.06). It improves recall in both while
+worsening both classifiers' class TV. VGG assigns only 2.1–2.4% to cars and about
+20% to frogs, versus original paired's 3.1–3.3% and 14.4–15.6%; uniform target
+mass is 10%. These are predicted labels, not ground-truth generated categories.
+
+Independent shared scoring improves FID, precision and recall in both fresh seeds,
+with less FID variation here. Its mean FID is almost identical to cross-attention,
+and it has better precision/class balance but lower recall and worse KID.
+Its mean KID is slightly worse than original paired, so it is not an across-metric
+win either. Cross-attention beats the matched self-attention control's FID in both
+seeds. The symmetry probe is mixed: FID 52.71/48.65 versus original 50.31/53.06,
+worse/better recall respectively, and worse class TV in both. It also worsened
+seed-0 FID (52.98 vs 51.56). Antisymmetry alone did not reliably improve training.
+
+EMA improves FID versus raw weights at every confirmation endpoint; EMA was fixed
+before these runs, not selected afterward. Raw/EMA per-seed results are in the
+report. Class TV does not always improve with EMA. Fixed sample grids remain
+small and often ambiguous; they do not establish dramatic visual gains or
+within-class coverage. Two fresh seeds and previously used data references make
+this exploratory evidence, not untouched validation.
+
+**Architecture controls and protocol:**
+
+| Arm | Comparison mechanism | D parameters |
+|---|---|---:|
+| `concat` | Original six-channel CNN, width 64 | 666,049 |
+| `concat_wide` | Same architecture, width 66; capacity control | 707,983 |
+| `shared_difference` | Shared image CNN, score(A) − score(B); relativistic control | 662,977 |
+| `global_context` | Features conditioned on the other image's pooled features | 712,770 |
+| `self_attention` | Attention within each image, then score difference | 712,770 |
+| `cross_attention` | Each image's features query the other image's features | 712,770 |
+| `symmetric_concat` | 0.5 × (D(A,B) − D(B,A)); targeted follow-up | 666,049 |
+
+Shared arms have identical initial CNN tensors. Self-/cross-attention have exactly
+the same parameter initialization; only the source of keys/values changes.
+Global conditioning has the same parameter count. Attention acts at 8×8 resolution,
+64 tokens/image, four heads, 16 query/key and 32 value dimensions per head. The
+learned residual scale starts at .1. LayerNorm acts within each token. Shared arms
+subtract two scores, enforcing D(B,A) = −D(A,B); independent scoring and
+self-attention remain additive unary controls.
+
+G is the original width-64, latent-128 model (1,183,619 parameters), initialized
+identically across architectures within each seed. All arms use BCE, Adam 2e-4 /
+(.5,.999), 128 pairs for D and 128 generated samples for G, one D and one G update,
+uniform unconditional real sampling, no deficit or auxiliary reconstruction.
+EMA decay .999 includes the same floating-buffer policy as #37. Training sources
+remained frozen throughout active jobs; the symmetry module preserves the original
+train/diagnostic loop verbatim with explicit parity tests and its own source hash.
+
+Six seed-0 arms trained fresh to 50k with raw/EMA evaluations at 10k/20k/50k.
+The predeclared primary comparison was **50k EMA**, selected by TRAIN-reference
+FID. Cross-attention won (train 48.17 / test 48.08), versus original test 51.56,
+shared independent 49.19, wider concat 50.33, global context 52.58 and self-attention
+52.80. Cross-attention seed-0 recall was .396 vs original .302, but VGG TV .229 vs
+.148. Earlier endpoints and raw weights were descriptive.
+
+The frozen confirmation compared cross-attention, original concat, shared scoring
+and self-attention on fresh seeds 1 and 2. A single targeted symmetry probe used
+seeds 0, 1 and 2, also at 50k EMA. All choices, source hashes and specs were saved
+before launch in `confirmation_decision.json` and `confirmation_specs.json`.
+Noise seed 99374 was used for seed 0 and new noise 99474 for fresh seeds. No
+confirmation checkpoint/config/weight selection or further architecture sweep.
+
+**Interaction diagnostics:** hold each fake fixed and rotate real references;
+measure raw-logit gradient-direction cosine before the BCE scalar, plus a
+four-pair interaction residual. Shared scoring/self-attention have cosine 1 and
+residual near zero. Cross-attention has cosine .949/.903 and residual .900/.994
+on fresh seeds. Original concat already strongly uses the reference (cosine
+.107/.807), so the mechanism is not simply beginning to use the second input.
+Original slot-swap error was 25.54/10.77; the symmetry probe forces zero but yields
+mixed outcomes. These use RAW G/D and do not prove useful coverage of EMA samples.
+
+**Compute and verification:** 4.69 GPU-hours training + .54 evaluation = **5.23 A10
+GPU-hours**, under the initial approximately six-hour bound, at most four workers.
+Excludes startup, checkpoint/volume I/O, tiny CUDA checks, untimed diagnostics and coordinator CPU time.
+Cross-attention training costs 1.88× original concat and 1.44× shared scoring.
+All methods draw 12.8M real images/references over 50k updates. G is unchanged,
+so inference is still one identical generator forward; D changes add no deployment
+passes. This is an equal-update/data comparison, not equal training compute.
+
+All **17 endpoints / 58 evaluations** completed. Seven CUDA exact-resume checks
+passed, including original concat equivalence; 15 local tests passed. Saved
+first-batch replays, dataset/classifier/reference/evaluation identities, frozen
+source sets, specs/dispatch and raw/EMA checkpoint identities all passed. Samples,
+trajectories and class-mass plots were inspected. No training failures observed.
+The heartbeat is paused; no commits made.
+
+One orchestration deviation: Modal preempted the confirmation coordinator after
+dispatch; its restart hit the duplicate-dispatch guard. The original 11 training
+calls continued. A CPU-only recovery collector rejoined those exact IDs, without
+redispatching training, and completed with no job errors. Details are retained in
+`confirmation_recovery.json` and `confirmation_recovery_launch.json`.
+
+Source: `src/paired_discriminator/cifar_pair_arch.py` and `cifar_pair_symmetry.py`;
+launcher `modal_cifar_pair_arch.py`; volume `paired-discriminator-cifar-pair-architecture`.
+Collection: `uv run --extra cifar modal run modal_cifar_pair_arch.py::collect`;
+report: `uv run python -m paired_discriminator.cifar_pair_arch_report`.
+Initial frozen evidence remains in `results/cifar-pair-arch-v1/screen_REPORT.md`.
+Screen coordinator/app: `fc-01M4GRD25SMYWKF1XMCVYJD6E0` / `ap-kunuKA7EKzdKJCDrlmokLj`.
+Original confirmation: `fc-01M4GVQXTTHG4HV16YGKFE4Z3Z` / `ap-X5HAwfYaf6AxXxsTfPYjBk`.
+Recovery: `fc-01M4GW0V4BT0MXYKA3219CF49B` / `ap-mFczMencQdpR51BbOeDtBg`.
+Logs: `/tmp/cifar-pair-arch-v1.log`, `/tmp/cifar-pair-arch-confirm.log`,
+`/tmp/cifar-pair-arch-recover.log`. No commits.

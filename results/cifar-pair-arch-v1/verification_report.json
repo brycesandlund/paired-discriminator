@@ -1,0 +1,211 @@
+{
+  "evaluations": 58,
+  "first_batch_replays": true,
+  "reference_matches_baseline": true,
+  "classifier_matches_baseline": true,
+  "evaluation_sources_match": true,
+  "noise_matches_protocol": true,
+  "training_sources_match": true,
+  "screen_primary_endpoints": 6,
+  "statuses": [
+    {
+      "folder": "concat_wide_seed0",
+      "phase": "complete",
+      "step": 50000,
+      "training_seconds": 847.3618622189997,
+      "target": 50000,
+      "evaluated_step": 50000
+    },
+    {
+      "folder": "concat_seed2",
+      "phase": "complete",
+      "step": 50000,
+      "training_seconds": 687.4210675980003,
+      "target": 50000,
+      "evaluated_step": 50000
+    },
+    {
+      "folder": "self_attention_seed1",
+      "phase": "complete",
+      "step": 50000,
+      "training_seconds": 1230.7299477660001,
+      "target": 50000,
+      "evaluated_step": 50000
+    },
+    {
+      "folder": "cross_attention_seed2",
+      "phase": "complete",
+      "step": 50000,
+      "training_seconds": 1294.7634844230006,
+      "target": 50000,
+      "evaluated_step": 50000
+    },
+    {
+      "folder": "self_attention_seed0",
+      "phase": "complete",
+      "step": 50000,
+      "training_seconds": 1223.1204028529996,
+      "target": 50000,
+      "evaluated_step": 50000
+    },
+    {
+      "folder": "global_context_seed0",
+      "phase": "complete",
+      "step": 50000,
+      "training_seconds": 1070.5228293170012,
+      "target": 50000,
+      "evaluated_step": 50000
+    },
+    {
+      "folder": "shared_difference_seed0",
+      "phase": "complete",
+      "step": 50000,
+      "training_seconds": 892.1121179960004,
+      "target": 50000,
+      "evaluated_step": 50000
+    },
+    {
+      "folder": "shared_difference_seed1",
+      "phase": "complete",
+      "step": 50000,
+      "training_seconds": 889.6506488199996,
+      "target": 50000,
+      "evaluated_step": 50000
+    },
+    {
+      "folder": "symmetric_concat_seed2",
+      "phase": "complete",
+      "step": 50000,
+      "training_seconds": 890.0647545960005,
+      "target": 50000,
+      "evaluated_step": 50000
+    },
+    {
+      "folder": "concat_seed1",
+      "phase": "complete",
+      "step": 50000,
+      "training_seconds": 672.0913880859999,
+      "target": 50000,
+      "evaluated_step": 50000
+    },
+    {
+      "folder": "concat_seed0",
+      "phase": "complete",
+      "step": 50000,
+      "training_seconds": 672.476267161,
+      "target": 50000,
+      "evaluated_step": 50000
+    },
+    {
+      "folder": "cross_attention_seed1",
+      "phase": "complete",
+      "step": 50000,
+      "training_seconds": 1259.1441569110007,
+      "target": 50000,
+      "evaluated_step": 50000
+    },
+    {
+      "folder": "self_attention_seed2",
+      "phase": "complete",
+      "step": 50000,
+      "training_seconds": 1244.2662284409985,
+      "target": 50000,
+      "evaluated_step": 50000
+    },
+    {
+      "folder": "cross_attention_seed0",
+      "phase": "complete",
+      "step": 50000,
+      "training_seconds": 1284.9850307850004,
+      "target": 50000,
+      "evaluated_step": 50000
+    },
+    {
+      "folder": "symmetric_concat_seed0",
+      "phase": "complete",
+      "step": 50000,
+      "training_seconds": 913.0446088350003,
+      "target": 50000,
+      "evaluated_step": 50000
+    },
+    {
+      "folder": "shared_difference_seed2",
+      "phase": "complete",
+      "step": 50000,
+      "training_seconds": 882.8699150029986,
+      "target": 50000,
+      "evaluated_step": 50000
+    },
+    {
+      "folder": "symmetric_concat_seed1",
+      "phase": "complete",
+      "step": 50000,
+      "training_seconds": 915.8266471739998,
+      "target": 50000,
+      "evaluated_step": 50000
+    }
+  ],
+  "dataset_identities_match": true,
+  "training_protocol_matches": true,
+  "raw_ema_checkpoint_identities_match": true,
+  "saved_training_sources_match": true,
+  "cuda_exact_resume_checks": [
+    {
+      "architecture": "concat",
+      "exact_cuda_resume": true,
+      "original_control_equivalent": true
+    },
+    {
+      "architecture": "concat_wide",
+      "exact_cuda_resume": true,
+      "original_control_equivalent": false
+    },
+    {
+      "architecture": "shared_difference",
+      "exact_cuda_resume": true,
+      "original_control_equivalent": false
+    },
+    {
+      "architecture": "global_context",
+      "exact_cuda_resume": true,
+      "original_control_equivalent": false
+    },
+    {
+      "architecture": "self_attention",
+      "exact_cuda_resume": true,
+      "original_control_equivalent": false
+    },
+    {
+      "architecture": "cross_attention",
+      "exact_cuda_resume": true,
+      "original_control_equivalent": false
+    },
+    {
+      "architecture": "symmetric_concat",
+      "exact_cuda_resume": true,
+      "original_control_equivalent": false
+    }
+  ],
+  "expected_evaluations": 58,
+  "missing_evaluations": [],
+  "unexpected_evaluations": [],
+  "duplicate_evaluations": false,
+  "frozen_specs_match": true,
+  "frozen_sources_match": true,
+  "dispatch_matches_frozen_specs": true,
+  "coordinator_statuses": {
+    "screen": {
+      "phase": "complete",
+      "errors": []
+    },
+    "confirmation": {
+      "phase": "complete",
+      "errors": [],
+      "coordinator_recovered": true,
+      "training_redispatched": false
+    }
+  },
+  "expected_endpoints": 17,
+  "missing_complete_endpoints": [],
+  "complete": true
+}

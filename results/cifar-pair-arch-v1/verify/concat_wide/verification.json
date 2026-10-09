@@ -1,0 +1,5 @@
+{
+  "architecture": "concat_wide",
+  "exact_cuda_resume": true,
+  "original_control_equivalent": false
+}

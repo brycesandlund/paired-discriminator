@@ -1,0 +1,136 @@
+{
+  "calls": [
+    {
+      "spec": {
+        "architecture": "symmetric_concat",
+        "seed": 0,
+        "steps": 50000,
+        "eval_steps": [
+          50000
+        ],
+        "noise_seed": 99374
+      },
+      "call_id": "fc-01M4GVRMEENMQ4W0Q89RX8R2D1"
+    },
+    {
+      "spec": {
+        "architecture": "concat",
+        "seed": 1,
+        "steps": 50000,
+        "eval_steps": [
+          50000
+        ],
+        "noise_seed": 99474
+      },
+      "call_id": "fc-01M4GVRMJD52DTCRBVAFJCVBYF"
+    },
+    {
+      "spec": {
+        "architecture": "shared_difference",
+        "seed": 1,
+        "steps": 50000,
+        "eval_steps": [
+          50000
+        ],
+        "noise_seed": 99474
+      },
+      "call_id": "fc-01M4GVRMPBWEG6NM3HQ84EWBWA"
+    },
+    {
+      "spec": {
+        "architecture": "self_attention",
+        "seed": 1,
+        "steps": 50000,
+        "eval_steps": [
+          50000
+        ],
+        "noise_seed": 99474
+      },
+      "call_id": "fc-01M4GVRMTB5CJNBVG3MN1FH7JZ"
+    },
+    {
+      "spec": {
+        "architecture": "cross_attention",
+        "seed": 1,
+        "steps": 50000,
+        "eval_steps": [
+          50000
+        ],
+        "noise_seed": 99474
+      },
+      "call_id": "fc-01M4GVRMY46JK7FWT5JJFH0RS6"
+    },
+    {
+      "spec": {
+        "architecture": "symmetric_concat",
+        "seed": 1,
+        "steps": 50000,
+        "eval_steps": [
+          50000
+        ],
+        "noise_seed": 99474
+      },
+      "call_id": "fc-01M4GVRN1PBJ07RJVVPWAH86TK"
+    },
+    {
+      "spec": {
+        "architecture": "concat",
+        "seed": 2,
+        "steps": 50000,
+        "eval_steps": [
+          50000
+        ],
+        "noise_seed": 99474
+      },
+      "call_id": "fc-01M4GVRN5VQWMB30FTHADCKNB3"
+    },
+    {
+      "spec": {
+        "architecture": "shared_difference",
+        "seed": 2,
+        "steps": 50000,
+        "eval_steps": [
+          50000
+        ],
+        "noise_seed": 99474
+      },
+      "call_id": "fc-01M4GVRN9JN8CX9ZAJJMF6H60R"
+    },
+    {
+      "spec": {
+        "architecture": "self_attention",
+        "seed": 2,
+        "steps": 50000,
+        "eval_steps": [
+          50000
+        ],
+        "noise_seed": 99474
+      },
+      "call_id": "fc-01M4GVRND7B0WKRNDP6Z6KQJ0R"
+    },
+    {
+      "spec": {
+        "architecture": "cross_attention",
+        "seed": 2,
+        "steps": 50000,
+        "eval_steps": [
+          50000
+        ],
+        "noise_seed": 99474
+      },
+      "call_id": "fc-01M4GVRNH21PZVTFRTT3A5BKE1"
+    },
+    {
+      "spec": {
+        "architecture": "symmetric_concat",
+        "seed": 2,
+        "steps": 50000,
+        "eval_steps": [
+          50000
+        ],
+        "noise_seed": 99474
+      },
+      "call_id": "fc-01M4GVRNN2ASCQP0NW3CDV1ZYC"
+    }
+  ]
+}

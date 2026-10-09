@@ -1,0 +1,11 @@
+{
+  "samples": 128,
+  "gradient_direction_cosine": 0.17674687504768372,
+  "nonzero_gradient_fraction": 1.0,
+  "reference_logit_shift_rms": 3.7999753952026367,
+  "interaction_residual_rms": 0.4518142640590668,
+  "logit_rms": 3.0993385314941406,
+  "swap_antisymmetry_error": 17.294540405273438,
+  "gradient_norm_mean": 2.590336322784424,
+  "note": "Raw G and D; changing a reference in an additive unary score changes BCE scaling but not this raw-logit gradient direction. Reference dependence does not prove useful coverage."
+}

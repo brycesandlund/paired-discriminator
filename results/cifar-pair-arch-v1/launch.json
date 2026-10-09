@@ -1,0 +1,71 @@
+{
+  "call_id": "fc-01M4GRD25SMYWKF1XMCVYJD6E0",
+  "specs": [
+    {
+      "architecture": "concat",
+      "seed": 0,
+      "steps": 50000,
+      "eval_steps": [
+        10000,
+        20000,
+        50000
+      ],
+      "noise_seed": 99374
+    },
+    {
+      "architecture": "concat_wide",
+      "seed": 0,
+      "steps": 50000,
+      "eval_steps": [
+        10000,
+        20000,
+        50000
+      ],
+      "noise_seed": 99374
+    },
+    {
+      "architecture": "shared_difference",
+      "seed": 0,
+      "steps": 50000,
+      "eval_steps": [
+        10000,
+        20000,
+        50000
+      ],
+      "noise_seed": 99374
+    },
+    {
+      "architecture": "global_context",
+      "seed": 0,
+      "steps": 50000,
+      "eval_steps": [
+        10000,
+        20000,
+        50000
+      ],
+      "noise_seed": 99374
+    },
+    {
+      "architecture": "self_attention",
+      "seed": 0,
+      "steps": 50000,
+      "eval_steps": [
+        10000,
+        20000,
+        50000
+      ],
+      "noise_seed": 99374
+    },
+    {
+      "architecture": "cross_attention",
+      "seed": 0,
+      "steps": 50000,
+      "eval_steps": [
+        10000,
+        20000,
+        50000
+      ],
+      "noise_seed": 99374
+    }
+  ]
+}

@@ -1,0 +1,19 @@
+{
+  "complete": true,
+  "training_endpoints": 17,
+  "evaluations": 58,
+  "cuda_checks": 7,
+  "local_tests_passed": 15,
+  "plots_inspected": true,
+  "training_redispatched": false,
+  "no_commits": true,
+  "artifact_sha256": {
+    "REPORT.md": "496cbf50bffab04fbf580ef57b5d2d03af95fb6b334b9af16a8375e3137eb5e5",
+    "confirmation_samples.png": "e98be5086ed5c9bdc7486785cedffe2bd4056155767e9bb757d570b941ab615f",
+    "confirmation_class_mass.png": "6f7788308f18550bb61798ea227e6dc3a757af5da876d600d9d9884f22d5f24a",
+    "trajectories.png": "f4a3d76e1a1ea6a03688434d0e86c326b0c307ef072c83a8e926333988924434",
+    "verification_report.json": "b014b9556ea557cc86d817e52220114f91e85ec177cbfd77d59c3f7a97baf05a",
+    "confirmation_decision.json": "ae9308a4900d6858b7f39b32c5796612f9a2ce797f0666f6fed3fc4a317f7673",
+    "confirmation_specs.json": "a360f130d13309da804c0902c2622f8466d3f58ec8a2a16e12c6ec5f356a69cc"
+  }
+}

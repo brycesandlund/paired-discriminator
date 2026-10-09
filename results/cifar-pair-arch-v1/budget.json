@@ -1,0 +1,6 @@
+{
+  "training_seconds": 16870.451357984002,
+  "evaluation_seconds": 1956.6485973670005,
+  "gpu_hours": 5.2297499875975015,
+  "excludes": "startup, checkpoint/volume I/O, short verification jobs, untimed diagnostics and coordinator CPU time"
+}

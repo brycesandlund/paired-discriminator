@@ -1,0 +1,6 @@
+{
+  "phase": "complete",
+  "errors": [],
+  "coordinator_recovered": true,
+  "training_redispatched": false
+}

@@ -1,0 +1,7 @@
+{
+  "phase": "complete",
+  "step": 50000,
+  "training_seconds": 915.8266471739998,
+  "target": 50000,
+  "evaluated_step": 50000
+}
