@@ -1,0 +1,7 @@
+{
+  "previous_gpu": "NVIDIA A10G",
+  "current_gpu": "NVIDIA A10",
+  "step": 10000,
+  "pilot_first_batch_max_abs_error": 0.0,
+  "note": "Optimizer/model/RNG restored unchanged; cross-GPU continuation is not claimed bitwise identical."
+}

@@ -1,0 +1,26 @@
+{
+  "dataset": "cifar10",
+  "start": 50000,
+  "endpoint": 100000,
+  "call_id": "fc-01M4EVPR3R9BGZC1N5V604AJEW",
+  "app_id": "ap-aukSXlSrRNeG0j7r8B7hdb",
+  "log": "/tmp/image-flow-cifar-100k.log",
+  "reason": "FID improved54.63\u219251.83 from40k\u219250k; continue CIFAR only.",
+  "mnist_solver_check": {
+    "step": 40000,
+    "solver_steps": 128,
+    "app_id": "ap-7xZg22Hdj3KoEHsziaztxf",
+    "log": "/tmp/image-flow-mnist-solver-check.log",
+    "status": "launched"
+  },
+  "training_complete": true,
+  "cifar_best_step": 80000,
+  "cifar_best_fid": 47.0180805433676,
+  "cifar_solver_check": {
+    "step": 80000,
+    "solver_steps": 128,
+    "log": "/tmp/image-flow-cifar-solver-check.log",
+    "app_id": "ap-b65LQM8eTYTLD2AQakdCcl",
+    "status": "launched"
+  }
+}

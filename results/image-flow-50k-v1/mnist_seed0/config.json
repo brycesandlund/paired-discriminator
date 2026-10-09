@@ -1,0 +1,27 @@
+{
+  "config": {
+    "width": 32,
+    "batch_size": 128,
+    "learning_rate": 0.0002,
+    "betas": [
+      0.9,
+      0.999
+    ],
+    "warmup_steps": 500,
+    "ema_decay": 0.999,
+    "log_every": 100,
+    "checkpoint_every": 1000,
+    "eval_samples": 10000,
+    "eval_seed": 99174,
+    "solver_steps": 64,
+    "solver_check_steps": 128,
+    "solver": "explicit_midpoint",
+    "primary_weights": "raw",
+    "conditioning": "none",
+    "sampling": "uniform_with_replacement",
+    "precision": "float32",
+    "augmentation": "none"
+  },
+  "dataset": "mnist",
+  "seed": 0
+}

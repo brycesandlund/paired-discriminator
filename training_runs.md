@@ -115,6 +115,7 @@ The 10k and 50k checkpoints of a trajectory are not independent trials.
 | 33 | GAN feature, optimizer and deficit tuning | 53 short jobs; paired and vanilla, final seeds 0–4 | 30k screens, 50k refinement/confirmation | Complete: unchanged BCE with Fourier G/D features and linear D deficit reaches all 100 half-target modes in every seed for both methods; mode TV .070 paired / .067 vanilla. |
 | 34 | Tuned GANs without deficit | Vanilla/paired uniform, seeds 0–4; nine new jobs, reuse paired seed0 and #33 deficit arms | 50k | Complete: uniform mode TV .123 vanilla / .137 paired, versus .067/.070 with linear deficit. About 96% valid mass throughout; uniform full half-target coverage 1/5 seeds per method versus deficit 5/5. |
 | 35 | Native-image flow matching | Unconditional MNIST seeds0–4 and CIFAR seed0; existing evaluators | 10k pilot; midpoint64, seed0 midpoint128 check | Complete: MNIST digit TV .098 between vanilla .140 / paired .082, higher acceptance85.9%; CIFAR held-out FID68.99 versus96.90/122.54. Solver sensitivity negligible; no50k extension. |
+| 36 | Best image checkpoints: GANs vs flow | Original unconditional vanilla/paired; flow MNIST seeds0–4 + CIFAR seed0 | MNIST through50k; CIFAR through100k | Complete: selected MNIST digit TV .1261 vanilla / .0745 paired / .0633 flow; CIFAR FID49.85 /48.37 /47.02. Paired retains best CIFAR KID and VGG class TV; unequal compute, single-seed CIFAR. |
 
 ## What the methods mean
 
@@ -1511,3 +1512,47 @@ real G references. Results compare update/data endpoints, not equal compute.
 
 An export-only ZIP timestamp issue was repaired; no training/evaluation reruns
 were needed. Four local tests and both CUDA exact-resume checks passed.
+
+## 36. Best image checkpoints: vanilla, paired, flow matching
+
+Completed all five MNIST flow runs through50k and CIFAR seed0 through100k, with
+10k-interval evaluations. Original GAN trajectories reused; no deficit sampling,
+conditioning, architecture changes or GAN retraining. Original10k flow results preserved.
+
+[Full report](results/image-best-checkpoints-v1/REPORT.md) ·
+[Samples](results/image-best-checkpoints-v1/comparison_samples.png) ·
+[Class proportions](results/image-best-checkpoints-v1/class_mass.png) ·
+[Individual-seed heatmaps](results/image-best-checkpoints-v1/mnist_seed_mass.png) ·
+[Verification](results/image-best-checkpoints-v1/verification.json)
+
+| Method | MNIST selected step | Digit TV, five-seed mean ± SD | CIFAR selected step | Held-out FID |
+|---|---:|---:|---:|---:|
+| Vanilla GAN | 5k | .1261 ± .0100 | 50k | 49.85 |
+| Paired GAN | 8k | .0745 ± .0062 | 80k | 48.37 |
+| Flow matching | 40k | .0633 ± .0123 | 80k | 47.02 |
+
+MNIST selects one shared step per method by mean individual-seed digit TV.
+CIFAR selects by held-out FID. Other primary metrics use those same checkpoints.
+Flow MNIST acceptance is90.1% versus72.2% vanilla/76.0% paired at their selected
+steps; augmented TV .1304 versus.2824/.2404. Selecting each method by augmented
+TV instead gives.1253 flow at50k versus.2589 vanilla at9k/.2057 paired at35k.
+Common10k-interval selection preserves the digit-TV ranking. All selected MNIST
+runs retain ten digits above1% mass. Class balance does not establish within-class diversity.
+
+CIFAR is mixed: flow has lowest FID and highest precision (.617), but paired
+has lowest KID (.03387 versus flow.03786/vanilla.03705) and lowest VGG class TV
+(.1673 versus flow.1915/vanilla.2163). Recall is similar (~.338–.340).
+CIFAR has one seed and retrospective checkpoint selection; the reference is not
+an untouched final test. Flow uses128 network evaluations per sample versus one
+GAN generator pass, so this is not equal compute.
+
+All35 primary flow evaluations pass saved first-batch replay checks and frozen
+classifier/reference identity checks. Doubling integration steps at selected
+seed0 checkpoints changes MNIST TV .07167→.07177 and CIFAR FID47.018→46.891.
+Cumulative training: MNIST23.1–23.6min per seed; CIFAR50.7min, excluding evaluation.
+Each MNIST flow seed consumes6.4M real draws; CIFAR12.8M through100k.
+
+A10/A10G transitions are recorded in hardware_migration.json after saved10k
+first-batch replay with maximum error below.001. Model/optimizer/RNG state was
+restored unchanged; cross-GPU continuation is not claimed bitwise identical.
+The completion monitor is paused. No commits made.

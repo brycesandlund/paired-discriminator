@@ -1,0 +1,7 @@
+{
+  "primary_flow_evaluations": 35,
+  "first_batch_replays": 35,
+  "classifier_and_reference_identity": true,
+  "all_jobs_complete": true,
+  "selected_solver_checks": 4
+}

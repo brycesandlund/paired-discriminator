@@ -1,0 +1,6 @@
+{
+  "parent": "image-flow-v1",
+  "start_step": 10000,
+  "requested_endpoint": 100000,
+  "resumed_step": 50000
+}

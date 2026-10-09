@@ -1,0 +1,37 @@
+{
+  "run_id": "image-flow-50k-v1",
+  "endpoint": 50000,
+  "parent": "image-flow-v1",
+  "calls": [
+    {
+      "dataset": "mnist",
+      "seed": 0,
+      "call_id": "fc-01M4ESH433HR8Y8KQCRN1NG1VY"
+    },
+    {
+      "dataset": "mnist",
+      "seed": 1,
+      "call_id": "fc-01M4ESH46KCPSKJWESMYNKZRNG"
+    },
+    {
+      "dataset": "mnist",
+      "seed": 2,
+      "call_id": "fc-01M4ESH4A6RKABMQGVZX8CEFW4"
+    },
+    {
+      "dataset": "mnist",
+      "seed": 3,
+      "call_id": "fc-01M4ESH4DRD80C9XAYX4GD109S"
+    },
+    {
+      "dataset": "mnist",
+      "seed": 4,
+      "call_id": "fc-01M4ESH4H97XVQZW76TGERAR6Z"
+    },
+    {
+      "dataset": "cifar10",
+      "seed": 0,
+      "call_id": "fc-01M4ESH4MPK38GWHPZA3SEW9T6"
+    }
+  ]
+}
