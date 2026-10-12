@@ -1,0 +1,16 @@
+{
+  "checks": [
+    {
+      "method": "paired",
+      "exact_cuda_resume": true,
+      "original_recipe_parity": true
+    },
+    {
+      "method": "flow",
+      "exact_cuda_resume": true,
+      "original_recipe_parity": true
+    }
+  ],
+  "paired_reset_parity": true,
+  "gpu_seconds": 5.416282991
+}

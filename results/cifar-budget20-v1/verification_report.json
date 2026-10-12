@@ -1,0 +1,9 @@
+{
+  "training_jobs": 2,
+  "evaluations": 2,
+  "time_budgets_verified": true,
+  "all_source_data_classifier_reference_checks": true,
+  "replay_checks": true,
+  "cuda_checks": true,
+  "frozen_protocol": true
+}

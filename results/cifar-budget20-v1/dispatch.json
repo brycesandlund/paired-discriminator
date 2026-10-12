@@ -1,0 +1,22 @@
+[
+  {
+    "spec": {
+      "kind": "train",
+      "method": "paired",
+      "seed": 3,
+      "budget_seconds": 1200.0,
+      "noise_seed": 99574
+    },
+    "call_id": "fc-01M4HA7MPPP92Y2C4CDPNWEAWV"
+  },
+  {
+    "spec": {
+      "kind": "train",
+      "method": "flow",
+      "seed": 3,
+      "budget_seconds": 1200.0,
+      "noise_seed": 99574
+    },
+    "call_id": "fc-01M4HA7PK0VY4EZE6PBT2JZG2Y"
+  }
+]

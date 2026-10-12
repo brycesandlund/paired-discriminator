@@ -1,0 +1,49 @@
+{
+  "records": [
+    {
+      "method": "paired",
+      "step": 88290,
+      "training_minutes": 20.00054934066667,
+      "evaluation_minutes": 0.5683936943000011,
+      "worker_minutes": 31.840079950733333,
+      "inference_ms_per_image": 0.01313979687544986,
+      "train_fid": 47.85625616370385,
+      "fid": 47.65187860269208,
+      "kid": 0.032785723209381105,
+      "precision": 0.5835000276565552,
+      "recall": 0.34369999170303345,
+      "vgg_tv": 0.1909,
+      "resnet_tv": 0.2308,
+      "vgg_acceptance": 0.7535,
+      "real_draws": 22602240,
+      "parameters_g": 1183619,
+      "parameters_d": 666049
+    },
+    {
+      "method": "flow",
+      "step": 36540,
+      "training_minutes": 20.002560407700006,
+      "evaluation_minutes": 2.100873534083333,
+      "worker_minutes": 26.998535770600004,
+      "inference_ms_per_image": 8.979011148438687,
+      "train_fid": 52.241608721439036,
+      "fid": 51.98926320325245,
+      "kid": 0.04235756158828735,
+      "precision": 0.6446999907493591,
+      "recall": 0.2687000036239624,
+      "vgg_tv": 0.1556,
+      "resnet_tv": 0.1885,
+      "vgg_acceptance": 0.7061,
+      "real_draws": 4677120,
+      "parameters_g": 1170083,
+      "parameters_d": 0
+    }
+  ],
+  "budget": {
+    "training_minutes": 40.003109748366676,
+    "evaluation_minutes": 2.669267228383334,
+    "worker_minutes": 58.83861572133334,
+    "verification_minutes": 0.09027138318333333,
+    "limitations": "Worker time covers data-loaded worker body, training/checkpoint/evaluation/benchmark; excludes container setup and data loading. Not exact provider billing."
+  }
+}

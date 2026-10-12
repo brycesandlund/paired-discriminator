@@ -1,0 +1,12 @@
+{
+  "completed": true,
+  "training_jobs": 2,
+  "extra_training_jobs": 0,
+  "failed_training_runs": 0,
+  "plots_inspected": [
+    "comparison_samples.png",
+    "class_mass.png"
+  ],
+  "inference_throughput_ratio": 683.3447452460164,
+  "worker_time_includes_io": true
+}

@@ -119,6 +119,7 @@ The 10k and 50k checkpoints of a trajectory are not independent trials.
 | 37 | CIFAR optimizer and EMA tuning | Vanilla/paired/flow; uniform unconditional | 16 seed-0 screens, saved EMA, 30k refinement; frozen recipes confirmed on seeds 1–2 | Complete: EMA is the clearest gain. Mean FID 51.38 vanilla / 49.03 paired / 46.62 raw flow / 42.79 secondary flow+EMA. Vanilla extra training regresses; 6.50 GPU-hours. |
 | 38 | Paired CIFAR architecture comparisons | Original/wider concat, shared scoring, global context, self-/cross-attention; slot-symmetry probe | Fixed 50k EMA; seed-0 screen then frozen fresh seeds 1–2 | Complete: cross-attention / independent shared scoring mean FID 49.06 / 48.99 vs original 51.68. Cross-attention has highest recall, but worse class balance; no uniform mode-coverage win. 5.23 A10 GPU-hours. |
 | 39 | MNIST RSGAN baseline | Matched addition to #11; reuse original vanilla/paired | Five seeds, 50k raw weights, evaluation every 1k | Complete: paired TV 0.126 vs RSGAN 0.368 at 50k; paired lower TV in all five seeds at 10k/50k. All 250 new evaluations verified. |
+| 40 | CIFAR at 20 A10 training-minutes | Best-known paired GAN + EMA vs flow + EMA; fresh seed3 | 1,200 measured training seconds each, final-only evaluation | Complete: paired FID 47.65 vs flow 51.99 at equal training time; flow better precision/class TV. One seed. Total worker time 58.84 GPU-min including I/O. |
 
 ## What the methods mean
 
@@ -1828,3 +1829,63 @@ Plots (trajectories, class mass, all-seed random samples) inspected.
 [Report](results/mnist-rsgan-v1/REPORT.md),
 [verification](results/mnist-rsgan-v1/verification_report.json),
 [samples](results/mnist-rsgan-v1/samples_50k.png).
+
+
+## 40. CIFAR with a 20-minute training budget per model
+
+[Report](results/cifar-budget20-v1/REPORT.md) ·
+[Protocol](results/cifar-budget20-v1/protocol.json) ·
+[Samples](results/cifar-budget20-v1/comparison_samples.png) ·
+[Verification](results/cifar-budget20-v1/verification_report.json)
+
+Both fresh seed-3 runs completed at their prespecified 1,200-second training caps.
+Paired GAN + EMA has better FID, KID and feature recall; flow + EMA has higher
+precision and better predicted class balance under both classifiers. This reverses
+the longer-training FID ranking on this seed, but is not a robust cross-seed ranking.
+
+| Recipe | Updates | Train FID | Test FID | KID | Precision | Recall | VGG TV | ResNet TV |
+|---|---:|---:|---:|---:|---:|---:|---:|---:|
+| Paired + EMA | 88,290 | 47.86 | 47.65 | .03279 | .5835 | .3437 | .1909 | .2308 |
+| Flow + EMA | 36,540 | 52.24 | 51.99 | .04236 | .6447 | .2687 | .1556 | .1885 |
+
+Original paired width64/latent128, Adam2e-4/(.5,.999), EMA .999; retain #37's
+Adam/sampling-RNG/EMA reset at 50k. Flow width32, Adam2e-4/(.9,.999), 500-step
+warmup, EMA .999. Batch128 and uniform unconditional data throughout. No deficit,
+labels, architecture sweep, optimizer search, or extra runs. Prior paired and
+independent scoring train FIDs (49.28/49.25) were effectively tied, while paired
+had better class balance. Flow EMA was repeatably strong; lower LR did not show
+an independent gain. These are best-known choices, not proven budget optima.
+
+One final 10k-sample EMA evaluation per model, new noise99574, unchanged frozen
+classifiers/references. No checkpoint, weights, seed or metric-based endpoint
+selection on these outputs. Shared reference history is exploratory. All class
+TVs describe predicted label balance, not within-class diversity. Both fixed
+sample grids include malformed/ambiguous objects. Class-mass plots show paired
+overrepresenting frogs and both methods underrepresenting automobiles.
+
+**Compute accounting:** measured training 20.0005 min paired /20.0026 min flow;
+overshoot .033/.154 seconds within the prespecified ten-update checking tolerance.
+Evaluation .57/2.10 min; tiny CUDA verification .09 min total. Checkpoint/volume
+I/O left GPUs allocated beyond training caps: worker-body times were **31.84/27.00
+min, 58.84 total**, including training, evaluation, I/O and the inference benchmark.
+This is substantially above 40 training minutes. Setup and data loading are outside
+these worker-body timers, so this is not an exact provider-billing estimate.
+Future spending caps should include I/O. No failed full runs, retries or extra sweeps.
+
+Synchronized A10 inference at batch128: paired .01314 ms/image, flow 8.979 ms/image
+(median of five batches after two warmups; about 683× throughput cost). This is
+batched throughput, not batch-one latency. Flow uses 64 midpoint steps/128 velocity
+calls; GAN one generator pass. G parameter counts are similar (1.184M/1.170M).
+
+Four local tests passed; two CUDA model/Adam/RNG split-resume and original-loop
+parity checks plus historical paired-reset parity passed. Both final generation
+replays are exact. Source/data/config/classifier/reference identities, two unique
+job dispatches, time caps and final statuses verified. All plots inspected.
+No commits. Completion monitor paused.
+
+App `ap-sMcPedvl2yPwYra2cnK5ih`, coordinator `fc-01M4HA5WQ0S95V298KHAZNNYVY`.
+Paired call `fc-01M4HA7MPPP92Y2C4CDPNWEAWV`; flow call
+`fc-01M4HA7PK0VY4EZE6PBT2JZG2Y`. Log `/tmp/cifar-budget20-v1.log`.
+Volume `paired-discriminator-cifar-budget`; root `cifar-budget20-v1`.
+Collection: `uv run --extra cifar modal run modal_cifar_budget.py::collect`.
+Report: `uv run python -m paired_discriminator.cifar_budget_report`.

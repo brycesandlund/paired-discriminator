@@ -1,0 +1,62 @@
+{
+  "experiment": 40,
+  "created_utc": "2026-10-09T21:47:37.870713+00:00",
+  "run_id": "cifar-budget20-v1",
+  "objective": "Best-known unconditional GAN and flow recipes under a 20 A10 training-minute budget per fresh model",
+  "budget": {
+    "training_seconds_per_model": 1200,
+    "model_count": 2,
+    "seed": 3,
+    "expected_total_evaluation_gpu_minutes": 3,
+    "excludes": "evaluation, setup, checkpoint/volume I/O; record worker wall time separately",
+    "stopping": "synchronize/check every10updates; overshoot at most one10-update block, must be <=5 seconds",
+    "new_sweeps": 0
+  },
+  "selection": {
+    "gan": "Original paired CNN + EMA(.999), Adam2e-4 beta(.5,.999), reset Adam/sampling RNG/EMA at50k as experiment37",
+    "gan_rationale": "Paired EMA train FID49.28 vs independent-score49.25 on seeds1,2 is negligible; paired has better class TV. Cross-attention is slower, with no clear overall gain. No larger-network trial at this budget.",
+    "flow": "Existing width32 velocity network, Adam2e-4 beta(.9,.999),500stepwarmup,EMA(.999),uniformstraightlineflow",
+    "flow_rationale": "EMA was strongest repeatable intervention; lower LR had no convincing independent benefit. Fresh20min endpoint is new, not a110k warm start.",
+    "caveat": "Best-known choices from prior exploratory results, not established global optima or a new budget-specific tuning sweep."
+  },
+  "weights": "ema",
+  "sampling": "uniform unconditional; no class labels, deficit or augmentation",
+  "batch_size": 128,
+  "evaluation": {
+    "samples": 10000,
+    "noise_seed": 99574,
+    "flow_solver": "midpoint64 /128velocitypasses",
+    "metrics": "train-referenceFID,KID,precision,recall;heldoutdescriptive;VGGandResNetclassTV",
+    "endpoint": "final time-cap checkpoint only; no retrospective endpoint/weights selection",
+    "references": "same frozen references/classifiers as experiments36-38; exploratory, not untouched validation"
+  },
+  "specs": [
+    {
+      "kind": "train",
+      "method": "paired",
+      "seed": 3,
+      "budget_seconds": 1200.0,
+      "noise_seed": 99574
+    },
+    {
+      "kind": "train",
+      "method": "flow",
+      "seed": 3,
+      "budget_seconds": 1200.0,
+      "noise_seed": 99574
+    }
+  ],
+  "source_hashes": {
+    "cifar_budget": "5420ad88f3ad3a10b24cddef7e4b48fceff82361613567a0287e8986ec462ccd",
+    "cifar_tune": "9d769fdbd3fae68ae4f817d4e2d3c6d2cb2d5cc7240c3e3f3d4d118b10374fda",
+    "cifar": "a22b0642c1493c763a364f7ce74ba681a58c775e10c3d50baabee0616a88437b",
+    "image_flow": "06d87e156716241cb517171750b3f0d74dbdd417d2c3476f3987c5e367a892d9",
+    "cifar_deficit": "0c82693f2dbcf3fce9e96319dd0d5494945b98e01617288aa4b2d4bfa12aac3e",
+    "cifar_class_representation": "b1830d6c277b0ef2ee41ae667700cf1538066a2d5c2aa954c7d3f3a9c2c0912c",
+    "integrity_eval": "26b045edbff436c2574f98b90db159104845b26847356f6601af7248307efb1e"
+  },
+  "dependency_hashes": {
+    "pyproject.toml": "af70ac0c117d0fb0b443011779a4983422d2ca366ee7814cd5b5bb0eaaeab3a3",
+    "uv.lock": "99e29c3dc82f40d4486cc9997614ca15591e800c830502641691a5ea266eccb8"
+  }
+}
